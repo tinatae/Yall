@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: businesses
+#
+#  id          :bigint           not null, primary key
+#  name        :string           not null
+#  ratings     :integer
+#  category    :string
+#  lat         :float            not null
+#  lng         :float            not null
+#  website     :string
+#  phonenumber :string
+#  address1    :string           not null
+#  address2    :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ratings: 1
+  category: MyString
+  lat: 1.5
+  lng: 1.5
+  website: MyString
+  phonenumber: MyString
+  address1: MyString
+  address2: MyString
+
+two:
+  name: MyString
+  ratings: 1
+  category: MyString
+  lat: 1.5
+  lng: 1.5
+  website: MyString
+  phonenumber: MyString
+  address1: MyString
+  address2: MyString
