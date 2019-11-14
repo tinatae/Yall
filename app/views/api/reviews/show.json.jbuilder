@@ -6,4 +6,4 @@ json.author do
   json.partial! '/api/users/user', user: @review.author
 end
 
-json.rating @review.business.rating
+json.rating @review.rating

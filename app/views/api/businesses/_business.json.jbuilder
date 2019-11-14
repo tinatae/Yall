@@ -1,4 +1,4 @@
-json.extract! business, :id, :name, :ratings, :category, :lat, :lng, :website, :phonenumber, :address1, :address2
+json.extract! business, :name, :ratings, :category, :website, :phonenumber, :address1, :address2
 
 # Table name: businesses
 #

@@ -22,6 +22,7 @@ const BusinessProfile = ({ business, reviews }) => {
                 <li>{business.address1}</li>
                 <li>{business.address2}</li>
             </ul>
+            <br></br>
             <div>
                 <h3>REVIEWS</h3>
                 {reviewList(reviews)}

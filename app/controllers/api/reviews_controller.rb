@@ -1,5 +1,5 @@
 class Api::ReviewsController < ApplicationController
-  before_action :require_login
+  before_action :require_login, only: [:create]
 
   def create
     @review = current_user.reviews.new(review_params)

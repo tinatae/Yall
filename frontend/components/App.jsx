@@ -11,7 +11,7 @@ import { AuthRoute } from '../util/route_util';
 const App = () => (
     <div>
         <header>
-            <h1>Happy Wednesday!</h1>
+            <h1>Happy Thursday!</h1>
             <GreetingContainer />
         </header>
         <Switch>

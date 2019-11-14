@@ -5,7 +5,7 @@ import BusinessProfile from './business_profile';
 import BusinessMap from '../businesses/business_map';
 import ReviewFormContainer from './review_form_container';
 import { ProtectedRoute } from '../../util/route_util';
-import { ReviewLink} from '../../util/link_util';
+import { ReviewLink } from '../../util/link_util';
 
 const BusinessShow = ({ business, businessId, fetchBusiness, reviews }) => {
     const businesses = {
@@ -24,7 +24,9 @@ const BusinessShow = ({ business, businessId, fetchBusiness, reviews }) => {
             </div>
             <div>
                 <BusinessProfile business={business} reviews={reviews} />
+                <br></br>
                 <ReviewLink component={ ReviewFormContainer } to={`/businesses/${businessId}/review`} label="Leave a Review!" />
+                <br></br>
                 <ProtectedRoute path='/businesses/:businessId/reviews' component={ ReviewFormContainer } />
             </div>
         </div>

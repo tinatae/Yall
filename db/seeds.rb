@@ -55,9 +55,52 @@ User.create!(
     password: "Lenfant"
 )
 
+User.create!(
+    username: "jgschmidt",
+    password: "schmidt100"
+)
+
+User.create!(
+    username: "wavywavy",
+    password: "oceanic"
+)
+
+User.create!(
+    username: "MalloryP",
+    password: "spark123"
+)
+
 Review.create!(
     rating: 4,
-    body: "Probably the best latte I've ever had in my life! Was still $8 though so I docked a point. Beautiful view of the beach!",
+    body: "Probably the best latte I've ever had in my life! Was still $8 though so I docked a point. Beautiful views of the beach!",
     business_id: 3,
     author_id: 2
+)
+
+Review.create!(
+    rating: 5,
+    body: "Solid pours good people",
+    business_id: 2,
+    author_id: 3
+)
+
+Review.create!(
+    rating: 5,
+    body: "I ordered a dozen red velvet cupcakes for my sister's bachelorette & they were absolutely perfect! Also, very nice staff. Thank you so much!!",
+    business_id: 1,
+    author_id: 2
+)
+
+Review.create!(
+    rating: 5,
+    body: "BOMB BREAKFAST BURRITO. GET IT NOW!!!",
+    business_id: 3,
+    author_id: 4
+)
+
+Review.create!(
+    rating: 1,
+    body: "I showed up for Sunday brunch & the counterperson told me there was a 45 minute wait. I hung out for 45 minutes, came back & then a different waitstaff person said it'd be another 30 minutes. I left for good then-please find a better way to gauge wait times! If I'd known it'd be 2 hrs to get a table, I wouldn't have stayed!",
+    business_id: 3,
+    author_id: 5
 )

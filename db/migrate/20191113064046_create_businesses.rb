@@ -3,7 +3,7 @@ class CreateBusinesses < ActiveRecord::Migration[5.2]
     create_table :businesses do |t|
       t.string :name, null: false
       t.integer :ratings
-      t.string :category
+      t.string :category, null: false
       t.float :lat, null: false
       t.float :lng, null: false
       t.string :website
