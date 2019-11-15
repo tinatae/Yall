@@ -30,7 +30,8 @@ class Business < ApplicationRecord
     # end
 
     def average_rating
-        reviews.average(:rating)
+        avgrev = reviews.average(:rating)
+        avgrev.round(1)
     end
 
 end

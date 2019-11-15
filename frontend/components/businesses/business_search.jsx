@@ -10,15 +10,14 @@ const Search = ({ businesses, fetchBusinesses }) => (
             <h3>Map of Places to Check-Out!</h3>
             <BusinessMap 
                 businesses={businesses} 
-                fetchBusinesses={ fetchBusinesses }
                 // updateFilter={updateFilter}
             />
         </div>
         <br></br>
         <div>
        
-            <h3>Here they are by name!</h3>
-            <BusinessIndex businesses={businesses} fetchBusinesses={fetchBusinesses} />
+            <h3>Location Location Location</h3>
+            <BusinessIndex businesses={businesses} fetchBusinesses={fetchBusinesses}/>
         </div>
     </div>
 );

@@ -12,15 +12,15 @@ import { AuthRoute } from '../util/route_util';
 const App = () => (
     <div>
         <header>
-            <h1>Happy Thursday!</h1>
+            <h2>Happy Friday!</h2>
             <GreetingContainer />
         </header>
         <Switch>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
-            {/* <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
+            <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <Route exact path="/" component={SearchContainer} />
-            <Route exact path="/" component={LandingPageContainer} />
-            <Route path="/#/businesses/:businessId" component={BusinessShowContainer} />
+            {/* <Route exact path="/" component={LandingPageContainer} /> */}
+            <Route path="/api/businesses/businessId" component={BusinessShowContainer} />
         </Switch>
     </div>
 );
