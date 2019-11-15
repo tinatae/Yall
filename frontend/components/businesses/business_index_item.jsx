@@ -9,8 +9,8 @@ class BusinessIndexItem extends React.Component {
     };
 
     handleClick() {
-        const businessId = this.props.business.id;
-        this.props.history.push(`/api/businesses/${businessId}`);
+        // const site = this.props.history.slice(0, lastIndexOf('#') )
+        this.props.history.push(`api/businesses/${this.props.business.id}`)
     };
 
     render() {

@@ -3,7 +3,7 @@ export const fetchBusinesses = data => (
         method: 'GET',
         url: '/api/businesses',
         data
-    })
+    }) 
 );
 
 export const fetchBusiness = id => (

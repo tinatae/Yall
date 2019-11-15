@@ -9,14 +9,16 @@ export const receiveBusinesses = businesses => ({
     businesses
 });
 
-export const receiveBusiness = ({ business }) => ({
+export const receiveBusiness = ({ business, reviews, authors }) => ({
     type: RECEIVE_BUSINESS,
-    business
+    business,
+    reviews,
+    authors,
 });
 
-export const receiveReview = ({ review, rating, author }) => ({
+export const receiveReview = ({ review, average_rating, author }) => ({
     type: RECEIVE_REVIEW,
-    review, rating, author
+    review, average_rating, author
 });
 
 export const createReview = review => dispatch => (
@@ -24,6 +26,12 @@ export const createReview = review => dispatch => (
         dispatch(receiveReview(review))
     ))
 );
+
+// export const fetchBusinesses = filters => dispatch => (
+//     Utils.fetchBusinesses(filters).then(businesses => (
+//         dispatch(receiveBusinesses(businesses))
+//     ))
+// );
 
 export const fetchBusinesses = () => dispatch => (
     Utils.fetchBusinesses().then(businesses => (

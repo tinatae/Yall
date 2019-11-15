@@ -12,8 +12,7 @@ Review.delete_all
 
 Business.create!(
     name: "Sweet Babycakes",
-    ratings: 4,
-    category: "Restaurant",
+    category: "Restaurants",
     lat: 37.797514,
     lng: -122.406633,
     website: "http://sweetbbcakes.net",
@@ -24,8 +23,7 @@ Business.create!(
 
 Business.create!(
     name: "White Whale Saloon",
-    ratings: 3,
-    category: "Bar",
+    category: "Bars",
     lat: 37.799418,
     lng: -122.401381,
     website: "http://whitewhalesf.com",
@@ -33,9 +31,9 @@ Business.create!(
     address1: "935 Battery St",
     address2: "San Francisco, CA 94111"
 )
+
 Business.create!(
     name: "Hola Ola",
-    ratings: 5,
     category: "Coffee & Tea",
     lat: 37.790417,
     lng: -122.484914,

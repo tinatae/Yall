@@ -6,6 +6,7 @@ import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SearchContainer from './businesses/search_container';
 import BusinessShowContainer from './business/business_show_container';
+import LandingPageContainer from './landing/landing_page_container';
 import { AuthRoute } from '../util/route_util';
 
 const App = () => (
@@ -16,9 +17,10 @@ const App = () => (
         </header>
         <Switch>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
-            <AuthRoute exact path="/signup" component={SignupFormContainer} />
+            {/* <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
             <Route exact path="/" component={SearchContainer} />
-            <Route path="/businesses/:businessId" component={BusinessShowContainer} />
+            <Route exact path="/" component={LandingPageContainer} />
+            <Route path="/#/businesses/:businessId" component={BusinessShowContainer} />
         </Switch>
     </div>
 );

@@ -4,7 +4,6 @@
 #
 #  id          :bigint           not null, primary key
 #  name        :string           not null
-#  ratings     :integer
 #  category    :string
 #  lat         :float            not null
 #  lng         :float            not null
@@ -19,6 +18,19 @@
 class Business < ApplicationRecord
     validates :name, :lat, :lng, :address1, :address2, presence: true
     validates :name, uniqueness: true
+    validates :category, inclusion: {in: ["Coffee & Tea", "Bars", "Restaurants"]}, presence: true
 
     has_many :reviews
+
+    # def self.in_bounds(bounds)
+    #     self.where("lat < ?", bounds[:northEast][:lat])
+    #     .where("lat > ?", bounds[:southWest][:lat)]
+    #     .where("lng > ?", bounds[:southWest][:lng])
+    #     .where("lng < ?", bounds[:northEast][:lng])
+    # end
+
+    def average_rating
+        reviews.average(:rating)
+    end
+
 end

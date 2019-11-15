@@ -15,7 +15,7 @@ const BusinessProfile = ({ business, reviews }) => {
         <div>
             <ul>    
                 <li>{business.name}</li>
-                <li>{business.rating || 'No reviews yet. Be the first to write one!'}</li>
+                <li>{business.average_rating || 'No reviews yet. Be the first to write one!'}</li>
                 <li>{business.category}</li>
                 <li>{business.website}</li>
                 <li>{business.phonenumber}</li>

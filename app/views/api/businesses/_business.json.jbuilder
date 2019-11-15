@@ -1,10 +1,9 @@
-json.extract! business, :name, :ratings, :category, :website, :phonenumber, :address1, :address2
+json.extract! business, :name, :average_rating, :category, :website, :phonenumber, :address1, :address2
 
 # Table name: businesses
 #
 #  id          :bigint           not null, primary key
 #  name        :string           not null
-#  ratings     :integer
 #  category    :string
 #  lat         :float            not null
 #  lng         :float            not null
@@ -15,4 +14,4 @@ json.extract! business, :name, :ratings, :category, :website, :phonenumber, :add
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 
-    # params.require(:business).permit(:name, :category, :ratings, :lat, :lng )
+    # params.require(:business).permit(:name, :category, :lat, :lng )

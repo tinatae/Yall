@@ -1,13 +1,16 @@
 import { connect } from 'react-redux';
-import { fetchBusinesses } from '../../actions/business_actions';
+
 import Search from './business_search';
+// import {updateFilter} from '../../actions/filter_actions';
+import {fetchBusinesses} from  '../../actions/business_actions';
 
 const mSTP = (state) => ({
     businesses: Object.values(state.entities.businesses)
 });
 
 const mDTP = (dispatch) => ({
-    fetchBusinesses: () => dispatch(fetchBusinesses())
+    // updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
+   fetchBusinesses: () => dispatch(fetchBusinesses())
 });
 
 export default connect(mSTP, mDTP)(Search);

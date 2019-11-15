@@ -4,7 +4,6 @@
 #
 #  id          :bigint           not null, primary key
 #  name        :string           not null
-#  ratings     :integer
 #  category    :string
 #  lat         :float            not null
 #  lng         :float            not null

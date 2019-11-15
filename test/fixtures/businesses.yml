@@ -4,7 +4,6 @@
 #
 #  id          :bigint           not null, primary key
 #  name        :string           not null
-#  ratings     :integer
 #  category    :string
 #  lat         :float            not null
 #  lng         :float            not null
@@ -20,7 +19,6 @@
 
 one:
   name: MyString
-  ratings: 1
   category: MyString
   lat: 1.5
   lng: 1.5
@@ -31,7 +29,6 @@ one:
 
 two:
   name: MyString
-  ratings: 1
   category: MyString
   lat: 1.5
   lng: 1.5
