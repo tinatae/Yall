@@ -4,11 +4,16 @@ const handleChange = (filter, updateFilter) => e => (
     updateFilter(filter, parseInt(e.currentTarget.value))
 );
 
-const FilterForm =({ searchCategory, updateFilter }) => (
+const FilterForm =({ minPricepoint, maxPricepoint, updateFilter }) => (
     <div>
         <span>Let's sort this shall we. Filter Results:</span> 
-        <label>Category
-            <input type="text" value={searchCategory} onChange={handleChange('searchCategory', updateFilter)} />
+        <br/>
+        <label>Min Pricepoint
+            <input type="number" value={minPricepoint} onChange={handleChange('minPricepoint', updateFilter)} />
+        </label>
+        <br/>
+        <label>Max Pricepoint
+            <input type="number" value={maxPricepoint} onChange={handleChange('maxPricepoint', updateFilter)} />
         </label>
     </div>
 

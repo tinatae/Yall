@@ -21,6 +21,7 @@ const BusinessProfile = ({ business, reviews }) => {
                 <li>Phone Number: {business.phonenumber}</li>
                 <li>Address1: {business.address1}</li>
                 <li>Address2: {business.address2}</li>
+                <li>Pricepoint: {business.pricepoint}</li>
             </ul>
             <br/>
             <div>

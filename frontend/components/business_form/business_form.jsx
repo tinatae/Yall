@@ -12,6 +12,7 @@ class BusinessForm extends React.Component {
             phonenumber: '(123)456-7890',
             address1: '123 Sesame Street',
             address2: 'San Francisco, CA 12345',
+            pricepoint: 3,
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,13 +40,14 @@ class BusinessForm extends React.Component {
         formData.append('business[phonenumber]', this.state.phonenumber);
         formData.append('business[address1]', this.state.address1);
         formData.append('business[address2]', this.state.address2);
+        formData.append('business[pricepoint]', this.state.pricepoint);
 
         this.props.createBusiness(formData);
         this.navigateToSearch();
     }
 
     render() {
-        const { name, category, website, phonenumber, address1, address2 } = this.state;
+        const { name, category, website, phonenumber, address1, address2, pricepoint } = this.state;
         const { lat, lng } = this.coords;
 
         return (
@@ -75,6 +77,9 @@ class BusinessForm extends React.Component {
                     </label>
                     <label>Address 2
                         <input type="text" value={address2} onChange={this.update('address2')} />
+                    </label>
+                    <label>Pricepoint
+                        <input type="number" value={pricepoint} onChange={this.update('pricepoint')} />
                     </label>
                     <input type="submit" value='New Spot in Town!' />
                 </form>

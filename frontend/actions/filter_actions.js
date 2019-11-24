@@ -10,5 +10,5 @@ export const changeFilter = (filter, value) => ({
 
 export const updateFilter = (filter, value) => (dispatch, getState) => {
     dispatch(changeFilter(filter, value));
-    return fetchBusinesses(getState().ui.filter)(dispatch);
+    return fetchBusinesses(getState().ui.filters)(dispatch);
 };

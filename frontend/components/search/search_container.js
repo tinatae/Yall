@@ -6,7 +6,8 @@ import { asArray } from '../../reducers/selectors';
 
 const mSTP = state => ({
     businesses: asArray(state.entities),
-    searchCategory: state.ui.filters.searchCategory
+    minPricepoint: state.ui.filters.minPricepoint,
+    maxPricepoint: state.ui.filters.maxPricepoint
 });
 
 const mDTP = (dispatch) => ({

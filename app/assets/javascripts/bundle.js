@@ -199,7 +199,7 @@ var changeFilter = function changeFilter(filter, value) {
 var updateFilter = function updateFilter(filter, value) {
   return function (dispatch, getState) {
     dispatch(changeFilter(filter, value));
-    return Object(_business_actions__WEBPACK_IMPORTED_MODULE_0__["fetchBusinesses"])(getState().ui.filter)(dispatch);
+    return Object(_business_actions__WEBPACK_IMPORTED_MODULE_0__["fetchBusinesses"])(getState().ui.filters)(dispatch);
   };
 };
 
@@ -388,7 +388,8 @@ function (_React$Component) {
       website: 'www.business.com',
       phonenumber: '(123)456-7890',
       address1: '123 Sesame Street',
-      address2: 'San Francisco, CA 12345'
+      address2: 'San Francisco, CA 12345',
+      pricepoint: 3
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.navigateToSearch = _this.navigateToSearch.bind(_assertThisInitialized(_this));
@@ -422,6 +423,7 @@ function (_React$Component) {
       formData.append('business[phonenumber]', this.state.phonenumber);
       formData.append('business[address1]', this.state.address1);
       formData.append('business[address2]', this.state.address2);
+      formData.append('business[pricepoint]', this.state.pricepoint);
       this.props.createBusiness(formData);
       this.navigateToSearch();
     }
@@ -434,7 +436,8 @@ function (_React$Component) {
           website = _this$state.website,
           phonenumber = _this$state.phonenumber,
           address1 = _this$state.address1,
-          address2 = _this$state.address2;
+          address2 = _this$state.address2,
+          pricepoint = _this$state.pricepoint;
       var _this$coords = this.coords,
           lat = _this$coords.lat,
           lng = _this$coords.lng;
@@ -472,6 +475,10 @@ function (_React$Component) {
         type: "text",
         value: address2,
         onChange: this.update('address2')
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Pricepoint", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        value: pricepoint,
+        onChange: this.update('pricepoint')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "New Spot in Town!"
@@ -705,7 +712,7 @@ var reviewList = function reviewList(reviews) {
 var BusinessProfile = function BusinessProfile(_ref) {
   var business = _ref.business,
       reviews = _ref.reviews;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Name: ", business.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Rating: ", business.average_rating || 'No reviews yet. Be the first to write one!'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Category: ", business.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Website: ", business.website), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Phone Number: ", business.phonenumber), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address1: ", business.address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address2: ", business.address2)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), reviewList(reviews)));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Name: ", business.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Rating: ", business.average_rating || 'No reviews yet. Be the first to write one!'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Category: ", business.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Website: ", business.website), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Phone Number: ", business.phonenumber), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address1: ", business.address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address2: ", business.address2), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Pricepoint: ", business.pricepoint)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), reviewList(reviews)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (BusinessProfile);
@@ -1216,12 +1223,17 @@ var handleChange = function handleChange(filter, updateFilter) {
 };
 
 var FilterForm = function FilterForm(_ref) {
-  var searchCategory = _ref.searchCategory,
+  var minPricepoint = _ref.minPricepoint,
+      maxPricepoint = _ref.maxPricepoint,
       updateFilter = _ref.updateFilter;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Let's sort this shall we. Filter Results:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Category", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    value: searchCategory,
-    onChange: handleChange('searchCategory', updateFilter)
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Let's sort this shall we. Filter Results:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Min Pricepoint", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "number",
+    value: minPricepoint,
+    onChange: handleChange('minPricepoint', updateFilter)
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Max Pricepoint", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "number",
+    value: maxPricepoint,
+    onChange: handleChange('maxPricepoint', updateFilter)
   })));
 };
 
@@ -1250,14 +1262,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var Search = function Search(_ref) {
   var businesses = _ref.businesses,
-      searchCategory = _ref.searchCategory,
+      minPricepoint = _ref.minPricepoint,
+      maxPricepoint = _ref.maxPricepoint,
       updateFilter = _ref.updateFilter;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Help Us Grow Our Map of Cool Places to Check-Out! Click Map to Add a New Business!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map_business_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
     businesses: businesses,
     updateFilter: updateFilter,
     singleBusiness: false
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "What are you Looking For?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_form__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    searchCategory: searchCategory,
+    minPricepoint: minPricepoint,
+    maxPricepoint: maxPricepoint,
     updateFilter: updateFilter
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index__WEBPACK_IMPORTED_MODULE_2__["default"], {
     businesses: businesses
@@ -1289,7 +1303,8 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state) {
   return {
     businesses: Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_3__["asArray"])(state.entities),
-    searchCategory: state.ui.filters.searchCategory
+    minPricepoint: state.ui.filters.minPricepoint,
+    maxPricepoint: state.ui.filters.maxPricepoint
   };
 };
 
@@ -1606,7 +1621,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var defaultFilters = Object.freeze({
   bounds: {},
-  searchCategory: 'Bars'
+  minPricepoint: 1,
+  maxPricepoint: 3
 });
 
 var filtersReducer = function filtersReducer() {

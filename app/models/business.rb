@@ -19,6 +19,7 @@ class Business < ApplicationRecord
     validates :name, :lat, :lng, :address1, :address2, presence: true
     validates :name, uniqueness: true
     validates :category, inclusion: {in: ["Coffee & Tea", "Bars", "Restaurants"]}, presence: true
+    validates :pricepoint, inclusion: { in: (1..3) }
 
     has_many :reviews
 

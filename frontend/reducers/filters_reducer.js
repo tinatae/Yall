@@ -2,7 +2,8 @@ import { UPDATE_FILTER } from '../actions/filter_actions';
 
 const defaultFilters = Object.freeze({
     bounds: {},
-    searchCategory: 'Bars',
+    minPricepoint: 1,
+    maxPricepoint: 3
 });
 
 const filtersReducer = (state = defaultFilters, action) => {

@@ -18,7 +18,8 @@ Business.create!(
     website: "http://sweetbbcakes.net",
     phonenumber: "(415)111-9117",
     address1: "53 Ginsberg Way",
-    address2: "San Francisco, CA 94133"
+    address2: "San Francisco, CA 94133",
+    pricepoint: 2
 )
 
 Business.create!(
@@ -29,7 +30,8 @@ Business.create!(
     website: "http://whitewhalesf.com",
     phonenumber: "(415)262-1535",
     address1: "935 Battery St",
-    address2: "San Francisco, CA 94111"
+    address2: "San Francisco, CA 94111",
+    pricepoint: 1
 )
 
 Business.create!(
@@ -40,7 +42,8 @@ Business.create!(
     website: "http://holaolasf.net",
     phonenumber: "(415)133-8182",
     address1: "372 Pershing Dr",
-    address2: "San Francisco, CA 94129"
+    address2: "San Francisco, CA 94129",
+    pricepoint: 2
 )
 
 User.create!(

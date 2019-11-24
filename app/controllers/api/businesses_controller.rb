@@ -4,9 +4,9 @@ class Api::BusinessesController < ApplicationController
   def index
     businesses = bounds ? Business.in_bounds(bounds) : Business.all
  
-    # if params[:searchCategory]
-    #   businesses = businesses.where(category: search_category)
-    # end
+    if params[:minPricepoint] && params[:maxPricepoint]
+      businesses = businesses.where(pricepoint: price_range)
+    end
 
     @businesses = businesses.includes(:reviews)
     render :index
@@ -23,12 +23,12 @@ class Api::BusinessesController < ApplicationController
 
   private
 
-  def search_category
-      params[:searchCategory] == "Bars"
+  def price_range
+      (params[:minPricepoint]..params[:maxPricepoint])
   end
 
   def business_params
-    params.require(:business).permit(:name, :category, :lat, :lng, :website, :phonenumber, :address1, :address2)
+    params.require(:business).permit(:name, :category, :lat, :lng, :website, :phonenumber, :address1, :address2, :pricepoint)
   end
 
   def bounds
@@ -43,7 +43,6 @@ end
 #  lng         :float            not null
 #  website     :string
 #  phonenumber :string
+#  pricepoint  :integer          not null
 #  address1    :string           not null
 #  address2    :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null

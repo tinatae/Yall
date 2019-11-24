@@ -3,7 +3,7 @@ import BusinessMap from '../business_map/business_map';
 import BusinessIndex from './business_index';
 import FilterForm from './filter_form';
 
-const Search = ({ businesses, searchCategory, updateFilter }) => (
+const Search = ({ businesses, minPricepoint, maxPricepoint, updateFilter }) => (
     <div>
         <div>
             <h3>Help Us Grow Our Map of Cool Places to Check-Out! Click Map to Add a New Business!</h3>
@@ -16,7 +16,8 @@ const Search = ({ businesses, searchCategory, updateFilter }) => (
         <div>
             <h3>What are you Looking For?</h3>
                 <FilterForm 
-                    searchCategory={searchCategory}
+                    minPricepoint={minPricepoint}
+                    maxPricepoint={maxPricepoint}
                     updateFilter={updateFilter}
                 />
                 <BusinessIndex businesses={businesses} />
