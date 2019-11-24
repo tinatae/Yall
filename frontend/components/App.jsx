@@ -1,26 +1,27 @@
 import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import GreetingContainer from './greeting/greeting_container';
-import SignupFormContainer from './session_form/signup_form_container';
-import LoginFormContainer from './session_form/login_form_container';
-import SearchContainer from './businesses/search_container';
-import BusinessShowContainer from './business/business_show_container';
-import LandingPageContainer from './landing/landing_page_container';
-import { AuthRoute } from '../util/route_util';
+import SignupFormContainer from './session/signup_form_container';
+import LoginFormContainer from './session/login_form_container';
+import SearchContainer from './search/search_container';
+import BusinessFormContainer from './business_form/business_form_container';
+import BusinessShowContainer from './business_show/business_show_container';
+// import LandingPageContainer from './greeting/landing_page_container';
+// import ReviewFormContainer from './business_show/review_form_container';
+// import Home from './home/home';
+
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
     <div>
-        <header>
-            <h2>Happy Friday!</h2>
             <GreetingContainer />
-        </header>
         <Switch>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
+            <ProtectedRoute exact path="/businesses/new" component={BusinessFormContainer} />
+            <Route path="/businesses/:businessId" component={BusinessShowContainer} />
             <Route exact path="/" component={SearchContainer} />
-            {/* <Route exact path="/" component={LandingPageContainer} /> */}
-            <Route path="/api/businesses/businessId" component={BusinessShowContainer} />
         </Switch>
     </div>
 );

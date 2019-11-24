@@ -6,11 +6,10 @@ const handleChange = (filter, updateFilter) => e => (
 
 const FilterForm =({ searchCategory, updateFilter }) => (
     <div>
-        <h4>Filter Results:</h4>
-        <br></br>
+        <span>Let's sort this shall we. Filter Results:</span> 
         <label>Category
             <input type="text" value={searchCategory} onChange={handleChange('searchCategory', updateFilter)} />
-        </label>  
+        </label>
     </div>
 
 );

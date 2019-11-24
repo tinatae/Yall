@@ -1,17 +1,13 @@
-json.extract! business, :name, :average_rating, :category, :website, :phonenumber, :address1, :address2
+json.extract! business, :id, :name, :category, :lat, :lng, :website, :phonenumber, :address1, :address2, :average_rating
 
-# Table name: businesses
-#
-#  id          :bigint           not null, primary key
-#  name        :string           not null
-#  category    :string
-#  lat         :float            not null
-#  lng         :float            not null
-#  website     :string
-#  phonenumber :string
-#  address1    :string           not null
-#  address2    :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#     t.string "name", null: false
+#     t.string "category", null: false
+#     t.float "lat", null: false
+#     t.float "lng", null: false
+#     t.string "website"
+#     t.string "phonenumber"
+#     t.string "address1", null: false
+#     t.string "address2", null: false
 
-    # params.require(:business).permit(:name, :category, :lat, :lng )
+#     t.index ["category"], name: "index_businesses_on_category"
+#     t.index ["name"], name: "index_businesses_on_name", unique: true

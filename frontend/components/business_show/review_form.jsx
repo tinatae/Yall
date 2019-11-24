@@ -20,9 +20,7 @@ class ReviewForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const businessId = parseInt(this.props.match.params.businessId);
-        const review = Object.assign({}, this.state, {
-            business_id: businessId
-        });
+        const review = Object.assign({}, this.state, { business_id: businessId });
         this.props.createReview(review);
         this.navigateToBusinessShow();
     }
@@ -36,14 +34,13 @@ class ReviewForm extends React.Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label>Rating
-                        <input type="number" value={this.state.rating} onChange={this.update("rating")} />
+                        <input type="number" value={this.state.rating} onChange={this.update('rating')} />
                     </label>
-                    <br></br>
-                    <label>Thoughtful Comments
-                        <input type="textarea" value={this.state.body} onChange={this.update("body")} />
+                    <br/>
+                    <label>Thoughtful Comment
+                        <input type="textarea" value={this.state.body} onChange={this.update('body')} />
                     </label>
-                    <br></br>
-                    <input type="submit" value=""Submit/>
+                    <input type="submit" value="Off it goes!" />
                 </form>
                     <button onClick={this.navigateToBusinessShow}>Cancel</button>
             </div>

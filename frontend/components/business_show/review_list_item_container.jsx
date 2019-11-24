@@ -7,14 +7,13 @@ const Review = ({ review, author }) => {
         <div>
             <ul>
                 <li>Rating: {rating}</li>
-                <li>{body}</li>
-                <li>{author.username}</li>
+                <li>{body} - by {author.username}</li>
             </ul>
         </div>
-    );
+    )
 };
 
-const mSTP = ({entities: {users}}, {review}) => {
+const mSTP = ({entities: { users }}, { review }) => {
     return { 
         author: users[review.author_id]
     };

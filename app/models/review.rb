@@ -12,12 +12,12 @@
 #
 
 class Review < ApplicationRecord
-    validates :body, :author_id, :business_id, presence: true
+    validates :body, presence: true
     validates :rating, inclusion: { in: (1..5) }
 
     belongs_to :business
 
     belongs_to :author,
-        class_name: :User
+    class_name: :User
 
 end

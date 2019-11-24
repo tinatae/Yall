@@ -1,15 +1,19 @@
 class MarkerManager {
-    constructor(map) {
+    constructor(map, handleClick) {
         this.map = map;
         this.markers = {};
+        this.handleClick = handleClick;
     };
 
     updateMarkers(businesses) {
-        const businessObj = {};
-        businesses.forEach(business => businessObj[business.id] = business);
+        const businessesObj = {};
+        businesses.forEach(business => businessesObj[business.id] = business);
 
         businesses.filter(business => !this.markers[business.id])
-        .forEach(newBusiness => this.createMarkerFromBusiness(newBusiness))
+        .forEach(newBusiness => this.createMarkerFromBusiness(newBusiness, this.handleClick))
+
+        Object.keys(this.markers).filter(businessId => !businessesObj[businessId])
+        .forEach((businessId) => this.removeMarker(this.markers[businessId]))
     };
 
     createMarkerFromBusiness(business) {
@@ -19,7 +23,15 @@ class MarkerManager {
             map: this.map,
             businessId: business.id
         });
-    };
+
+        marker.addListener('click', () => this.handleClick(business));
+        this.markers[marker.businessId] = marker;
+    }
+
+    removeMarker(marker) {
+        this.markers[marker.businessId].setMap(null);
+        delete this.markers[marker.businessId];
+    }
 };
 
 export default MarkerManager;

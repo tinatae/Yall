@@ -1,9 +1,16 @@
 @businesses.each do |business|
     json.set! business.id do 
-        json.partial! 'business', business: business
+        json.partial! 'business', business: business  
         json.reviewIds []
+       
+        # json.extract! business, :id, :name, :address1, :address2, :phonenumber, :id, :category, :average_rating
     end
 end
+
+# NOTE THAT THE partial ABOVE SPLITS phonenumber AFTER '-'
+# ALSO NOTE INDEX DOES NOT SHOW WEBSITE
+# STILL SHOWS average_rating
+
 
 # Table name: businesses
 #
@@ -16,6 +23,5 @@ end
 #  phonenumber :string
 #  address1    :string           not null
 #  address2    :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+
 

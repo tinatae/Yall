@@ -6,7 +6,7 @@ export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 
 export const receiveBusinesses = businesses => ({
     type: RECEIVE_BUSINESSES,
-    businesses
+    businesses,
 });
 
 export const receiveBusiness = ({ business, reviews, authors }) => ({
@@ -18,7 +18,9 @@ export const receiveBusiness = ({ business, reviews, authors }) => ({
 
 export const receiveReview = ({ review, average_rating, author }) => ({
     type: RECEIVE_REVIEW,
-    review, average_rating, author
+    review, 
+    average_rating, 
+    author,
 });
 
 export const createReview = review => dispatch => (
@@ -27,20 +29,26 @@ export const createReview = review => dispatch => (
     ))
 );
 
-// export const fetchBusinesses = filters => dispatch => (
-//     Utils.fetchBusinesses(filters).then(businesses => (
+export const fetchBusinesses = filters => dispatch => {
+    Utils.fetchBusinesses(filters).then(businesses => 
+        dispatch(receiveBusinesses(businesses))
+    )
+};
+
+// export const fetchBusinesses = () => dispatch => (
+//     Utils.fetchBusinesses().then(businesses => (
 //         dispatch(receiveBusinesses(businesses))
 //     ))
 // );
 
-export const fetchBusinesses = () => dispatch => (
-    Utils.fetchBusinesses().then(businesses => (
-        dispatch(receiveBusinesses(businesses))
+export const fetchBusiness = id => dispatch => (
+    Utils.fetchBusiness(id).then(payload => (
+        dispatch(receiveBusiness(payload))
     ))
 );
 
-export const fetchBusiness = id => dispatch => (
-    Utils.fetchBusiness(id).then(business => (
+export const createBusiness = business => dispatch => (
+    Utils.createBusiness(business).then(business => (
         dispatch(receiveBusiness(business))
     ))
 );

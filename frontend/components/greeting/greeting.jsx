@@ -8,10 +8,10 @@ export default ({ currentUser, logout }) => {
             <button onClick={logout}>Log Out</button>
         </div>
     ) : (
-            <div>
-                <Link className="btn" to="/signup">Sign Up</Link>
+            <div className='header'>
+                <Link className="button" to="/signup">Sign Up</Link>
                 <br></br>
-                <Link className="btn" to="/login">Log In</Link>
+                <Link className="button" to="/login">Log In</Link>
             </div>
         );
 

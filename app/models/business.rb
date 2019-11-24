@@ -22,16 +22,16 @@ class Business < ApplicationRecord
 
     has_many :reviews
 
-    # def self.in_bounds(bounds)
-    #     self.where("lat < ?", bounds[:northEast][:lat])
-    #     .where("lat > ?", bounds[:southWest][:lat)]
-    #     .where("lng > ?", bounds[:southWest][:lng])
-    #     .where("lng < ?", bounds[:northEast][:lng])
-    # end
+    def self.in_bounds(bounds)
+        self.where("lat < ?", bounds[:northEast][:lat])
+        .where("lat > ?", bounds[:southWest][:lat])
+        .where("lng > ?", bounds[:southWest][:lng])
+        .where("lng < ?", bounds[:northEast][:lng])
+    end
 
     def average_rating
         avgrev = reviews.average(:rating)
-        avgrev.round(1)
+        # avgrev.round(1)
     end
 
 end
