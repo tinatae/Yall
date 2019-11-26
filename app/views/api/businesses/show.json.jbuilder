@@ -1,6 +1,7 @@
 json.business do 
     json.partial! 'api/businesses/business', business: @business
-    json.reviewIds @business.reviews.pluck(:id)
+    json.photoUrls @business.photos.map {|file| url_for(file)} 
+    json.reviewIds @business.reviews.pluck(:id) 
 end
 
 @business.reviews.includes(:author).each do |review|

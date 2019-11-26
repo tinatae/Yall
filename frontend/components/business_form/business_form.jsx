@@ -13,10 +13,13 @@ class BusinessForm extends React.Component {
             address1: '123 Sesame Street',
             address2: 'San Francisco, CA 12345',
             pricepoint: 3,
+            photoFiles: null,
+            photoUrls: null
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.navigateToSearch = this.navigateToSearch.bind(this);
+        this.handleFiles = this.handleFiles.bind(this);
     }
 
     navigateToSearch() {
@@ -29,8 +32,20 @@ class BusinessForm extends React.Component {
         });
     }
 
+    handleFile(e) {
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({photoFiles: file, photoUrls: fileReader.result})
+        };
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
+      
         const formData = new FormData();
         formData.append('business[name]', this.state.name);
         formData.append('business[category]', this.state.category);
@@ -42,13 +57,21 @@ class BusinessForm extends React.Component {
         formData.append('business[address2]', this.state.address2);
         formData.append('business[pricepoint]', this.state.pricepoint);
 
+        // if (this.state.photoFile) {
+        //     formData.append('business[photo]', this.state.photoFile);
+        // }
+        for (let i = 0; i < photos.length; i++) {
+            formData.append('business[photos][]', this.state.photos[i]);
+        }
+
         this.props.createBusiness(formData);
         this.navigateToSearch();
-    }
+    };
 
     render() {
         const { name, category, website, phonenumber, address1, address2, pricepoint } = this.state;
         const { lat, lng } = this.coords;
+        const preview = this.state.photoUrl? <img height="200px" width="200px" src={this.state.photoUrl} /> : null;
 
         return (
             <div>
@@ -81,7 +104,16 @@ class BusinessForm extends React.Component {
                     <label>Pricepoint
                         <input type="number" value={pricepoint} onChange={this.update('pricepoint')} />
                     </label>
-                    <input type="submit" value='New Spot in Town!' />
+                    <div>
+                        <h3>Image Preview</h3>
+                            {preview}
+                        <h3>Add a Picture</h3>
+                        <input type="file" onChange={e => this.setState({ photos: e.target.files })} multiple />
+                    </div>
+                    <hr/>
+                    <div>
+                        <input type="submit" value="Create Newest Spot In Town!"/>
+                    </div>
                 </form>
                 <div>
                     <button onClick={this.navigateToSearch}>I'll do this later!</button>
@@ -92,4 +124,6 @@ class BusinessForm extends React.Component {
 }
 
 export default withRouter(BusinessForm)
+
+    // < input type = "file" onChange = { this.handleFile.bind(this) } />
 

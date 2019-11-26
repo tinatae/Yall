@@ -389,10 +389,13 @@ function (_React$Component) {
       phonenumber: '(123)456-7890',
       address1: '123 Sesame Street',
       address2: 'San Francisco, CA 12345',
-      pricepoint: 3
+      pricepoint: 3,
+      photoFiles: null,
+      photoUrls: null
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.navigateToSearch = _this.navigateToSearch.bind(_assertThisInitialized(_this));
+    _this.handleFiles = _this.handleFiles.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -411,6 +414,25 @@ function (_React$Component) {
       };
     }
   }, {
+    key: "handleFile",
+    value: function handleFile(e) {
+      var _this3 = this;
+
+      var file = e.currentTarget.files[0];
+      var fileReader = new FileReader();
+
+      fileReader.onloadend = function () {
+        _this3.setState({
+          photoFiles: file,
+          photoUrls: fileReader.result
+        });
+      };
+
+      if (file) {
+        fileReader.readAsDataURL(file);
+      }
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
@@ -423,13 +445,22 @@ function (_React$Component) {
       formData.append('business[phonenumber]', this.state.phonenumber);
       formData.append('business[address1]', this.state.address1);
       formData.append('business[address2]', this.state.address2);
-      formData.append('business[pricepoint]', this.state.pricepoint);
+      formData.append('business[pricepoint]', this.state.pricepoint); // if (this.state.photoFile) {
+      //     formData.append('business[photo]', this.state.photoFile);
+      // }
+
+      for (var i = 0; i < photos.length; i++) {
+        formData.append('business[photos][]', this.state.photos[i]);
+      }
+
       this.props.createBusiness(formData);
       this.navigateToSearch();
     }
   }, {
     key: "render",
     value: function render() {
+      var _this4 = this;
+
       var _this$state = this.state,
           name = _this$state.name,
           category = _this$state.category,
@@ -441,6 +472,11 @@ function (_React$Component) {
       var _this$coords = this.coords,
           lat = _this$coords.lat,
           lng = _this$coords.lng;
+      var preview = this.state.photoUrl ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        height: "200px",
+        width: "200px",
+        src: this.state.photoUrl
+      }) : null;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Creating a Business"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Name", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -479,10 +515,18 @@ function (_React$Component) {
         type: "number",
         value: pricepoint,
         onChange: this.update('pricepoint')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Image Preview"), preview, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Add a Picture"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        onChange: function onChange(e) {
+          return _this4.setState({
+            photos: e.target.files
+          });
+        },
+        multiple: true
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
-        value: "New Spot in Town!"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        value: "Create Newest Spot In Town!"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.navigateToSearch
       }, "I'll do this later!")));
     }
@@ -491,7 +535,7 @@ function (_React$Component) {
   return BusinessForm;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(BusinessForm));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(BusinessForm)); // < input type = "file" onChange = { this.handleFile.bind(this) } />
 
 /***/ }),
 
@@ -712,7 +756,9 @@ var reviewList = function reviewList(reviews) {
 var BusinessProfile = function BusinessProfile(_ref) {
   var business = _ref.business,
       reviews = _ref.reviews;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Name: ", business.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Rating: ", business.average_rating || 'No reviews yet. Be the first to write one!'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Category: ", business.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Website: ", business.website), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Phone Number: ", business.phonenumber), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address1: ", business.address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address2: ", business.address2), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Pricepoint: ", business.pricepoint)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), reviewList(reviews)));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: business.photoUrls[1]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Name: ", business.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Rating: ", business.average_rating || 'No reviews yet. Be the first to write one!'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Category: ", business.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Website: ", business.website), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Phone Number: ", business.phonenumber), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address1: ", business.address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address2: ", business.address2), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Pricepoint: ", business.pricepoint)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), reviewList(reviews)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (BusinessProfile);
@@ -1188,10 +1234,15 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var name = this.props.business.name;
+      var _this$props$business = this.props.business,
+          name = _this$props$business.name,
+          average_rating = _this$props$business.average_rating,
+          photoUrls = _this$props$business.photoUrls;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.handleClick
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Name: ", name));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Rating: ", average_rating || 'No Reviews Yet'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Name: ", name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: photoUrls[0]
+      }));
     }
   }]);
 

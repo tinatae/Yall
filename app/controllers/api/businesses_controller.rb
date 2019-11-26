@@ -18,7 +18,7 @@ class Api::BusinessesController < ApplicationController
   end
 
   def show
-    @business = Business.find(params[:id])
+    @business = Business.with_attached_photos.find(params[:id])
   end
 
   private
@@ -28,7 +28,7 @@ class Api::BusinessesController < ApplicationController
   end
 
   def business_params
-    params.require(:business).permit(:name, :category, :lat, :lng, :website, :phonenumber, :address1, :address2, :pricepoint)
+    params.require(:business).permit(:name, :category, :lat, :lng, :website, :phonenumber, :address1, :address2, :pricepoint, photos: [])
   end
 
   def bounds

@@ -6,11 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
+
 Business.delete_all
 User.delete_all
 Review.delete_all
 
-Business.create!(
+sweetbabycakes = Business.create!(
     name: "Sweet Babycakes",
     category: "Restaurants",
     lat: 37.797514,
@@ -22,7 +24,14 @@ Business.create!(
     pricepoint: 2
 )
 
-Business.create!(
+file = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/sweetbabycakes1.jpeg')
+sweetbabycakes.photos.attach(io: file, filename: 'sweetbabycakes1.jpeg')
+
+file1 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/sweetbabycakes2.jpeg')
+sweetbabycakes.photos.attach(io: file1, filename: 'sweetbabycakes2.jpeg')
+
+
+whitewhale = Business.create!(
     name: "White Whale Saloon",
     category: "Bars",
     lat: 37.799418,
@@ -34,7 +43,12 @@ Business.create!(
     pricepoint: 1
 )
 
-Business.create!(
+file2 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/whitewhale1.jpeg')
+whitewhale.photos.attach(io: file2, filename: 'whitewhale1.jpeg')
+file3 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/whitewhale2.jpeg')
+whitewhale.photos.attach(io: file3, filename: 'whitewhale2.jpeg')
+
+business3 = Business.create!(
     name: "Hola Ola",
     category: "Coffee & Tea",
     lat: 37.790417,
@@ -45,6 +59,16 @@ Business.create!(
     address2: "San Francisco, CA 94129",
     pricepoint: 2
 )
+
+file4 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola1.jpeg')
+file5 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola2.jpeg')
+file6 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola3.jpeg')
+file7 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola4.jpeg')
+
+business3.photos.attach(io: file4, filename: 'holaola1.jpeg')
+business3.photos.attach(io: file5, filename: 'holaola2.jpeg')
+business3.photos.attach(io: file6, filename: 'holaola3.jpeg')
+business3.photos.attach(io: file7, filename: 'holaola4.jpeg')
 
 User.create!(
     username: "hello",
@@ -105,3 +129,4 @@ Review.create!(
     business_id: 3,
     author_id: 5
 )
+

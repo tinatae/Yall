@@ -13,7 +13,8 @@ const reviewList = (reviews) => (
 const BusinessProfile = ({ business, reviews }) => {
     return (
         <div>
-            <ul>    
+            <ul>   
+                <img src={business.photoUrls[1]} /> 
                 <li>Name: {business.name}</li>
                 <li>Rating: {business.average_rating || 'No reviews yet. Be the first to write one!'}</li> 
                 <li>Category: {business.category}</li>
