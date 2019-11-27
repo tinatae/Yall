@@ -757,15 +757,24 @@ var reviewList = function reviewList(reviews) {
 var BusinessProfile = function BusinessProfile(_ref) {
   var business = _ref.business,
       reviews = _ref.reviews;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: business.photoUrls[1]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Name: ", business.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Rating: ", business.average_rating || 'No reviews yet. Be the first to write one!'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Category: ", business.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Website: ", business.website), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Phone Number: ", business.phonenumber), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address1: ", business.address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address2: ", business.address2), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Pricepoint: ", business.pricepoint)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), reviewList(reviews)));
+  var photos = business.photoUrls.map(function (photoUrl, i) {
+    for (var _i = 0; _i < business.photoUrls.length; _i++) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        key: _i,
+        src: photoUrl
+      });
+    }
+  });
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, photos), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Name: ", business.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Rating: ", business.average_rating || 'No reviews yet. Be the first to write one!'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Category: ", business.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Website: ", business.website), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Phone Number: ", business.phonenumber), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address1: ", business.address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address2: ", business.address2), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Pricepoint: ", business.pricepoint)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), reviewList(reviews)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (BusinessProfile);
 {
   /* <li>Latitude: {business.lat}</li>
   <li>Longitude: {business.lng}</li> */
+}
+{
+  /* <img src={business.photoUrls[1]} />  */
 }
 
 /***/ }),

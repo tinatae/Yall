@@ -11,10 +11,19 @@ const reviewList = (reviews) => (
 );
 
 const BusinessProfile = ({ business, reviews }) => {
+
+    let photos = business.photoUrls.map((photoUrl, i) => {
+        for (let i = 0; i < business.photoUrls.length; i++)
+        return <img key={i} src={photoUrl} />
+    });
+
     return (
         <div>
-            <ul>   
-                <img src={business.photoUrls[1]} /> 
+            <div>
+                { photos }
+            </div>
+
+            <ul>        
                 <li>Name: {business.name}</li>
                 <li>Rating: {business.average_rating || 'No reviews yet. Be the first to write one!'}</li> 
                 <li>Category: {business.category}</li>
@@ -38,3 +47,4 @@ export default BusinessProfile;
 
 {/* <li>Latitude: {business.lat}</li>
 <li>Longitude: {business.lng}</li> */}
+{/* <img src={business.photoUrls[1]} />  */}
