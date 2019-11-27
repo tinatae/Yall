@@ -10,7 +10,7 @@ const getCoordsObj = latLng => ({
 
 const mapOptions = {
     center: { lat: 37.7758, lng: -122.435 },
-    zoom: 12
+    zoom: 11
 };
 
 class BusinessMap extends React.Component {
@@ -45,9 +45,10 @@ class BusinessMap extends React.Component {
             
             const profileMarker = new google.maps.Marker({
                 position: profileLatlng,
+                // animation: google.maps.Animation.DROP
             });
             profileMarker.setMap(profileMap);
-            
+
             // this.MarkerManager.createMarkerFromBusiness(targetBusiness)
         } else {
             this.MarkerManager.updateMarkers(this.props.businesses);

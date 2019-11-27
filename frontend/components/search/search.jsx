@@ -5,8 +5,8 @@ import FilterForm from './filter_form';
 
 const Search = ({ businesses, minPricepoint, maxPricepoint, updateFilter }) => (
     <div>
-        <div>
-            <h3>Help Us Grow Our Map of Cool Places to Check-Out! Click Map to Add a New Business!</h3>
+        <div className="search-map">
+            <h3>Click Map to Add a New Business!</h3>
             <BusinessMap 
                 businesses={businesses} 
                 updateFilter={updateFilter}

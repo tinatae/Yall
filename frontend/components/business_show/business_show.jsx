@@ -13,21 +13,15 @@ const BusinessShow = ({ business, businessId, fetchBusiness, reviews }) => {
     };
 
     return(
-        <div>
-            <div>
-                <Link to="/">Back to Businesses Index</Link>
-                <BusinessMap 
-                    businesses={businesses} 
-                    businessId={businessId} 
-                    singleBusiness={true} 
-                    fetchBusiness={fetchBusiness} 
-                />
-            </div>
-            <div>
+        <div className="all-business-show">
+            
+            <div className="business-show-profile">
                 <BusinessProfile 
                     business={business} 
                     reviews={reviews} 
                 />
+            </div>
+            <div className="business-review-link">
                 <ReviewLink component={ ReviewFormContainer } 
                     to={`/businesses/${businessId}/review`} 
                     label="Leave a Review!" 
@@ -36,6 +30,15 @@ const BusinessShow = ({ business, businessId, fetchBusiness, reviews }) => {
                     path='/businesses/:businessId/review' 
                     component={ReviewFormContainer} 
                 />
+            </div>    
+            <div className="business-show-map">
+                <BusinessMap 
+                    businesses={businesses} 
+                    businessId={businessId} 
+                    singleBusiness={true} 
+                    fetchBusiness={fetchBusiness} 
+                />
+                <Link to="/">Back to Businesses Index</Link>
             </div>     
         </div>
     )

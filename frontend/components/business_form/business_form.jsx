@@ -77,6 +77,7 @@ class BusinessForm extends React.Component {
             <div>
                 <h2>Creating a Business</h2>
                 <form onSubmit={this.handleSubmit}>
+
                     <label>Name
                         <input type="text" value={name} onChange={this.update('name')} />
                     </label>
@@ -104,20 +105,23 @@ class BusinessForm extends React.Component {
                     <label>Pricepoint
                         <input type="number" value={pricepoint} onChange={this.update('pricepoint')} />
                     </label>
+
                     <div>
                         <h3>Image Preview</h3>
                             {preview}
                         <h3>Add a Picture</h3>
                         <input type="file" onChange={this.handleFile.bind(this)} /> 
                     </div>
+
                     <hr/>
                     <div>
                         <input type="submit" value="Create Newest Spot In Town!"/>
                     </div>
+
                 </form>
-                <div>
-                    <button onClick={this.navigateToSearch}>I'll do this later!</button>
-                </div>
+                    <div>
+                        <button onClick={this.navigateToSearch}>I'll do this later!</button>
+                    </div>
             </div>
         )
     }
