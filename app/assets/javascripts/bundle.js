@@ -621,6 +621,14 @@ var getCoordsObj = function getCoordsObj(latLng) {
   };
 };
 
+var mapOptions = {
+  center: {
+    lat: 37.7758,
+    lng: -122.435
+  },
+  zoom: 12
+};
+
 var BusinessMap =
 /*#__PURE__*/
 function (_React$Component) {
@@ -635,14 +643,6 @@ function (_React$Component) {
   _createClass(BusinessMap, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var mapOptions = {
-        center: {
-          lat: 37.7758,
-          lng: -122.435
-        },
-        zoom: 13
-      }; // const map = this.refs.map;
-
       this.map = new google.maps.Map(this.mapNode, mapOptions);
       this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map, this.handleMarkerClick.bind(this));
 
@@ -659,7 +659,18 @@ function (_React$Component) {
       if (this.props.singleBusiness) {
         var targetBusinessKey = Object.keys(this.props.businesses)[0];
         var targetBusiness = this.props.businesses[targetBusinessKey];
-        this.MarkerManager.updateMarkers([targetBusiness]);
+        var profileLatlng = new google.maps.LatLng(targetBusiness.lat, targetBusiness.lng);
+        var profileMapOptions = {
+          center: profileLatlng,
+          zoom: 16
+        }; // const profileMap = new google.maps.Map(this.mapNode, profileMapOptions);
+
+        var profileMap = new google.maps.Map(this.mapNode, profileMapOptions); // this.MarkerManager.updateMarkers([targetBusiness]);
+
+        var profileMarker = new google.maps.Marker({
+          position: profileLatlng
+        });
+        profileMarker.setMap(profileMap); // this.MarkerManager.createMarkerFromBusiness(targetBusiness)
       } else {
         this.MarkerManager.updateMarkers(this.props.businesses);
       }
@@ -757,13 +768,10 @@ var reviewList = function reviewList(reviews) {
 var BusinessProfile = function BusinessProfile(_ref) {
   var business = _ref.business,
       reviews = _ref.reviews;
-  var photos = business.photoUrls.map(function (photoUrl, i) {
-    for (var _i = 0; _i < business.photoUrls.length; _i++) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        key: _i,
-        src: photoUrl
-      });
-    }
+  var photos = business.photoUrls.map(function (photoUrl) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: photoUrl
+    }); // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
   });
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, photos), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Name: ", business.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Rating: ", business.average_rating || 'No reviews yet. Be the first to write one!'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Category: ", business.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Website: ", business.website), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Phone Number: ", business.phonenumber), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address1: ", business.address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Address2: ", business.address2), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Pricepoint: ", business.pricepoint)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), reviewList(reviews)));
 };

@@ -12,9 +12,8 @@ const reviewList = (reviews) => (
 
 const BusinessProfile = ({ business, reviews }) => {
 
-    let photos = business.photoUrls.map((photoUrl, i) => {
-        for (let i = 0; i < business.photoUrls.length; i++)
-        return <img key={i} src={photoUrl} />
+    let photos = business.photoUrls.map((photoUrl) => {
+        return <img src={photoUrl} />                               // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
     });
 
     return (

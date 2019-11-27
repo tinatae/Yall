@@ -8,14 +8,14 @@ const getCoordsObj = latLng => ({
     lng: latLng.lng()
 });
 
+const mapOptions = {
+    center: { lat: 37.7758, lng: -122.435 },
+    zoom: 12
+};
+
 class BusinessMap extends React.Component {
 
     componentDidMount() {
-        const mapOptions = {
-            center: { lat: 37.7758, lng: -122.435 },
-            zoom: 13
-        };
-        // const map = this.refs.map;
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
 
@@ -31,7 +31,24 @@ class BusinessMap extends React.Component {
         if (this.props.singleBusiness) {
             const targetBusinessKey = Object.keys(this.props.businesses)[0];
             const targetBusiness = this.props.businesses[targetBusinessKey];
-            this.MarkerManager.updateMarkers([targetBusiness]);
+
+            const profileLatlng = new google.maps.LatLng(targetBusiness.lat, targetBusiness.lng);
+            const profileMapOptions = {
+                center: profileLatlng,
+                zoom: 16
+            };
+
+            // const profileMap = new google.maps.Map(this.mapNode, profileMapOptions);
+            const profileMap = new google.maps.Map(this.mapNode, profileMapOptions);
+            
+            // this.MarkerManager.updateMarkers([targetBusiness]);
+            
+            const profileMarker = new google.maps.Marker({
+                position: profileLatlng,
+            });
+            profileMarker.setMap(profileMap);
+            
+            // this.MarkerManager.createMarkerFromBusiness(targetBusiness)
         } else {
             this.MarkerManager.updateMarkers(this.props.businesses);
         }
