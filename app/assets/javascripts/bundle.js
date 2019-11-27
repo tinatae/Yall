@@ -391,11 +391,11 @@ function (_React$Component) {
       address2: 'San Francisco, CA 12345',
       pricepoint: 3,
       photoFiles: null,
-      photoUrls: null
+      photoUrls: []
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.navigateToSearch = _this.navigateToSearch.bind(_assertThisInitialized(_this));
-    _this.handleFiles = _this.handleFiles.bind(_assertThisInitialized(_this));
+    _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -424,7 +424,7 @@ function (_React$Component) {
       fileReader.onloadend = function () {
         _this3.setState({
           photoFiles: file,
-          photoUrls: fileReader.result
+          photoUrls: [fileReader.result]
         });
       };
 
@@ -445,22 +445,19 @@ function (_React$Component) {
       formData.append('business[phonenumber]', this.state.phonenumber);
       formData.append('business[address1]', this.state.address1);
       formData.append('business[address2]', this.state.address2);
-      formData.append('business[pricepoint]', this.state.pricepoint); // if (this.state.photoFile) {
-      //     formData.append('business[photo]', this.state.photoFile);
-      // }
+      formData.append('business[pricepoint]', this.state.pricepoint);
 
-      for (var i = 0; i < photos.length; i++) {
-        formData.append('business[photos][]', this.state.photos[i]);
+      if (this.state.photoFiles) {
+        formData.append('business[photos][]', this.state.photoFiles);
       }
 
+      ;
       this.props.createBusiness(formData);
       this.navigateToSearch();
     }
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
-
       var _this$state = this.state,
           name = _this$state.name,
           category = _this$state.category,
@@ -472,10 +469,10 @@ function (_React$Component) {
       var _this$coords = this.coords,
           lat = _this$coords.lat,
           lng = _this$coords.lng;
-      var preview = this.state.photoUrl ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        height: "200px",
-        width: "200px",
-        src: this.state.photoUrl
+      var preview = this.state.photoUrls ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        height: "100px",
+        width: "100px",
+        src: this.state.photoUrls[0]
       }) : null;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Creating a Business"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
@@ -517,12 +514,7 @@ function (_React$Component) {
         onChange: this.update('pricepoint')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Image Preview"), preview, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Add a Picture"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
-        onChange: function onChange(e) {
-          return _this4.setState({
-            photos: e.target.files
-          });
-        },
-        multiple: true
+        onChange: this.handleFile.bind(this)
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "Create Newest Spot In Town!"
@@ -535,7 +527,16 @@ function (_React$Component) {
   return BusinessForm;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(BusinessForm)); // < input type = "file" onChange = { this.handleFile.bind(this) } />
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(BusinessForm)); // ADD MULTI PHOTO SOMEDAY
+//  for (let i = 0; i < this.files.length; i++) {
+//             this.photoUrls.push(URL.createObjectURL(this.files[i]))
+//         }
+//         this.setState({ photoFiles: this.files[i], photoUrls: fileReader.result })
+// {(this.photoUrls || []).map(url => (
+//         <img height="200px" width="200px" src={url} />
+//     ))}
+//     <input type="file" onChange={this.handleMultipleFiles} multiple />
+//     <button type="button" onClick={this.handleFiles}>Upload</button>
 
 /***/ }),
 
@@ -1240,7 +1241,7 @@ function (_React$Component) {
           photoUrls = _this$props$business.photoUrls;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.handleClick
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Rating: ", average_rating || 'No Reviews Yet'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Name: ", name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Rating: ", average_rating || 'No Reviews Yet'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Name: ", name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: photoUrls[0]
       }));
     }

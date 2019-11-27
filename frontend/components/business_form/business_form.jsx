@@ -14,12 +14,12 @@ class BusinessForm extends React.Component {
             address2: 'San Francisco, CA 12345',
             pricepoint: 3,
             photoFiles: null,
-            photoUrls: null
+            photoUrls: [],
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.navigateToSearch = this.navigateToSearch.bind(this);
-        this.handleFiles = this.handleFiles.bind(this);
+        this.handleFile = this.handleFile.bind(this);
     }
 
     navigateToSearch() {
@@ -35,18 +35,21 @@ class BusinessForm extends React.Component {
     handleFile(e) {
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
+
         fileReader.onloadend = () => {
-            this.setState({photoFiles: file, photoUrls: fileReader.result})
+            this.setState({photoFiles: file, photoUrls: [fileReader.result]})
         };
         if (file) {
             fileReader.readAsDataURL(file);
         }
     }
 
+
     handleSubmit(e) {
         e.preventDefault();
       
         const formData = new FormData();
+
         formData.append('business[name]', this.state.name);
         formData.append('business[category]', this.state.category);
         formData.append('business[lat]', this.coords['lat']);
@@ -57,13 +60,10 @@ class BusinessForm extends React.Component {
         formData.append('business[address2]', this.state.address2);
         formData.append('business[pricepoint]', this.state.pricepoint);
 
-        // if (this.state.photoFile) {
-        //     formData.append('business[photo]', this.state.photoFile);
-        // }
-        for (let i = 0; i < photos.length; i++) {
-            formData.append('business[photos][]', this.state.photos[i]);
-        }
-
+        if (this.state.photoFiles) {
+            formData.append('business[photos][]', this.state.photoFiles);
+        };
+    
         this.props.createBusiness(formData);
         this.navigateToSearch();
     };
@@ -71,8 +71,8 @@ class BusinessForm extends React.Component {
     render() {
         const { name, category, website, phonenumber, address1, address2, pricepoint } = this.state;
         const { lat, lng } = this.coords;
-        const preview = this.state.photoUrl? <img height="200px" width="200px" src={this.state.photoUrl} /> : null;
-
+        const preview = this.state.photoUrls ? <img height="100px" width="100px" src={this.state.photoUrls[0]} /> : null;
+       
         return (
             <div>
                 <h2>Creating a Business</h2>
@@ -108,7 +108,7 @@ class BusinessForm extends React.Component {
                         <h3>Image Preview</h3>
                             {preview}
                         <h3>Add a Picture</h3>
-                        <input type="file" onChange={e => this.setState({ photos: e.target.files })} multiple />
+                        <input type="file" onChange={this.handleFile.bind(this)} /> 
                     </div>
                     <hr/>
                     <div>
@@ -125,5 +125,16 @@ class BusinessForm extends React.Component {
 
 export default withRouter(BusinessForm)
 
-    // < input type = "file" onChange = { this.handleFile.bind(this) } />
+    // ADD MULTI PHOTO SOMEDAY
 
+    //  for (let i = 0; i < this.files.length; i++) {
+    //             this.photoUrls.push(URL.createObjectURL(this.files[i]))
+    //         }
+    //         this.setState({ photoFiles: this.files[i], photoUrls: fileReader.result })
+
+    // {(this.photoUrls || []).map(url => (
+    //         <img height="200px" width="200px" src={url} />
+    //     ))}
+
+    //     <input type="file" onChange={this.handleMultipleFiles} multiple />
+    //     <button type="button" onClick={this.handleFiles}>Upload</button>

@@ -20,6 +20,7 @@ class BusinessIndexItem extends React.Component {
             <div onClick={this.handleClick}>
                 <div>
                     <span>Rating: {average_rating || 'No Reviews Yet'}</span>
+                    <br/>
                     <span>Name: {name}</span>
                 </div>
                     <img src={photoUrls[0]}/>
