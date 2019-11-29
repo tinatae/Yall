@@ -1,0 +1,61 @@
+.search-header {
+    background-color: #FF003C;
+    padding: 20px;
+    font-family: Helvetica Neue, Helvetica, Arial;
+}
+
+h1 {
+    text-align: left;
+    font-size: 50px;
+    font-family: Brush Script Std;
+    color: #C7FFFF;
+    font-weight: 100;
+    transform: skewX(-10deg);  
+    transform: rotateZ(-3deg);
+}
+
+.indexpage {
+    font-family: Helvetica Neue, Helvetica, Arial;
+    font-color: #333333;
+}
+
+.indexpage-filters {
+    background-color: #f5f5f5;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 20px;
+}
+
+.indexpage-grid {
+    display: grid;
+}
+
+.indexpage-businesses {
+    grid-column: 1;
+    padding: 18px;
+}
+
+.indexpage-map {
+    grid-column: 2;
+    padding: 18px;
+    vertical-align: baseline;
+    right: 20px;
+   
+    z-index: 3;
+    position: absolute;
+}
+
+.index-item {
+    display: flex;
+    margin-left: 12px;
+    padding: 18px;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+
+}
+
+.index-item-info {
+    padding: 20px;
+    font-size: 14;
+    line-height: 1.28571 em;
+}

@@ -14,16 +14,22 @@ class BusinessIndexItem extends React.Component {
     }
 
     render() {
-        const { name, average_rating, photoUrls } = this.props.business;
+        const { name, average_rating, pricepoint, category, photoUrls } = this.props.business;
 
         return (
             <div onClick={this.handleClick}>
-                <div>
-                    <span>Rating: {average_rating || 'No Reviews Yet'}</span>
-                    <br/>
-                    <span>Name: {name}</span>
+                <div className="index-item">
+                    <img src={photoUrls[0]} />
+                    <div className="index-item-info">
+                        <span>Name: {name}</span>
+                        <br />
+                        <span>Rating: {average_rating || 'No Reviews Yet'}</span>
+                        <br />
+                        <span>Category: {category}</span>   
+                        <br />       
+                        <span>Pricepoint: {pricepoint}</span>          
+                    </div>
                 </div>
-                    <img src={photoUrls[0]}/>
             </div>
         );
     };

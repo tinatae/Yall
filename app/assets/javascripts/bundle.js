@@ -307,9 +307,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome Yall!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    className: "search-header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "y all r"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
     exact: true,
     path: "/login",
     component: _session_login_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
@@ -317,7 +317,7 @@ var App = function App() {
     exact: true,
     path: "/signup",
     component: _session_signup_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["ProtectedRoute"], {
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["ProtectedRoute"], {
     exact: true,
     path: "/businesses/new",
     component: _business_form_business_form_container__WEBPACK_IMPORTED_MODULE_6__["default"]
@@ -1313,7 +1313,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var BusinessIndex = function BusinessIndex(_ref) {
   var businesses = _ref.businesses;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "List of Businesses in Area Show Here"), businesses.map(function (business) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Top Spots in Town!"), businesses.map(function (business) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
       business: business,
       key: business.id
@@ -1387,12 +1387,18 @@ function (_React$Component) {
       var _this$props$business = this.props.business,
           name = _this$props$business.name,
           average_rating = _this$props$business.average_rating,
+          pricepoint = _this$props$business.pricepoint,
+          category = _this$props$business.category,
           photoUrls = _this$props$business.photoUrls;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.handleClick
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Rating: ", average_rating || 'No Reviews Yet'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Name: ", name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "index-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: photoUrls[0]
-      }));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "index-item-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Name: ", name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Rating: ", average_rating || 'No Reviews Yet'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Category: ", category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Pricepoint: ", pricepoint))));
     }
   }]);
 
@@ -1466,19 +1472,27 @@ var Search = function Search(_ref) {
       minPricepoint = _ref.minPricepoint,
       maxPricepoint = _ref.maxPricepoint,
       updateFilter = _ref.updateFilter;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "search-map"
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "indexpage"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "indexpage-filters"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "What are you Looking For?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_form__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    minPricepoint: minPricepoint,
+    maxPricepoint: maxPricepoint,
+    updateFilter: updateFilter
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "indexpage-grid"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "indexpage-businesses"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    businesses: businesses
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "indexpage-map"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Click Map to Add a New Business!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map_business_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
     businesses: businesses,
     updateFilter: updateFilter,
     singleBusiness: false
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "What are you Looking For?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_form__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    minPricepoint: minPricepoint,
-    maxPricepoint: maxPricepoint,
-    updateFilter: updateFilter
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    businesses: businesses
-  })));
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Search);
@@ -1558,57 +1572,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-// import React from 'react';
-// class SearchBar extends React.Component {
-//     constructor(props) {
-//         super(props)
-//     };
-//     this.state = {
-//         query: "",
-//         data: [],
-//         filteredData: [],
-//     };
-//     handleInputChange(e) {
-//         e.preventDefault();
-//         const query = e.target.value;
-//         this.setState(prevState => {
-//             const filteredData = prevState.data.filter(ele => {
-//                 return ele.name.toLowerCase().includes(query.toLowerCase());
-//             });
-//             return {
-//                 query,
-//                 filteredData
-//             };
-//         });
-//     };
-//     getData = () => {
-//         fetch(`http://localhost:300/#/businesses`)
-//         .then(response => response.json())
-//         .then(data => {
-//             const {query} = this.state;
-//             const filteredData = data.filter(ele => {
-//                 return ele.name.toLowerCase().includes(query.toLowerCase());
-//             });
-//             this.setState({
-//                 data, 
-//                 filteredData
-//             });
-//         });
-//     };
-//     componentWillMount() {
-//         this.getData();
-//     }
-//     render() {
-//         return (
-//             <div>
-//                 <form>
-//                     <input placeholder="Search for..." value={this.state.query} onChange={this.handleInputChange} />
-//                 </form>
-//                 <div>{this.state.filteredData.map(i => <p>{i.name}</p>)} </div>
-//             </div>
-//         )
-//     };
-// };
 
 
 
@@ -1628,13 +1591,13 @@ function (_React$Component) {
       searchQuery: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.navigateToSearch = _this.navigateToSearch.bind(_assertThisInitialized(_this));
+    _this.navigateToEverything = _this.navigateToEverything.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(SearchbarForm, [{
-    key: "navigateToSearch",
-    value: function navigateToSearch() {
+    key: "navigateToEverything",
+    value: function navigateToEverything() {
       this.props.history.push('/businesses');
     }
   }, {
@@ -1660,13 +1623,6 @@ function (_React$Component) {
     }
   }, {
     key: "render",
-    // handleClick(searchQuery) {
-    // this.props.history.push({               // USES ROUTER TO REDIRECT TO BenchForm URL PROVIDING lat & lng AS QUERY PARAMS SO DON'T NEED TO MANUALLY ENTER
-    //     pathname: '/',
-    //     // search: `lat=${coords.lat}&lng=${coords.lng}`       // NOTICE data SENT ALONG WITH NEW pathname
-    //     search: `searchQuery=${searchQuery}`
-    //     });
-    // }
     // handleSubmit(e) {
     //     e.preventDefault();
     //     const benchId = parseInt(this.props.match.params.benchId);
@@ -1680,14 +1636,15 @@ function (_React$Component) {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
+        placeholder: "What are we looking for..",
         value: searchQuery,
         onChange: this.update('searchQuery')
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "Look Me Up!"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.navigateToSearch
-      }, "Or just show me my options")));
+        onClick: this.navigateToEverything
+      }, "Or just show me everything")));
     }
   }]);
 
@@ -1872,7 +1829,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Look at my website!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Welcome! Please ", this.props.formType, " below!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Welcome! Please ", this.props.formType, " below!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, "Or perhaps ", this.props.navLink, this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",

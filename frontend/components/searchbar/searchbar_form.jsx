@@ -1,65 +1,3 @@
-// import React from 'react';
-
-// class SearchBar extends React.Component {
-//     constructor(props) {
-//         super(props)
-//     };
-
-//     this.state = {
-//         query: "",
-//         data: [],
-//         filteredData: [],
-//     };
-
-//     handleInputChange(e) {
-//         e.preventDefault();
-//         const query = e.target.value;
-
-//         this.setState(prevState => {
-//             const filteredData = prevState.data.filter(ele => {
-//                 return ele.name.toLowerCase().includes(query.toLowerCase());
-//             });
-
-//             return {
-//                 query,
-//                 filteredData
-//             };
-//         });
-//     };
-
-//     getData = () => {
-//         fetch(`http://localhost:300/#/businesses`)
-//         .then(response => response.json())
-//         .then(data => {
-//             const {query} = this.state;
-//             const filteredData = data.filter(ele => {
-//                 return ele.name.toLowerCase().includes(query.toLowerCase());
-//             });
-
-//             this.setState({
-//                 data, 
-//                 filteredData
-//             });
-//         });
-//     };
-
-//     componentWillMount() {
-//         this.getData();
-//     }
-
-//     render() {
-//         return (
-//             <div>
-//                 <form>
-//                     <input placeholder="Search for..." value={this.state.query} onChange={this.handleInputChange} />
-//                 </form>
-//                 <div>{this.state.filteredData.map(i => <p>{i.name}</p>)} </div>
-//             </div>
-//         )
-//     };
-// };
-
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from 'react-router-dom';
@@ -73,11 +11,11 @@ class SearchbarForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.navigateToSearch = this.navigateToSearch.bind(this);
+        this.navigateToEverything = this.navigateToEverything.bind(this);
     };
 
 
-    navigateToSearch() {
+    navigateToEverything() {
         this.props.history.push('/businesses')
     };
 
@@ -98,13 +36,6 @@ class SearchbarForm extends React.Component {
         this.navigateToSearchResult();
     };
 
-    // handleClick(searchQuery) {
-    // this.props.history.push({               // USES ROUTER TO REDIRECT TO BenchForm URL PROVIDING lat & lng AS QUERY PARAMS SO DON'T NEED TO MANUALLY ENTER
-    //     pathname: '/',
-    //     // search: `lat=${coords.lat}&lng=${coords.lng}`       // NOTICE data SENT ALONG WITH NEW pathname
-    //     search: `searchQuery=${searchQuery}`
-    //     });
-    // }
 
     // handleSubmit(e) {
     //     e.preventDefault();
@@ -122,13 +53,13 @@ class SearchbarForm extends React.Component {
             <div>
                 <div>
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" value={searchQuery} onChange={this.update('searchQuery')} />
+                        <input type="text" placeholder="What are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} />
                         <input type="submit" value="Look Me Up!" />
                     </form>
                 </div>
 
                 <div>
-                    <button onClick={this.navigateToSearch}>Or just show me my options</button>
+                    <button onClick={this.navigateToEverything}>Or just show me everything</button>
                 </div>
             </div>
         )

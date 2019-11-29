@@ -33,7 +33,6 @@ class SessionForm extends React.Component {
     render() {
         return (
             <div>
-                <h2>Look at my website!</h2>
                 <h3>Welcome! Please {this.props.formType} below!</h3>
 
                 <form onSubmit={this.handleSubmit}>
