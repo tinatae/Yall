@@ -30,3 +30,17 @@ export const createReview = review => (
         data: { review }
     })
 );
+
+export const fetchReview = businessId => (
+    $.ajax({
+        method: 'GET',
+        url: `api/businesses/${id}`,
+    })
+);
+
+export const deleteReview = id => (
+    $.ajax({
+        method: 'DELETE',
+        url: `api/reviews/${id}`
+    })
+);

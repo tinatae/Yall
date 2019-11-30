@@ -1,16 +1,105 @@
-// .profile-pics {
-//     height: 100%;
-//     width: 100%;
-//     object-fit: cover;
-//     vertical-align: middle;
-//     display: inline-block;
+// .profile-pics-grid {
+//     display: grid;
 // }
 
-// .profile-info {
-//     float: right;
-// }
+.profile {
+    font-family: Helvetica Neue, Arial, Helvetica;
+    margin: 15px;
+}
+
+.profile h3 {
+    font-family: Brush Script Std;
+    font-size: 30px;
+}
+
+.profile-pics {
+    // align-items: flex-start;
+    display: block;
+}
+
+.profile-pic {
+    width: calc((100% - 40px)4);
+    height: 170px;
+    padding: 5px;
+}
+
+.profile-name-section {
+    padding: 10px;
+    margin-left: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+#bizname {
+    font-size: 30px;
+}
+
+#bizcategory {
+    color: #0073bb;
+}
+
+.profile-map-and-info {
+    display: grid;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.profile-map {
+    grid-column: 1;
+    width: 300px;
+    height: 300px;
+    padding: 30px;
+}
+
+.profile-hours {
+    grid-column: 2;
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid #e6e6e6;
+}
+
+.profile-hours > span {
+    padding: 10px;
+}
+
+.profile-info {
+    grid-column: 3;
+    padding: 10px;
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid #e6e6e6;
+}
+
+#bizwebsite {  
+    color: #0073bb;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 20px;
+}
+
+#bizphonenumber {
+    border-bottom: 1px solid #e6e6e6;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#bizaddress1 {
+    padding-top: 20px;
+    font-weight: strong;
+}
+ 
+#bizaddress2 {
+    font-weight: strong;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 20px;
+}
+
+#bizpricepoint {
+    padding-top: 20px;
+}
 
 
-// .business-show-map {
-//     float: left;
-// }
+
+

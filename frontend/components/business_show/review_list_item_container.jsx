@@ -4,11 +4,13 @@ import {connect} from 'react-redux';
 const Review = ({ review, author }) => {
     const {rating, body} = review;
     return (
-        <div>
-            <ul>
-                <li>Rating: {rating}</li>
-                <li>{body} - by {author.username}</li>
-            </ul>
+        <div className="reviews">
+            <span id="rating">Rating: {rating}</span>
+            <br/>
+            <span id="comment">{body}</span>
+            <br />
+            <span id="username">{author.username}</span>
+            <br />
         </div>
     )
 };

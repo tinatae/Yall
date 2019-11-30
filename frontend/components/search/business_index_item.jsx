@@ -15,19 +15,27 @@ class BusinessIndexItem extends React.Component {
 
     render() {
         const { name, average_rating, pricepoint, category, photoUrls } = this.props.business;
+      
+    
+        // if (reviewIds !== null) {
+        //     const { review } = this.props.business.reviews[Object.keys(this.props.business.reviews).length - 1];  
+        // };
+        // const reviews = this.props.selectReviewsForBusiness(this.props.businesses, this.props.business);
 
         return (
             <div onClick={this.handleClick}>
                 <div className="index-item">
                     <img src={photoUrls[0]} />
                     <div className="index-item-info">
-                        <span>Name: {name}</span>
+                        <span id="name">{name}</span>
                         <br />
-                        <span>Rating: {average_rating || 'No Reviews Yet'}</span>
+                        <span id="rating">Rating: {average_rating || 'No Reviews Yet'}</span>
                         <br />
-                        <span>Category: {category}</span>   
+                        <span id="category">{category}</span>   
                         <br />       
-                        <span>Pricepoint: {pricepoint}</span>          
+                        <span id="pricepoint">Pricepoint: {pricepoint}</span> 
+                        <br />
+                        <span id="review">Word on the Street: This is the spot!</span>
                     </div>
                 </div>
             </div>
@@ -36,3 +44,5 @@ class BusinessIndexItem extends React.Component {
 };
 
 export default withRouter(BusinessIndexItem);
+
+{/* <span>Review: {reviews}</span> */}

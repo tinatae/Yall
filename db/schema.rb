@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_24_034042) do
+ActiveRecord::Schema.define(version: 2019_11_30_152648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,34 @@ ActiveRecord::Schema.define(version: 2019_11_24_034042) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "pricepoint", null: false
+    t.integer "monopen", null: false
+    t.integer "monclose", null: false
+    t.string "monopenend", null: false
+    t.string "moncloseend", null: false
+    t.integer "tuesopen", null: false
+    t.integer "tuesclose", null: false
+    t.string "tuesopenend", null: false
+    t.string "tuescloseend", null: false
+    t.integer "wedopen", null: false
+    t.integer "wedclose", null: false
+    t.string "wedopenend", null: false
+    t.string "wedcloseend", null: false
+    t.integer "thursopen", null: false
+    t.integer "thursclose", null: false
+    t.string "thursopenend", null: false
+    t.string "thurscloseend", null: false
+    t.integer "friopen", null: false
+    t.integer "friclose", null: false
+    t.string "friopenend", null: false
+    t.string "fricloseend", null: false
+    t.integer "satopen", null: false
+    t.integer "satclose", null: false
+    t.string "satopenend", null: false
+    t.string "satcloseend", null: false
+    t.integer "sunopen", null: false
+    t.integer "sunclose", null: false
+    t.string "sunopenend", null: false
+    t.string "suncloseend", null: false
     t.index ["category"], name: "index_businesses_on_category"
     t.index ["name"], name: "index_businesses_on_name", unique: true
     t.index ["pricepoint"], name: "index_businesses_on_pricepoint"

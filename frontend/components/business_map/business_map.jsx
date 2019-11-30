@@ -76,10 +76,12 @@ class BusinessMap extends React.Component {
     }
 
     handleClick(coords) {
-        this.props.history.push({
-            pathname: 'businesses/new',
-            search: `lat=${coords.lat}&lng=${coords.lng}`
-        });
+        // this.props.history.push({
+        //     // pathname: 'businesses/new',
+        //     pathname: '/new',
+        //     search: `lat=${coords.lat}&lng=${coords.lng}`
+        // });
+        this.props.history.push(`/businesses/new?lat=${coords.lat}&lng=${coords.lng}`)
     }
 
 

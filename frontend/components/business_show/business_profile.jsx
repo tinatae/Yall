@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewListItemContainer from './review_list_item_container';
+import BusinessMap from '../business_map/business_map';
 
 const reviewList = (reviews) => (
     reviews.map(review => (
@@ -10,29 +11,60 @@ const reviewList = (reviews) => (
     ))
 );
 
-const BusinessProfile = ({ business, reviews }) => {
+const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusiness }) => {
 
-    let photos = business.photoUrls.map((photoUrl) => {
-        return <img src={photoUrl} />                               // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
+    let photos = business.photoUrls.map((photoUrl, idx) => {
+        return <img className="profile-pic" key={idx} src={photoUrl} />                               // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
     });
 
     return (
-        <div>
-            <div className="profile-pics">
-                { photos }
+        <div className="profile">
+
+            <div className="profile-pics-grid">
+                <div className="profile-pics">
+                    {photos}
+                </div>
             </div>
-            <div className="profile-info">
-                <ul>        
-                    <li>Name: {business.name}</li>
-                    <li>Rating: {business.average_rating || 'No reviews yet. Be the first to write one!'}</li> 
-                    <li>Category: {business.category}</li>
-                    <li>Website: {business.website}</li>
-                    <li>Phone Number: {business.phonenumber}</li>
-                    <li>Address1: {business.address1}</li>
-                    <li>Address2: {business.address2}</li>
-                    <li>Pricepoint: {business.pricepoint}</li>
-                </ul>
+
+            <div className="profile-name-section">
+                <span id="bizname">{business.name}</span>
+                <br/>
+                <span id="bizrating">{business.average_rating || 'No reviews yet. Be the first to write one!'}</span>
+                <br/>
+                <span id="bizcategory">{business.category}</span>
+                <br/>
             </div>
+            <div className="profile-map-and-info">
+
+                <div className="profile-map">
+                    <BusinessMap
+                        businesses={businesses}
+                        businessId={businessId}
+                        singleBusiness={true}
+                        fetchBusiness={fetchBusiness}
+                    />
+                </div>
+
+                <div className="profile-hours">
+                    <span>Monday:</span>
+                    <span>Tuesday:</span>
+                    <span>Wednesday:</span>
+                    <span>Thursday:</span>
+                    <span>Friday:</span>
+                    <span>Saturday:</span>
+                    <span>Sunday:</span>
+                </div>
+
+                <div className="profile-info">
+                    <span id="bizwebsite">{business.website}</span>
+                    <span id="bizphonenumber">{business.phonenumber}</span>            
+                    <span id="bizaddress1">{business.address1}</span>
+                    <span id="bizaddress2">{business.address2}</span>
+                    <span id="bizpricepoint">Pricepoint: {business.pricepoint}</span>
+                </div>
+
+            </div>
+           
             <br/>
             <div>
                 <h3>Reviews</h3>

@@ -23,7 +23,7 @@ class BusinessForm extends React.Component {
     }
 
     navigateToSearch() {
-        this.props.history.push('/');
+        this.props.history.push('/businesses');
     }
 
     update(field) {

@@ -15,18 +15,24 @@ const Search = ({ businesses, minPricepoint, maxPricepoint, updateFilter }) => (
         </div>
         <div className="indexpage-grid">
             <div className="indexpage-businesses">
-                <BusinessIndex businesses={businesses} />
+                <BusinessIndex 
+                businesses={businesses}
+                // selectReviewsForBusiness={selectReviewsForBusiness}
+                />
             </div>
             <div className="indexpage-map">
-                <h3>Click Map to Add a New Business!</h3>
+                <h2>So Where Are We Going!</h2>
                 <BusinessMap
                     businesses={businesses}
                     updateFilter={updateFilter}
                     singleBusiness={false}
                 />
+
             </div>
         </div>   
     </div>
 );
 
 export default Search;
+
+// selectReviewsForBusiness

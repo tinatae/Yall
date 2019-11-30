@@ -14,25 +14,25 @@ class Api::ReviewsController < ApplicationController
     end
   end
 
-  # def show
-  #   @review = Review.find(params[:id])
-  #   if @review
-  #     render :show
-  #   else
-  #     render json: @review.errors.full_messages, status:422
-  #   end
-  # end
+  def show
+    @review = Review.find(params[:id])
+    if @review
+      render :show
+    else
+      render json: @review.errors.full_messages, status:422
+    end
+  end
 
 
-  # def destroy
-  #   @review = Review.find(params[:id])
-  #   if @review.author_id == current_user.id
-  #     @review.destroy!
-  #     render :show
-  #   else
-  #     render json: ["Sorry, you can't delete someone else's review!"], status: 401 
-  #   end
-  # end
+  def destroy
+    @review = Review.find(params[:id])
+    if @review.author_id == current_user.id
+      @review.destroy!
+      render :show
+    else
+      render json: ["Sorry, you can't delete someone else's review!"], status: 401 
+    end
+  end
 
   private
   def review_params

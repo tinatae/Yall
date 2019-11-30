@@ -14,11 +14,9 @@ import HomepageContainer from './homepage/homepage_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
-    <div>
-        <header className="search-header">
-          
-            <h1>y all r</h1>
-         
+    <div> 
+        <header className="main-header">  
+            <div>y allr</div>
             <GreetingContainer />
            <Switch>
                 <AuthRoute exact path="/login" component={LoginFormContainer} />
