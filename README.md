@@ -5,6 +5,14 @@ application up and running.
 
 Things you may want to cover:
 
+yelp clone
+
+Ruby 5.2.3
+Rails 5.2.3
+Postgresql
+React-Redux
+
+
 * Ruby version
 
 * System dependencies
