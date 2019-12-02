@@ -586,7 +586,7 @@ function (_React$Component) {
         className: "business-create-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-create-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "New in Town?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Please Add Your Business to Our Site!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Please Fill-out Details Below")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "New in Town?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Add Your Business to Our Site!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Please Fill-out Details Below")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-create-bizinfo"

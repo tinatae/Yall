@@ -4,7 +4,7 @@ import BusinessIndexItem from './business_index_item';
 const BusinessIndex = ({ businesses }) => (
         <div>
             <h2>BEST IN TOWN</h2>   
-
+      
             {businesses.map(business => (
                 <BusinessIndexItem
                     business={business}

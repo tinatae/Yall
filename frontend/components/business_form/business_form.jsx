@@ -133,7 +133,7 @@ class BusinessForm extends React.Component {
             <div className="business-create-form">
                 <div className="business-create-header">
                     <h2>New in Town?</h2>
-                    <h3>Please Add Your Business to Our Site!</h3>
+                    <h3>Add Your Business to Our Site!</h3>
                     <h3>Please Fill-out Details Below</h3>
                 </div>
                

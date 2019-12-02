@@ -71,7 +71,25 @@ class Business < ApplicationRecord
 
     def average_rating
         avgrev = reviews.average(:rating)
-        # avgrev.round(1)
+        if (avgrev%1) == 0
+            return ("★")*(avgrev)
+        elsif (avgrev%1) >= 0.95
+            return ("★")*(avgrev.to_i)+"★ (" + (avgrev).to_s + " so pretty much!)"
+        elsif (avgrev%1) >= 0.80
+            return ("★")*(avgrev.to_i)+("⅘")
+        elsif (avgrev%1) >= 0.75
+            return ("★")*(avgrev.to_i)+("¾")
+        elsif (avgrev%1) >= 0.6
+            return ("★")*(avgrev.to_i)+("⅗")
+        elsif (avgrev%1) >= 0.5
+            return ("★")*(avgrev.to_i)+("½")
+        # elsif (avgrev%1) >= 0.4
+        #     return ("★")*(avgrev.to_i)+("⅖")
+        elsif (avgrev%1) >= 0.33
+            return ("★")*(avgrev.to_i)+("⅓")
+        elsif (avgrev%1) >= 0.25
+            return ("★")*(avgrev.to_i)+("¼")
+        end   
     end
 
 end
