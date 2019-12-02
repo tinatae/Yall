@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 const Review = ({ review, author }) => {
-    const {rating, body} = review;
+    const { rating, body } = review;
     return (
         <div className="reviews">
             <span id="rating">Rating: {rating}</span>

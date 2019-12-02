@@ -46,13 +46,13 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
                 </div>
 
                 <div className="profile-hours">
-                    <span>Monday:</span>
-                    <span>Tuesday:</span>
-                    <span>Wednesday:</span>
-                    <span>Thursday:</span>
-                    <span>Friday:</span>
-                    <span>Saturday:</span>
-                    <span>Sunday:</span>
+                    <span>Monday: {business.monopen}{business.monopenend} - {business.monclose}{business.moncloseend}</span>
+                    <span>Tuesday: {business.tuesopen}{business.tuesopenend} - {business.tuesclose}{business.tuescloseend}</span>
+                    <span>Wednesday: {business.wedopen}{business.wedopenend} - {business.wedclose}{business.wedcloseend}</span>
+                    <span>Thursday: {business.thursopen}{business.thursopenend} - {business.thursclose}{business.thurscloseend}</span>
+                    <span>Friday: {business.friopen}{business.friopenend} - {business.friclose}{business.fricloseend}</span>
+                    <span>Saturday: {business.satopen}{business.satopenend} - {business.satclose}{business.satcloseend}</span>
+                    <span>Sunday: {business.sunopen}{business.sunopenend} - {business.sunclose}{business.suncloseend}</span>
                 </div>
 
                 <div className="profile-info">

@@ -11,9 +11,17 @@ export default ({ currentUser, logout }) => {
         </div>
     ) : (
             <div>
-                <Link className="button" to="/signup">Sign Up</Link>
-                <br></br>
-                <Link className="button" to="/login">Log In</Link>
+                <Link className="button" to="/signup">
+                    <button>
+                        Sign Up
+                    </button>
+                </Link>
+                <br/>
+                <Link className="button" to="/login">
+                    <button>
+                        Log In
+                    </button>
+                </Link>
             </div>
         );
 

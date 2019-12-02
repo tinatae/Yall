@@ -1,0 +1,91 @@
+// .business-create-form {
+//    background-color: blue;
+// }
+
+.business-create-bizinfo {
+    padding: 30px;
+    // font-weight: 300;
+    font-family: Helvetica Neue, Arial, Helvetica;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px solid #e6e6e6;
+}
+
+.business-create-bizinfo span {
+    padding: 10px;
+}
+
+.business-create-header {
+    font-family: Helvetica Neue, Arial, Helvetica;
+    padding: 24px;
+    text-align: center;
+}
+
+.business-create-bizhours {
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    display: grid;
+    padding: 30px;
+    justify-content: center;
+}
+
+.business-create-bizhours label {
+    padding: 5px;
+}
+
+.business-create-bizhours span {
+    padding: 5px;
+}
+
+.bizhours-grid1 {
+    grid-column: 1;
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.bizhours-grid2 {
+    grid-column: 2;
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.business-create-bizphoto {
+    padding: 30px;
+}
+
+#createbizname {
+    font-weight: strong;
+}
+
+// #createbizcategory {
+
+// }
+
+// #createbizpricepoint {
+
+// }
+
+// #createbizwebsite {
+
+// }
+
+// #createbizphonenumber {
+
+// }
+
+#createbizaddress1 {
+    width: 300px;
+}
+
+// #createbizaddress2 {
+
+// }
