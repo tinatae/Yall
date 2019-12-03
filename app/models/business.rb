@@ -74,7 +74,8 @@ class Business < ApplicationRecord
         if (avgrev%1) == 0
             return ("★")*(avgrev)
         elsif (avgrev%1) >= 0.95
-            return ("★")*(avgrev.to_i)+"★ (" + (avgrev).to_s + " so pretty much!)"
+            # return ("★")*(avgrev.to_i)+"★ ( we're off by " + (1-(avgrev%1)).to_s + " of a ★, so pretty much ! )"
+            return ("★")*(avgrev.to_i)+"★"
         elsif (avgrev%1) >= 0.80
             return ("★")*(avgrev.to_i)+("⅘")
         elsif (avgrev%1) >= 0.75
@@ -92,4 +93,28 @@ class Business < ApplicationRecord
         end   
     end
 
+    def dollarmaker
+        if self.pricepoint == 4
+            return "$$$$"
+        elsif self.pricepoint == 3
+            return "$$$"
+        elsif self.pricepoint == 2
+            return "$$"
+        else
+            "$"
+        end
+    end
+
+    def recentreview
+        self.reviews[-1].body
+    end
+
+    def reviewcount
+        if self.reviews.length == 1
+            return "1 review"
+        else
+            self.reviews.length.to_s + " reviews"
+        end
+
+    end
 end

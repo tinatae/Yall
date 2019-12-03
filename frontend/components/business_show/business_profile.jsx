@@ -11,6 +11,7 @@ const reviewList = (reviews) => (
     ))
 );
 
+
 const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusiness }) => {
 
     let photos = business.photoUrls.map((photoUrl, idx) => {
@@ -30,6 +31,8 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
                 <span id="bizname">{business.name}</span>
                 <br/>
                 <span id="bizrating">{business.average_rating || 'No reviews yet. Be the first to write one!'}</span>
+                <br/>
+                <span id="bizpricepoint">{business.dollarmaker}</span>
                 <br/>
                 <span id="bizcategory">{business.category}</span>
                 <br/>
@@ -60,7 +63,6 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
                     <span id="bizphonenumber">{business.phonenumber}</span>            
                     <span id="bizaddress1">{business.address1}</span>
                     <span id="bizaddress2">{business.address2}</span>
-                    <span id="bizpricepoint">Pricepoint: {business.pricepoint}</span>
                 </div>
 
             </div>
@@ -79,4 +81,4 @@ export default BusinessProfile;
 
 {/* <li>Latitude: {business.lat}</li>
 <li>Longitude: {business.lng}</li> */}
-{/* <img src={business.photoUrls[1]} />  */}
+// <img src={business.photoUrls[1]} /> 

@@ -1566,6 +1566,8 @@ var BusinessProfile = function BusinessProfile(_ref) {
   }, business.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizrating"
   }, business.average_rating || 'No reviews yet. Be the first to write one!'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "bizpricepoint"
+  }, business.dollarmaker), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizcategory"
   }, business.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-map-and-info"
@@ -1588,19 +1590,14 @@ var BusinessProfile = function BusinessProfile(_ref) {
     id: "bizaddress1"
   }, business.address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizaddress2"
-  }, business.address2), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "bizpricepoint"
-  }, "Pricepoint: ", business.pricepoint))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), reviewList(reviews)));
+  }, business.address2))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), reviewList(reviews)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (BusinessProfile);
-{
-  /* <li>Latitude: {business.lat}</li>
-  <li>Longitude: {business.lng}</li> */
-}
-{
-  /* <img src={business.photoUrls[1]} />  */
-}
+{}
+/* <li>Latitude: {business.lat}</li>
+<li>Longitude: {business.lng}</li> */
+// <img src={business.photoUrls[1]} />
 
 /***/ }),
 
@@ -2211,9 +2208,12 @@ function (_React$Component) {
       var _this$props$business = this.props.business,
           name = _this$props$business.name,
           average_rating = _this$props$business.average_rating,
-          pricepoint = _this$props$business.pricepoint,
           category = _this$props$business.category,
-          photoUrls = _this$props$business.photoUrls; // if (reviewIds !== null) {
+          dollarmaker = _this$props$business.dollarmaker,
+          photoUrls = _this$props$business.photoUrls,
+          recentreview = _this$props$business.recentreview,
+          reviewcount = _this$props$business.reviewcount; // const reviewCount = reviewIds.length
+      // if (reviewIds !== null) {
       //     const { review } = this.props.business.reviews[Object.keys(this.props.business.reviews).length - 1];  
       // };
       // const reviews = this.props.selectReviewsForBusiness(this.props.businesses, this.props.business);
@@ -2230,13 +2230,17 @@ function (_React$Component) {
         id: "name"
       }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "rating"
-      }, "Rating: ", average_rating || 'No Reviews Yet'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, average_rating || 'No Reviews Yet'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "reviewcount"
+      }, reviewcount), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "pricepoint"
+      }, dollarmaker), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "bullet"
+      }, "\u2022"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "category"
       }, category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        id: "pricepoint"
-      }, "Pricepoint: ", pricepoint), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        id: "review"
-      }, "Word on the Street: This is the spot!"))));
+        id: "recentreview"
+      }, "Word on the Street: ", recentreview))));
     }
   }]);
 

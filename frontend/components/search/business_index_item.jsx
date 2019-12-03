@@ -14,9 +14,9 @@ class BusinessIndexItem extends React.Component {
     }
 
     render() {
-        const { name, average_rating, pricepoint, category, photoUrls } = this.props.business;
-      
-    
+        const { name, average_rating, category, dollarmaker, photoUrls, recentreview, reviewcount } = this.props.business;
+       
+        // const reviewCount = reviewIds.length
         // if (reviewIds !== null) {
         //     const { review } = this.props.business.reviews[Object.keys(this.props.business.reviews).length - 1];  
         // };
@@ -29,13 +29,14 @@ class BusinessIndexItem extends React.Component {
                     <div className="index-item-info">
                         <span id="name">{name}</span>
                         <br />
-                        <span id="rating">Rating: {average_rating || 'No Reviews Yet'}</span>
+                        <span id="rating">{average_rating || 'No Reviews Yet'}</span>
+                        <span id="reviewcount">{reviewcount}</span>
                         <br />
+                        <span id="pricepoint">{dollarmaker}</span> 
+                        <span id="bullet">•</span>
                         <span id="category">{category}</span>   
-                        <br />       
-                        <span id="pricepoint">Pricepoint: {pricepoint}</span> 
                         <br />
-                        <span id="review">Word on the Street: This is the spot!</span>
+                        <span id="recentreview">Word on the Street: {recentreview}</span>
                     </div>
                 </div>
             </div>

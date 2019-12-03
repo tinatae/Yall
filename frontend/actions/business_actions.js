@@ -5,7 +5,7 @@ export const RECEIVE_BUSINESS = 'RECEIVE_BUSINESS';
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 export const DELETE_REVIEW = 'DELETE_REVIEW';
 
-export const receiveBusinesses = businesses => ({
+export const receiveBusinesses = (businesses) => ({
     type: RECEIVE_BUSINESSES,
     businesses,
 });
