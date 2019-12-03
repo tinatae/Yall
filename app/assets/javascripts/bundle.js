@@ -1565,9 +1565,13 @@ var BusinessProfile = function BusinessProfile(_ref) {
     id: "bizname"
   }, business.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizrating"
-  }, business.average_rating || 'No reviews yet. Be the first to write one!'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, business.average_rating || 'No reviews yet. Be the first to write one!'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "bizreviewcount"
+  }, business.reviewcount), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizpricepoint"
-  }, business.dollarmaker), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, business.dollarmaker), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "bullet"
+  }, "\u2022"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizcategory"
   }, business.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-map-and-info"
@@ -1755,7 +1759,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ReviewForm).call(this, props));
     _this.state = {
-      rating: 5,
+      rating: '',
       body: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -1766,14 +1770,14 @@ function (_React$Component) {
   _createClass(ReviewForm, [{
     key: "navigateToBusinessShow",
     value: function navigateToBusinessShow() {
-      var url = "/businesses/".concat(this.props.match.params.businessId);
+      var url = "/businesses/".concat(this.props.businessId);
       this.props.history.push(url);
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var businessId = parseInt(this.props.match.params.businessId);
+      var businessId = this.props.businessId;
       var review = Object.assign({}, this.state, {
         business_id: businessId
       });
@@ -1792,19 +1796,43 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      var name = this.props.business.name;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "review-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        id: "bizname"
+      }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Rating", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "number",
-        value: this.state.rating,
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Select your rating"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u2605", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        value: "1",
         onChange: this.update('rating')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Thoughtful Comment", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u2605", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        value: "2",
+        onChange: this.update('rating')
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u2605", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        value: "3",
+        onChange: this.update('rating')
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u2605", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        value: "4",
+        onChange: this.update('rating')
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u2605", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        value: "5",
+        onChange: this.update('rating')
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.navigateToSearch
+      }, "I'll do this later!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Thoughtful Comment", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "textarea",
+        placeholder: "Your review helps other learn about great local businesses. Please don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees",
         value: this.state.body,
         onChange: this.update('body')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
-        value: "Off it goes!"
+        value: "Post Review"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.navigateToBusinessShow
       }, "Cancel"));
@@ -1829,21 +1857,33 @@ function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
-/* harmony import */ var _review_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./review_form */ "./frontend/components/business_show/review_form.jsx");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var _review_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./review_form */ "./frontend/components/business_show/review_form.jsx");
 
 
 
+
+
+var mSTP = function mSTP(state, _ref) {
+  var match = _ref.match;
+  var businessId = parseInt(match.params.businessId);
+  var business = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_1__["selectBusiness"])(state.entities, businessId);
+  return {
+    businessId: businessId,
+    business: business
+  };
+};
 
 var mDTP = function mDTP(dispatch) {
   return {
     createReview: function createReview(review) {
-      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["createReview"])(review));
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["createReview"])(review));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, mDTP)(_review_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_review_form__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -1865,13 +1905,13 @@ __webpack_require__.r(__webpack_exports__);
 var Review = function Review(_ref) {
   var review = _ref.review,
       author = _ref.author;
-  var rating = review.rating,
+  var starmaker = review.starmaker,
       body = review.body;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "reviews"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "rating"
-  }, "Rating: ", rating), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, "Rating: ", starmaker), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "comment"
   }, body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "username"
@@ -2278,18 +2318,55 @@ var FilterForm = function FilterForm(_ref) {
   var minPricepoint = _ref.minPricepoint,
       maxPricepoint = _ref.maxPricepoint,
       updateFilter = _ref.updateFilter;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Let's sort this shall we. Filter Results:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Min Pricepoint", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "number",
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Let's sort this shall we. Filter Results:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Min Pricepoint"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "Min Pricepoint",
     value: minPricepoint,
     onChange: handleChange('minPricepoint', updateFilter)
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Max Pricepoint", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "number",
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    selected: true,
+    disabled: true,
+    value: ""
+  }, "- Min Pricepoint -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "1"
+  }, "$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "2"
+  }, "$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "3"
+  }, "$$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "4"
+  }, "$$$$"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Max Pricepoint"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "Max Pricepoint",
     value: maxPricepoint,
     onChange: handleChange('maxPricepoint', updateFilter)
-  })));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    selected: true,
+    disabled: true,
+    value: ""
+  }, "- Max Pricepoint -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "1"
+  }, "$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "2"
+  }, "$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "3"
+  }, "$$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "4"
+  }, "$$$$"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (FilterForm);
+{
+  /* <label id="createbizpricepoint">
+     <span>Pricepoint</span>
+     <br />
+     <select name="Pricepoint" value={pricepoint} onChange={this.update('pricepoint')}>
+         <option selected disabled value="">- Pricepoint ($) -</option>
+         <option value="1">$</option>
+         <option value="2">$$</option>
+         <option value="3">$$$</option>
+         <option value="4">$$$$</option>
+     </select>
+  </label> */
+}
 
 /***/ }),
 

@@ -1,4 +1,4 @@
-json.extract! review, :id, :body, :rating, :business_id, :author_id
+json.extract! review, :id, :body, :rating, :business_id, :author_id, :starmaker
 
 
 

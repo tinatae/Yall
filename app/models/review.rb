@@ -20,4 +20,8 @@ class Review < ApplicationRecord
     belongs_to :author,
     class_name: :User
 
+    def starmaker
+        ("★")*self.rating 
+    end
+
 end

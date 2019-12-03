@@ -94,15 +94,7 @@ class Business < ApplicationRecord
     end
 
     def dollarmaker
-        if self.pricepoint == 4
-            return "$$$$"
-        elsif self.pricepoint == 3
-            return "$$$"
-        elsif self.pricepoint == 2
-            return "$$"
-        else
-            "$"
-        end
+        "$"*self.pricepoint
     end
 
     def recentreview

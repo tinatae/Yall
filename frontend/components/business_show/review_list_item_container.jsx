@@ -2,10 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 const Review = ({ review, author }) => {
-    const { rating, body } = review;
+    const { starmaker, body } = review;
     return (
         <div className="reviews">
-            <span id="rating">Rating: {rating}</span>
+            <span id="rating">Rating: {starmaker}</span>
             <br/>
             <span id="comment">{body}</span>
             <br />

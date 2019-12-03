@@ -31,9 +31,10 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
                 <span id="bizname">{business.name}</span>
                 <br/>
                 <span id="bizrating">{business.average_rating || 'No reviews yet. Be the first to write one!'}</span>
+                <span id="bizreviewcount">{business.reviewcount}</span>
                 <br/>
                 <span id="bizpricepoint">{business.dollarmaker}</span>
-                <br/>
+                <span id="bullet">•</span>
                 <span id="bizcategory">{business.category}</span>
                 <br/>
             </div>
