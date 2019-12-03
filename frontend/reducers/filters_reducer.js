@@ -3,7 +3,8 @@ import { UPDATE_FILTER } from '../actions/filter_actions';
 const defaultFilters = Object.freeze({
     bounds: {},
     minPricepoint: 1,
-    maxPricepoint: 4
+    maxPricepoint: 4,
+    filterCategory: "All",
 });
 
 const filtersReducer = (state = defaultFilters, action) => {

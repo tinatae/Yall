@@ -3,7 +3,7 @@ import BusinessMap from '../business_map/business_map';
 import BusinessIndex from './business_index';
 import FilterForm from './filter_form';
 
-const Search = ({ businesses, minPricepoint, maxPricepoint, updateFilter }) => (
+const Search = ({ businesses, minPricepoint, maxPricepoint, filterCategory, updateFilter }) => (
     <div className="indexpage">
         <div className="indexpage-filters">
             <h3>What are you Looking For?</h3>
@@ -11,6 +11,7 @@ const Search = ({ businesses, minPricepoint, maxPricepoint, updateFilter }) => (
                     minPricepoint={minPricepoint}
                     maxPricepoint={maxPricepoint}
                     updateFilter={updateFilter}
+                    filterCategory={filterCategory}
                 />
         </div>
         <div className="indexpage-grid">

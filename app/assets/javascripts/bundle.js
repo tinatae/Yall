@@ -2308,20 +2308,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
-var handleChange = function handleChange(filter, updateFilter) {
+var handlePricepointChange = function handlePricepointChange(filter, updateFilter) {
   return function (e) {
     return updateFilter(filter, parseInt(e.currentTarget.value));
+  };
+};
+
+var handleCategoryChange = function handleCategoryChange(filter, updateFilter) {
+  return function (e) {
+    return updateFilter(filter, e.currentTarget.value);
   };
 };
 
 var FilterForm = function FilterForm(_ref) {
   var minPricepoint = _ref.minPricepoint,
       maxPricepoint = _ref.maxPricepoint,
+      filterCategory = _ref.filterCategory,
       updateFilter = _ref.updateFilter;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Let's sort this shall we. Filter Results:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Min Pricepoint"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     name: "Min Pricepoint",
     value: minPricepoint,
-    onChange: handleChange('minPricepoint', updateFilter)
+    onChange: handlePricepointChange('minPricepoint', updateFilter)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     selected: true,
     disabled: true,
@@ -2337,7 +2344,7 @@ var FilterForm = function FilterForm(_ref) {
   }, "$$$$"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Max Pricepoint"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     name: "Max Pricepoint",
     value: maxPricepoint,
-    onChange: handleChange('maxPricepoint', updateFilter)
+    onChange: handlePricepointChange('maxPricepoint', updateFilter)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     selected: true,
     disabled: true,
@@ -2350,7 +2357,19 @@ var FilterForm = function FilterForm(_ref) {
     value: "3"
   }, "$$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "4"
-  }, "$$$$"))));
+  }, "$$$$"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Category"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "Category",
+    value: filterCategory,
+    onChange: handleCategoryChange('filterCategory', updateFilter)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "All"
+  }, "Showing All"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Restaurants"
+  }, "Restaurants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Coffee & Tea"
+  }, "Coffee & Tea"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Bars"
+  }, "Bars"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (FilterForm);
@@ -2393,6 +2412,7 @@ var Search = function Search(_ref) {
   var businesses = _ref.businesses,
       minPricepoint = _ref.minPricepoint,
       maxPricepoint = _ref.maxPricepoint,
+      filterCategory = _ref.filterCategory,
       updateFilter = _ref.updateFilter;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "indexpage"
@@ -2401,7 +2421,8 @@ var Search = function Search(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "What are you Looking For?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_form__WEBPACK_IMPORTED_MODULE_3__["default"], {
     minPricepoint: minPricepoint,
     maxPricepoint: maxPricepoint,
-    updateFilter: updateFilter
+    updateFilter: updateFilter,
+    filterCategory: filterCategory
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "indexpage-grid"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2444,7 +2465,8 @@ var mSTP = function mSTP(state, ownProps) {
   return {
     businesses: Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_3__["asArray"])(state.entities),
     minPricepoint: state.ui.filters.minPricepoint,
-    maxPricepoint: state.ui.filters.maxPricepoint
+    maxPricepoint: state.ui.filters.maxPricepoint,
+    filterCategory: state.ui.filters.filterCategory
   };
 };
 
@@ -2930,7 +2952,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var defaultFilters = Object.freeze({
   bounds: {},
   minPricepoint: 1,
-  maxPricepoint: 4
+  maxPricepoint: 4,
+  filterCategory: "All"
 });
 
 var filtersReducer = function filtersReducer() {

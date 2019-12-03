@@ -54,7 +54,7 @@ class Business < ApplicationRecord
     validates :satopen, :satclose, :satopenend, :satcloseend, presence: true
     validates :sunopen, :sunclose, :sunopenend, :suncloseend, presence: true  
     validates :name, uniqueness: true
-    validates :category, inclusion: {in: ["Restaurants", "Coffee & Tea", "Bars"]}, presence: true
+    validates :category, inclusion: {in: ["All", "Restaurants", "Coffee & Tea", "Bars"]}, presence: true
     validates :pricepoint, inclusion: { in: (1..4) }
     validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, inclusion: { in: (1..12) }
 

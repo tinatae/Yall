@@ -9,7 +9,7 @@ const mSTP = (state, ownProps) => ({
     businesses: asArray(state.entities),
     minPricepoint: state.ui.filters.minPricepoint,
     maxPricepoint: state.ui.filters.maxPricepoint,
-
+    filterCategory: state.ui.filters.filterCategory,
 });
 
 const mDTP = (dispatch) => ({

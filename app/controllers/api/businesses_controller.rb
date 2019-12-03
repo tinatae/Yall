@@ -8,6 +8,12 @@ class Api::BusinessesController < ApplicationController
       businesses = businesses.where(pricepoint: price_range)
     end
 
+    if params[:filterCategory] == "All"
+      businesses = businesses
+    else
+      businesses = businesses.where(category: params[:filterCategory]) 
+    end
+  
     @businesses = businesses.includes(:reviews)
     render :index
   end
@@ -24,7 +30,7 @@ class Api::BusinessesController < ApplicationController
   private
 
   def price_range
-      (params[:minPricepoint]..params[:maxPricepoint])
+    (params[:minPricepoint]..params[:maxPricepoint])
   end
 
   def business_params
