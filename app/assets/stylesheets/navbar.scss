@@ -1,22 +1,76 @@
-// .notlogged-nav {
-
+// .navbar {
+//     height: 50px;
 // }
 
-// .notlogged-left {
+.navbar .yallr-name {
+    text-align: left;
+    font-size: 50px;
+    font-family: Brush Script Std;
+    color: #C7FFFF;
+    font-weight: 100;
+    transform: rotateZ(-1deg);
+    margin-left: 50px;
+    position: static;
+    text-decoration: none;
+    // cursor: pointer;
+}
 
-// }
+.notlogged-nav {
+    display: grid;
+    text-align: center;
+    // background-color: #FF003C;
+    margin-top: 5px;
+}
 
-// .notlogged-right {
+.notlogged-left {
+    grid-column: 1;
+    // display: inline-block;
+    text-align: left;
+    margin-left: 20px;
+}
 
-// }
+.notlogged-right {
+    grid-column: 2;
+    // display: inline-block;
+    text-align: right;
+    margin-right: 8px;
 
-// .logged-nav {
+}
+
+.notlogged-right #navlink {
+    display: inline-block;
+    text-align: right;
+}
+
+.loggednav {
+    display: grid;
+    text-align: center;
+    margin-top: 5px; 
+}
+
+.loggednav-left {
+    grid-column: 1;
+    text-align: left;
+    margin-left: 20px;
     
-// }
+}
+.loggednav-right {
+    grid-column: 2;
+    text-align: right;
+    margin-left: 70%;
+}
 
-// .logged-nav-left {
-    
-// }
-// .logged-nav-right {
+.loggednav-right .greeting {
+    display: flex;
+    justify-content: right;
+    flex-wrap: nowrap;
+}
 
-// }
+.greeting #username {
+    margin-left: 5px;
+}
+
+.greeting button {
+    margin-left: 15px;
+
+}

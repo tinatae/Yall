@@ -2,6 +2,10 @@
 //    background-color: blue;
 // }
 
+.business-create-form input {
+    border-radius: 2%;
+}
+
 .business-create-bizinfo {
     padding: 30px;
     // font-weight: 300;
@@ -89,3 +93,13 @@
 // #createbizaddress2 {
 
 // }
+
+#business-create-button {
+    padding: 20px;
+    text-align: center;
+}
+
+#nevermind-button {
+    padding: 20px;
+
+}

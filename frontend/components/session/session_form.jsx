@@ -33,9 +33,8 @@ class SessionForm extends React.Component {
     render() {
         return (
             <div className="session-form">
-                <div>Thanks for joining us here today!</div>
-                <br/>
-                <div>Please {this.props.formType} below!</div>
+                <div id="thanks">Thanks for joining us here today!</div>
+                <div id="pleasethisthat">Please {this.props.formType} below!</div>
 
                 <form onSubmit={this.handleSubmit}>
                     <div className="session-form-info">
@@ -46,10 +45,12 @@ class SessionForm extends React.Component {
                             <input id="password" type="text" value={this.state.password} onChange={this.update('password')} />
                         </label>
                     </div>
+                    <div className="session-form-button">
                         <input type="submit" value={this.props.formType} />
+                    </div>
                     <div>
-                        ~ Or ~ 
-                        {this.props.navLink}
+                        <div id="or">~ Or ~</div> 
+                        <div className="alt-session-form-button">{this.props.navLink}</div>
                         {this.renderErrors()}
                     </div>
                 </form>

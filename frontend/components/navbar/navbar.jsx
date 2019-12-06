@@ -5,11 +5,6 @@ export default ({ currentUser, logout }) => {
     const display = currentUser ? (
         <div className="loggednav">
             <div className="loggednav-left">
-                <Link to="/businesses">
-                    <button>
-                        <div>y allr</div>
-                    </button>
-                </Link>
                 <Link to="/businesses/new">
                     <button>
                         <div>Add Your Business</div>
@@ -19,23 +14,18 @@ export default ({ currentUser, logout }) => {
 
             <div className="loggednav-right">
                 <div className="greeting">
-                    <span id="hello">Hello, </span>
-                    <span id="username">{currentUser.username}</span>
-                </div>
-                <div>
-                    <button onClick={logout}>Log Out</button>
+                    <div id="hello">Hello, </div>
+                    <div id="username"> {currentUser.username}</div>
+                   
+                        <button onClick={logout}>Log Out</button>
+                  
                 </div>
             </div>
         </div >
     ) : (
         <div className="notlogged-nav">
             <div className="notlogged-left">
-                <Link to ="/businesses">
-                    <button>
-                        <div>y allr</div>
-                    </button>
-                </Link>
-                <Link to="/businesses">
+                <Link to="/businesses/new">
                     <button>
                         <div>Add Your Business</div>
                     </button>
@@ -43,14 +33,14 @@ export default ({ currentUser, logout }) => {
             </div>
 
             <div className="notlogged-right">
-                <div>
+                <div id="navlink">
                     <Link to="/login">
                         <button>
                             Log In
                         </button>
                     </Link>
                 </div>
-                <div>
+                <div id="navlink">
                     <Link to="/signup">
                         <button>
                             Sign Up
@@ -63,7 +53,12 @@ export default ({ currentUser, logout }) => {
 
     return (
         <header>
-            <div>{display}</div>
+            <div className="navbar">
+                <Link to="/businesses">
+                    <div className="yallr-name">y allr</div>
+                </Link>
+                {display}
+            </div>
         </header>
     );
 };

@@ -34,10 +34,15 @@ class ReviewForm extends React.Component {
 
         return (
             <div className="review-form">
+           
+                     
+                <button onClick={this.navigateToSearch}>Actually, I'd like to do this later!</button>
+                     
+                 
                 <h2 id="bizname">{name}</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <span>Select your rating</span>
+                        <span>Select your rating: </span>
                         <label>★
                             <input type="radio" value="1" onChange={this.update('rating')} />
                         </label>
@@ -54,16 +59,14 @@ class ReviewForm extends React.Component {
                             <input type="radio" value="5" onChange={this.update('rating')} />
                         </label>
                     </div>
-                        <br/>
-                     
-                        <button onClick={this.navigateToSearch}>I'll do this later!</button>
-                     
-                        <br/>
 
+                      <br/>
+                    <div id="comment-holder">
                         <label>Thoughtful Comment
-                            <input type="textarea" className="comment" placeholder="Your review helps other learn about great local businesses. Please don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees" value={this.state.body} onChange={this.update('body')} />
+                            <br/>
+                            <input type="textarea" id="comment" placeholder="Your review helps other learn about great local businesses. Please use your best, unbiased judgement when commenting on this business." value={this.state.body} onChange={this.update('body')} />
                         </label>
-                        <br/>
+                    </div>
             
                     <input type="submit" value="Post Review" />
                     {/* <input type="submit" value="Off it goes!" /> */}

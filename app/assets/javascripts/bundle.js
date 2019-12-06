@@ -326,7 +326,7 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
     className: "main-header"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "y allr"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
     exact: true,
     path: "/login",
     component: _session_login_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
@@ -1285,10 +1285,14 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Image Preview"), preview, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Add a Picture"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         onChange: this.handleFile.bind(this)
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "business-create-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "Create Newest Spot In Town!"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "nevermind-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.navigateToSearch
       }, "I'll do this later!")));
     }
@@ -1800,11 +1804,13 @@ function (_React$Component) {
       var name = this.props.business.name;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.navigateToSearch
+      }, "Actually, I'd like to do this later!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         id: "bizname"
       }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Select your rating"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u2605", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Select your rating: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u2605", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         value: "1",
         onChange: this.update('rating')
@@ -1824,15 +1830,15 @@ function (_React$Component) {
         type: "radio",
         value: "5",
         onChange: this.update('rating')
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.navigateToSearch
-      }, "I'll do this later!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Thoughtful Comment", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "comment-holder"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Thoughtful Comment", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "textarea",
-        className: "comment",
-        placeholder: "Your review helps other learn about great local businesses. Please don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees",
+        id: "comment",
+        placeholder: "Your review helps other learn about great local businesses. Please use your best, unbiased judgement when commenting on this business.",
         value: this.state.body,
         onChange: this.update('body')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "Post Review"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -2070,35 +2076,41 @@ __webpack_require__.r(__webpack_exports__);
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav-left"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/businesses"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "y allr"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/businesses/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Add Your Business")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav-right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "greeting"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "hello"
-  }, "Hello, "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, "Hello, "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "username"
-  }, currentUser.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, " ", currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: logout
   }, "Log Out")))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-nav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-left"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/businesses"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "y allr"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/businesses"
+    to: "/businesses/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Add Your Business")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-right"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "navlink"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/login"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Log In"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Log In"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "navlink"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/signup"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Sign Up")))));
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, display));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "navbar"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/businesses"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "yallr-name"
+  }, "y allr")), display));
 });
 
 /***/ }),
@@ -2287,7 +2299,10 @@ function (_React$Component) {
           dollarmaker = _this$props$business.dollarmaker,
           photoUrls = _this$props$business.photoUrls,
           recentreview = _this$props$business.recentreview,
-          reviewcount = _this$props$business.reviewcount; // const reviewCount = reviewIds.length
+          reviewcount = _this$props$business.reviewcount,
+          phonenumber = _this$props$business.phonenumber,
+          address1 = _this$props$business.address1,
+          address2 = _this$props$business.address2; // const reviewCount = reviewIds.length
       // if (reviewIds !== null) {
       //     const { review } = this.props.business.reviews[Object.keys(this.props.business.reviews).length - 1];  
       // };
@@ -2301,23 +2316,33 @@ function (_React$Component) {
         src: photoUrls[0]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "index-item-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "index-item-info-grid"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "name"
-      }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "rating-block"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "rating"
       }, average_rating || 'No Reviews Yet'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "reviewcount"
-      }, reviewcount), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, reviewcount)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pricepoint-block"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "pricepoint"
       }, dollarmaker), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "bullet"
       }, "\u2022"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "category"
-      }, category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, category))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, phonenumber), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, address2))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "recentreview"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "werd"
-      }, "Word on the Street:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, recentreview || 'No Reviews Yet')))));
+      }, "Word on the Street:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, recentreview || 'No Reviews Yet')))));
     }
   }]);
 
@@ -2755,10 +2780,10 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   return {
     errors: state.errors.session,
-    formType: 'login',
+    formType: 'Log In',
     navLink: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
       to: "/signup"
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", null, "sign up here instead!"))
+    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", null, "Sign-up here instead!"))
   };
 };
 
@@ -2857,7 +2882,11 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thanks for joining us here today!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Please ", this.props.formType, " below!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "thanks"
+      }, "Thanks for joining us here today!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pleasethisthat"
+      }, "Please ", this.props.formType, " below!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session-form-info"
@@ -2875,10 +2904,16 @@ function (_React$Component) {
         type: "text",
         value: this.state.password,
         onChange: this.update('password')
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "session-form-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: this.props.formType
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "~ Or ~", this.props.navLink, this.renderErrors())));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "or"
+      }, "~ Or ~"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "alt-session-form-button"
+      }, this.props.navLink), this.renderErrors())));
     }
   }]);
 
@@ -2914,10 +2949,10 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   return {
     errors: state.errors.session,
-    formType: 'signup',
+    formType: 'Sign Up',
     navLink: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
       to: "/login"
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", null, "log-in here instead!"))
+    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", null, "Log-in here instead!"))
   };
 };
 

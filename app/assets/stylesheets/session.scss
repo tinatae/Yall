@@ -1,5 +1,15 @@
 .session-form {
     display: grid;
+    font-family: Brush Script Std;
+}
+
+#thanks {
+    margin-top: 20px;
+}
+
+#pleasethisthat {
+    margin-top: 20px;
+    font-size: 43px;
 }
 
 .session-form div {
@@ -16,3 +26,26 @@
     font-size: 40px;
     font-weight: 100;
 }
+
+.session-form-info label {
+    color: #0E87FF;
+}
+
+.session-form-info input {
+    margin-left: 5px;
+    border-radius: 8%;
+}
+
+.session-form-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#or {
+    margin-top: 10px;
+}
+
+// .alt-session-form-button {
+//     color: red;
+// }

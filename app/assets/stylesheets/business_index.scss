@@ -11,6 +11,12 @@
     position: relative;
 }
 
+.indexpage-filters:after {          
+    content: "";       
+    display: block;    
+    clear: both;
+}
+
 .indexpage-grid {
     display: grid;
 }
@@ -24,8 +30,6 @@
     grid-column: 2;
     padding: 18px;
     right: 2%;
-    // top: 35%;
-    top: 45%;
     z-index: 3;
     position: fixed;
     font-family: Brush Script Std;
@@ -54,6 +58,37 @@
     line-height: 1.28571 em;
 }
 
+.index-item-info-grid {
+    display: grid;
+    width: 100%;
+}
+
+.index-item-info-grid .col1 {
+    grid-column: 1;
+    text-align: left; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#rating-block {
+    display: inline-block;
+}
+
+#pricepoint-block {
+    display: inline-block;
+}
+
+.index-item-info-grid .col2 {
+    font-size: 14px;
+    grid-column: 2;
+    text-align: right; 
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
 .index-item-info #name {
     color: #0073bb;
     font-size: 16;
@@ -80,6 +115,7 @@
 #recentreview {
     font-size: 14px;
     margin-top: 15px;
+    // width: 100%;
 }
 
 #werd {

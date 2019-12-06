@@ -540,12 +540,12 @@ class BusinessForm extends React.Component {
                     </div>
 
                         <hr/>
-                    <div>
+                    <div id="business-create-button">
                         <input type="submit" value="Create Newest Spot In Town!"/>
                     </div>
 
                 </form>
-                    <div>
+                    <div id="nevermind-button">
                         <button onClick={this.navigateToSearch}>I'll do this later!</button>
                     </div>
             </div>
