@@ -1,5 +1,6 @@
 import React from 'react';
 import BusinessIndexItem from './business_index_item';
+// import {withRouter} from 'react-router-dom';
 
 const BusinessIndex = ({ businesses }) => (
         <div>
@@ -7,11 +8,12 @@ const BusinessIndex = ({ businesses }) => (
       
             {businesses.map(business => (
                 <BusinessIndexItem
+                    // searchQuery={searchQuery}
+                    // updateFilter={updateFilter}
                     business={business}
                     key={business.id}
                     // selectReviewsForBusiness={selectReviewsForBusiness}
-                    // businesses={businesses}
-               
+                    // businesses={businesses}      
                 />
             ))}
         </div>

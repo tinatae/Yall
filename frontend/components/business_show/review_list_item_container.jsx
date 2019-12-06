@@ -5,7 +5,7 @@ const Review = ({ review, author }) => {
     const { starmaker, body } = review;
     return (
         <div className="reviews">
-            <span id="rating">Rating: {starmaker}</span>
+            <span id="rating">Rating:</span><span id="stars">{starmaker}</span>
             <br/>
             <span id="comment">{body}</span>
             <br />

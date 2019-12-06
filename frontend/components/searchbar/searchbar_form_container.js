@@ -9,18 +9,18 @@ import { fetchBusinesses } from '../../actions/business_actions';
 import { withRouter } from 'react-router-dom';
 
 import { asArray } from '../../reducers/selectors';
-import { updateFilter } from '../../actions/filter_actions';
+import { updateFilter, changeFilter } from '../../actions/filter_actions';
 
-const mSTP = (state, { location }) => {
+
+const mSTP = (state) => {
     return {
-        businesses: Object.values(state.entities.businesses),
-        // businesses: asArray(state.entities)
+        searchQuery: state.ui.filters.searchQuery
     }
 };
 
 const mDTP = dispatch => ({
-    fetchBusinesses: (filters) => dispatch(fetchBusinesses(filters)),
-    updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
+    updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
+    changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
 });
 
 

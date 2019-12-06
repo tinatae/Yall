@@ -1,10 +1,12 @@
 import { UPDATE_FILTER } from '../actions/filter_actions';
 
 const defaultFilters = Object.freeze({
+    searchQuery: "",
     bounds: {},
     minPricepoint: 1,
     maxPricepoint: 4,
     filterCategory: "All",
+    filterRating: null,
 });
 
 const filtersReducer = (state = defaultFilters, action) => {

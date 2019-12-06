@@ -58,9 +58,25 @@ class Business < ApplicationRecord
     validates :pricepoint, inclusion: { in: (1..4) }
     validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, inclusion: { in: (1..12) }
 
+    # scope :named, -> (name) {where("name LIKE ?", "name")}
+    # scope :categorized, -> (category) {where("category LIKE ?", category)}
+    # scope :rated, -> {order(:average_rating, :desc)}
+
     has_many :reviews
 
     has_many_attached :photos
+
+    # def named(name)
+    #     where("name LIKE ?", name)
+    # end
+
+    # def categorized(category)
+    #     where("category LIKE ?", category)
+    # end
+
+    # def rated(average_rating)
+    #     order(average_rating)
+    # end
 
     def self.in_bounds(bounds)
         self.where("lat < ?", bounds[:northEast][:lat])
@@ -71,6 +87,7 @@ class Business < ApplicationRecord
 
     def average_rating
         avgrev = reviews.average(:rating)
+        return "No reviews yet!" if avgrev == 0 || avgrev.nil?
         if (avgrev%1) == 0
             return ("★")*(avgrev)
         elsif (avgrev%1) >= 0.95
@@ -98,10 +115,12 @@ class Business < ApplicationRecord
     end
 
     def recentreview
+        return 'No reviews yet!' if self.reviews.length == 0
         self.reviews[-1].body
     end
 
     def reviewcount
+        return 'No reviews' if self.reviews.nil?
         if self.reviews.length == 1
             return "1 review"
         else

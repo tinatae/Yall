@@ -2,19 +2,46 @@ class Api::BusinessesController < ApplicationController
   before_action :require_login, only: [:create]
   
   def index
+    # if params[:searchQuery]
+      # @businesses = businesses.starts_with(params[:starts_with]) if params[:starts_with].present?
+
+      # @businesses = businesses.where("name like ?", "%:searchQuery%")
+ 
+      # businesses = Business.all.where("name like ?", '%White%')
+      # businesses = Business.all.where("name like ?", params[:searchQuery])
+      # @name = params[:searchQuery]
+      # businesses = Business.named(@name)
+  
+# -------
     businesses = bounds ? Business.in_bounds(bounds) : Business.all
+
+    # # businesses = businesses.where("name LIKE '%Sweet%'")
  
     if params[:minPricepoint] && params[:maxPricepoint]
       businesses = businesses.where(pricepoint: price_range)
     end
+
+    # @category = params[:filterCategory]
+    # businesses = businesses.categorized(@category)
 
     if params[:filterCategory] == "All"
       businesses = businesses
     else
       businesses = businesses.where(category: params[:filterCategory]) 
     end
-  
+# ------
+    # @average_rating = params[:average_rating]
+    # businesses = businesses.rated(@average_rating)
+
+    # unless !params[:filterRating]
+
+    #   @businesses = businesses.sort {|business| business.average_rating}
+    # # else
+    # #   @businesses = businesses.includes(:reviews)
+    # end
+  # ------
     @businesses = businesses.includes(:reviews)
+
     render :index
   end
 

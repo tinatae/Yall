@@ -13,10 +13,8 @@ class Homepage extends React.Component {
         // const {benches} = this.state;
 
         return (
-            <div>
-                <h2>Hello</h2>
+            <div className="homepage">
                 <SearchbarFormContainer />
-                {/* // benches={benches} /> */}
             </div>
         )
     }

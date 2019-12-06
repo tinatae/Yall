@@ -24,7 +24,8 @@
     grid-column: 2;
     padding: 18px;
     right: 2%;
-    top: 35%;
+    // top: 35%;
+    top: 45%;
     z-index: 3;
     position: fixed;
     font-family: Brush Script Std;
@@ -73,5 +74,16 @@
 .index-item-info #reviewcount {
     color: #666666;
     line-height: 1.28571em;
-    margin-left: 5px;
+    margin-left: 8px;
+}
+
+#recentreview {
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+#werd {
+    font-weight: 500;
+    margin-bottom: 10px;
+
 }

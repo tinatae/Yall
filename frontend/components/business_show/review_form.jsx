@@ -61,8 +61,9 @@ class ReviewForm extends React.Component {
                         <br/>
 
                         <label>Thoughtful Comment
-                            <input type="textarea" placeholder="Your review helps other learn about great local businesses. Please don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees" value={this.state.body} onChange={this.update('body')} />
+                            <input type="textarea" className="comment" placeholder="Your review helps other learn about great local businesses. Please don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees" value={this.state.body} onChange={this.update('body')} />
                         </label>
+                        <br/>
             
                     <input type="submit" value="Post Review" />
                     {/* <input type="submit" value="Off it goes!" /> */}

@@ -8,12 +8,16 @@ const handleCategoryChange = (filter, updateFilter) => e => (
     updateFilter(filter, e.currentTarget.value)
 );
 
-const FilterForm =({ minPricepoint, maxPricepoint, filterCategory, updateFilter }) => (
+const handleRatingChange = (filter, updateFilter) => e => (
+    updateFilter(filter, e.currentTarget.value)
+)
+
+const FilterForm =({ searchQuery, minPricepoint, maxPricepoint, filterCategory, filterRating, updateFilter }) => (
     <div>
         <span>Let's sort this shall we. Filter Results:</span> 
         <br/>
         <label>
-            <span>Min Pricepoint</span>
+            <span>Min Pricepoint </span>
             <select name="Min Pricepoint" value={minPricepoint} onChange={handlePricepointChange('minPricepoint', updateFilter)}>
                 <option selected disabled value="">- Min Pricepoint -</option>
                 <option value="1">$</option>
@@ -23,7 +27,7 @@ const FilterForm =({ minPricepoint, maxPricepoint, filterCategory, updateFilter 
             </select>
         </label>
         <label>
-            <span>Max Pricepoint</span>
+            <span> Max Pricepoint </span>
             <select name="Max Pricepoint" value={maxPricepoint} onChange={handlePricepointChange('maxPricepoint', updateFilter)}>
                 <option selected disabled value="">- Max Pricepoint -</option>
                 <option value="1">$</option>
@@ -33,7 +37,7 @@ const FilterForm =({ minPricepoint, maxPricepoint, filterCategory, updateFilter 
             </select>
         </label>
         <label>
-            <span>Category</span>
+            <span> Category </span>
             <select name="Category" value={filterCategory} onChange={handleCategoryChange('filterCategory', updateFilter)}>
                 {/* <option selected disabled value="">- Category -</option> */}
                 <option value="All">Showing All</option>
@@ -42,11 +46,16 @@ const FilterForm =({ minPricepoint, maxPricepoint, filterCategory, updateFilter 
                 <option value="Bars">Bars</option>
             </select>
         </label>
+        <label>
+            <span> Rating </span>
+            <button value={filterRating} onClick={handleRatingChange('filterRating', updateFilter)}>Sort by Rating (h-l)</button>
+        </label>
     </div>
 
 );
 
 export default FilterForm;
+
 
 {/* <label id="createbizpricepoint">
     <span>Pricepoint</span>

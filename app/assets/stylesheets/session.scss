@@ -1,0 +1,18 @@
+.session-form {
+    display: grid;
+}
+
+.session-form div {
+    color: black;
+    font-size: 45px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.session-form-info {
+    color: black;
+    font-size: 40px;
+    font-weight: 100;
+}
