@@ -12,11 +12,11 @@ import { asArray } from '../../reducers/selectors';
 import { updateFilter, changeFilter } from '../../actions/filter_actions';
 
 
-const mSTP = (state) => {
-    return {
-        searchQuery: state.ui.filters.searchQuery
-    }
-};
+// const mSTP = (state) => {
+//     return {
+//         // searchQuery: state.ui.filters.searchQuery
+//     }
+// };
 
 const mDTP = dispatch => ({
     updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
@@ -24,4 +24,4 @@ const mDTP = dispatch => ({
 });
 
 
-export default withRouter(connect(mSTP, mDTP)(SearchbarForm));
+export default withRouter(connect(null, mDTP)(SearchbarForm));

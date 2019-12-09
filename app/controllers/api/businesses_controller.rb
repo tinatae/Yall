@@ -2,21 +2,13 @@ class Api::BusinessesController < ApplicationController
   before_action :require_login, only: [:create]
   
   def index
-# -------
-    businesses = bounds ? Business.in_bounds(bounds) : Business.all
+   if params[:searchQuery]
+      businesses = Business.where("name LIKE ?", "%" + params[:searchQuery] + "%").or(Business.where("category LIKE ?", "%" + params[:searchQuery] + "%" ))
+   end
 
-    businesses = businesses.where("name LIKE '%Sweet%'")
+    businesses = bounds ? businesses.in_bounds(bounds) : businesses
+    # businesses = bounds ? Business.in_bounds(bounds) : Business.all
 
-    
-      
-      # businesses = Business.all.where("name like ?", params[:searchQuery])
-   
-    # if params[:searchQuery]
-    #   @name = params[:searchQuery]
-    #   businesses = Business.named(@name)
-    # end
-    
- 
     if params[:minPricepoint] && params[:maxPricepoint]
       businesses = businesses.where(pricepoint: price_range)
     end
@@ -33,12 +25,9 @@ class Api::BusinessesController < ApplicationController
     # @average_rating = params[:average_rating]
     # businesses = businesses.rated(@average_rating)
 
-    # unless !params[:filterRating]
-
-    #   @businesses = businesses.sort {|business| business.average_rating}
-    # # else
-    # #   @businesses = businesses.includes(:reviews)
-    # end
+    if params[:filterRating]
+      businesses.order('average_rating desc')
+    end
   # ------
     @businesses = businesses.includes(:reviews)
 
@@ -49,6 +38,8 @@ class Api::BusinessesController < ApplicationController
     @business = Business.create!(business_params)
     render :show
   end
+
+
 
   def show
     @business = Business.with_attached_photos.find(params[:id])
@@ -79,3 +70,12 @@ end
 #  pricepoint  :integer          not null
 #  address1    :string           not null
 #  address2    :string           not null
+
+
+    # if params[:searchQuery] != ""
+    #   # @name = params[:searchQuery]
+    #   # businesses = Business.named(@name)
+    # end
+
+    # businesses = Business.all.where("name like ?", name)
+    

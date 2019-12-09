@@ -58,7 +58,7 @@ class Business < ApplicationRecord
     validates :pricepoint, inclusion: { in: (1..4) }
     validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, inclusion: { in: (1..12) }
 
-    scope :named, -> (name) {where("name LIKE ?", "name")}
+    scope :named, -> (name) {where("name LIKE ?", name)}
     # scope :categorized, -> (category) {where("category LIKE ?", category)}
     # scope :rated, -> {order(:average_rating, :desc)}
 

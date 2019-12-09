@@ -15,13 +15,14 @@ class Search extends React.Component {
     };
 
     componentDidMount() {
-        const query = new URLSearchParams(this.props.location.search).get("query");
-        if (query !== "") {
-            this.props.changeFilter(this.state.searchQuery, query);
-        };
+        // const query = new URLSearchParams(this.props.location.search).get("query");
+        // if (query !== "") {
+        //     this.setState({[this.state.searchQuery]: query});
+
+        //     this.props.updateFilter('searchQuery', Object.assign({}, this.state));
+        // };
         // return Object.assign({}, this.state)
-        console.log(this.state.searchQuery);   
-       
+        // console.log(this.state);   
     };
 
     render () {

@@ -2512,16 +2512,13 @@ function (_React$Component) {
 
   _createClass(Search, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      var query = new URLSearchParams(this.props.location.search).get("query");
-
-      if (query !== "") {
-        this.props.changeFilter(this.state.searchQuery, query);
-      }
-
-      ; // return Object.assign({}, this.state)
-
-      console.log(this.state.searchQuery);
+    value: function componentDidMount() {// const query = new URLSearchParams(this.props.location.search).get("query");
+      // if (query !== "") {
+      //     this.setState({[this.state.searchQuery]: query});
+      //     this.props.updateFilter('searchQuery', Object.assign({}, this.state));
+      // };
+      // return Object.assign({}, this.state)
+      // console.log(this.state);   
     }
   }, {
     key: "render",
@@ -2729,18 +2726,18 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault(); // const newState = Object.assign({}, this.state);
-      // this.props.changeFilter('searchQuery', newState.searchQuery)
+      e.preventDefault();
+      var filter = Object.assign({}, this.state); // console.log(this.state.searchQuery);
 
-      console.log(this.state);
+      this.props.changeFilter('searchQuery', this.state.searchQuery);
       this.props.history.push("/businesses?query=".concat(this.state.searchQuery));
     }
   }, {
     key: "render",
     value: function render() {
-      var searchQuery = this.props.searchQuery.searchQuery; // RETURNS CORRECT THING. DON'T CHANGE
+      // const { searchQuery } = this.props;         // RETURNS CORRECT THING. DON'T CHANGE
       // const { query } = this.state;               // RETURNS CORRECT THING. DON'T CHANGE
-
+      var searchQuery = this.state.searchQuery;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -2765,17 +2762,15 @@ function (_React$Component) {
 // import React from 'react';
 // import ReactDOM from 'react-dom';
 // import { withRouter, Link } from 'react-router-dom';
-// const handleQuery = (filter, updateFilter) => e => (
-//     updateFilter(filter, e.currentTarget.value)
+// const handleQuery = (filter, changeFilter) => e => (
+//     changeFilter(filter, e.currentTarget.value)
 // );
-// const update = (field) => e => {
-//     return e => {this.setState({ [field]: e.currentTarget.value })}
+// const update = (field) = e => {
+//     return e => this.setState({ [field]: e.currentTarget.value });
 // };
-// const SearchbarForm = ({ searchQuery, updateFilter, handleQuery, update}) => (
+// const SearchbarForm = ({ searchQuery, changeFilter}) => (
 //     <div>
-//         <span>Let's sort this shall we. Filter Results:</span>
-//         <br />
-//         <form onSubmit={this.handleQuery('searchQuery', updateFilter)}>
+//         <form onSubmit={this.handleQuery('searchQuery', changeFilter)}>
 //             <input type="text" placeholder="So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')}/>
 //             <input type="submit" value="Look Me Up!" />
 //         </form>
@@ -2815,13 +2810,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-var mSTP = function mSTP(state) {
-  return {
-    searchQuery: state.ui.filters.searchQuery
-  };
-};
+ // const mSTP = (state) => {
+//     return {
+//         // searchQuery: state.ui.filters.searchQuery
+//     }
+// };
 
 var mDTP = function mDTP(dispatch) {
   return {
@@ -2834,7 +2827,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_searchbar_form__WEBPACK_IMPORTED_MODULE_2__["default"])));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null, mDTP)(_searchbar_form__WEBPACK_IMPORTED_MODULE_2__["default"])));
 
 /***/ }),
 
