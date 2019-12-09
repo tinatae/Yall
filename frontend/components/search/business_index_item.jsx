@@ -8,15 +8,6 @@ class BusinessIndexItem extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     };
 
-    // componentDidMount() {
-    
-    //     const searchQuery = new URLSearchParams(location.search).get('searchQuery');
-
-    //     if (window.location.toString().indexOf("businesses") != -1) {
-    //         this.props.updateFilter('searchQuery', searchQuery)
-    //     };
-    // };
-
     handleClick() {
         const businessId = this.props.business.id;
         this.props.history.push(`/businesses/${businessId}`);
@@ -69,5 +60,3 @@ class BusinessIndexItem extends React.Component {
 };
 
 export default withRouter(BusinessIndexItem);
-
-{/* <span>Review: {reviews}</span> */}

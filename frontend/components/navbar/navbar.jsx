@@ -17,7 +17,7 @@ export default ({ currentUser, logout }) => {
                     <div id="hello">Hello, </div>
                     <div id="username"> {currentUser.username}</div>
                    
-                        <button onClick={logout}>Log Out</button>
+                        <button onClick={logout}>Log&nbsp;Out</button>
                   
                 </div>
             </div>
@@ -54,7 +54,7 @@ export default ({ currentUser, logout }) => {
     return (
         <header>
             <div className="navbar">
-                <Link to="/businesses">
+                <Link style={{textDecoration: 'none'}} to="/businesses">
                     <div className="yallr-name">y allr</div>
                 </Link>
                 {display}

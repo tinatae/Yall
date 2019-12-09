@@ -7,7 +7,7 @@ class SearchbarForm extends React.Component {
         super(props);
 
         this.state = {
-            searchQuery: "",
+            searchQuery: ""
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,34 +19,28 @@ class SearchbarForm extends React.Component {
     };
 
     update(field) {
-        return e => {this.setState({ [field]: e.currentTarget.value })}
+        return e => this.setState({ [field]: e.currentTarget.value });
     };
 
     handleSubmit(e) {
         e.preventDefault();
-
-        // this.props.updateFilter = (filter, updateFilter) => e => (
-        //     updateFilter(filter, parseInt(e.currentTarget.value))
-        // );
-   
-        console.log(this.state.searchQuery)
-        this.props.history.push(`/businesses?searchQuery=${this.state.searchQuery}`)
+        // const newState = Object.assign({}, this.state);
+        // this.props.changeFilter('searchQuery', newState.searchQuery)
+        console.log(this.state);
+           
+        this.props.history.push(`/businesses?query=${this.state.searchQuery}`)
     };
 
-   // handleQuery = (filter, updateFilter) => e => (
-   //     updateFilter(filter, e.currentTarget.value)
-   // );
- 
-
     render() {
-        const { searchQuery } = this.state.searchQuery;
-        // const {updateFilter} = this.props.updateFilter;
-        // const {changeFilter} = this.props.changeFilter;
+        const { searchQuery } = this.props.searchQuery;         // RETURNS CORRECT THING. DON'T CHANGE
+ 
+        // const { query } = this.state;               // RETURNS CORRECT THING. DON'T CHANGE
+
 
         return (
             <div>
                 <div>
-                    {/* <form onSubmit={this.updateFilter}> */}
+
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" placeholder="So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} />
 

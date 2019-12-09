@@ -2087,7 +2087,7 @@ __webpack_require__.r(__webpack_exports__);
     id: "username"
   }, " ", currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: logout
-  }, "Log Out")))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Log\xA0Out")))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-nav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-left"
@@ -2107,6 +2107,9 @@ __webpack_require__.r(__webpack_exports__);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navbar"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    style: {
+      textDecoration: 'none'
+    },
     to: "/businesses"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "yallr-name"
@@ -2203,15 +2206,15 @@ __webpack_require__.r(__webpack_exports__);
  // import {withRouter} from 'react-router-dom';
 
 var BusinessIndex = function BusinessIndex(_ref) {
-  var businesses = _ref.businesses;
+  var businesses = _ref.businesses,
+      searchQuery = _ref.searchQuery,
+      updateFilter = _ref.updateFilter;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "BEST IN TOWN"), businesses.map(function (business) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index_item__WEBPACK_IMPORTED_MODULE_1__["default"] // searchQuery={searchQuery}
-    // updateFilter={updateFilter}
-    , {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      searchQuery: searchQuery,
+      updateFilter: updateFilter,
       business: business,
-      key: business.id // selectReviewsForBusiness={selectReviewsForBusiness}
-      // businesses={businesses}      
-
+      key: business.id
     });
   }));
 };
@@ -2279,12 +2282,6 @@ function (_React$Component) {
 
   _createClass(BusinessIndexItem, [{
     key: "handleClick",
-    // componentDidMount() {
-    //     const searchQuery = new URLSearchParams(location.search).get('searchQuery');
-    //     if (window.location.toString().indexOf("businesses") != -1) {
-    //         this.props.updateFilter('searchQuery', searchQuery)
-    //     };
-    // };
     value: function handleClick() {
       var businessId = this.props.business.id;
       this.props.history.push("/businesses/".concat(businessId));
@@ -2351,9 +2348,6 @@ function (_React$Component) {
 
 ;
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(BusinessIndexItem));
-{
-  /* <span>Review: {reviews}</span> */
-}
 
 /***/ }),
 
@@ -2476,48 +2470,137 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _business_map_business_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../business_map/business_map */ "./frontend/components/business_map/business_map.jsx");
 /* harmony import */ var _business_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business_index */ "./frontend/components/search/business_index.jsx");
 /* harmony import */ var _filter_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filter_form */ "./frontend/components/search/filter_form.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
  // import { withRouter } from 'react-router-dom';
 
-var Search = function Search(_ref) {
-  var businesses = _ref.businesses,
-      minPricepoint = _ref.minPricepoint,
-      maxPricepoint = _ref.maxPricepoint,
-      filterCategory = _ref.filterCategory,
-      filterRating = _ref.filterRating,
-      updateFilter = _ref.updateFilter;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "indexpage"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "indexpage-filters"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "What are you Looking For?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_form__WEBPACK_IMPORTED_MODULE_3__["default"] // searchQuery={searchQuery}
-  , {
-    minPricepoint: minPricepoint,
-    maxPricepoint: maxPricepoint,
-    updateFilter: updateFilter,
-    filterCategory: filterCategory,
-    filterRating: filterRating
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "indexpage-grid"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "indexpage-businesses"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    businesses: businesses // updateFilter={updateFilter}
-    // searchQuery={searchQuery}
-    // selectReviewsForBusiness={selectReviewsForBusiness}
+var Search =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Search, _React$Component);
 
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "indexpage-map"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "So Where Are We Going!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map_business_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    businesses: businesses,
-    updateFilter: updateFilter,
-    singleBusiness: false
-  }))));
-};
+  function Search(props) {
+    var _this;
 
-/* harmony default export */ __webpack_exports__["default"] = (Search); // selectReviewsForBusiness
+    _classCallCheck(this, Search);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Search).call(this, props));
+    _this.state = {
+      searchQuery: ""
+    };
+    return _this;
+  }
+
+  _createClass(Search, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var query = new URLSearchParams(this.props.location.search).get("query");
+
+      if (query !== "") {
+        this.props.changeFilter(this.state.searchQuery, query);
+      }
+
+      ; // return Object.assign({}, this.state)
+
+      console.log(this.state.searchQuery);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          businesses = _this$props.businesses,
+          minPricepoint = _this$props.minPricepoint,
+          maxPricepoint = _this$props.maxPricepoint,
+          filterCategory = _this$props.filterCategory,
+          filterRating = _this$props.filterRating,
+          updateFilter = _this$props.updateFilter,
+          searchQuery = _this$props.searchQuery;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "indexpage"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "indexpage-filters"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "What are you Looking For?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_form__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        searchQuery: searchQuery,
+        minPricepoint: minPricepoint,
+        maxPricepoint: maxPricepoint,
+        updateFilter: updateFilter,
+        filterCategory: filterCategory,
+        filterRating: filterRating
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "indexpage-grid"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "indexpage-businesses"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        businesses: businesses,
+        updateFilter: updateFilter,
+        searchQuery: searchQuery // selectReviewsForBusiness={selectReviewsForBusiness}
+
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "indexpage-map"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "So Where Are We Going!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map_business_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        businesses: businesses,
+        updateFilter: updateFilter,
+        singleBusiness: false
+      }))));
+    }
+  }]);
+
+  return Search;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // const Search = ({ businesses, minPricepoint, maxPricepoint, filterCategory, filterRating, updateFilter, searchQuery }) => (
+//     <div className="indexpage">
+//         <div className="indexpage-filters">
+//             <h3>What are you Looking For?</h3>
+//                 <FilterForm 
+//                     // searchQuery={searchQuery}
+//                     minPricepoint={minPricepoint}
+//                     maxPricepoint={maxPricepoint}
+//                     updateFilter={updateFilter}
+//                     filterCategory={filterCategory}
+//                     filterRating={filterRating}
+//                 />
+//         </div>
+//         <div className="indexpage-grid">
+//             <div className="indexpage-businesses">
+//                 <BusinessIndex 
+//                 businesses={businesses}
+//                 updateFilter={updateFilter}
+//                 searchQuery={searchQuery}
+//                 // selectReviewsForBusiness={selectReviewsForBusiness}
+//                 />
+//             </div>
+//             <div className="indexpage-map">
+//                 <h2>So Where Are We Going!</h2>
+//                 <BusinessMap
+//                     businesses={businesses}
+//                     updateFilter={updateFilter}
+//                     singleBusiness={false}
+//                 />
+//             </div>
+//         </div>   
+//     </div>
+// );
+
+
+/* harmony default export */ __webpack_exports__["default"] = (Search);
 
 /***/ }),
 
@@ -2546,7 +2629,7 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, _ref) {
   var location = _ref.location;
   return {
-    // searchQuery: new URLSearchParams(location.search).get('searchQuery'),
+    searchQuery: state.ui.filters.searchQuery,
     businesses: Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__["asArray"])(state.entities),
     minPricepoint: state.ui.filters.minPricepoint,
     maxPricepoint: state.ui.filters.maxPricepoint,
@@ -2559,6 +2642,9 @@ var mDTP = function mDTP(dispatch) {
   return {
     updateFilter: function updateFilter(filter, value) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__["updateFilter"])(filter, value));
+    },
+    changeFilter: function changeFilter(filter, value) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__["changeFilter"])(filter, value));
     } //    fetchBusinesses: () => dispatch(fetchBusinesses())
     //    selectReviewsForBusiness: ({ businesses, reviews }, business) => dispatch(selectReviewsForBusiness({ businesses, reviews }, business))
 
@@ -2637,27 +2723,23 @@ function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
-        _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault(); // this.props.updateFilter = (filter, updateFilter) => e => (
-      //     updateFilter(filter, parseInt(e.currentTarget.value))
-      // );
+      e.preventDefault(); // const newState = Object.assign({}, this.state);
+      // this.props.changeFilter('searchQuery', newState.searchQuery)
 
-      console.log(this.state.searchQuery);
-      this.props.history.push("/businesses?searchQuery=".concat(this.state.searchQuery));
+      console.log(this.state);
+      this.props.history.push("/businesses?query=".concat(this.state.searchQuery));
     }
   }, {
     key: "render",
-    // handleQuery = (filter, updateFilter) => e => (
-    //     updateFilter(filter, e.currentTarget.value)
-    // );
     value: function render() {
-      var searchQuery = this.state.searchQuery.searchQuery; // const {updateFilter} = this.props.updateFilter;
-      // const {changeFilter} = this.props.changeFilter;
+      var searchQuery = this.props.searchQuery.searchQuery; // RETURNS CORRECT THING. DON'T CHANGE
+      // const { query } = this.state;               // RETURNS CORRECT THING. DON'T CHANGE
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit

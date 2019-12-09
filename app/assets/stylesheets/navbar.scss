@@ -16,24 +16,18 @@
 }
 
 .notlogged-nav {
-    display: grid;
-    text-align: center;
-    // background-color: #FF003C;
-    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px; 
+    padding: 10px;
 }
 
 .notlogged-left {
-    grid-column: 1;
-    // display: inline-block;
-    text-align: left;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .notlogged-right {
-    grid-column: 2;
-    // display: inline-block;
-    text-align: right;
-    margin-right: 8px;
+    margin-right: 15px;
 
 }
 
@@ -43,21 +37,17 @@
 }
 
 .loggednav {
-    display: grid;
-    text-align: center;
-    margin-top: 5px; 
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
 
 .loggednav-left {
-    grid-column: 1;
-    text-align: left;
-    margin-left: 20px;
+    margin-left: 15px;
     
 }
 .loggednav-right {
-    grid-column: 2;
-    text-align: right;
-    margin-left: 70%;
+    margin-right: 15px;
 }
 
 .loggednav-right .greeting {
