@@ -6,10 +6,19 @@
       <%= csp_meta_tag %>
       <%= stylesheet_link_tag 'application', media: 'all' %> 
       <%= javascript_include_tag 'application' %>
+
       <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:api_key] %>"></script>
+      
+
+      <script type="text/javascript">
+        window.home1URL = "<%= image_url('home1.jpg') %>";
+      </script>
+
   </head>
 
   <body>
     <%= yield %>
   </body>
 </html>
+
+

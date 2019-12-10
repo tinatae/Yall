@@ -24,12 +24,8 @@ class SearchbarForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
         const filter = Object.assign({}, this.state);
-        // console.log(this.state.searchQuery);
-        this.props.changeFilter('searchQuery', this.state.searchQuery)
-       
-
+        this.props.changeFilter('searchQuery', this.state.searchQuery);
            
         this.props.history.push(`/businesses?query=${this.state.searchQuery}`)
     };
@@ -42,12 +38,10 @@ class SearchbarForm extends React.Component {
 
 
         return (
-            <div>
+            <div className="searchbar-form">
                 <div>
-
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" placeholder="So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} />
-
+                        <input id="searchbar-input" type="text" placeholder="  Find  So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} />      
                         <input type="submit" value="Look Me Up!" />
                     </form>
                 </div>

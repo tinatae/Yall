@@ -10,10 +10,10 @@ class Homepage extends React.Component {
     };
 
     render() {
-        // const {benches} = this.state;
-
         return (
             <div className="homepage">
+                <img src={window.home1URL} className="background"/>
+                <br/>
                 <SearchbarFormContainer />
             </div>
         )
@@ -22,10 +22,12 @@ class Homepage extends React.Component {
 
 export default Homepage;
 
-// const Homepage = ({fetchBenches}) => (
-//     <div>
-//         <h2>Hello!</h2>
-//         <SearchBarForm 
-//         fetchBenches={fetchBenches} />
-//     </div>
-// );
+/* const Homepage = ({fetchBenches}) => (
+     <div>
+         <h2>Hello!</h2>
+         <SearchBarForm 
+         fetchBenches={fetchBenches} />
+     </div>
+); */
+
+      {/* <img className="background" src={window.home1} /> */}

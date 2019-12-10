@@ -13,6 +13,7 @@
     position: static;
     text-decoration: none;
     // cursor: pointer;
+    // background-color: #FF003C;
 }
 
 .notlogged-nav {
@@ -31,8 +32,8 @@
 
 }
 
-.notlogged-right #navlink {
-    display: inline-block;
+.notlogged-right {
+    display: inline-block; 
     text-align: right;
 }
 
@@ -64,3 +65,13 @@
     margin-left: 15px;
 
 }
+
+.notlogged-nav span {
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+// a > span {
+
+// }
