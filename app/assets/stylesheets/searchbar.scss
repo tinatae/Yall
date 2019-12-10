@@ -7,7 +7,25 @@
 
 #searchbar-input {
     width: 480px;
-    height: 45px;
-    border-radius: 5px;
+    height: 43px;
+    border-radius: 7px;
+    border: 2px solid white;
+}
 
+.everything-button {
+    margin-top: 20%;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.everything-button:hover {
+    background-color: #C7FFFF;
+    color: black;
+}
+
+button div {
+    padding: 5px;
+    font-family: Brush Script Std;
+    font-size: 18px;
 }

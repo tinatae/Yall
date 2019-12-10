@@ -1,15 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+
 // import SearchbarForm from '../searchbar/searchbar_form';
 
-export default ({ currentUser, logout }) => {
+export default ({ currentUser, logout, match: { path, isExact } }) => {
     const display = currentUser ? (
         <div className="loggednav">
             <div className="loggednav-left">
-                <Link to="/businesses/new">
-                    <button>
-                        <div>Add Your Business</div>
-                    </button>
+                <Link style={{textDecoration: 'none'}} to="/businesses/new">
+                    <span>Add Your Business</span>
                 </Link>
             </div>
 
@@ -17,7 +16,7 @@ export default ({ currentUser, logout }) => {
                 <div className="greeting">
                     <div id="hello">Hello, </div>
                     <div id="username"> {currentUser.username}</div>
-                    <button onClick={logout}>Log&nbsp;Out</button>              
+                    <button className="logout" onClick={logout}>Log&nbsp;Out</button>              
                 </div>
             </div>
         </div >
@@ -30,7 +29,7 @@ export default ({ currentUser, logout }) => {
             </div>
 
             <div className="notlogged-right">
-                <div id="navlink">
+           
                     <div id="navlink-login">
                         <Link style={{textDecoration: 'none'}} to="/login">              
                             <span>Log In</span>               
@@ -41,14 +40,21 @@ export default ({ currentUser, logout }) => {
                             <span>Sign Up</span>    
                         </Link>
                     </div>
-                </div>
+            
             </div>
         </div>
         );
 
+        const backgroundStyle = path === '/' && isExact === true
+            ? {backgroundColor: 'transparent'} : {backgroundColor: '#FF003C'}
+
+        const navbarStyles = {
+            ...backgroundStyle
+        }
+
     return (
         <header>
-            <div className="navbar">
+            <div style={navbarStyles} className="navbar">
                 <Link style={{textDecoration: 'none'}} to="/">
                     <div className="yallr-name">y allr</div>
                 </Link>
@@ -57,6 +63,3 @@ export default ({ currentUser, logout }) => {
         </header>
     );
 };
-
-  {/* <SearchbarForm 
-        changeFilter={changeFilter} /> */}

@@ -20,4 +20,4 @@ const mDTP = dispatch => ({
     // changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
 });
 
-export default (connect(mSTP, mDTP)(Navbar));
+export default withRouter(connect(mSTP, mDTP)(Navbar));

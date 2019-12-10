@@ -13,7 +13,6 @@ class Homepage extends React.Component {
         return (
             <div className="homepage">
                 <img src={window.home1URL} className="background"/>
-                <br/>
                 <SearchbarFormContainer />
             </div>
         )

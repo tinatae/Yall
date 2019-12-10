@@ -1993,7 +1993,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: window.home1URL,
         className: "background"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
   }]);
 
@@ -2073,19 +2073,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
  // import SearchbarForm from '../searchbar/searchbar_form';
 
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
   var currentUser = _ref.currentUser,
-      logout = _ref.logout;
+      logout = _ref.logout,
+      _ref$match = _ref.match,
+      path = _ref$match.path,
+      isExact = _ref$match.isExact;
   var display = currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav-left"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    style: {
+      textDecoration: 'none'
+    },
     to: "/businesses/new"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Add Your Business")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Your Business"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav-right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "greeting"
@@ -2094,6 +2106,7 @@ __webpack_require__.r(__webpack_exports__);
   }, "Hello, "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "username"
   }, " ", currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "logout",
     onClick: logout
   }, "Log\xA0Out")))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-nav"
@@ -2106,8 +2119,6 @@ __webpack_require__.r(__webpack_exports__);
     to: "/businesses/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Your Business"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-right"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "navlink"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "navlink-login"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -2122,8 +2133,17 @@ __webpack_require__.r(__webpack_exports__);
       textDecoration: 'none'
     },
     to: "/signup"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sign Up"))))));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sign Up")))));
+  var backgroundStyle = path === '/' && isExact === true ? {
+    backgroundColor: 'transparent'
+  } : {
+    backgroundColor: '#FF003C'
+  };
+
+  var navbarStyles = _objectSpread({}, backgroundStyle);
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: navbarStyles,
     className: "navbar"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     style: {
@@ -2134,10 +2154,6 @@ __webpack_require__.r(__webpack_exports__);
     className: "yallr-name"
   }, "y allr")), display));
 });
-{
-  /* <SearchbarForm 
-       changeFilter={changeFilter} /> */
-}
 
 /***/ }),
 
@@ -2180,7 +2196,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_navbar__WEBPACK_IMPORTED_MODULE_3__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_navbar__WEBPACK_IMPORTED_MODULE_3__["default"])));
 
 /***/ }),
 
@@ -2775,8 +2791,9 @@ function (_React$Component) {
         type: "submit",
         value: "Look Me Up!"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "everything-button",
         onClick: this.navigateToEverything
-      }, "Or just show me everything")));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Not Sure. What's Around ?"))));
     }
   }]);
 

@@ -27,14 +27,34 @@
     margin-left: 15px;
 }
 
-.notlogged-right {
-    margin-right: 15px;
-
+.notlogged-left span {
+    padding: 7px 24px 8px;
 }
 
 .notlogged-right {
-    display: inline-block; 
+    margin-right: 15px;
+}
+
+.notlogged-right {
+    display: flex; 
+    justify-content: space-between;
     text-align: right;
+}
+
+.notlogged-nav span {
+    color: white;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+#navlink-login {
+    padding: 9px 12px 8px;
+}
+
+#navlink-signup {
+    padding: 7px 24px 8px;
+    border: 2px solid white;
+    border-radius: 4px;
 }
 
 .loggednav {
@@ -45,8 +65,15 @@
 
 .loggednav-left {
     margin-left: 15px;
-    
+    padding: 7px 24px 8px;   
 }
+
+.loggednav-left span {
+    color: white;
+    font-weight: 800;
+    font-size: 14px;
+}
+
 .loggednav-right {
     margin-right: 15px;
 }
@@ -55,22 +82,30 @@
     display: flex;
     justify-content: right;
     flex-wrap: nowrap;
+    color: white;
+    font-weight: 800;
 }
 
 .greeting #username {
-    margin-left: 5px;
+    margin-left: 8px;
+    color: #C7FFFF;
 }
 
 .greeting button {
     margin-left: 15px;
-
 }
 
-.notlogged-nav span {
+.logout {
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+
+.logout:hover {
+    background-color: red;
     color: white;
-    font-weight: 700;
-    font-size: 14px;
 }
+
 
 // a > span {
 

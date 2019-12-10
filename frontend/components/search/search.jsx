@@ -10,8 +10,7 @@ class Search extends React.Component {
 
         this.state = {
             searchQuery: ""
-        }
-       
+        } 
     };
 
     componentDidMount() {

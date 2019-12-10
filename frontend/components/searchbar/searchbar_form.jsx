@@ -47,7 +47,7 @@ class SearchbarForm extends React.Component {
                 </div>
 
                 <div>
-                    <button onClick={this.navigateToEverything}>Or just show me everything</button>
+                    <button className="everything-button" onClick={this.navigateToEverything}><div>Not Sure. What's Around ?</div></button>
                 </div>
             </div>
         )
