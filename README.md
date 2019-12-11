@@ -13,22 +13,22 @@ Running:
 
 Functionalities: 
 
-Simple typed-input searchbar which queries database for business name, category
-Dropdown filters that sort queried (or unqueried) search results by pricepoint range, business category
-Map API with location markers
++ Simple typed-input searchbar which queries database for business name, category
++ Dropdown filters that sort queried (or unqueried) search results by pricepoint range, business category
++ Map API with location markers
 
-'Add Your Business' sign-up form
-'Leave a Review' business review form
++ 'Add Your Business' sign-up form
++ 'Leave a Review' business review form
 
-Login, Signup, Signout Functionality
++ Login, Signup, Signout Functionality
 
 Future add-ons:
 
-User Profiles
-Edit reviews (though from a business ethics persepctive, I'm split on this. If not Edit, definitely a Delete option.)
-Photo carousel
+- User Profiles
+- Edit reviews (though from a business ethics perspective, I'm split on this. If not Edit, definitely a Delete option)
+- Photo carousel
 
-***********************
+****************************************************
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
