@@ -1986,29 +1986,58 @@ function (_React$Component) {
   }
 
   _createClass(Homepage, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var homescreen = document.getElementById("homepics");
+
+      var fadeComplete = function fadeComplete(e) {
+        homescreen.appendChild(arr[0]);
+      };
+
+      var arr = homescreen.getElementsByTagName("img");
+
+      for (var i = 0; i < arr.length; i++) {
+        arr[i].addEventListener("animationend", fadeComplete, false);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "homepage"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "homepics"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: window.home1URL,
-        className: "background"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+        className: "background",
+        key: 1,
+        src: window.home1URL
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "background",
+        key: 2,
+        src: window.home2URL
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "background",
+        key: 3,
+        src: window.home3URL
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "background",
+        key: 4,
+        src: window.home4URL
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "background",
+        key: 5,
+        src: window.home5URL
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "searchbar-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
     }
   }]);
 
   return Homepage;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
+;
 /* harmony default export */ __webpack_exports__["default"] = (Homepage);
-/* const Homepage = ({fetchBenches}) => (
-     <div>
-         <h2>Hello!</h2>
-         <SearchBarForm 
-         fetchBenches={fetchBenches} />
-     </div>
-); */
-
 {
   /* <img className="background" src={window.home1} /> */
 }

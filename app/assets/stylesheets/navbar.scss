@@ -1,6 +1,8 @@
-// .navbar {
-//     height: 50px;
-// }
+.navbar {
+    position: absolute;
+    z-index: 50;
+    width: 100%;
+}
 
 .navbar .yallr-name {
     text-align: left;
@@ -9,7 +11,7 @@
     color: #C7FFFF;
     font-weight: 100;
     transform: rotateZ(-1deg);
-    margin-left: 50px;
+    margin-left: 130px;
     position: static;
     text-decoration: none;
     // cursor: pointer;
@@ -24,7 +26,7 @@
 }
 
 .notlogged-left {
-    margin-left: 15px;
+    margin-left: 160px;
 }
 
 .notlogged-left span {
@@ -32,13 +34,9 @@
 }
 
 .notlogged-right {
-    margin-right: 15px;
-}
-
-.notlogged-right {
+    margin-right: 160px;
     display: flex; 
-    justify-content: space-between;
-    text-align: right;
+    // justify-content: space-between;
 }
 
 .notlogged-nav span {
@@ -64,7 +62,7 @@
 }
 
 .loggednav-left {
-    margin-left: 15px;
+    margin-left: 160px;
     padding: 7px 24px 8px;   
 }
 
@@ -75,7 +73,7 @@
 }
 
 .loggednav-right {
-    margin-right: 15px;
+    margin-right: 160px;
 }
 
 .loggednav-right .greeting {
