@@ -36,8 +36,12 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
                 <span id="bizpricepoint">{business.dollarmaker}</span>
                 <span id="bullet">•</span>
                 <span id="bizcategory">{business.category}</span>
-                <br/>
             </div>
+            <div className="profile-attributes">
+                <div>Delivery: {business.delivery}</div>
+                <div>Takeout: {business.takeout}</div>
+            </div>
+         
             <div className="profile-map-and-info">
 
                 <div className="profile-map">

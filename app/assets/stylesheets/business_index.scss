@@ -4,6 +4,7 @@
 }
 
 .indexpage-filters {
+    margin-top: 5px;
     background-color: #f5f5f5;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
@@ -24,7 +25,7 @@
 .indexpage-businesses {
     grid-column: 1;
     padding: 18px;
-    margin-left: 10%;
+    margin-left: 8%;
     margin-right: 340px;
 }
 
@@ -44,7 +45,6 @@
     padding: 18px;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
-
 }
 
 .index-item img {
@@ -72,30 +72,23 @@
     flex-direction: column;
     justify-content: left;
     align-content: left;
-
 }
 
-// #rating-block {
-//     display: inline-block;
-// }
-
-// #pricepoint-block {
-//     display: inline-block;
-// }
-
 .index-item-info-grid .col2 {
+    width: 100%;
     font-size: 14px;
     grid-column: 2;
     text-align: right; 
     display: flex;
     flex-direction: column;
     justify-content: right;
-    align-content: right;
+    align-items: stretch;
 }
 
 .index-item-info #name {
     color: #0073bb;
     font-size: 16;
+    font-weight: 600;
 }
 
 #bullet {

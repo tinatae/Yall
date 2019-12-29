@@ -8,14 +8,28 @@
     text-align: left;
     font-size: 50px;
     font-family: Brush Script Std;
-    color: #C7FFFF;
+    // color: #C7FFFF;
+    color: black;
     font-weight: 100;
     transform: rotateZ(-1deg);
-    margin-left: 130px;
+    margin-left: 100px;
     position: static;
     text-decoration: none;
-    // cursor: pointer;
+    cursor: pointer;
     // background-color: #FF003C;
+    text-shadow:
+        -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white;
+}
+
+.yallr-name span {
+    color: #C7FFFF;
+    font-size: 36px;
+    // transform: none;
+    text-shadow: none;
+    transform: rotateZ(0deg);
 }
 
 .notlogged-nav {
@@ -26,7 +40,7 @@
 }
 
 .notlogged-left {
-    margin-left: 160px;
+    margin-left: 130px;
 }
 
 .notlogged-left span {
@@ -34,7 +48,7 @@
 }
 
 .notlogged-right {
-    margin-right: 160px;
+    margin-right: 130px;
     display: flex; 
     // justify-content: space-between;
 }

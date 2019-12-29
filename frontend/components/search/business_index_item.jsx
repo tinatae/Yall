@@ -60,3 +60,5 @@ class BusinessIndexItem extends React.Component {
 };
 
 export default withRouter(BusinessIndexItem);
+
+{/* <i className="far fa-building"></i> */}

@@ -4,7 +4,7 @@
 
 .profile {
     font-family: Helvetica Neue, Arial, Helvetica;
-    margin: 15px;
+    margin: 8%;
 }
 
 .profile h3 {
@@ -49,6 +49,13 @@
     color: #666666;
     line-height: 1.28571em;
     margin-left: 8px;
+}
+
+.profile-attributes {
+    font-size: 14px;
+    // font-weight: strong;
+    padding: 15px;
+    display: inline-block;
 }
 
 .profile-map-and-info {

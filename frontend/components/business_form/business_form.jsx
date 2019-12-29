@@ -41,6 +41,8 @@ class BusinessForm extends React.Component {
             sunclose: '',
             sunopenend: '',
             suncloseend: '',
+            delivery: '',
+            takeout: '',
             photoFiles: null,
             photoUrls: [],
         };
@@ -114,6 +116,8 @@ class BusinessForm extends React.Component {
         formData.append('business[sunclose]', this.state.sunclose);
         formData.append('business[sunopenend]', this.state.sunopenend);
         formData.append('business[suncloseend]', this.state.suncloseend);
+        formData.append('business[delivery]', this.state.delivery);
+        formData.append('business[takeout]', this.state.takeout);
 
         if (this.state.photoFiles) {
             formData.append('business[photos][]', this.state.photoFiles);
@@ -126,6 +130,7 @@ class BusinessForm extends React.Component {
     render() {
         const { name, category, website, phonenumber, address1, address2, pricepoint } = this.state;
         const { monopen, monclose, monopenend, moncloseend, tuesopen, tuesclose, tuesopenend, tuescloseend, wedopen, wedclose, wedopenend, wedcloseend, thursopen, thursclose, thursopenend, thurscloseend, friopen, friclose, friopenend, fricloseend, satopen, satclose, satopenend, satcloseend, sunopen, sunclose, sunopenend, suncloseend } = this.state;
+        const { delivery, takeout } = this.state;
         const { lat, lng } = this.coords;
         const preview = this.state.photoUrls ? <img height="100px" width="100px" src={this.state.photoUrls[0]} /> : null;
        
@@ -136,18 +141,22 @@ class BusinessForm extends React.Component {
                     <h3>Add Your Business to Our Site!</h3>
                     <h3>Please Fill-out Details Below</h3>
                 </div>
+            <div className="business-create-body">
+                <div id="yellowchair">
+                    <img src={window.newbiz1URL}/>
+                </div>
                
                 <form onSubmit={this.handleSubmit}>
 
                     <div className="business-create-bizinfo">
                         <label id="createbizname">
-                            <span>Name</span>
+                            <div>Name</div>
                             <br/>
-                            <input size="75" type="text" value={name} onChange={this.update('name')} />
+                            <input size="60" type="text" value={name} onChange={this.update('name')} />
                         </label>
                         <br/>
                         <label id="createbizcategory">
-                            <span>Category</span>
+                            <div>Category</div>
                             <br/>
                             <select name="Please select a Business Category" value={category} onChange={this.update('category')}>
                                 <option selected disabled value="">- Please select a category -</option>
@@ -156,10 +165,32 @@ class BusinessForm extends React.Component {
                                 <option value="Bars">Bars</option>
                             </select>
                         </label>
-                        <br />
+                        <br/>
+
+                        <label id="createbizdelivery">
+                            <div>Do you offer Delivery Service?</div>
+                            <br/>
+                            <select name="Delivery" value={delivery} onChange={this.update('delivery')}>
+                                <option selected disabled value="">- Please select one -</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </label>
+                        <br/>
+                        <label id="createbiztakeout">
+                            <div>Do you offer Takeout Service?</div>
+                            <br/>
+                            <select name="Takeout" value={takeout} onChange={this.update('takeout')}>
+                                <option selected disabled value="">- Please select one -</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </label>
+                        <br/>
+                    
     
                         <label id="createbizpricepoint">
-                            <span>Pricepoint</span>
+                            <div>Pricepoint</div>
                             <br/>
                             <select name="Pricepoint" value={pricepoint} onChange={this.update('pricepoint')}>
                                 <option selected disabled value="">- Pricepoint ($) -</option>
@@ -180,19 +211,19 @@ class BusinessForm extends React.Component {
                         </label>
                         <br/> */}
                         <label id="createbizwebsite">
-                            <span>Website</span>
+                            <div>Website</div>
                             <br/>
                             <input size="75" type="text" value={website} onChange={this.update('website')} />
                         </label>
                         <br/>
                         <label id="createbizphonenumber">
-                            <span>Phone Number</span>
+                            <div>Phone Number</div>
                             <br/>
                             <input size="75" type="text" value={phonenumber} onChange={this.update('phonenumber')} />
                         </label>
                         <br/>
                         <label id="createbizaddress">
-                            <span>Business Address</span>
+                            <div>Business Address</div>
                             <br/>
                             <input size="75" type="text" value={address1} onChange={this.update('address1')} />
                             <br/>
@@ -206,9 +237,9 @@ class BusinessForm extends React.Component {
                         <h3>Business Hours</h3>
                         <div className="bizhours-grid1">
                             <label>
-                                <span>Monday Open:</span>
+                                <div>Monday Open:</div>
                                 <select name="Monday Open" value={monopen} onChange={this.update('monopen')}>
-                                    <option selected disabled value="">- open -</option>
+                                    <option selected disabled value="">- Open -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -223,15 +254,15 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Monday Open Suffix" value={monopenend} onChange={this.update('monopenend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
                             </label>
                             <label>
-                                <span>Tuesday Open:</span>
+                                <div>Tuesday Open:</div>
                                 <select name="Tuesday Open" value={tuesopen} onChange={this.update('tuesopen')}>
-                                    <option selected disabled value="">- open -</option>
+                                    <option selected disabled value="">- Open -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -246,15 +277,15 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Tuesday Open Suffix" value={tuesopenend} onChange={this.update('tuesopenend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
                             </label>
                             <label>
-                                <span>Wednesday Open:</span>
+                                <div>Wednesday Open:</div>
                                 <select name="Wednesday Open" value={wedopen} onChange={this.update('wedopen')}>
-                                    <option selected disabled value="">- open -</option>
+                                    <option selected disabled value="">- Open -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -269,15 +300,15 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Wednesday Open Suffix" value={wedopenend} onChange={this.update('wedopenend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
                             </label>
                             <label>
-                                <span>Thursday Open:</span>
+                                <div>Thursday Open:</div>
                                 <select name="Thursday Open" value={thursopen} onChange={this.update('thursopen')}>
-                                    <option selected disabled value="">- open -</option>
+                                    <option selected disabled value="">- Open -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -292,15 +323,15 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Thursday Open Suffix" value={thursopenend} onChange={this.update('thursopenend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
                             </label>
                             <label>
-                                <span>Friday Open:</span>
+                                <div>Friday Open:</div>
                                 <select name="Friday Open" value={friopen} onChange={this.update('friopen')}>
-                                    <option selected disabled value="">- open -</option>
+                                    <option selected disabled value="">- Open -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -315,15 +346,15 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Friday Open Suffix" value={friopenend} onChange={this.update('friopenend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
                             </label>
                             <label>
-                                <span>Saturday Open:</span>
+                                <div>Saturday Open:</div>
                                 <select name="Saturday Open" value={satopen} onChange={this.update('satopen')}>
-                                    <option selected disabled value="">- open -</option>
+                                    <option selected disabled value="">- Open -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -338,15 +369,15 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Saturday Open Suffix" value={satopenend} onChange={this.update('satopenend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
-                            </label>
+                            </label>&nbsp;
                             <label>
-                                <span>Sunday Open:</span>
+                                <div>Sunday Open:</div>
                                 <select name="Sunday Open" value={sunopen} onChange={this.update('sunopen')}>
-                                    <option selected disabled value="">- open -</option>
+                                    <option selected disabled value="">- Open -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -361,7 +392,7 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Sunday Open Suffix" value={sunopenend} onChange={this.update('sunopenend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
@@ -369,9 +400,9 @@ class BusinessForm extends React.Component {
                         </div>
                         <div className="bizhours-grid2">
                             <label>
-                                <span>Monday Close:</span>
+                                <div>Monday Close:</div>
                                 <select name="Monday Close" value={monclose} onChange={this.update('monclose')}>
-                                    <option selected disabled value="">- close -</option>
+                                    <option selected disabled value="">- Close -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -386,15 +417,15 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Monday Close Suffix" value={moncloseend} onChange={this.update('moncloseend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
                             </label>                 
                             <label>
-                                <span>Tuesday Close:</span>
+                                <div>Tuesday Close:</div>
                                 <select name="tuesday Close" value={tuesclose} onChange={this.update('tuesclose')}>
-                                    <option selected disabled value="">- close -</option>
+                                    <option selected disabled value="">- Close -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -409,15 +440,15 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Tuesday Close Suffix" value={tuescloseend} onChange={this.update('tuescloseend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
                             </label>  
                             <label>
-                                <span>Wednesday Close:</span>
+                                <div>Wednesday Close:</div>
                                 <select name="Wednesday Close" value={wedclose} onChange={this.update('wedclose')}>
-                                    <option selected disabled value="">- close -</option>
+                                    <option selected disabled value="">- Close -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -432,15 +463,15 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Wednesday Close Suffix" value={wedcloseend} onChange={this.update('wedcloseend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
                             </label>   
                             <label>
-                                <span>Thursday Close:</span>
+                                <div>Thursday Close:</div>
                                 <select name="Thursday Close" value={thursclose} onChange={this.update('thursclose')}>
-                                    <option selected disabled value="">- close -</option>
+                                    <option selected disabled value="">- Close -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -455,15 +486,15 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Thursday Close Suffix" value={thurscloseend} onChange={this.update('thurscloseend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
                             </label>       
                             <label>
-                                <span>Friday Close:</span>
+                                <div>Friday Close:</div>
                                 <select name="Friday Close" value={friclose} onChange={this.update('friclose')}>
-                                    <option selected disabled value="">- close -</option>
+                                    <option selected disabled value="">- Close -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -478,15 +509,15 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Friday Close Suffix" value={fricloseend} onChange={this.update('fricloseend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
                             </label>   
                             <label>
-                                <span>Saturday Close:</span>
+                                <div>Saturday Close:</div>
                                 <select name="Saturday Close" value={satclose} onChange={this.update('satclose')}>
-                                    <option selected disabled value="">- close -</option>
+                                    <option selected disabled value="">- Close -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -501,15 +532,15 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Saturday Close Suffix" value={satcloseend} onChange={this.update('satcloseend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
                             </label>   
                             <label>
-                                <span>Sunday Close:</span>
+                                <div>Sunday Close:</div>
                                 <select name="Sunday Close" value={sunclose} onChange={this.update('sunclose')}>
-                                    <option selected disabled value="">- close -</option>
+                                    <option selected disabled value="">- Close -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -524,7 +555,7 @@ class BusinessForm extends React.Component {
                                     <option value="12">12</option>
                                 </select>
                                 <select name="Sunday Close Suffix" value={suncloseend} onChange={this.update('suncloseend')}>
-                                    <option selected disabled value="">- a.m. or p.m. -</option>
+                                    <option selected disabled value="">- AM | PM -</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                                 </select>
@@ -543,17 +574,21 @@ class BusinessForm extends React.Component {
                     <div id="business-create-button">
                         <input type="submit" value="Create Newest Spot In Town!"/>
                     </div>
-
                 </form>
+                    <div id="coffeecups">
+                        <img src={window.newbiz2URL} />
+                    </div>
+                    
+            </div>
                     <div id="nevermind-button">
-                        <button onClick={this.navigateToSearch}>I'll do this later!</button>
+                        <button onClick={this.navigateToSearch}>Back</button>
                     </div>
             </div>
         )
     }
 }
 
-export default withRouter(BusinessForm)
+export default withRouter(BusinessForm);
 
     // ADD MULTI PHOTO SOMEDAY
 

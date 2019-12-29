@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_30_152648) do
+ActiveRecord::Schema.define(version: 2019_12_28_211830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,9 +76,13 @@ ActiveRecord::Schema.define(version: 2019_11_30_152648) do
     t.integer "sunclose", null: false
     t.string "sunopenend", null: false
     t.string "suncloseend", null: false
+    t.string "delivery", default: "No", null: false
+    t.string "takeout", default: "No", null: false
     t.index ["category"], name: "index_businesses_on_category"
+    t.index ["delivery"], name: "index_businesses_on_delivery"
     t.index ["name"], name: "index_businesses_on_name", unique: true
     t.index ["pricepoint"], name: "index_businesses_on_pricepoint"
+    t.index ["takeout"], name: "index_businesses_on_takeout"
   end
 
   create_table "reviews", force: :cascade do |t|
