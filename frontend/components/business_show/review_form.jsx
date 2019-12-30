@@ -36,7 +36,7 @@ class ReviewForm extends React.Component {
             <div className="review-form">
            
                      
-                <button onClick={this.navigateToSearch}>Actually, I'd like to do this later!</button>
+                <button onClick={this.navigateToBusinessShow}>Actually, I'd like to do this later!</button>
                      
                  
                 <h2 id="bizname">{name}</h2>
@@ -66,10 +66,8 @@ class ReviewForm extends React.Component {
                             <br/>
                             <input type="textarea" id="comment" placeholder="Your review helps other learn about great local businesses. Please use your best, unbiased judgement when commenting on this business." value={this.state.body} onChange={this.update('body')} />
                         </label>
-                    </div>
-            
+                    </div>          
                     <input type="submit" value="Post Review" />
-                    {/* <input type="submit" value="Off it goes!" /> */}
                 </form>
                     <button onClick={this.navigateToBusinessShow}>Cancel</button>
             </div>

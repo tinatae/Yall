@@ -13,22 +13,28 @@ class Api::BusinessesController < ApplicationController
       businesses = businesses.where(pricepoint: price_range)
     end
 
-    # @category = params[:filterCategory]
-    # businesses = businesses.categorized(@category)
-
     if params[:filterCategory] == "All"
       businesses = businesses
     else
       businesses = businesses.where(category: params[:filterCategory]) 
     end
-# ------
-    # @average_rating = params[:average_rating]
-    # businesses = businesses.rated(@average_rating)
+
+    if params[:filterDelivery] == "Yes"
+      businesses = businesses.where(delivery: params[:filterDelivery])
+    else
+      businesses
+    end
+
+    if params[:filterTakeout] == "Yes"
+      businesses = businesses.where(takeout: params[:filterTakeout])
+    else
+      businesses
+    end
 
     if params[:filterRating]
-      businesses.order('average_rating desc')
+      businesses.sort_by {|business| business.rated}.reverse
     end
-  # ------
+
     @businesses = businesses.includes(:reviews)
 
     render :index

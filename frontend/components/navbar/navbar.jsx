@@ -8,6 +8,7 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
         <div className="loggednav">
             <div className="loggednav-left">
                 <Link style={{textDecoration: 'none'}} to="/businesses/new">
+                    <img id="bizbutton" src="/building-regular.svg" />
                     <span>Add Your Business</span>
                 </Link>
             </div>
@@ -24,7 +25,9 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
         <div className="notlogged-nav">
             <div className="notlogged-left">
                 <Link style={{textDecoration: 'none'}} to="/businesses/new">
-                    <span>Add Your Business</span>    
+                    <img id="bizbutton" src="/building-regular.svg"/>
+                    {/* &nbsp; */}
+                    <span>Add Your Business</span>  
                 </Link>
             </div>
 

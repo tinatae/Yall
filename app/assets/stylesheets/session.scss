@@ -1,6 +1,22 @@
 .session-form {
-    display: grid;
+    border-top: 20px solid orange;
+    border-bottom: 20px solid orange;
+    display: flex;
+    justify-content: space-evenly;
     font-family: Brush Script Std;
+}
+
+#icecream img {
+    z-index: 3;
+    width: 400px;
+    // padding: 10px;
+}
+
+#shotglass img {
+    z-index: 3;
+    width: 400px;
+    max-height: 560px;
+    // padding: 10px;
 }
 
 #thanks {
@@ -15,16 +31,21 @@
 .session-form div {
     color: black;
     font-size: 45px;
-    display: flex;
     text-align: center;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .session-form-info {
     color: black;
     font-size: 40px;
     font-weight: 100;
+}
+
+.session-form-info #center-section {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
 
 .session-form-info label {
@@ -44,6 +65,14 @@
 
 #or {
     margin-top: 10px;
+}
+
+#icecream {
+    background-color: red;
+}
+
+#shotglass {
+    background-color: red; 
 }
 
 // .alt-session-form-button {

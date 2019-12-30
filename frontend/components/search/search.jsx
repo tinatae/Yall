@@ -40,15 +40,15 @@ class Search extends React.Component {
                             filterRating={filterRating}
                         />
                 </div>
-                    <div className="indexpage-grid">
-                        <div className="indexpage-businesses">
-                            <BusinessIndex 
+                <div className="indexpage-grid">
+                    <div className="indexpage-businesses">
+                        <BusinessIndex 
                             businesses={businesses}
                             updateFilter={updateFilter}
                             searchQuery={searchQuery}
                             // selectReviewsForBusiness={selectReviewsForBusiness}
-                            />
-                        </div>
+                        />
+                    </div>
                     <div className="indexpage-map">
                         <h2>So Where Are We Going!</h2>
                         <BusinessMap

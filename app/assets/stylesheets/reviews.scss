@@ -1,33 +1,47 @@
-.reviews {
+.reviews-section {
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    margin-left: 8px;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
+    padding: 5px;
+}
+
+
+.reviews {
     padding: 30px;
     font-family: Helvetica Neue, Arial, Helvetica;
 }
 
-.reviews span {
-    padding: 20px;
+#userprofile {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: space-around;
+    margin-top: 5px;
 }
 
-.reviews #rating {
-    font-size: 14;
-    // padding: 10px
-}
+// .reviews div {
+//     padding: 10px;
+// }
 
 .reviews #stars {
     color: #FF003C;
+    padding: 3px;
 }
 
 .reviews #comment > {
     font-size: 14;
-    // padding: 10px
+    margin-top: 5px;
 }
 
-.reviews #username {
+
+.reviews-section #username {
     color: #0073bb;
     font-family: Brush Script Std;
-    font-size: 20;
-    // padding: 10px;
+    font-size: 20px;
+    padding: 5px;
 }
 
 .business-review-link {

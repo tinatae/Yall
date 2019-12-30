@@ -7,6 +7,8 @@ const defaultFilters = Object.freeze({
     maxPricepoint: 4,
     filterCategory: "All",
     filterRating: null,
+    filterDelivery: "No",
+    filterTakeout: "No,"
 });
 
 const filtersReducer = (state = defaultFilters, action) => {

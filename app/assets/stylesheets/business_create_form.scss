@@ -3,11 +3,14 @@
 // }
 
 .business-create-header {
+    position: relative;
+    z-index: 2;
     font-family: Helvetica Neue, Arial, Helvetica;
-    padding: 24px;
+    padding: 13px;
     text-align: center;
     margin-top: 12px;
-    border-bottom: 1px solid black;
+    border-top: 20px solid orange;
+    // border-bottom: 1px solid black;
 }
 
 .business-create-form input {
@@ -16,9 +19,9 @@
 }
 
 .business-create-body {
-    border-top: 1px solid black;
+    border-top: 15px solid orange;
     display: flex;
-    background-color: #33ffff;
+    // background-color: #33ffff;
     justify-content: space-evenly;
 }
 
@@ -26,6 +29,7 @@
     z-index: 3;
     // background-color: orange;
      background-color: red;
+    //  border-top: 15px solid white;
 }
 
 #yellowchair img {
@@ -36,6 +40,7 @@
 #coffeecups {
     z-index: 3;
     background-color: orange;
+    // border-top: 15px solid red;
     // background-color: red;
 }
 
@@ -153,4 +158,5 @@ select {
 #nevermind-button {
     padding: 10px;
     // background-color: #1B0C63;
+    background-color: black;
 }

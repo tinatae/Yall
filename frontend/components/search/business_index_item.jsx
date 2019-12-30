@@ -15,20 +15,17 @@ class BusinessIndexItem extends React.Component {
 
     render() {
         const { name, average_rating, category, dollarmaker, photoUrls, recentreview, reviewcount, phonenumber, address1, address2 } = this.props.business;
-       
-        // const reviewCount = reviewIds.length
-        // if (reviewIds !== null) {
-        //     const { review } = this.props.business.reviews[Object.keys(this.props.business.reviews).length - 1];  
-        // };
-        // const reviews = this.props.selectReviewsForBusiness(this.props.businesses, this.props.business);
 
         return (
             <div onClick={this.handleClick}>
                 <div className="index-item">
-                    <img src={photoUrls[0]} />
+                    <div id="index-pic">
+                        <img src={photoUrls[0]} />
+                    </div>
+
                     <div className="index-item-info">
                         <div className="index-item-info-grid">
-                            <div className="col1">
+                            <div id="col1">
                                 <span id="name">{name}</span>
                              
                                 <div id="rating-block">
@@ -37,17 +34,19 @@ class BusinessIndexItem extends React.Component {
                                 </div>
                             
                                 <div id="pricepoint-block">
-                                    <span id="pricepoint">{dollarmaker}</span>
+                                    <div id="pricepoint">{dollarmaker}</div>
                                     <span id="bullet">•</span>
-                                    <span id="category">{category}</span>   
+                                    <div id="category">{category}</div>   
                                 </div>
-                            </div>      
-                            <div className="col2">
+                            </div>    
+                        
+                            <div id="col2">
                                 <div>{phonenumber}</div>
                                 <div>{address1}</div>                    
                                 <div>{address2}</div>
                             </div>
                         </div>
+
                         <div id="recentreview">
                             <div id="werd">Word on the Street:</div>
                             <div>{recentreview || 'No Reviews Yet'}</div>

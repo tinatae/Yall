@@ -1,24 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-
 import BusinessProfile from './business_profile';
-// import BusinessMap from '../business_map/business_map';
-import ReviewFormContainer from './review_form_container';
-import { ProtectedRoute } from '../../util/route_util';
-import { ReviewLink } from '../../util/link_util';
 
 const BusinessShow = ({ business, businessId, fetchBusiness, reviews }) => {
     const businesses = {
         [businessId]: business
     };
 
-    return(
-        
+    return(     
         <div className="all-business-show">
             <div id="button-link-to-index">
                 <Link to="/">
                     <button>
-                        Back to Businesses Index
+                        Back
                     </button>
                 </Link>
             </div>  
@@ -33,23 +27,6 @@ const BusinessShow = ({ business, businessId, fetchBusiness, reviews }) => {
                     fetchBusiness={fetchBusiness}
                 />
             </div>
-            {/* <div className="business-show-map">
-                <BusinessMap
-                    businesses={businesses}
-                    businessId={businessId}
-                    singleBusiness={true}
-                    fetchBusiness={fetchBusiness}
-                />
-            </div> */}
-            <div className="business-review-link">
-                <ReviewLink component={ ReviewFormContainer } 
-                    to={`/businesses/${businessId}/review`} 
-                    label="Leave a Review!"/>
-                <ProtectedRoute 
-                    path='/businesses/:businessId/review' 
-                    component={ReviewFormContainer} 
-                />
-            </div>       
         </div>
     )
 };

@@ -14,24 +14,14 @@ class Business < ApplicationRecord
     validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, inclusion: { in: (1..12) }
     validates :delivery, :takeout, inclusion: {in: ["Yes", "No"]}
 
-    scope :named, -> (name) {where("name LIKE ?", name)}
-    # scope :categorized, -> (category) {where("category LIKE ?", category)}
-    # scope :rated, -> {order(:average_rating, :desc)}
+    # scope :named, -> (name) {where("name LIKE ?", name)}
 
     has_many :reviews
 
     has_many_attached :photos
 
-    def named(name)
-        where("name LIKE ?", name)
-    end
-
-    # def categorized(category)
-    #     where("category LIKE ?", category)
-    # end
-
-    # def rated(average_rating)
-    #     order(average_rating)
+    # def named(name)
+    #     where("name LIKE ?", name)
     # end
 
     def self.in_bounds(bounds)
@@ -39,6 +29,10 @@ class Business < ApplicationRecord
         .where("lat > ?", bounds[:southWest][:lat])
         .where("lng > ?", bounds[:southWest][:lng])
         .where("lng < ?", bounds[:northEast][:lng])
+    end
+
+    def rated
+        self.reviews.average(:rating)
     end
 
     def average_rating

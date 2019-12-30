@@ -1,6 +1,14 @@
 .indexpage {
     font-family: Helvetica Neue, Helvetica, Arial;
-    font-color: #333333;
+    color: #333333;
+}
+
+.filters label {
+    padding: 10px;
+}
+
+.filters select {
+    padding: 5px;
 }
 
 .indexpage-filters {
@@ -12,6 +20,14 @@
     // position: relative;
 }
 
+.filters button {
+    padding: 6px;
+    border-radius: 4px;
+    vertical-align: middle;
+    // display: flex;
+    // justify-content: center;
+}
+
 .indexpage-filters:after {          
     content: "";       
     display: block;    
@@ -20,6 +36,7 @@
 
 .indexpage-grid {
     display: grid;
+    width: 100%;
 }
 
 .indexpage-businesses {
@@ -45,9 +62,16 @@
     padding: 18px;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
+    // background-color: orange;
 }
 
-.index-item img {
+// #index-pic {
+//     // width: 210px;
+//     // height: 210px;
+//     // border-radius: 2%;
+// }
+
+#index-pic img {
     object-fit: cover;
     width: 210px;
     height: 210px;
@@ -56,33 +80,38 @@
 
 .index-item-info {
     padding: 20px;
-    font-size: 14;
+    font-size: 14px;
     line-height: 1.28571 em;
 }
 
 .index-item-info-grid {
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
     width: 100%;
+    margin-right: 250px;
+    // background-color: yellow;
 }
 
-.index-item-info-grid .col1 {
-    grid-column: 1;
+.index-item-info-grid #col1 {
     text-align: left; 
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-content: left;
+    // margin-right: 10px;
+    float: left;
+    // background-color: red;
 }
 
-.index-item-info-grid .col2 {
-    width: 100%;
-    font-size: 14px;
-    grid-column: 2;
+.index-item-info-grid #col2 {
     text-align: right; 
     display: flex;
-    flex-direction: column;
     justify-content: right;
-    align-items: stretch;
+    margin-left: 8%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    float: right;
+    // background-color: red;
 }
 
 .index-item-info #name {
@@ -99,6 +128,12 @@
     font-weight: 600;
 }
 
+#pricepoint-block {
+    display: flex;
+    width: 120px;
+    // background-color: blue;
+}
+
 .index-item-info #rating {
     color: #FF003C;
 }
@@ -112,8 +147,10 @@
 #recentreview {
     font-size: 14px;
     margin-top: 15px;
-    // width: 100%;
+    width: 100%;
 }
+
+
 
 #werd {
     font-weight: 500;
