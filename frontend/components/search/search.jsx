@@ -9,23 +9,34 @@ class Search extends React.Component {
         super(props);
 
         this.state = {
-            searchQuery: ""
-        } 
+            searchQuery: "",
+            // filterOpenNow: "Always"
+        };
+
+        // this.handleClearFilter = this.handleClearFilter.bind(this);
+        // this.forceUpdate = this.forceUpdate.bind(this);
     };
 
-    componentDidMount() {
-        // const query = new URLSearchParams(this.props.location.search).get("query");
-        // if (query !== "") {
-        //     this.setState({[this.state.searchQuery]: query});
+    // componentDidMount() { 
+    // };
 
-        //     this.props.updateFilter('searchQuery', Object.assign({}, this.state));
-        // };
-        // return Object.assign({}, this.state)
-        // console.log(this.state);   
-    };
+    // componentDidUpdate() {
+    //     if (state.filterOpenNow === "Yes") {
+    //         this.forceUpdate();
+    //     }
+    // };
+
+    // handleClearFilter(clearFilter) {
+    //     this.clearFilter;
+    //     this.forceUpdate();
+    // };
+
+    // update(field) {
+    //     return e => this.setState({})
+    // }
 
     render () {
-        const { businesses, minPricepoint, maxPricepoint, filterCategory, filterRating, updateFilter, searchQuery } = this.props;
+        const { businesses, minPricepoint, maxPricepoint, filterCategory, filterOpenNow, filterDelivery, filterTakeout, filterRating, updateFilter, searchQuery, clearFilter } = this.props;
 
         return (
             <div className="indexpage">
@@ -33,12 +44,16 @@ class Search extends React.Component {
                     <h3>What are you Looking For?</h3>
                         <FilterForm 
                             searchQuery={searchQuery}
-                            minPricepoint={minPricepoint}
+                            minPricepoint={minPricepoint} 
                             maxPricepoint={maxPricepoint}
                             updateFilter={updateFilter}
                             filterCategory={filterCategory}
-                            filterRating={filterRating}
+                            filterOpenNow={filterOpenNow}
+                            filterDelivery={filterDelivery}
+                            filterTakeout={filterTakeout}
+                            // filterRating={filterRating}
                         />
+                        <button onClick={clearFilter}>Clear</button>
                 </div>
                 <div className="indexpage-grid">
                     <div className="indexpage-businesses">
@@ -46,6 +61,7 @@ class Search extends React.Component {
                             businesses={businesses}
                             updateFilter={updateFilter}
                             searchQuery={searchQuery}
+                            clearFilter={clearFilter}
                             // selectReviewsForBusiness={selectReviewsForBusiness}
                         />
                     </div>
@@ -55,6 +71,7 @@ class Search extends React.Component {
                             businesses={businesses}
                             updateFilter={updateFilter}
                             singleBusiness={false}
+                            clearFilter={clearFilter}
                         />
                     </div>
                 </div>   
@@ -63,42 +80,17 @@ class Search extends React.Component {
     }
 }
 
-// const Search = ({ businesses, minPricepoint, maxPricepoint, filterCategory, filterRating, updateFilter, searchQuery }) => (
-   
-//     <div className="indexpage">
-//         <div className="indexpage-filters">
-//             <h3>What are you Looking For?</h3>
-//                 <FilterForm 
-//                     // searchQuery={searchQuery}
-//                     minPricepoint={minPricepoint}
-//                     maxPricepoint={maxPricepoint}
-//                     updateFilter={updateFilter}
-//                     filterCategory={filterCategory}
-//                     filterRating={filterRating}
-//                 />
-//         </div>
-//         <div className="indexpage-grid">
-//             <div className="indexpage-businesses">
-//                 <BusinessIndex 
-//                 businesses={businesses}
-//                 updateFilter={updateFilter}
-//                 searchQuery={searchQuery}
-//                 // selectReviewsForBusiness={selectReviewsForBusiness}
-//                 />
-//             </div>
-//             <div className="indexpage-map">
-//                 <h2>So Where Are We Going!</h2>
-//                 <BusinessMap
-//                     businesses={businesses}
-//                     updateFilter={updateFilter}
-//                     singleBusiness={false}
-//                 />
-
-//             </div>
-//         </div>   
-//     </div>
-// );
-
 export default Search;
 
+
+// componentDidMount() {
+    // const query = new URLSearchParams(this.props.location.search).get("query");
+    // if (query !== "") {
+    //     this.setState({[this.state.searchQuery]: query});
+
+    //     this.props.updateFilter('searchQuery', Object.assign({}, this.state));
+    // };
+    // return Object.assign({}, this.state)
+    // console.log(this.state);   
+// };
 

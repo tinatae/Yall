@@ -1,8 +1,10 @@
 .all-business-show #button-link-to-index {
     background-color: orange;
-    display: flex;
-    justify-content: left;
     height: 10px;
+}
+
+#button-link-to-index Link button {
+    padding: 4px;
 }
 
 .profile {
@@ -80,11 +82,9 @@
 
 .profile-attributes {
     font-size: 14px;
-    // font-weight: strong;
     padding: 15px;
-    display: inline-block;
     display: flex;
-     border-bottom: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
 }
 
 .profile-attributes div {

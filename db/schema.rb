@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_28_211830) do
+ActiveRecord::Schema.define(version: 2020_01_02_062832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,9 +78,11 @@ ActiveRecord::Schema.define(version: 2019_12_28_211830) do
     t.string "suncloseend", null: false
     t.string "delivery", default: "No", null: false
     t.string "takeout", default: "No", null: false
+    t.string "opennow", default: "Always"
     t.index ["category"], name: "index_businesses_on_category"
     t.index ["delivery"], name: "index_businesses_on_delivery"
     t.index ["name"], name: "index_businesses_on_name", unique: true
+    t.index ["opennow"], name: "index_businesses_on_opennow"
     t.index ["pricepoint"], name: "index_businesses_on_pricepoint"
     t.index ["takeout"], name: "index_businesses_on_takeout"
   end

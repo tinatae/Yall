@@ -2,7 +2,7 @@ import React from 'react';
 import BusinessIndexItem from './business_index_item';
 // import {withRouter} from 'react-router-dom';
 
-const BusinessIndex = ({ businesses, searchQuery, updateFilter }) => (
+const BusinessIndex = ({ businesses, searchQuery, updateFilter, clearFilter }) => (
         <div>
             <h2>BEST IN TOWN</h2>   
       
@@ -10,8 +10,9 @@ const BusinessIndex = ({ businesses, searchQuery, updateFilter }) => (
                 <BusinessIndexItem
                     searchQuery={searchQuery}
                     updateFilter={updateFilter}
+                    clearFilter={clearFilter}
                     business={business}
-                    key={business.id}   
+                    key={business.id}  
                 />
             ))}
         </div>

@@ -52,6 +52,7 @@ sweetbabycakes = Business.create!(
     suncloseend: "PM",
     delivery: "Yes",
     takeout: "Yes",
+    opennow: "Always",
 )
 
 file = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/sweetbabycakes1.jpeg')
@@ -107,6 +108,7 @@ whitewhale = Business.create!(
     suncloseend: "AM",
     delivery: "No",
     takeout: "No",
+    opennow: "Always",
 )
 
 file4 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/whitewhale1.jpeg')
@@ -161,6 +163,7 @@ business3 = Business.create!(
     suncloseend: "PM",
     delivery: "No",
     takeout: "Yes",
+    opennow: "Always",
 )
 
 file8 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola1.jpeg')
@@ -213,6 +216,7 @@ business4 = Business.create!(
     suncloseend: "AM",
     delivery: "No",
     takeout: "Yes",
+    opennow: "Always",
 )
 
 file12 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/telegraph1.jpeg')

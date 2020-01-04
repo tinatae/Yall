@@ -9,10 +9,11 @@ class Business < ApplicationRecord
     validates :satopen, :satclose, :satopenend, :satcloseend, presence: true
     validates :sunopen, :sunclose, :sunopenend, :suncloseend, presence: true  
     validates :name, uniqueness: true
-    validates :category, inclusion: {in: ["All", "Restaurants", "Coffee & Tea", "Bars"]}, presence: true
+    validates :category, inclusion: {in: ["All", "Restaurants", "Coffee & Tea", "Bars"]}
     validates :pricepoint, inclusion: { in: (1..4) }
     validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, inclusion: { in: (1..12) }
-    validates :delivery, :takeout, inclusion: {in: ["Yes", "No"]}
+    validates :delivery, :takeout, inclusion: {in: ["All", "Yes", "No"]}
+    validates :opennow, inclusion: {in: ["Always", "Yes", "No"]}
 
     # scope :named, -> (name) {where("name LIKE ?", name)}
 
@@ -31,9 +32,9 @@ class Business < ApplicationRecord
         .where("lng < ?", bounds[:northEast][:lng])
     end
 
-    def rated
-        self.reviews.average(:rating)
-    end
+    # def rated
+    #     self.reviews.average(:rating)
+    # end
 
     def average_rating
         avgrev = reviews.average(:rating)
@@ -70,7 +71,7 @@ class Business < ApplicationRecord
     end
 
     def reviewcount
-        return 'No reviews' if self.reviews.nil?
+        return 'No Reviews' if self.reviews.nil?
         if self.reviews.length == 1
             return "1 review"
         else
@@ -78,4 +79,38 @@ class Business < ApplicationRecord
         end
 
     end
+
+    # def open?
+    #     days_of_week = {0 => "sun", 1 => "mon", 2 => "tues", 3 => "wed", 4 => "thurs", 5 => "fri", 6 => "sat"}
+   
+    #     day = days_of_week[Time.now.wday]
+    #     openhour = day + "open"
+    #     openhourapx = day + "openend"
+    #     closehour = day + "close"
+    #     closehourapx = day + "closeend"
+
+    #     if self[openhourapx] == "AM" && self[closehourapx] == "AM"
+    #         return "Yes" if (self[openhour]..self[closehour]).include?(Time.now.hour)
+    #     elsif self[openhourapx] == "PM" && self[closehourapx] == "PM"
+    #         self[openhour] += 12
+    #         self[closehour] += 12
+    #         return "Yes" if (self[openhour]..self[closehour]).include?(Time.now.hour)
+    #     elsif self[openhourapx]=="AM" && self[closehourapx]=="PM"
+    #         self[closehour] += 12
+    #         return "Yes" if (self[openhour]..self[closehour]).include?(Time.now.hour)
+    #     elsif self[openhourapx]=="PM" && self[closehourapx]=="AM"
+    #         if self[openhour] != 12
+    #             self[openhour] += 12
+    #         end
+
+    #         if Time.now.hour >= 12
+    #             return "Yes" if Time.now.hour > self[openhour]
+    #         elsif Time.now.hour < 12 
+    #             return "Yes" if Time.now.hour < self[closehour]
+    #         end
+    #     end
+            
+    #     "No"
+    # end
+
 end

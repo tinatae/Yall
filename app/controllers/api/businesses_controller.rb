@@ -4,6 +4,8 @@ class Api::BusinessesController < ApplicationController
   def index
    if params[:searchQuery]
       businesses = Business.where("name LIKE ?", "%" + params[:searchQuery] + "%").or(Business.where("category LIKE ?", "%" + params[:searchQuery] + "%" ))
+   else
+      Business.all
    end
 
     businesses = bounds ? businesses.in_bounds(bounds) : businesses
@@ -19,6 +21,12 @@ class Api::BusinessesController < ApplicationController
       businesses = businesses.where(category: params[:filterCategory]) 
     end
 
+    # if params[:filterOpenNow] == "Yes"
+    #   businesses = businesses.select(Business.open?)
+    # else
+    #   businesses
+    # end
+
     if params[:filterDelivery] == "Yes"
       businesses = businesses.where(delivery: params[:filterDelivery])
     else
@@ -31,9 +39,9 @@ class Api::BusinessesController < ApplicationController
       businesses
     end
 
-    if params[:filterRating]
-      businesses.sort_by {|business| business.rated}.reverse
-    end
+    # if params[:filterRating]
+    #   businesses.sort_by {|business| business.rated}.reverse
+    # end
 
     @businesses = businesses.includes(:reviews)
 
@@ -57,12 +65,14 @@ class Api::BusinessesController < ApplicationController
   end
 
   def business_params
-    params.require(:business).permit(:name, :category, :lat, :lng, :website, :phonenumber, :address1, :address2, :pricepoint, :monopen, :monclose, :monopenend, :moncloseend, :tuesopen, :tuesclose, :tuesopenend, :tuescloseend, :wedopen, :wedclose, :wedopenend, :wedcloseend, :thursopen, :thursclose, :thursopenend, :thurscloseend, :friopen, :friclose, :friopenend, :fricloseend, :satopen, :satclose, :satopenend, :satcloseend, :sunopen, :sunclose, :sunopenend, :suncloseend, :delivery, :takeout, photos: [])
+    params.require(:business).permit(:name, :category, :lat, :lng, :website, :phonenumber, :address1, :address2, :pricepoint, :monopen, :monclose, :monopenend, :moncloseend, :tuesopen, :tuesclose, :tuesopenend, :tuescloseend, :wedopen, :wedclose, :wedopenend, :wedcloseend, :thursopen, :thursclose, :thursopenend, :thurscloseend, :friopen, :friclose, :friopenend, :fricloseend, :satopen, :satclose, :satopenend, :satcloseend, :sunopen, :sunclose, :sunopenend, :suncloseend, :delivery, :takeout, :opennow, photos: [])
   end
 
   def bounds
     params[:bounds]
   end
+
+  
 end
 
 #  id          :bigint           not null, primary key

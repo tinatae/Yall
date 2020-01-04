@@ -194,17 +194,20 @@ var deleteReview = function deleteReview(id) {
 /*!********************************************!*\
   !*** ./frontend/actions/filter_actions.js ***!
   \********************************************/
-/*! exports provided: UPDATE_FILTER, changeFilter, updateFilter */
+/*! exports provided: UPDATE_FILTER, CLEAR, changeFilter, updateFilter, clearFilter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_FILTER", function() { return UPDATE_FILTER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR", function() { return CLEAR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeFilter", function() { return changeFilter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateFilter", function() { return updateFilter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearFilter", function() { return clearFilter; });
 /* harmony import */ var _business_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./business_actions */ "./frontend/actions/business_actions.js");
 
 var UPDATE_FILTER = 'UPDATE_FILTER';
+var CLEAR = "CLEAR";
 var changeFilter = function changeFilter(filter, value) {
   return {
     type: UPDATE_FILTER,
@@ -216,6 +219,11 @@ var updateFilter = function updateFilter(filter, value) {
   return function (dispatch, getState) {
     dispatch(changeFilter(filter, value));
     return Object(_business_actions__WEBPACK_IMPORTED_MODULE_0__["fetchBusinesses"])(getState().ui.filters)(dispatch);
+  };
+};
+var clearFilter = function clearFilter() {
+  return {
+    type: CLEAR
   };
 };
 
@@ -1636,6 +1644,9 @@ var BusinessProfile = function BusinessProfile(_ref) {
   }, business.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "business-review-link"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_link_util__WEBPACK_IMPORTED_MODULE_5__["ReviewLink"], {
+    style: {
+      textDecoration: 'none'
+    },
     component: _review_form_container__WEBPACK_IMPORTED_MODULE_3__["default"],
     to: "/businesses/".concat(businessId, "/review"),
     label: "\u2605 Write a Review"
@@ -1714,7 +1725,7 @@ var BusinessShow = function BusinessShow(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "button-link-to-index"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/"
+    to: "/businesses"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Back"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "business-show-profile"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_profile__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1970,7 +1981,14 @@ var Review = function Review(_ref) {
   var review = _ref.review,
       author = _ref.author;
   var starmaker = review.starmaker,
-      body = review.body;
+      body = review.body,
+      created_at = review.created_at;
+  var reviewDate = new Date(created_at).toLocaleDateString("en-US", {
+    year: "2-digit",
+    month: "2-digit",
+    day: "2-digit"
+  }); // const reviewTime = new Date(created_at).toLocaleTimeString();
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "reviews-section"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1983,8 +2001,12 @@ var Review = function Review(_ref) {
   }, author.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "reviews"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "stars-and-date"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "stars"
   }, starmaker), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "created_at"
+  }, reviewDate)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "comment"
   }, body)));
 };
@@ -2344,11 +2366,13 @@ __webpack_require__.r(__webpack_exports__);
 var BusinessIndex = function BusinessIndex(_ref) {
   var businesses = _ref.businesses,
       searchQuery = _ref.searchQuery,
-      updateFilter = _ref.updateFilter;
+      updateFilter = _ref.updateFilter,
+      clearFilter = _ref.clearFilter;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "BEST IN TOWN"), businesses.map(function (business) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
       searchQuery: searchQuery,
       updateFilter: updateFilter,
+      clearFilter: clearFilter,
       business: business,
       key: business.id
     });
@@ -2450,7 +2474,7 @@ function (_React$Component) {
         className: "index-item-info-grid"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "col1"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "name"
       }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "rating-block"
@@ -2472,7 +2496,7 @@ function (_React$Component) {
         id: "recentreview"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "werd"
-      }, "Word on the Street:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, recentreview || 'No Reviews Yet')))));
+      }, "Word on the Street:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\"", recentreview, "\"")))));
     }
   }]);
 
@@ -2512,11 +2536,48 @@ var handleCategoryChange = function handleCategoryChange(filter, updateFilter) {
   };
 };
 
-var handleRatingChange = function handleRatingChange(filter, updateFilter) {
+var handleOpenNow = function handleOpenNow(filter, updateFilter) {
   return function (e) {
     return updateFilter(filter, e.currentTarget.value);
   };
-};
+}; // const openNow = (filter, value) => (dispatch, getState) => {
+//     dispatch(updateFilter(filter, value)};
+//     c
+// const openNow() {
+//     const dayOfWeek = { 0: "sun", 1: "mon", 2: "tues", 3: "wed", 4: "thurs", 5: "fri", 6: "sat" }
+//     const weekdayNumber = new Date().getUTCDay();
+//     const weekday = dayOfWeek[weekdayNumber];
+//     const openhour = weekday.concat("open");
+//     const openhourapx = weekday.concat("openend");
+//     const closehour = weekday.concat("close");
+//     const closehourapx = weekday.concat("close");
+// #     if self[openhourapx] == "AM" && self[closehourapx] == "AM"
+// #         return "Yes" if (self[openhour]..self[closehour]).include ? (Time.now.hour)
+// #     elsif self[openhourapx] == "PM" && self[closehourapx] == "PM"
+// #         self[openhour] += 12
+// #         self[closehour] += 12
+// #         return "Yes" if (self[openhour]..self[closehour]).include ? (Time.now.hour)
+// #     elsif self[openhourapx] == "AM" && self[closehourapx] == "PM"
+// #         self[closehour] += 12
+// #         return "Yes" if (self[openhour]..self[closehour]).include ? (Time.now.hour)
+// #     elsif self[openhourapx] == "PM" && self[closehourapx] == "AM"
+// #         if self[openhour] != 12
+// #             self[openhour] += 12
+// #         end
+// #         if Time.now.hour >= 12
+// #             return "Yes" if Time.now.hour > self[openhour]
+// #         elsif Time.now.hour < 12
+// #             return "Yes" if Time.now.hour < self[closehour]
+// #         end
+// #     end
+// #     "No"
+// # end
+// return fetchBusinesses(getState().ui.filters)(dispatch)
+// }
+// const handleRatingChange = (filter, updateFilter) => e => (
+//     updateFilter(filter, e.currentTarget.value)
+// );
+
 
 var handleDeliveryChange = function handleDeliveryChange(filter, updateFilter) {
   return function (e) {
@@ -2535,11 +2596,12 @@ var FilterForm = function FilterForm(_ref) {
       minPricepoint = _ref.minPricepoint,
       maxPricepoint = _ref.maxPricepoint,
       filterCategory = _ref.filterCategory,
+      filterOpenNow = _ref.filterOpenNow,
       filterRating = _ref.filterRating,
       filterDelivery = _ref.filterDelivery,
       filterTakeout = _ref.filterTakeout,
       updateFilter = _ref.updateFilter;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Let's sort this shall we. Filter Results:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Filter Results By:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "filters"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Min Pricepoint "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     name: "Min Pricepoint",
@@ -2585,7 +2647,10 @@ var FilterForm = function FilterForm(_ref) {
     value: "Coffee & Tea"
   }, "Coffee & Tea"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "Bars"
-  }, "Bars"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " Open Now ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+  }, "Bars"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    value: "Yes",
+    onClick: handleOpenNow()
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " Open Now "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     id: "delivery-button"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     value: "Yes",
@@ -2603,10 +2668,7 @@ var FilterForm = function FilterForm(_ref) {
     src: "/shoe-prints-solid.svg"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "takeout-word"
-  }, "Takeout"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " Rating "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    value: "go",
-    onClick: handleRatingChange('filterRating', updateFilter)
-  }, "Sort by Rating (h-l)"))));
+  }, "Takeout")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (FilterForm);
@@ -2675,32 +2737,43 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Search).call(this, props));
     _this.state = {
-      searchQuery: ""
-    };
+      searchQuery: "" // filterOpenNow: "Always"
+
+    }; // this.handleClearFilter = this.handleClearFilter.bind(this);
+    // this.forceUpdate = this.forceUpdate.bind(this);
+
     return _this;
   }
 
   _createClass(Search, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {// const query = new URLSearchParams(this.props.location.search).get("query");
-      // if (query !== "") {
-      //     this.setState({[this.state.searchQuery]: query});
-      //     this.props.updateFilter('searchQuery', Object.assign({}, this.state));
-      // };
-      // return Object.assign({}, this.state)
-      // console.log(this.state);   
-    }
-  }, {
     key: "render",
+    // componentDidMount() { 
+    // };
+    // componentDidUpdate() {
+    //     if (state.filterOpenNow === "Yes") {
+    //         this.forceUpdate();
+    //     }
+    // };
+    // handleClearFilter(clearFilter) {
+    //     this.clearFilter;
+    //     this.forceUpdate();
+    // };
+    // update(field) {
+    //     return e => this.setState({})
+    // }
     value: function render() {
       var _this$props = this.props,
           businesses = _this$props.businesses,
           minPricepoint = _this$props.minPricepoint,
           maxPricepoint = _this$props.maxPricepoint,
           filterCategory = _this$props.filterCategory,
+          filterOpenNow = _this$props.filterOpenNow,
+          filterDelivery = _this$props.filterDelivery,
+          filterTakeout = _this$props.filterTakeout,
           filterRating = _this$props.filterRating,
           updateFilter = _this$props.updateFilter,
-          searchQuery = _this$props.searchQuery;
+          searchQuery = _this$props.searchQuery,
+          clearFilter = _this$props.clearFilter;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "indexpage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2711,63 +2784,45 @@ function (_React$Component) {
         maxPricepoint: maxPricepoint,
         updateFilter: updateFilter,
         filterCategory: filterCategory,
-        filterRating: filterRating
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        filterOpenNow: filterOpenNow,
+        filterDelivery: filterDelivery,
+        filterTakeout: filterTakeout // filterRating={filterRating}
+
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: clearFilter
+      }, "Clear")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "indexpage-grid"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "indexpage-businesses"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index__WEBPACK_IMPORTED_MODULE_2__["default"], {
         businesses: businesses,
         updateFilter: updateFilter,
-        searchQuery: searchQuery // selectReviewsForBusiness={selectReviewsForBusiness}
+        searchQuery: searchQuery,
+        clearFilter: clearFilter // selectReviewsForBusiness={selectReviewsForBusiness}
 
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "indexpage-map"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "So Where Are We Going!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map_business_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
         businesses: businesses,
         updateFilter: updateFilter,
-        singleBusiness: false
+        singleBusiness: false,
+        clearFilter: clearFilter
       }))));
     }
   }]);
 
   return Search;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // const Search = ({ businesses, minPricepoint, maxPricepoint, filterCategory, filterRating, updateFilter, searchQuery }) => (
-//     <div className="indexpage">
-//         <div className="indexpage-filters">
-//             <h3>What are you Looking For?</h3>
-//                 <FilterForm 
-//                     // searchQuery={searchQuery}
-//                     minPricepoint={minPricepoint}
-//                     maxPricepoint={maxPricepoint}
-//                     updateFilter={updateFilter}
-//                     filterCategory={filterCategory}
-//                     filterRating={filterRating}
-//                 />
-//         </div>
-//         <div className="indexpage-grid">
-//             <div className="indexpage-businesses">
-//                 <BusinessIndex 
-//                 businesses={businesses}
-//                 updateFilter={updateFilter}
-//                 searchQuery={searchQuery}
-//                 // selectReviewsForBusiness={selectReviewsForBusiness}
-//                 />
-//             </div>
-//             <div className="indexpage-map">
-//                 <h2>So Where Are We Going!</h2>
-//                 <BusinessMap
-//                     businesses={businesses}
-//                     updateFilter={updateFilter}
-//                     singleBusiness={false}
-//                 />
-//             </div>
-//         </div>   
-//     </div>
-// );
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-
-/* harmony default export */ __webpack_exports__["default"] = (Search);
+/* harmony default export */ __webpack_exports__["default"] = (Search); // componentDidMount() {
+// const query = new URLSearchParams(this.props.location.search).get("query");
+// if (query !== "") {
+//     this.setState({[this.state.searchQuery]: query});
+//     this.props.updateFilter('searchQuery', Object.assign({}, this.state));
+// };
+// return Object.assign({}, this.state)
+// console.log(this.state);   
+// };
 
 /***/ }),
 
@@ -2801,7 +2856,10 @@ var mSTP = function mSTP(state, _ref) {
     minPricepoint: state.ui.filters.minPricepoint,
     maxPricepoint: state.ui.filters.maxPricepoint,
     filterCategory: state.ui.filters.filterCategory,
-    filterRating: state.ui.filters.filterRating
+    filterOpenNow: state.ui.filters.filterOpenNow,
+    filterDelivery: state.ui.filters.filterDelivery,
+    filterTakeout: state.ui.filters.filterTakeout // filterRating: state.ui.filters.filterRating
+
   };
 };
 
@@ -2812,9 +2870,10 @@ var mDTP = function mDTP(dispatch) {
     },
     changeFilter: function changeFilter(filter, value) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__["changeFilter"])(filter, value));
-    } //    fetchBusinesses: () => dispatch(fetchBusinesses())
-    //    selectReviewsForBusiness: ({ businesses, reviews }, business) => dispatch(selectReviewsForBusiness({ businesses, reviews }, business))
-
+    },
+    clearFilter: function clearFilter() {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__["clearFilter"])());
+    }
   };
 };
 
@@ -2911,19 +2970,20 @@ function (_React$Component) {
         className: "searchbar-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "searchbar-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "searchbar-input",
         type: "text",
-        placeholder: "  Find  So what are we looking for..",
+        placeholder: "  Find | So what are we looking for..",
         value: searchQuery,
         onChange: this.update('searchQuery')
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "submit",
-        value: "Look Me Up!"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "everything-button",
-        onClick: this.navigateToEverything
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Not Sure. What's Around ?"))));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "magnifying-glass",
+        type: "image",
+        src: "/search-solid.svg",
+        alt: "Submit Query"
+      }))))));
     }
   }]);
 
@@ -3330,9 +3390,10 @@ var defaultFilters = Object.freeze({
   minPricepoint: 1,
   maxPricepoint: 4,
   filterCategory: "All",
+  filterOpenNow: "Always",
   filterRating: null,
-  filterDelivery: "No",
-  filterTakeout: "No,"
+  filterDelivery: "All",
+  filterTakeout: "All"
 });
 
 var filtersReducer = function filtersReducer() {
@@ -3340,12 +3401,17 @@ var filtersReducer = function filtersReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
 
-  if (action.type === _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_FILTER"]) {
-    var newFilter = _defineProperty({}, action.filter, action.value);
+  switch (action.type) {
+    case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_FILTER"]:
+      var newFilter = _defineProperty({}, action.filter, action.value);
 
-    return Object.assign({}, state, newFilter);
-  } else {
-    return state;
+      return Object.assign({}, state, newFilter);
+
+    case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["CLEAR"]:
+      return defaultFilters;
+
+    default:
+      return state;
   }
 };
 
@@ -3451,6 +3517,11 @@ var selectReviewsForBusiness = function selectReviewsForBusiness(_ref3, business
   return business.reviewIds.map(function (reviewId) {
     return reviews[reviewId];
   });
+};
+
+var selectBusinessesOpenNow = function selectBusinessesOpenNow(_ref4) {
+  var businesses = _ref4.businesses;
+  retu;
 };
 
 /***/ }),

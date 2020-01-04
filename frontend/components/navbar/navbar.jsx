@@ -26,7 +26,6 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
             <div className="notlogged-left">
                 <Link style={{textDecoration: 'none'}} to="/businesses/new">
                     <img id="bizbutton" src="/building-regular.svg"/>
-                    {/* &nbsp; */}
                     <span>Add Your Business</span>  
                 </Link>
             </div>

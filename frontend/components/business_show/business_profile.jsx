@@ -44,7 +44,9 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
                 
                     <div className="business-review-link">
                         <button>
-                            <ReviewLink component={ReviewFormContainer}
+                            <ReviewLink
+                                style={{ textDecoration: 'none' }}
+                                component={ReviewFormContainer}
                                 to={`/businesses/${businessId}/review`}
                                 label="★ Write a Review" />
                             <ProtectedRoute

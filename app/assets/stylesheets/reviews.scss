@@ -1,6 +1,5 @@
 .reviews-section {
     display: flex;
-    // justify-content: space-between;
     align-items: center;
     margin-left: 8px;
     border-top: 1px solid #e6e6e6;
@@ -22,17 +21,24 @@
     margin-top: 5px;
 }
 
-// .reviews div {
-//     padding: 10px;
-// }
+#stars-and-date {
+    display: flex;
+    align-items: center;
+}
 
 .reviews #stars {
     color: #FF003C;
-    padding: 3px;
+    padding: 3px;  
+}
+
+.reviews #created_at {
+    color: #666666;
+    font-size: 14px;
+    margin-left: 3px;
 }
 
 .reviews #comment > {
-    font-size: 14;
+    font-size: 14px;
     margin-top: 5px;
 }
 
@@ -44,6 +50,10 @@
     padding: 5px;
 }
 
-.business-review-link {
-    padding: 20px;
-}
+// .business-review-link {
+//     padding: 20px;
+//     color: #FF003C;
+//     text-decoration: none;
+// }
+
+

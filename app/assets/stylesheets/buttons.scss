@@ -20,6 +20,15 @@
     font-size: 15px;
 }
 
+#magnifying-glass {
+    height: 34px;
+    background-color: white;
+    padding: 7px;
+    // filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+    border-radius: 7px;
+    margin-left: 1px;
+}
+
 #paperplane {
     height: 18px;
     margin-right: 5px;

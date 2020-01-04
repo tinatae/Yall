@@ -41,13 +41,16 @@ class SearchbarForm extends React.Component {
             <div className="searchbar-form">
                 <div>
                     <form onSubmit={this.handleSubmit}>
-                        <input id="searchbar-input" type="text" placeholder="  Find  So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} />      
-                        <input type="submit" value="Look Me Up!" />
-                    </form>
-                </div>
+                        <div id="searchbar-container">
+                            <div>
+                                <input id="searchbar-input" type="text" placeholder="  Find | So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} />           
+                            </div>
+                            <div>   
+                                <input id="magnifying-glass" type="image" src="/search-solid.svg" alt="Submit Query"/>               
+                            </div>
+                        </div>
 
-                <div>
-                    <button className="everything-button" onClick={this.navigateToEverything}><div>Not Sure. What's Around ?</div></button>
+                    </form>
                 </div>
             </div>
         )

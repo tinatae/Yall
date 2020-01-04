@@ -10,7 +10,7 @@ const BusinessShow = ({ business, businessId, fetchBusiness, reviews }) => {
     return(     
         <div className="all-business-show">
             <div id="button-link-to-index">
-                <Link to="/">
+                <Link to="/businesses">
                     <button>
                         Back
                     </button>

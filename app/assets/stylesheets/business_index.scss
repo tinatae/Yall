@@ -62,14 +62,7 @@
     padding: 18px;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
-    // background-color: orange;
 }
-
-// #index-pic {
-//     // width: 210px;
-//     // height: 210px;
-//     // border-radius: 2%;
-// }
 
 #index-pic img {
     object-fit: cover;
@@ -116,7 +109,7 @@
 
 .index-item-info #name {
     color: #0073bb;
-    font-size: 16;
+    font-size: 16px;
     font-weight: 600;
 }
 
@@ -148,9 +141,8 @@
     font-size: 14px;
     margin-top: 15px;
     width: 100%;
+    font-weight: 700;
 }
-
-
 
 #werd {
     font-weight: 500;

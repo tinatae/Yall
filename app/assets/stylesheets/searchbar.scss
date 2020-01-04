@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-content: center;
 }
 
 #searchbar-input {
@@ -12,20 +12,29 @@
     border: 2px solid white;
 }
 
-.everything-button {
-    margin-top: 20%;
-    padding: 5px 10px;
-    border-radius: 10px;
-    border: 2px solid white;
+#searchbar-container {
+    display: flex;
+    align-items: center;
 }
 
-.everything-button:hover {
-    background-color: #C7FFFF;
-    color: black;
-}
+// input[type=submit] {
 
-button div {
-    padding: 5px;
-    font-family: Brush Script Std;
-    font-size: 18px;
-}
+// }
+
+// .everything-button {
+//     margin-top: 20%;
+//     padding: 5px 10px;
+//     border-radius: 10px;
+//     border: 2px solid white;
+// }
+
+// .everything-button:hover {
+//     background-color: #C7FFFF;
+//     color: black;
+// }
+
+// button div {
+//     padding: 5px;
+//     font-family: Brush Script Std;
+//     font-size: 18px;
+// }

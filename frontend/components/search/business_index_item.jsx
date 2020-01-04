@@ -26,7 +26,7 @@ class BusinessIndexItem extends React.Component {
                     <div className="index-item-info">
                         <div className="index-item-info-grid">
                             <div id="col1">
-                                <span id="name">{name}</span>
+                                <div id="name">{name}</div>
                              
                                 <div id="rating-block">
                                     <span id="rating">{average_rating || 'No Reviews Yet'}</span>
@@ -49,7 +49,8 @@ class BusinessIndexItem extends React.Component {
 
                         <div id="recentreview">
                             <div id="werd">Word on the Street:</div>
-                            <div>{recentreview || 'No Reviews Yet'}</div>
+                            <div>"{recentreview}"</div>
+                            {/* <div>{`"{recentreview}"` || 'No Reviews Yet'}</div> */}
                         </div>
                     </div>
                 </div>
