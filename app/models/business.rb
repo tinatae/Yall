@@ -1,19 +1,18 @@
 
 class Business < ApplicationRecord
     validates :name, :lat, :lng, :address1, :address2, presence: true
-    validates :monopen, :monclose, :monopenend, :moncloseend, presence: true
-    validates :tuesopen, :tuesclose, :tuesopenend, :tuescloseend, presence: true 
-    validates :wedopen, :wedclose, :wedopenend, :wedcloseend, presence: true 
-    validates :thursopen, :thursclose, :thursopenend, :thurscloseend, presence: true
-    validates :friopen, :friclose, :friopenend, :fricloseend, presence: true  
-    validates :satopen, :satclose, :satopenend, :satcloseend, presence: true
-    validates :sunopen, :sunclose, :sunopenend, :suncloseend, presence: true  
+    validates :monopen, :monclose, presence: true
+    validates :tuesopen, :tuesclose, presence: true 
+    validates :wedopen, :wedclose, presence: true 
+    validates :thursopen, :thursclose, presence: true
+    validates :friopen, :friclose, presence: true  
+    validates :satopen, :satclose, presence: true
+    validates :sunopen, :sunclose, presence: true  
     validates :name, uniqueness: true
     validates :category, inclusion: {in: ["All", "Restaurants", "Coffee & Tea", "Bars"]}
     validates :pricepoint, inclusion: { in: (1..4) }
-    validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, inclusion: { in: (1..12) }
+    validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, inclusion: { in: (0..23) }
     validates :delivery, :takeout, inclusion: {in: ["All", "Yes", "No"]}
-    validates :opennow, inclusion: {in: ["Always", "Yes", "No"]}
 
     # scope :named, -> (name) {where("name LIKE ?", name)}
 
@@ -80,37 +79,21 @@ class Business < ApplicationRecord
 
     end
 
-    # def open?
-    #     days_of_week = {0 => "sun", 1 => "mon", 2 => "tues", 3 => "wed", 4 => "thurs", 5 => "fri", 6 => "sat"}
+    def self.open?
+        days_of_week = {0 => "sun", 1 => "mon", 2 => "tues", 3 => "wed", 4 => "thurs", 5 => "fri", 6 => "sat"}
    
-    #     day = days_of_week[Time.now.wday]
-    #     openhour = day + "open"
-    #     openhourapx = day + "openend"
-    #     closehour = day + "close"
-    #     closehourapx = day + "closeend"
+        day = days_of_week[Time.now.wday]
+        openhour = day + "open" # "sunopen"
+        closehour = day + "close" # "sunclose"
+        currenthour = Time.now.hour
 
-    #     if self[openhourapx] == "AM" && self[closehourapx] == "AM"
-    #         return "Yes" if (self[openhour]..self[closehour]).include?(Time.now.hour)
-    #     elsif self[openhourapx] == "PM" && self[closehourapx] == "PM"
-    #         self[openhour] += 12
-    #         self[closehour] += 12
-    #         return "Yes" if (self[openhour]..self[closehour]).include?(Time.now.hour)
-    #     elsif self[openhourapx]=="AM" && self[closehourapx]=="PM"
-    #         self[closehour] += 12
-    #         return "Yes" if (self[openhour]..self[closehour]).include?(Time.now.hour)
-    #     elsif self[openhourapx]=="PM" && self[closehourapx]=="AM"
-    #         if self[openhour] != 12
-    #             self[openhour] += 12
-    #         end
-
-    #         if Time.now.hour >= 12
-    #             return "Yes" if Time.now.hour > self[openhour]
-    #         elsif Time.now.hour < 12 
-    #             return "Yes" if Time.now.hour < self[closehour]
-    #         end
-    #     end
+        if self[openhour] < self[closehour]
+            self.where("currenthour BETWEEN ? AND ?", self[openhour], self[closehour])
+        elsif self[closehour] < self[openhour]
+            (self[openhour..23]) + (0..self[closehour])
+        end
             
-    #     "No"
-    # end
+        "No"
+    end
 
 end

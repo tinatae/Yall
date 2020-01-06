@@ -15,32 +15,18 @@ class BusinessForm extends React.Component {
             pricepoint: '',
             monopen: '',
             monclose: '',
-            monopenend: '',
-            moncloseend: '',
             tuesopen: '',
             tuesclose: '',
-            tuesopenend: '',
-            tuescloseend: '',
             wedopen: '',
             wedclose: '',
-            wedopenend: '',
-            wedcloseend: '',
             thursopen: '',
             thursclose: '',
-            thursopenend: '',
-            thurscloseend: '',
             friopen: '',
             friclose: '',
-            friopenend: '',
-            fricloseend: '',
             satopen: '',
             satclose: '',
-            satopenend: '',
-            satcloseend: '',
             sunopen: '',
             sunclose: '',
-            sunopenend: '',
-            suncloseend: '',
             delivery: '',
             takeout: '',
             photoFiles: null,
@@ -90,32 +76,18 @@ class BusinessForm extends React.Component {
         formData.append('business[pricepoint]', this.state.pricepoint);
         formData.append('business[monopen]', this.state.monopen);
         formData.append('business[monclose]', this.state.monclose);
-        formData.append('business[monopenend]', this.state.monopenend);
-        formData.append('business[moncloseend]', this.state.moncloseend);
         formData.append('business[tuesopen]', this.state.tuesopen);
         formData.append('business[tuesclose]', this.state.tuesclose);
-        formData.append('business[tuesopenend]', this.state.tuesopenend);
-        formData.append('business[tuescloseend]', this.state.tuescloseend);
         formData.append('business[wedopen]', this.state.wedopen);
         formData.append('business[wedclose]', this.state.wedclose);
-        formData.append('business[wedopenend]', this.state.wedopenend);
-        formData.append('business[wedcloseend]', this.state.wedcloseend);
         formData.append('business[thursopen]', this.state.thursopen);
         formData.append('business[thursclose]', this.state.thursclose);
-        formData.append('business[thursopenend]', this.state.thursopenend);
-        formData.append('business[thurscloseend]', this.state.thurscloseend);
         formData.append('business[friopen]', this.state.friopen);
         formData.append('business[friclose]', this.state.friclose);
-        formData.append('business[friopenend]', this.state.friopenend);
-        formData.append('business[fricloseend]', this.state.fricloseend);
         formData.append('business[satopen]', this.state.satopen);
         formData.append('business[satclose]', this.state.satclose);
-        formData.append('business[satopenend]', this.state.satopenend);
-        formData.append('business[satcloseend]', this.state.satcloseend);
         formData.append('business[sunopen]', this.state.sunopen);
         formData.append('business[sunclose]', this.state.sunclose);
-        formData.append('business[sunopenend]', this.state.sunopenend);
-        formData.append('business[suncloseend]', this.state.suncloseend);
         formData.append('business[delivery]', this.state.delivery);
         formData.append('business[takeout]', this.state.takeout);
 
@@ -129,7 +101,7 @@ class BusinessForm extends React.Component {
 
     render() {
         const { name, category, website, phonenumber, address1, address2, pricepoint } = this.state;
-        const { monopen, monclose, monopenend, moncloseend, tuesopen, tuesclose, tuesopenend, tuescloseend, wedopen, wedclose, wedopenend, wedcloseend, thursopen, thursclose, thursopenend, thurscloseend, friopen, friclose, friopenend, fricloseend, satopen, satclose, satopenend, satcloseend, sunopen, sunclose, sunopenend, suncloseend } = this.state;
+        const { monopen, monclose, tuesopen, tuesclose, wedopen, wedclose, thursopen, thursclose, friopen, friclose, satopen, satclose, sunopen, sunclose } = this.state;
         const { delivery, takeout } = this.state;
         const { lat, lng } = this.coords;
         const preview = this.state.photoUrls ? <img height="100px" width="100px" src={this.state.photoUrls[0]} /> : null;
@@ -240,161 +212,210 @@ class BusinessForm extends React.Component {
                                 <div>Monday Open:</div>
                                 <select name="Monday Open" value={monopen} onChange={this.update('monopen')}>
                                     <option selected disabled value="">- Open -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                <select name="Monday Open Suffix" value={monopenend} onChange={this.update('monopenend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
                             </label>
                             <label>
                                 <div>Tuesday Open:</div>
                                 <select name="Tuesday Open" value={tuesopen} onChange={this.update('tuesopen')}>
                                     <option selected disabled value="">- Open -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                <select name="Tuesday Open Suffix" value={tuesopenend} onChange={this.update('tuesopenend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
                             </label>
                             <label>
                                 <div>Wednesday Open:</div>
                                 <select name="Wednesday Open" value={wedopen} onChange={this.update('wedopen')}>
                                     <option selected disabled value="">- Open -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                <select name="Wednesday Open Suffix" value={wedopenend} onChange={this.update('wedopenend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
                             </label>
                             <label>
                                 <div>Thursday Open:</div>
                                 <select name="Thursday Open" value={thursopen} onChange={this.update('thursopen')}>
                                     <option selected disabled value="">- Open -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                <select name="Thursday Open Suffix" value={thursopenend} onChange={this.update('thursopenend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
                             </label>
                             <label>
                                 <div>Friday Open:</div>
                                 <select name="Friday Open" value={friopen} onChange={this.update('friopen')}>
                                     <option selected disabled value="">- Open -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                <select name="Friday Open Suffix" value={friopenend} onChange={this.update('friopenend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
                             </label>
                             <label>
                                 <div>Saturday Open:</div>
                                 <select name="Saturday Open" value={satopen} onChange={this.update('satopen')}>
                                     <option selected disabled value="">- Open -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
-                                <select name="Saturday Open Suffix" value={satopenend} onChange={this.update('satopenend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
-                                </select>
-                            </label>&nbsp;
+                            </label>
                             <label>
                                 <div>Sunday Open:</div>
                                 <select name="Sunday Open" value={sunopen} onChange={this.update('sunopen')}>
                                     <option selected disabled value="">- Open -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                <select name="Sunday Open Suffix" value={sunopenend} onChange={this.update('sunopenend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
                             </label>
                         </div>
@@ -403,161 +424,210 @@ class BusinessForm extends React.Component {
                                 <div>Monday Close:</div>
                                 <select name="Monday Close" value={monclose} onChange={this.update('monclose')}>
                                     <option selected disabled value="">- Close -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                <select name="Monday Close Suffix" value={moncloseend} onChange={this.update('moncloseend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
                             </label>                 
                             <label>
                                 <div>Tuesday Close:</div>
                                 <select name="tuesday Close" value={tuesclose} onChange={this.update('tuesclose')}>
                                     <option selected disabled value="">- Close -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                <select name="Tuesday Close Suffix" value={tuescloseend} onChange={this.update('tuescloseend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
                             </label>  
                             <label>
                                 <div>Wednesday Close:</div>
                                 <select name="Wednesday Close" value={wedclose} onChange={this.update('wedclose')}>
                                     <option selected disabled value="">- Close -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                <select name="Wednesday Close Suffix" value={wedcloseend} onChange={this.update('wedcloseend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
                             </label>   
                             <label>
                                 <div>Thursday Close:</div>
                                 <select name="Thursday Close" value={thursclose} onChange={this.update('thursclose')}>
                                     <option selected disabled value="">- Close -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                <select name="Thursday Close Suffix" value={thurscloseend} onChange={this.update('thurscloseend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
                             </label>       
                             <label>
                                 <div>Friday Close:</div>
                                 <select name="Friday Close" value={friclose} onChange={this.update('friclose')}>
                                     <option selected disabled value="">- Close -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                <select name="Friday Close Suffix" value={fricloseend} onChange={this.update('fricloseend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
                             </label>   
                             <label>
                                 <div>Saturday Close:</div>
                                 <select name="Saturday Close" value={satclose} onChange={this.update('satclose')}>
                                     <option selected disabled value="">- Close -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                <select name="Saturday Close Suffix" value={satcloseend} onChange={this.update('satcloseend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
                             </label>   
                             <label>
                                 <div>Sunday Close:</div>
                                 <select name="Sunday Close" value={sunclose} onChange={this.update('sunclose')}>
                                     <option selected disabled value="">- Close -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                <select name="Sunday Close Suffix" value={suncloseend} onChange={this.update('suncloseend')}>
-                                    <option selected disabled value="">- AM | PM -</option>
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
+                                    <option value="0">12AM</option>
+                                    <option value="1">1AM</option>
+                                    <option value="2">2AM</option>
+                                    <option value="3">3AM</option>
+                                    <option value="4">4AM</option>
+                                    <option value="5">5AM</option>
+                                    <option value="6">6AM</option>
+                                    <option value="7">7AM</option>
+                                    <option value="8">8AM</option>
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12PM</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                    <option value="19">7PM</option>
+                                    <option value="20">8PM</option>
+                                    <option value="21">9PM</option>
+                                    <option value="22">10PM</option>
+                                    <option value="23">11PM</option>
                                 </select>
                             </label>   
                         </div>

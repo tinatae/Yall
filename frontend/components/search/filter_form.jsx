@@ -100,7 +100,7 @@ const FilterForm =({ searchQuery, minPricepoint, maxPricepoint, filterCategory, 
                 </select>
             </label>
             <label>
-                <button value="Yes" onClick={handleOpenNow()}>
+                <button value="Yes" onClick={handleOpenNow('filterOpenNow', updateFilter)}>
                     <span> Open Now </span>
                 </button>
             </label>

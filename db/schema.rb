@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_02_062832) do
+ActiveRecord::Schema.define(version: 2020_01_06_053236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,41 +50,39 @@ ActiveRecord::Schema.define(version: 2020_01_02_062832) do
     t.integer "pricepoint", null: false
     t.integer "monopen", null: false
     t.integer "monclose", null: false
-    t.string "monopenend", null: false
-    t.string "moncloseend", null: false
     t.integer "tuesopen", null: false
     t.integer "tuesclose", null: false
-    t.string "tuesopenend", null: false
-    t.string "tuescloseend", null: false
     t.integer "wedopen", null: false
     t.integer "wedclose", null: false
-    t.string "wedopenend", null: false
-    t.string "wedcloseend", null: false
     t.integer "thursopen", null: false
     t.integer "thursclose", null: false
-    t.string "thursopenend", null: false
-    t.string "thurscloseend", null: false
     t.integer "friopen", null: false
     t.integer "friclose", null: false
-    t.string "friopenend", null: false
-    t.string "fricloseend", null: false
     t.integer "satopen", null: false
     t.integer "satclose", null: false
-    t.string "satopenend", null: false
-    t.string "satcloseend", null: false
     t.integer "sunopen", null: false
     t.integer "sunclose", null: false
-    t.string "sunopenend", null: false
-    t.string "suncloseend", null: false
     t.string "delivery", default: "No", null: false
     t.string "takeout", default: "No", null: false
-    t.string "opennow", default: "Always"
     t.index ["category"], name: "index_businesses_on_category"
     t.index ["delivery"], name: "index_businesses_on_delivery"
+    t.index ["friclose"], name: "index_businesses_on_friclose"
+    t.index ["friopen"], name: "index_businesses_on_friopen"
+    t.index ["monclose"], name: "index_businesses_on_monclose"
+    t.index ["monopen"], name: "index_businesses_on_monopen"
     t.index ["name"], name: "index_businesses_on_name", unique: true
-    t.index ["opennow"], name: "index_businesses_on_opennow"
     t.index ["pricepoint"], name: "index_businesses_on_pricepoint"
+    t.index ["satclose"], name: "index_businesses_on_satclose"
+    t.index ["satopen"], name: "index_businesses_on_satopen"
+    t.index ["sunclose"], name: "index_businesses_on_sunclose"
+    t.index ["sunopen"], name: "index_businesses_on_sunopen"
     t.index ["takeout"], name: "index_businesses_on_takeout"
+    t.index ["thursclose"], name: "index_businesses_on_thursclose"
+    t.index ["thursopen"], name: "index_businesses_on_thursopen"
+    t.index ["tuesclose"], name: "index_businesses_on_tuesclose"
+    t.index ["tuesopen"], name: "index_businesses_on_tuesopen"
+    t.index ["wedclose"], name: "index_businesses_on_wedclose"
+    t.index ["wedopen"], name: "index_businesses_on_wedopen"
   end
 
   create_table "reviews", force: :cascade do |t|

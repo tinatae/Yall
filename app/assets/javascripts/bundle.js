@@ -424,32 +424,18 @@ function (_React$Component) {
       pricepoint: '',
       monopen: '',
       monclose: '',
-      monopenend: '',
-      moncloseend: '',
       tuesopen: '',
       tuesclose: '',
-      tuesopenend: '',
-      tuescloseend: '',
       wedopen: '',
       wedclose: '',
-      wedopenend: '',
-      wedcloseend: '',
       thursopen: '',
       thursclose: '',
-      thursopenend: '',
-      thurscloseend: '',
       friopen: '',
       friclose: '',
-      friopenend: '',
-      fricloseend: '',
       satopen: '',
       satclose: '',
-      satopenend: '',
-      satcloseend: '',
       sunopen: '',
       sunclose: '',
-      sunopenend: '',
-      suncloseend: '',
       delivery: '',
       takeout: '',
       photoFiles: null,
@@ -510,32 +496,18 @@ function (_React$Component) {
       formData.append('business[pricepoint]', this.state.pricepoint);
       formData.append('business[monopen]', this.state.monopen);
       formData.append('business[monclose]', this.state.monclose);
-      formData.append('business[monopenend]', this.state.monopenend);
-      formData.append('business[moncloseend]', this.state.moncloseend);
       formData.append('business[tuesopen]', this.state.tuesopen);
       formData.append('business[tuesclose]', this.state.tuesclose);
-      formData.append('business[tuesopenend]', this.state.tuesopenend);
-      formData.append('business[tuescloseend]', this.state.tuescloseend);
       formData.append('business[wedopen]', this.state.wedopen);
       formData.append('business[wedclose]', this.state.wedclose);
-      formData.append('business[wedopenend]', this.state.wedopenend);
-      formData.append('business[wedcloseend]', this.state.wedcloseend);
       formData.append('business[thursopen]', this.state.thursopen);
       formData.append('business[thursclose]', this.state.thursclose);
-      formData.append('business[thursopenend]', this.state.thursopenend);
-      formData.append('business[thurscloseend]', this.state.thurscloseend);
       formData.append('business[friopen]', this.state.friopen);
       formData.append('business[friclose]', this.state.friclose);
-      formData.append('business[friopenend]', this.state.friopenend);
-      formData.append('business[fricloseend]', this.state.fricloseend);
       formData.append('business[satopen]', this.state.satopen);
       formData.append('business[satclose]', this.state.satclose);
-      formData.append('business[satopenend]', this.state.satopenend);
-      formData.append('business[satcloseend]', this.state.satcloseend);
       formData.append('business[sunopen]', this.state.sunopen);
       formData.append('business[sunclose]', this.state.sunclose);
-      formData.append('business[sunopenend]', this.state.sunopenend);
-      formData.append('business[suncloseend]', this.state.suncloseend);
       formData.append('business[delivery]', this.state.delivery);
       formData.append('business[takeout]', this.state.takeout);
 
@@ -561,32 +533,18 @@ function (_React$Component) {
       var _this$state2 = this.state,
           monopen = _this$state2.monopen,
           monclose = _this$state2.monclose,
-          monopenend = _this$state2.monopenend,
-          moncloseend = _this$state2.moncloseend,
           tuesopen = _this$state2.tuesopen,
           tuesclose = _this$state2.tuesclose,
-          tuesopenend = _this$state2.tuesopenend,
-          tuescloseend = _this$state2.tuescloseend,
           wedopen = _this$state2.wedopen,
           wedclose = _this$state2.wedclose,
-          wedopenend = _this$state2.wedopenend,
-          wedcloseend = _this$state2.wedcloseend,
           thursopen = _this$state2.thursopen,
           thursclose = _this$state2.thursclose,
-          thursopenend = _this$state2.thursopenend,
-          thurscloseend = _this$state2.thurscloseend,
           friopen = _this$state2.friopen,
           friclose = _this$state2.friclose,
-          friopenend = _this$state2.friopenend,
-          fricloseend = _this$state2.fricloseend,
           satopen = _this$state2.satopen,
           satclose = _this$state2.satclose,
-          satopenend = _this$state2.satopenend,
-          satcloseend = _this$state2.satcloseend,
           sunopen = _this$state2.sunopen,
-          sunclose = _this$state2.sunclose,
-          sunopenend = _this$state2.sunopenend,
-          suncloseend = _this$state2.suncloseend;
+          sunclose = _this$state2.sunclose;
       var _this$state3 = this.state,
           delivery = _this$state3.delivery,
           takeout = _this$state3.takeout;
@@ -720,42 +678,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Monday Open Suffix",
-        value: monopenend,
-        onChange: this.update('monopenend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tuesday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tuesday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Tuesday Open",
         value: tuesopen,
         onChange: this.update('tuesopen')
@@ -764,42 +734,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Tuesday Open Suffix",
-        value: tuesopenend,
-        onChange: this.update('tuesopenend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wednesday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wednesday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Wednesday Open",
         value: wedopen,
         onChange: this.update('wedopen')
@@ -808,42 +790,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Wednesday Open Suffix",
-        value: wedopenend,
-        onChange: this.update('wedopenend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thursday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thursday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Thursday Open",
         value: thursopen,
         onChange: this.update('thursopen')
@@ -852,42 +846,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Thursday Open Suffix",
-        value: thursopenend,
-        onChange: this.update('thursopenend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Friday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Friday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Friday Open",
         value: friopen,
         onChange: this.update('friopen')
@@ -896,42 +902,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Friday Open Suffix",
-        value: friopenend,
-        onChange: this.update('friopenend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Saturday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Saturday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Saturday Open",
         value: satopen,
         onChange: this.update('satopen')
@@ -940,42 +958,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Saturday Open Suffix",
-        value: satopenend,
-        onChange: this.update('satopenend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM"))), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sunday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sunday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Sunday Open",
         value: sunopen,
         onChange: this.update('sunopen')
@@ -984,42 +1014,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Sunday Open Suffix",
-        value: sunopenend,
-        onChange: this.update('sunopenend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bizhours-grid2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Monday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Monday Close",
@@ -1030,42 +1072,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Monday Close Suffix",
-        value: moncloseend,
-        onChange: this.update('moncloseend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tuesday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tuesday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "tuesday Close",
         value: tuesclose,
         onChange: this.update('tuesclose')
@@ -1074,42 +1128,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Tuesday Close Suffix",
-        value: tuescloseend,
-        onChange: this.update('tuescloseend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wednesday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wednesday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Wednesday Close",
         value: wedclose,
         onChange: this.update('wedclose')
@@ -1118,42 +1184,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Wednesday Close Suffix",
-        value: wedcloseend,
-        onChange: this.update('wedcloseend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thursday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thursday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Thursday Close",
         value: thursclose,
         onChange: this.update('thursclose')
@@ -1162,42 +1240,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Thursday Close Suffix",
-        value: thurscloseend,
-        onChange: this.update('thurscloseend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Friday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Friday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Friday Close",
         value: friclose,
         onChange: this.update('friclose')
@@ -1206,42 +1296,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Friday Close Suffix",
-        value: fricloseend,
-        onChange: this.update('fricloseend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Saturday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Saturday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Saturday Close",
         value: satclose,
         onChange: this.update('satclose')
@@ -1250,42 +1352,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Saturday Close Suffix",
-        value: satcloseend,
-        onChange: this.update('satcloseend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sunday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sunday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Sunday Close",
         value: sunclose,
         onChange: this.update('sunclose')
@@ -1294,42 +1408,54 @@ function (_React$Component) {
         disabled: true,
         value: ""
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Sunday Close Suffix",
-        value: suncloseend,
-        onChange: this.update('suncloseend')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- AM | PM -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "AM"
-      }, "AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "PM"
-      }, "PM"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "13"
+      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "14"
+      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "15"
+      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "16"
+      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "17"
+      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "18"
+      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "19"
+      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "20"
+      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "21"
+      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "22"
+      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "23"
+      }, "11PM"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-create-bizphoto"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Image Preview"), preview, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Add a Picture"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
@@ -1672,7 +1798,7 @@ var BusinessProfile = function BusinessProfile(_ref) {
     fetchBusiness: fetchBusiness
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-hours"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Monday: ", business.monopen, business.monopenend, " - ", business.monclose, business.moncloseend), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Tuesday: ", business.tuesopen, business.tuesopenend, " - ", business.tuesclose, business.tuescloseend), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wednesday: ", business.wedopen, business.wedopenend, " - ", business.wedclose, business.wedcloseend), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thursday: ", business.thursopen, business.thursopenend, " - ", business.thursclose, business.thurscloseend), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Friday: ", business.friopen, business.friopenend, " - ", business.friclose, business.fricloseend), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Saturday: ", business.satopen, business.satopenend, " - ", business.satclose, business.satcloseend), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sunday: ", business.sunopen, business.sunopenend, " - ", business.sunclose, business.suncloseend)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Monday: ", business.monopen, " - ", business.monclose), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Tuesday: ", business.tuesopen, " - ", business.tuesclose), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wednesday: ", business.wedopen, " - ", business.wedclose), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thursday: ", business.thursopen, " - ", business.thursclose), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Friday: ", business.friopen, " - ", business.friclose), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Saturday: ", business.satopen, " - ", business.satclose), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sunday: ", business.sunopen, " - ", business.sunclose)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-info"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizwebsite"
@@ -2649,7 +2775,7 @@ var FilterForm = function FilterForm(_ref) {
     value: "Bars"
   }, "Bars"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     value: "Yes",
-    onClick: handleOpenNow()
+    onClick: handleOpenNow('filterOpenNow', updateFilter)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " Open Now "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     id: "delivery-button"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
