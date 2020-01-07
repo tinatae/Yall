@@ -44,6 +44,7 @@ class SessionForm extends React.Component {
                             <label id="username-label">username:
                                 <input id="username" type="text" value={this.state.username} onChange={this.update('username')} />
                             </label>
+                            <br/>
                             <label id="password-label">password:
                                 <input id="password" type="text" value={this.state.password} onChange={this.update('password')} />
                             </label>

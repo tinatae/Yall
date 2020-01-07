@@ -11,6 +11,7 @@ import BusinessShowContainer from './business_show/business_show_container';
 // import ReviewFormContainer from './business_show/review_form_container';
 import HomepageContainer from './homepage/homepage_container';
 import NavbarContainer from './navbar/navbar_container';
+import Footer from './navbar/footer';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -30,6 +31,10 @@ const App = () => (
             <Route exact path="/businesses" component={SearchContainer} />
             <Route exact path="/" component={HomepageContainer} />
         </Switch>
+        <br/>
+        <footer>
+            <Footer />
+        </footer>
     </div>
 );
 

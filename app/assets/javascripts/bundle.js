@@ -316,7 +316,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _business_show_business_show_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./business_show/business_show_container */ "./frontend/components/business_show/business_show_container.js");
 /* harmony import */ var _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./homepage/homepage_container */ "./frontend/components/homepage/homepage_container.js");
 /* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _navbar_footer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./navbar/footer */ "./frontend/components/navbar/footer.jsx");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 
  // import GreetingContainer from './greeting/greeting_container';
 
@@ -331,18 +332,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
     className: "main-header"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_10__["AuthRoute"], {
     exact: true,
     path: "/login",
     component: _session_login_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_10__["AuthRoute"], {
     exact: true,
     path: "/signup",
     component: _session_signup_form_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["ProtectedRoute"], {
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_10__["ProtectedRoute"], {
     exact: true,
     path: "/businesses/new",
     component: _business_form_business_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
@@ -357,7 +359,7 @@ var App = function App() {
     exact: true,
     path: "/",
     component: _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-  })));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_footer__WEBPACK_IMPORTED_MODULE_9__["default"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -2171,17 +2173,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
- // import { updateFilter } from '../../actions/filter_actions';
-// import { withRouter } from 'react-router-dom'
+
 
 var Homepage =
 /*#__PURE__*/
@@ -2189,9 +2190,18 @@ function (_React$Component) {
   _inherits(Homepage, _React$Component);
 
   function Homepage(props) {
+    var _this;
+
     _classCallCheck(this, Homepage);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Homepage).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Homepage).call(this, props));
+    _this.state = {
+      filterCategory: "Restaurants",
+      filterDelivery: "Yes"
+    };
+    _this.handleCategoryChange = _this.handleCategoryChange.bind(_assertThisInitialized(_this));
+    _this.handleDeliveryChange = _this.handleDeliveryChange.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Homepage, [{
@@ -2210,8 +2220,30 @@ function (_React$Component) {
       }
     }
   }, {
+    key: "handleCategoryChange",
+    value: function handleCategoryChange(e) {
+      this.setState({
+        filterCategory: e.currentTarget.value
+      });
+      this.props.changeFilter('filterCategory', this.state.filterCategory);
+      this.props.history.push("/businesses?query=".concat(this.state.filterCategory));
+    }
+  }, {
+    key: "handleDeliveryChange",
+    value: function handleDeliveryChange(e) {
+      e.preventDefault();
+      this.setState({
+        filterDelivery: e.currentTarget.value
+      });
+      this.props.changeFilter('filterDelivery', this.state.filterDelivery);
+      this.props.history.push("/businesses?query=".concat(this.state.filterDelivery));
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this$state = this.state,
+          filterCategory = _this$state.filterCategory,
+          filterDelivery = _this$state.filterDelivery;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "homepage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2238,7 +2270,21 @@ function (_React$Component) {
         src: window.home5URL
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "searchbar-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "homepage-categories"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Restaurants", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        value: "Restaurants",
+        onClick: this.handleCategoryChange
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        id: "paperplane",
+        src: "/paper-plane-regular.svg"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Delivery", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        value: "Yes",
+        onClick: this.handleDeliveryChange
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        id: "paperplane",
+        src: "/paper-plane-regular.svg"
+      })))));
     }
   }]);
 
@@ -2247,9 +2293,14 @@ function (_React$Component) {
 
 ;
 /* harmony default export */ __webpack_exports__["default"] = (Homepage);
-{
-  /* <img className="background" src={window.home1} /> */
-}
+{}
+/* <img className="background" src={window.home1} /> */
+// <label>
+//     Delivery
+//     <button value="Yes" onClick={handleDeliveryChange('filterDelivery', changeFilter)}>
+//         <img id="paperplane" src="/paper-plane-regular.svg" />
+//     </button>
+// </label>
 
 /***/ }),
 
@@ -2265,37 +2316,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _homepage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./homepage */ "./frontend/components/homepage/homepage.jsx");
-/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
-/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
-/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
-
-
-
- // import { withRouter } from 'react-router-dom';
+/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
+/* harmony import */ var _homepage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./homepage */ "./frontend/components/homepage/homepage.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 
 
-var mSTP = function mSTP(state, _ref) {
-  var location = _ref.location;
-  return {// businesses: Object.values(state.entities.businesses),
-    // businesses: asArray(state.entities)
+
+
+var mSTP = function mSTP(state) {
+  return {
+    filterCategory: state.ui.filters.filterCategory,
+    filterDelivery: state.ui.filters.filterDelivery
   };
 };
 
 var mDTP = function mDTP(dispatch) {
   return {
-    fetchBusinesses: function fetchBusinesses(filters) {
-      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_3__["fetchBusinesses"])(filters));
-    },
-    updateFilter: function updateFilter(filter, value) {
-      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_5__["updateFilter"])(filter, value));
+    changeFilter: function changeFilter(filter, value) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_2__["changeFilter"])(filter, value));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_homepage__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_homepage__WEBPACK_IMPORTED_MODULE_3__["default"])));
+
+/***/ }),
+
+/***/ "./frontend/components/navbar/footer.jsx":
+/*!***********************************************!*\
+  !*** ./frontend/components/navbar/footer.jsx ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+var Footer = function Footer() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "footer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thanks for visiting!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Photo Credits"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "About Me"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Footer);
 
 /***/ }),
 
@@ -2386,7 +2459,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   var navbarStyles = _objectSpread({}, backgroundStyle);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     style: navbarStyles,
     className: "navbar"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -2396,7 +2469,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     to: "/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "yallr-name"
-  }, "y allr", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " \u2744"))), display));
+  }, "y allr", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " \u2744"))), display)));
 });
 
 /***/ }),
@@ -2863,8 +2936,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Search).call(this, props));
     _this.state = {
-      searchQuery: "" // filterOpenNow: "Always"
-
+      searchQuery: ""
     }; // this.handleClearFilter = this.handleClearFilter.bind(this);
     // this.forceUpdate = this.forceUpdate.bind(this);
 
@@ -2873,20 +2945,6 @@ function (_React$Component) {
 
   _createClass(Search, [{
     key: "render",
-    // componentDidMount() { 
-    // };
-    // componentDidUpdate() {
-    //     if (state.filterOpenNow === "Yes") {
-    //         this.forceUpdate();
-    //     }
-    // };
-    // handleClearFilter(clearFilter) {
-    //     this.clearFilter;
-    //     this.forceUpdate();
-    // };
-    // update(field) {
-    //     return e => this.setState({})
-    // }
     value: function render() {
       var _this$props = this.props,
           businesses = _this$props.businesses,
@@ -2931,8 +2989,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "So Where Are We Going!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map_business_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
         businesses: businesses,
         updateFilter: updateFilter,
-        singleBusiness: false,
-        clearFilter: clearFilter
+        singleBusiness: false
       }))));
     }
   }]);
@@ -2949,6 +3006,21 @@ function (_React$Component) {
 // return Object.assign({}, this.state)
 // console.log(this.state);   
 // };
+// ------
+//componentDidMount() { 
+// };
+// componentDidUpdate() {
+//     if (state.filterOpenNow === "Yes") {
+//         this.forceUpdate();
+//     }
+// };
+// handleClearFilter(clearFilter) {
+//     this.clearFilter;
+//     this.forceUpdate();
+// };
+// update(field) {
+//     return e => this.setState({})
+// }
 
 /***/ }),
 
@@ -3089,8 +3161,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // const { searchQuery } = this.props;         // RETURNS CORRECT THING. DON'T CHANGE
-      // const { query } = this.state;               // RETURNS CORRECT THING. DON'T CHANGE
       var searchQuery = this.state.searchQuery;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "searchbar-form"
@@ -3329,7 +3399,7 @@ function (_React$Component) {
         type: "text",
         value: this.state.username,
         onChange: this.update('username')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "password-label"
       }, "password:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "password",

@@ -54,13 +54,15 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
         }
 
     return (
-        <header>
-            <div style={navbarStyles} className="navbar">
-                <Link style={{textDecoration: 'none'}} to="/">
-                    <div className="yallr-name">y allr<span> ❄</span></div>
-                </Link>
-                {display}
-            </div>
-        </header>
+        <div>
+            <header>
+                <div style={navbarStyles} className="navbar">
+                    <Link style={{textDecoration: 'none'}} to="/">
+                        <div className="yallr-name">y allr<span> ❄</span></div>
+                    </Link>
+                    {display}
+                </div>
+            </header>
+        </div>
     );
 };

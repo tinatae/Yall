@@ -10,30 +10,11 @@ class Search extends React.Component {
 
         this.state = {
             searchQuery: "",
-            // filterOpenNow: "Always"
         };
 
         // this.handleClearFilter = this.handleClearFilter.bind(this);
         // this.forceUpdate = this.forceUpdate.bind(this);
-    };
-
-    // componentDidMount() { 
-    // };
-
-    // componentDidUpdate() {
-    //     if (state.filterOpenNow === "Yes") {
-    //         this.forceUpdate();
-    //     }
-    // };
-
-    // handleClearFilter(clearFilter) {
-    //     this.clearFilter;
-    //     this.forceUpdate();
-    // };
-
-    // update(field) {
-    //     return e => this.setState({})
-    // }
+    }; 
 
     render () {
         const { businesses, minPricepoint, maxPricepoint, filterCategory, filterOpenNow, filterDelivery, filterTakeout, filterRating, updateFilter, searchQuery, clearFilter } = this.props;
@@ -70,8 +51,7 @@ class Search extends React.Component {
                         <BusinessMap
                             businesses={businesses}
                             updateFilter={updateFilter}
-                            singleBusiness={false}
-                            clearFilter={clearFilter}
+                            singleBusiness={false}            
                         />
                     </div>
                 </div>   
@@ -94,3 +74,22 @@ export default Search;
     // console.log(this.state);   
 // };
 
+
+ // ------
+ //componentDidMount() { 
+    // };
+
+    // componentDidUpdate() {
+    //     if (state.filterOpenNow === "Yes") {
+    //         this.forceUpdate();
+    //     }
+    // };
+
+    // handleClearFilter(clearFilter) {
+    //     this.clearFilter;
+    //     this.forceUpdate();
+    // };
+
+    // update(field) {
+    //     return e => this.setState({})
+    // }

@@ -31,9 +31,6 @@ class SearchbarForm extends React.Component {
     };
 
     render() {
-        // const { searchQuery } = this.props;         // RETURNS CORRECT THING. DON'T CHANGE
- 
-        // const { query } = this.state;               // RETURNS CORRECT THING. DON'T CHANGE
         const {searchQuery} = this.state;
 
 

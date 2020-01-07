@@ -1,0 +1,16 @@
+.footer {
+    background-color: orange;
+    height: 70px;
+    display: flex;
+    align-content: flex-end;
+    align-items: baseline;
+
+    z-index: 50;
+}
+
+.footer div {
+    padding: 5px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: center;
+}

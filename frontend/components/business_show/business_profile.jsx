@@ -22,6 +22,9 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
         return <img className="profile-pic" key={idx} src={photoUrl} />                               // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
     });
 
+    
+
+
     return (
         <div className="profile">
 

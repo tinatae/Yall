@@ -26,11 +26,12 @@ class Api::BusinessesController < ApplicationController
       openhour = weekday + "open"
       closehour = weekday + "close" 
       currenthour = Time.now.hour
+    
       # if params[:"#{openhour}"] < params[:"#{closehour}"]
       
       businesses = businesses.where("#{openhour} <= '#{currenthour}' and #{closehour} >= '#{currenthour}'")   
       # elsif params[:"#{openhour}"] > params[:"#{closehour}"]
-      #   businesses = businesses.where("#{openhour} <= '#{currenthour}' and #{closehour} >= '#{currenthour}'")
+      # businesses = businesses.where("#{openhour} <= '#{currenthour}' and #{closehour} >= '#{currenthour}'")
       # businesses = businesses.where("#{openhour} >= '?'", currenthour)      
     else
       businesses
