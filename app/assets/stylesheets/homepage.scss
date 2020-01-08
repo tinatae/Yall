@@ -52,6 +52,49 @@
     position: absolute;
 }
 
+.searchbar-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+#searchbar-input {
+    width: 480px;
+    height: 43px;
+    border-radius: 7px;
+    border: 2px solid white;
+}
+
+#searchbar-container {
+    display: flex;
+    align-items: center;
+}
+
+.homepage-categories {
+    z-index: 100;
+}
+
+.homepage-categories span {
+    color: white;
+    font-weight: 500;
+    font-family: Helvetica Neue, Arial, Helvetica;
+}
+
+#restaurants-link {
+    margin-right: 15px;
+}
+
+#restaurants-link span:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+#delivery-link span:hover {
+    text-decoration: underline;
+    color: white;
+}
+
 // .homepage #searchbar-input {
 //     margin-top: 35%;
 //     font-size: 16px;

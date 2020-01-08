@@ -3,12 +3,20 @@
     color: #333333;
 }
 
+.filters {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+}
+
 .filters label {
-    padding: 10px;
+    padding: 20px;
 }
 
 .filters select {
-    padding: 5px;
+    padding: 7px;
+    // text-align: center;
 }
 
 .indexpage-filters {
@@ -16,16 +24,45 @@
     background-color: #f5f5f5;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
-    padding: 20px;
+    padding: 10px;
     // position: relative;
 }
 
 .filters button {
-    padding: 6px;
+    padding: 3px 8px;
     border-radius: 4px;
     vertical-align: middle;
-    // display: flex;
+    // display: inline-block;
     // justify-content: center;
+}
+
+#minmax-pair {
+    padding: 3px;
+}
+
+#maxpricepoint {
+    margin-left: 5px;
+}
+
+#line-em-up {
+    display: flex;
+    align-items: center;
+}
+
+#line-em-up #shoeprints {
+    height: 10px;
+}
+
+#line-em-up #paperplane {
+    height: 10px;
+}
+
+#line-em-up #grey-clock {
+    height: 10px;
+}
+
+#clear-filters {
+    margin-left: 50px;
 }
 
 .indexpage-filters:after {          
@@ -148,5 +185,4 @@
 #werd {
     font-weight: 500;
     margin-bottom: 10px;
-
 }

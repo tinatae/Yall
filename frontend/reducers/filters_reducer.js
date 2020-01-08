@@ -1,4 +1,4 @@
-import { UPDATE_FILTER, CLEAR } from '../actions/filter_actions';
+import { UPDATE_FILTER, CLEAR, refreshFilter } from '../actions/filter_actions';
 
 const defaultFilters = Object.freeze({
     searchQuery: "",
@@ -21,7 +21,9 @@ const filtersReducer = (state = defaultFilters, action) => {
             };
             return Object.assign({}, state, newFilter);
         case CLEAR:
-            return defaultFilters;
+            return Object.assign({}, defaultFilters);
+        case refreshFilter:
+            return Object.assign({}, defaultFilters);
         default:
             return state;
     }

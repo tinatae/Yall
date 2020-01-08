@@ -2,22 +2,14 @@ import React from 'react';
 import BusinessMap from '../business_map/business_map';
 import BusinessIndex from './business_index';
 import FilterForm from './filter_form';
-// import { withRouter } from 'react-router-dom';
 
 class Search extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            searchQuery: "",
-        };
-
-        // this.handleClearFilter = this.handleClearFilter.bind(this);
-        // this.forceUpdate = this.forceUpdate.bind(this);
     }; 
 
     render () {
-        const { businesses, minPricepoint, maxPricepoint, filterCategory, filterOpenNow, filterDelivery, filterTakeout, filterRating, updateFilter, searchQuery, clearFilter } = this.props;
+        const { businesses, minPricepoint, maxPricepoint, filterCategory, filterOpenNow, filterDelivery, filterTakeout, filterRating, updateFilter, searchQuery, refreshFilter } = this.props;
 
         return (
             <div className="indexpage">
@@ -33,8 +25,8 @@ class Search extends React.Component {
                             filterDelivery={filterDelivery}
                             filterTakeout={filterTakeout}
                             // filterRating={filterRating}
+                            refreshFilter={refreshFilter}
                         />
-                        <button onClick={clearFilter}>Clear</button>
                 </div>
                 <div className="indexpage-grid">
                     <div className="indexpage-businesses">
@@ -42,8 +34,6 @@ class Search extends React.Component {
                             businesses={businesses}
                             updateFilter={updateFilter}
                             searchQuery={searchQuery}
-                            clearFilter={clearFilter}
-                            // selectReviewsForBusiness={selectReviewsForBusiness}
                         />
                     </div>
                     <div className="indexpage-map">
@@ -74,22 +64,3 @@ export default Search;
     // console.log(this.state);   
 // };
 
-
- // ------
- //componentDidMount() { 
-    // };
-
-    // componentDidUpdate() {
-    //     if (state.filterOpenNow === "Yes") {
-    //         this.forceUpdate();
-    //     }
-    // };
-
-    // handleClearFilter(clearFilter) {
-    //     this.clearFilter;
-    //     this.forceUpdate();
-    // };
-
-    // update(field) {
-    //     return e => this.setState({})
-    // }

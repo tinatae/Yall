@@ -194,7 +194,7 @@ var deleteReview = function deleteReview(id) {
 /*!********************************************!*\
   !*** ./frontend/actions/filter_actions.js ***!
   \********************************************/
-/*! exports provided: UPDATE_FILTER, CLEAR, changeFilter, updateFilter, clearFilter */
+/*! exports provided: UPDATE_FILTER, CLEAR, changeFilter, updateFilter, clearFilter, refreshFilter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -204,6 +204,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeFilter", function() { return changeFilter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateFilter", function() { return updateFilter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearFilter", function() { return clearFilter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "refreshFilter", function() { return refreshFilter; });
 /* harmony import */ var _business_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./business_actions */ "./frontend/actions/business_actions.js");
 
 var UPDATE_FILTER = 'UPDATE_FILTER';
@@ -224,6 +225,12 @@ var updateFilter = function updateFilter(filter, value) {
 var clearFilter = function clearFilter() {
   return {
     type: CLEAR
+  };
+};
+var refreshFilter = function refreshFilter() {
+  return function (dispatch, getState) {
+    dispatch(clearFilter());
+    return Object(_business_actions__WEBPACK_IMPORTED_MODULE_0__["fetchBusinesses"])(getState().ui.filters)(dispatch);
   };
 };
 
@@ -2163,6 +2170,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../searchbar/searchbar_form_container */ "./frontend/components/searchbar/searchbar_form_container.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2180,6 +2188,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -2226,7 +2235,7 @@ function (_React$Component) {
         filterCategory: e.currentTarget.value
       });
       this.props.changeFilter('filterCategory', this.state.filterCategory);
-      this.props.history.push("/businesses?query=".concat(this.state.filterCategory));
+      this.props.history.push('/businesses?query=$Restaurants');
     }
   }, {
     key: "handleDeliveryChange",
@@ -2236,7 +2245,7 @@ function (_React$Component) {
         filterDelivery: e.currentTarget.value
       });
       this.props.changeFilter('filterDelivery', this.state.filterDelivery);
-      this.props.history.push("/businesses?query=".concat(this.state.filterDelivery));
+      this.props.history.push('/businesses?query=$Delivery');
     }
   }, {
     key: "render",
@@ -2272,19 +2281,25 @@ function (_React$Component) {
         className: "searchbar-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "homepage-categories"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Restaurants", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        value: "Restaurants",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        id: "restaurants-link",
+        style: {
+          textDecoration: 'none'
+        },
         onClick: this.handleCategoryChange
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        id: "paperplane",
-        src: "/paper-plane-regular.svg"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Delivery", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        value: "Yes",
+        id: "white-utensils",
+        src: "/white-utensils.svg"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Restaurants")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        id: "delivery-link",
+        style: {
+          textDecoration: 'none'
+        },
         onClick: this.handleDeliveryChange
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        id: "paperplane",
-        src: "/paper-plane-regular.svg"
-      })))));
+        id: "white-paper-plane",
+        src: "/white-paper-plane.svg"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Delivery"))));
     }
   }]);
 
@@ -2365,7 +2380,7 @@ __webpack_require__.r(__webpack_exports__);
 var Footer = function Footer() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "footer"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thanks for visiting!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Photo Credits"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "About Me"));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thanks for visiting!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Graphics Credits"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
@@ -2402,16 +2417,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var display = currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "loggednav-left"
+    className: "nav-left"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    id: "add-biz-link",
     style: {
       textDecoration: 'none'
     },
     to: "/businesses/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "bizbutton",
-    src: "/building-regular.svg"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Your Business"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    src: "/white-building.svg"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Your Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    id: "add-me-link",
+    style: {
+      textDecoration: 'none'
+    },
+    to: "/businesses/new"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "white-sun",
+    src: "./white-sun.svg"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Me"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav-right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "greeting"
@@ -2425,16 +2450,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }, "Log\xA0Out")))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-nav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "notlogged-left"
+    className: "nav-left"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    id: "add-biz-link",
     style: {
       textDecoration: 'none'
     },
     to: "/businesses/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "bizbutton",
-    src: "/building-regular.svg"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Your Business"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    src: "/white-building.svg"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Your Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    id: "add-me-link",
+    style: {
+      textDecoration: 'none'
+    },
+    to: "/businesses/new"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "white-sun",
+    src: "./white-sun.svg"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Me"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "navlink-login"
@@ -2469,8 +2504,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     to: "/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "yallr-name"
-  }, "y allr", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " \u2744"))), display)));
+  }, "y allr", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "blue-snowflake",
+    src: "/blue-snowflake.svg"
+  }))), display)));
 });
+{}
+/* <Link style={{ textDecoration: 'none' }} to="/businesses/new">
+   <img id="bizbutton" src="/building-regular.svg" />
+   <span>Add Your Business</span>
+</Link> */
+// {/* <span>Add me to your Business</span> */ }
 
 /***/ }),
 
@@ -2739,7 +2783,131 @@ var handleOpenNow = function handleOpenNow(filter, updateFilter) {
   return function (e) {
     return updateFilter(filter, e.currentTarget.value);
   };
-}; // const openNow = (filter, value) => (dispatch, getState) => {
+};
+
+var handleDeliveryChange = function handleDeliveryChange(filter, updateFilter) {
+  return function (e) {
+    return updateFilter(filter, e.currentTarget.value);
+  };
+};
+
+var handleTakeoutChange = function handleTakeoutChange(filter, updateFilter) {
+  return function (e) {
+    return updateFilter(filter, e.currentTarget.value);
+  };
+};
+
+var FilterForm = function FilterForm(_ref) {
+  var minPricepoint = _ref.minPricepoint,
+      maxPricepoint = _ref.maxPricepoint,
+      filterCategory = _ref.filterCategory,
+      filterOpenNow = _ref.filterOpenNow,
+      filterRating = _ref.filterRating,
+      filterDelivery = _ref.filterDelivery,
+      filterTakeout = _ref.filterTakeout,
+      updateFilter = _ref.updateFilter,
+      refreshFilter = _ref.refreshFilter;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Filter Results By:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "filters"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "minmax-pair"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Min Pricepoint "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "Min Pricepoint",
+    value: minPricepoint,
+    onChange: handlePricepointChange('minPricepoint', updateFilter)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    selected: true,
+    disabled: true,
+    value: ""
+  }, "- $ -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "1"
+  }, "$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "2"
+  }, "$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "3"
+  }, "$$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "4"
+  }, "$$$$")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "maxpricepoint"
+  }, " Max Pricepoint "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "Max Pricepoint",
+    value: maxPricepoint,
+    onChange: handlePricepointChange('maxPricepoint', updateFilter)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    selected: true,
+    disabled: true,
+    value: ""
+  }, "- $$$$ -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "1"
+  }, "$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "2"
+  }, "$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "3"
+  }, "$$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "4"
+  }, "$$$$"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " Category "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "Category",
+    value: filterCategory,
+    onChange: handleCategoryChange('filterCategory', updateFilter)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "All"
+  }, "Showing All"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Restaurants"
+  }, "Restaurants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Coffee & Tea"
+  }, "Coffee & Tea"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Bars"
+  }, "Bars"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    value: "Yes",
+    onClick: handleOpenNow('filterOpenNow', updateFilter)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "line-em-up"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "grey-clock",
+    src: "/grey-clock.svg"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Open Now")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    id: "delivery-button"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    value: "Yes",
+    onClick: handleDeliveryChange('filterDelivery', updateFilter)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "line-em-up"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "paperplane",
+    src: "/paper-plane-regular.svg"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "delivery-word"
+  }, "Delivery")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    value: "Yes",
+    onClick: handleTakeoutChange('filterTakeout', updateFilter)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "line-em-up"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "shoeprints",
+    src: "/shoe-prints-solid.svg"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "takeout-word"
+  }, "Takeout")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "clear-filters"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: refreshFilter
+  }, "Clear Filters")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FilterForm);
+{}
+/* <label id="createbizpricepoint">
+   <span>Pricepoint</span>
+   <br />
+   <select name="Pricepoint" value={pricepoint} onChange={this.update('pricepoint')}>
+       <option selected disabled value="">- Pricepoint ($) -</option>
+       <option value="1">$</option>
+       <option value="2">$$</option>
+       <option value="3">$$$</option>
+       <option value="4">$$$$</option>
+   </select>
+</label> */
+// const openNow = (filter, value) => (dispatch, getState) => {
 //     dispatch(updateFilter(filter, value)};
 //     c
 // const openNow() {
@@ -2776,114 +2944,6 @@ var handleOpenNow = function handleOpenNow(filter, updateFilter) {
 // const handleRatingChange = (filter, updateFilter) => e => (
 //     updateFilter(filter, e.currentTarget.value)
 // );
-
-
-var handleDeliveryChange = function handleDeliveryChange(filter, updateFilter) {
-  return function (e) {
-    return updateFilter(filter, e.currentTarget.value);
-  };
-};
-
-var handleTakeoutChange = function handleTakeoutChange(filter, updateFilter) {
-  return function (e) {
-    return updateFilter(filter, e.currentTarget.value);
-  };
-};
-
-var FilterForm = function FilterForm(_ref) {
-  var searchQuery = _ref.searchQuery,
-      minPricepoint = _ref.minPricepoint,
-      maxPricepoint = _ref.maxPricepoint,
-      filterCategory = _ref.filterCategory,
-      filterOpenNow = _ref.filterOpenNow,
-      filterRating = _ref.filterRating,
-      filterDelivery = _ref.filterDelivery,
-      filterTakeout = _ref.filterTakeout,
-      updateFilter = _ref.updateFilter;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Filter Results By:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "filters"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Min Pricepoint "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    name: "Min Pricepoint",
-    value: minPricepoint,
-    onChange: handlePricepointChange('minPricepoint', updateFilter)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    selected: true,
-    disabled: true,
-    value: ""
-  }, "- Min Pricepoint -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "1"
-  }, "$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "2"
-  }, "$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "3"
-  }, "$$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "4"
-  }, "$$$$"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " Max Pricepoint "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    name: "Max Pricepoint",
-    value: maxPricepoint,
-    onChange: handlePricepointChange('maxPricepoint', updateFilter)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    selected: true,
-    disabled: true,
-    value: ""
-  }, "- Max Pricepoint -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "1"
-  }, "$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "2"
-  }, "$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "3"
-  }, "$$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "4"
-  }, "$$$$"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " Category "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    name: "Category",
-    value: filterCategory,
-    onChange: handleCategoryChange('filterCategory', updateFilter)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "All"
-  }, "Showing All"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "Restaurants"
-  }, "Restaurants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "Coffee & Tea"
-  }, "Coffee & Tea"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "Bars"
-  }, "Bars"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    value: "Yes",
-    onClick: handleOpenNow('filterOpenNow', updateFilter)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " Open Now "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    id: "delivery-button"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    value: "Yes",
-    onClick: handleDeliveryChange('filterDelivery', updateFilter)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "paperplane",
-    src: "/paper-plane-regular.svg"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "delivery-word"
-  }, "Delivery"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    value: "Yes",
-    onClick: handleTakeoutChange('filterTakeout', updateFilter)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "shoeprints",
-    src: "/shoe-prints-solid.svg"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "takeout-word"
-  }, "Takeout")))));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (FilterForm);
-{
-  /* <label id="createbizpricepoint">
-     <span>Pricepoint</span>
-     <br />
-     <select name="Pricepoint" value={pricepoint} onChange={this.update('pricepoint')}>
-         <option selected disabled value="">- Pricepoint ($) -</option>
-         <option value="1">$</option>
-         <option value="2">$$</option>
-         <option value="3">$$$</option>
-         <option value="4">$$$$</option>
-     </select>
-  </label> */
-}
 
 /***/ }),
 
@@ -2922,7 +2982,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
- // import { withRouter } from 'react-router-dom';
+
 
 var Search =
 /*#__PURE__*/
@@ -2930,17 +2990,9 @@ function (_React$Component) {
   _inherits(Search, _React$Component);
 
   function Search(props) {
-    var _this;
-
     _classCallCheck(this, Search);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Search).call(this, props));
-    _this.state = {
-      searchQuery: ""
-    }; // this.handleClearFilter = this.handleClearFilter.bind(this);
-    // this.forceUpdate = this.forceUpdate.bind(this);
-
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(Search).call(this, props));
   }
 
   _createClass(Search, [{
@@ -2957,7 +3009,7 @@ function (_React$Component) {
           filterRating = _this$props.filterRating,
           updateFilter = _this$props.updateFilter,
           searchQuery = _this$props.searchQuery,
-          clearFilter = _this$props.clearFilter;
+          refreshFilter = _this$props.refreshFilter;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "indexpage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2971,19 +3023,16 @@ function (_React$Component) {
         filterOpenNow: filterOpenNow,
         filterDelivery: filterDelivery,
         filterTakeout: filterTakeout // filterRating={filterRating}
-
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: clearFilter
-      }, "Clear")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        ,
+        refreshFilter: refreshFilter
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "indexpage-grid"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "indexpage-businesses"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index__WEBPACK_IMPORTED_MODULE_2__["default"], {
         businesses: businesses,
         updateFilter: updateFilter,
-        searchQuery: searchQuery,
-        clearFilter: clearFilter // selectReviewsForBusiness={selectReviewsForBusiness}
-
+        searchQuery: searchQuery
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "indexpage-map"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "So Where Are We Going!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map_business_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -3006,21 +3055,6 @@ function (_React$Component) {
 // return Object.assign({}, this.state)
 // console.log(this.state);   
 // };
-// ------
-//componentDidMount() { 
-// };
-// componentDidUpdate() {
-//     if (state.filterOpenNow === "Yes") {
-//         this.forceUpdate();
-//     }
-// };
-// handleClearFilter(clearFilter) {
-//     this.clearFilter;
-//     this.forceUpdate();
-// };
-// update(field) {
-//     return e => this.setState({})
-// }
 
 /***/ }),
 
@@ -3069,8 +3103,8 @@ var mDTP = function mDTP(dispatch) {
     changeFilter: function changeFilter(filter, value) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__["changeFilter"])(filter, value));
     },
-    clearFilter: function clearFilter() {
-      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__["clearFilter"])());
+    refreshFilter: function refreshFilter() {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__["refreshFilter"])());
     }
   };
 };
@@ -3175,9 +3209,9 @@ function (_React$Component) {
         value: searchQuery,
         onChange: this.update('searchQuery')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "magnifying-glass",
+        id: "white-magnifying-glass",
         type: "image",
-        src: "/search-solid.svg",
+        src: "/white-magnifying-glass.svg",
         alt: "Submit Query"
       }))))));
     }
@@ -3604,7 +3638,10 @@ var filtersReducer = function filtersReducer() {
       return Object.assign({}, state, newFilter);
 
     case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["CLEAR"]:
-      return defaultFilters;
+      return Object.assign({}, defaultFilters);
+
+    case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["refreshFilter"]:
+      return Object.assign({}, defaultFilters);
 
     default:
       return state;

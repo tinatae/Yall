@@ -30,8 +30,7 @@ class Api::BusinessesController < ApplicationController
       # if params[:"#{openhour}"] < params[:"#{closehour}"]
       
       businesses = businesses.where("#{openhour} <= '#{currenthour}' and #{closehour} >= '#{currenthour}'")   
-      # elsif params[:"#{openhour}"] > params[:"#{closehour}"]
-      # businesses = businesses.where("#{openhour} <= '#{currenthour}' and #{closehour} >= '#{currenthour}'")
+     
       # businesses = businesses.where("#{openhour} >= '?'", currenthour)      
     else
       businesses
@@ -74,16 +73,12 @@ class Api::BusinessesController < ApplicationController
     (params[:minPricepoint]..params[:maxPricepoint])
   end
 
+
   def weekday
     days_of_week = {0 => "sun", 1 => "mon", 2 => "tues", 3 => "wed", 4 => "thurs", 5 => "fri", 6 => "sat"}
     days_of_week[Time.now.wday]
   end
 
-  # def hour_range
-  #   openhour = weekday + "open"
-  #   closehour = weekday + "close"
-  #   "(params[:#{openhour}]..params[:#{closehour}])"
-  # end
 
   def business_params
     params.require(:business).permit(:name, :category, :lat, :lng, :website, :phonenumber, :address1, :address2, :pricepoint, :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, :delivery, :takeout, photos: [])

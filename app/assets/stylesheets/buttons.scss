@@ -8,36 +8,64 @@
 
 .navbar #bizbutton {
     color: white;
-    height: 16px;
-    margin-right: 11px;
+    height: 14px;
+    margin-right: 7px;
 }
 
-#delivery-word {
-    font-size: 15px;
+// #delivery-word {
+//     font-size: 14px;
+// }
+
+// #takeout-word {
+//     font-size: 14px;
+// }
+
+#blue-snowflake {
+    height: 27px;
+    margin-left: 8px;
 }
 
-#takeout-word {
-    font-size: 15px;
-}
-
-#magnifying-glass {
+#white-magnifying-glass {
     height: 34px;
-    background-color: white;
+    // background-color: red;
     padding: 7px;
-    // filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
     border-radius: 7px;
     margin-left: 1px;
 }
 
+#white-magnifying-glass:hover {
+    border: white solid 1px;
+}
+
 #paperplane {
-    height: 18px;
+    height: 14px;
+    margin-right: 5px;
+}
+
+#grey-clock {
+    height: 14px;
     margin-right: 5px;
 }
 
 #shoeprints {
-    height: 18px;
+    height: 14px;
     transform: rotate(-52deg);
     margin-right: 5px;
+}
+
+#white-utensils {
+    height: 14px;
+    margin-right: 6px;
+}
+
+#white-paper-plane {
+    height: 14px;
+    margin-right: 6px;
+}
+
+#white-sun {
+    height: 14px;
+    margin-right: 6px;
 }
 
 #userbutton {

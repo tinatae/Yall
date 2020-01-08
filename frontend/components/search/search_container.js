@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import Search from './search';
-import { updateFilter, changeFilter, clearFilter } from '../../actions/filter_actions';
+import { updateFilter, changeFilter, clearFilter, refreshFilter } from '../../actions/filter_actions';
 import { asArray } from '../../reducers/selectors';
 import SearchbarForm from '../searchbar/searchbar_form';
 
@@ -22,7 +22,7 @@ const mSTP = (state, {location}) => ({
 const mDTP = (dispatch) => ({
     updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
     changeFilter: (filter, value) => dispatch(changeFilter(filter, value)),
-    clearFilter: () => dispatch(clearFilter())
+    refreshFilter: () => dispatch(refreshFilter())
 });
 
 export default withRouter(connect(mSTP, mDTP)(Search));

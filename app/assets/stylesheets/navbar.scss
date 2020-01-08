@@ -24,14 +24,6 @@
         1px 1px 0 white;
 }
 
-.yallr-name span {
-    color: #C7FFFF;
-    font-size: 36px;
-    // transform: none;
-    text-shadow: none;
-    transform: rotateZ(0deg);
-}
-
 .notlogged-nav {
     display: flex;
     justify-content: space-between;
@@ -75,15 +67,42 @@
     padding: 10px;
 }
 
-.loggednav-left {
-    margin-left: 160px;
+.nav-left {
+    margin-left: 130px;
     padding: 7px 24px 8px;   
 }
 
-.loggednav-left span {
+.nav-left span {
     color: white;
     font-weight: 800;
     font-size: 14px;
+}
+
+#add-biz-link {
+    margin-right: 15px;
+}
+
+#add-biz-link span:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+#add-me-link {
+    font-size: 14px;
+}
+
+#add-me-link span:hover {
+    color: #c7ffff;
+}
+
+#add-me-link span:hover {
+    display: none;
+}
+
+#add-me-link:hover:after {
+    content: "Hello!";
+    color: #c7ffff;
+    font-weight: 600;
 }
 
 .loggednav-right {

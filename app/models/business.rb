@@ -76,7 +76,6 @@ class Business < ApplicationRecord
         else
             self.reviews.length.to_s + " reviews"
         end
-
     end
 
     def self.open?

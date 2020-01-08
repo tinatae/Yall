@@ -12,6 +12,108 @@ const handleOpenNow = (filter, updateFilter) => e => (
     updateFilter(filter, e.currentTarget.value)
 );
 
+const handleDeliveryChange = (filter, updateFilter) => e => (
+    updateFilter(filter, e.currentTarget.value)
+);
+
+const handleTakeoutChange = (filter, updateFilter) => e => (
+    updateFilter(filter, e.currentTarget.value)
+);
+
+
+const FilterForm =({ minPricepoint, maxPricepoint, filterCategory, filterOpenNow, filterRating, filterDelivery, filterTakeout, updateFilter, refreshFilter }) => (
+    <div>
+        <span>Filter Results By:</span> 
+        <br/>
+        <div className="filters">
+            <div id="minmax-pair">
+                {/* <label> */}
+                    <span>Min Pricepoint </span>
+                    <select name="Min Pricepoint" value={minPricepoint} onChange={handlePricepointChange('minPricepoint', updateFilter)}>
+                        <option selected disabled value="">- $ -</option>
+                        <option value="1">$</option>
+                        <option value="2">$$</option>
+                        <option value="3">$$$</option>
+                        <option value="4">$$$$</option>
+                    </select>
+                {/* </label>
+                <label> */}
+                    <span id="maxpricepoint"> Max Pricepoint </span>
+                    <select name="Max Pricepoint" value={maxPricepoint} onChange={handlePricepointChange('maxPricepoint', updateFilter)}>
+                        <option selected disabled value="">- $$$$ -</option>
+                        <option value="1">$</option>
+                        <option value="2">$$</option>
+                        <option value="3">$$$</option>
+                        <option value="4">$$$$</option>
+                    </select>
+                {/* </label> */}
+            </div>
+            <label>
+                <span> Category </span>
+                <select name="Category" value={filterCategory} onChange={handleCategoryChange('filterCategory', updateFilter)}>
+                    {/* <option selected disabled value="">- Category -</option> */}
+                    <option value="All">Showing All</option>
+                    <option value="Restaurants">Restaurants</option>
+                    <option value="Coffee & Tea">Coffee & Tea</option>
+                    <option value="Bars">Bars</option>
+                </select>
+            </label>
+            <label>
+                <button value="Yes" onClick={handleOpenNow('filterOpenNow', updateFilter)}>
+                    <div id="line-em-up">        
+                        <img id="grey-clock" src="/grey-clock.svg" /> 
+                        <span>Open Now</span>
+                    </div>
+                </button>
+            </label>
+            <label id="delivery-button">
+                <button value="Yes" onClick={handleDeliveryChange('filterDelivery', updateFilter)}>
+                    <div id="line-em-up">
+                        <img id="paperplane" src="/paper-plane-regular.svg"/> 
+                        <span id="delivery-word">Delivery</span>
+                    </div>
+                </button>
+            </label>
+            <label>
+                <button value="Yes" onClick={handleTakeoutChange('filterTakeout', updateFilter)}>
+                    <div id="line-em-up">
+                        <img id="shoeprints" src="/shoe-prints-solid.svg"/>
+                        <span id="takeout-word">Takeout</span>
+                    </div>
+                </button>
+            </label>
+            <label>
+                <div id="clear-filters">
+                    <button onClick={refreshFilter}>Clear Filters</button>
+                </div>
+            </label>
+            {/* <label>
+                <span> Rating </span>
+                <button value="go" onClick={handleRatingChange('filterRating', updateFilter)}>Sort by Rating (h-l)</button>
+            </label> */}
+        </div>
+
+    </div>
+
+);
+
+export default FilterForm;
+
+
+{/* <label id="createbizpricepoint">
+    <span>Pricepoint</span>
+    <br />
+    <select name="Pricepoint" value={pricepoint} onChange={this.update('pricepoint')}>
+        <option selected disabled value="">- Pricepoint ($) -</option>
+        <option value="1">$</option>
+        <option value="2">$$</option>
+        <option value="3">$$$</option>
+        <option value="4">$$$$</option>
+    </select>
+</label> */}
+
+
+
 // const openNow = (filter, value) => (dispatch, getState) => {
 //     dispatch(updateFilter(filter, value)};
 //     c
@@ -54,89 +156,3 @@ const handleOpenNow = (filter, updateFilter) => e => (
 // const handleRatingChange = (filter, updateFilter) => e => (
 //     updateFilter(filter, e.currentTarget.value)
 // );
-
-const handleDeliveryChange = (filter, updateFilter) => e => (
-    updateFilter(filter, e.currentTarget.value)
-);
-
-const handleTakeoutChange = (filter, updateFilter) => e => (
-    updateFilter(filter, e.currentTarget.value)
-);
-
-
-const FilterForm =({ searchQuery, minPricepoint, maxPricepoint, filterCategory, filterOpenNow, filterRating, filterDelivery, filterTakeout, updateFilter }) => (
-    <div>
-        <span>Filter Results By:</span> 
-        <br/>
-        <div className="filters">
-            <label>
-                <span>Min Pricepoint </span>
-                <select name="Min Pricepoint" value={minPricepoint} onChange={handlePricepointChange('minPricepoint', updateFilter)}>
-                    <option selected disabled value="">- Min Pricepoint -</option>
-                    <option value="1">$</option>
-                    <option value="2">$$</option>
-                    <option value="3">$$$</option>
-                    <option value="4">$$$$</option>
-                </select>
-            </label>
-            <label>
-                <span> Max Pricepoint </span>
-                <select name="Max Pricepoint" value={maxPricepoint} onChange={handlePricepointChange('maxPricepoint', updateFilter)}>
-                    <option selected disabled value="">- Max Pricepoint -</option>
-                    <option value="1">$</option>
-                    <option value="2">$$</option>
-                    <option value="3">$$$</option>
-                    <option value="4">$$$$</option>
-                </select>
-            </label>
-            <label>
-                <span> Category </span>
-                <select name="Category" value={filterCategory} onChange={handleCategoryChange('filterCategory', updateFilter)}>
-                    {/* <option selected disabled value="">- Category -</option> */}
-                    <option value="All">Showing All</option>
-                    <option value="Restaurants">Restaurants</option>
-                    <option value="Coffee & Tea">Coffee & Tea</option>
-                    <option value="Bars">Bars</option>
-                </select>
-            </label>
-            <label>
-                <button value="Yes" onClick={handleOpenNow('filterOpenNow', updateFilter)}>
-                    <span> Open Now </span>
-                </button>
-            </label>
-            <label id="delivery-button">
-                <button value="Yes" onClick={handleDeliveryChange('filterDelivery', updateFilter)}>
-                    <img id="paperplane" src="/paper-plane-regular.svg"/> 
-                    <span id="delivery-word">Delivery</span>
-                </button>
-            </label>
-            <label>
-                <button value="Yes" onClick={handleTakeoutChange('filterTakeout', updateFilter)}>
-                    <img id="shoeprints" src="/shoe-prints-solid.svg"/>
-                    <span id="takeout-word">Takeout</span>
-                </button>
-            </label>
-            {/* <label>
-                <span> Rating </span>
-                <button value="go" onClick={handleRatingChange('filterRating', updateFilter)}>Sort by Rating (h-l)</button>
-            </label> */}
-        </div>
-
-    </div>
-
-);
-
-export default FilterForm;
-
-
-{/* <label id="createbizpricepoint">
-    <span>Pricepoint</span>
-    <br />
-    <select name="Pricepoint" value={pricepoint} onChange={this.update('pricepoint')}>
-        <option selected disabled value="">- Pricepoint ($) -</option>
-        <option value="1">$</option>
-        <option value="2">$$</option>
-        <option value="3">$$$</option>
-        <option value="4">$$$$</option>
-    </select>
-</label> */}

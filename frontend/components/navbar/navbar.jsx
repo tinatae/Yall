@@ -6,10 +6,14 @@ import { Link, withRouter } from 'react-router-dom';
 export default ({ currentUser, logout, match: { path, isExact } }) => {
     const display = currentUser ? (
         <div className="loggednav">
-            <div className="loggednav-left">
-                <Link style={{textDecoration: 'none'}} to="/businesses/new">
-                    <img id="bizbutton" src="/building-regular.svg" />
+            <div className="nav-left">
+                <Link id="add-biz-link" style={{textDecoration: 'none'}} to="/businesses/new">
+                    <img id="bizbutton" src="/white-building.svg" />
                     <span>Add Your Business</span>
+                </Link>
+                <Link id="add-me-link" style={{ textDecoration: 'none' }} to="/businesses/new">
+                    <img id="white-sun" src="./white-sun.svg" />
+                    <span>Add Me</span>
                 </Link>
             </div>
 
@@ -23,10 +27,14 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
         </div >
     ) : (
         <div className="notlogged-nav">
-            <div className="notlogged-left">
-                <Link style={{textDecoration: 'none'}} to="/businesses/new">
-                    <img id="bizbutton" src="/building-regular.svg"/>
-                    <span>Add Your Business</span>  
+            <div className="nav-left">
+                <Link id="add-biz-link" style={{ textDecoration: 'none' }} to="/businesses/new">
+                    <img id="bizbutton" src="/white-building.svg" />
+                    <span>Add Your Business</span>
+                </Link>
+                <Link id="add-me-link" style={{ textDecoration: 'none' }} to="/businesses/new">
+                    <img id="white-sun" src="./white-sun.svg" />
+                    <span>Add Me</span>
                 </Link>
             </div>
 
@@ -58,7 +66,9 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
             <header>
                 <div style={navbarStyles} className="navbar">
                     <Link style={{textDecoration: 'none'}} to="/">
-                        <div className="yallr-name">y allr<span> ❄</span></div>
+                        <div className="yallr-name">y allr
+                        <img id="blue-snowflake" src="/blue-snowflake.svg"></img>
+                        </div>
                     </Link>
                     {display}
                 </div>
@@ -66,3 +76,10 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
         </div>
     );
 };
+
+{/* <Link style={{ textDecoration: 'none' }} to="/businesses/new">
+    <img id="bizbutton" src="/building-regular.svg" />
+    <span>Add Your Business</span>
+</Link> */}
+
+// {/* <span>Add me to your Business</span> */ }

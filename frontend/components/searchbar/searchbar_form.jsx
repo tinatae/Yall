@@ -43,7 +43,7 @@ class SearchbarForm extends React.Component {
                                 <input id="searchbar-input" type="text" placeholder="  Find | So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} />           
                             </div>
                             <div>   
-                                <input id="magnifying-glass" type="image" src="/search-solid.svg" alt="Submit Query"/>               
+                                <input id="white-magnifying-glass" type="image" src="/white-magnifying-glass.svg" alt="Submit Query"/>               
                             </div>
                         </div>
 

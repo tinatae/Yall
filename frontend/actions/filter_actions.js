@@ -16,4 +16,9 @@ export const updateFilter = (filter, value) => (dispatch, getState) => {
 
 export const clearFilter = () => ({
     type: CLEAR
-})
+});
+
+export const refreshFilter = () => (dispatch, getState) => {
+    dispatch(clearFilter());
+    return fetchBusinesses(getState().ui.filters)(dispatch);
+};
