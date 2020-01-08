@@ -17,24 +17,25 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
     <div> 
-        <header className="main-header">          
-            <NavbarContainer />
-            <Switch>
-                <AuthRoute exact path="/login" component={LoginFormContainer} />
-                <AuthRoute exact path="/signup" component={SignupFormContainer} />
-           </Switch>   
-        </header>
-            
-        <Switch>    
-            <ProtectedRoute exact path="/businesses/new" component={BusinessFormContainer} />
-            <Route path="/businesses/:businessId" component={BusinessShowContainer} />
-            <Route exact path="/businesses" component={SearchContainer} />
-            <Route exact path="/" component={HomepageContainer} />
-        </Switch>
-        <br/>
-        <footer>
-            <Footer />
-        </footer>
+        <div className="everything-but-footer">
+            <header className="main-header">          
+                <NavbarContainer />
+                <Switch>
+                    <AuthRoute exact path="/login" component={LoginFormContainer} />
+                    <AuthRoute exact path="/signup" component={SignupFormContainer} />
+            </Switch>   
+            </header>
+                
+            <Switch>    
+                <ProtectedRoute exact path="/businesses/new" component={BusinessFormContainer} />
+                <Route path="/businesses/:businessId" component={BusinessShowContainer} />
+                <Route exact path="/businesses" component={SearchContainer} />
+                <Route exact path="/" component={HomepageContainer} />
+            </Switch>     
+            <footer>
+                <Footer />
+            </footer>
+        </div>
     </div>
 );
 

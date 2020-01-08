@@ -3,6 +3,29 @@
     color: #333333;
 }
 
+.filtered-firstline {
+    display: flex;
+    justify-content: space-between;
+}
+
+#clear-filters {
+    margin-right: 70px;
+}
+
+#clear-filters button {
+    padding: 3px 8px;
+    border-radius: 8px;
+    vertical-align: middle;
+    border: #a6a6a6 solid 1px;
+    background-color: #f7f7f7;
+}
+
+#clear-filters button:hover {
+    // background-color: red;
+    border: #8d3b9c solid 1px;
+    // color: #8d3b9c;
+}
+
 .filters {
     font-size: 14px;
     display: flex;
@@ -15,8 +38,18 @@
 }
 
 .filters select {
-    padding: 7px;
-    // text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 4px;
+}
+
+.filters select:hover {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 4px;
+    border: #0E87FF solid 1px;
 }
 
 .indexpage-filters {
@@ -29,19 +62,27 @@
 }
 
 .filters button {
-    padding: 3px 8px;
-    border-radius: 4px;
+    padding: 4px 8px;
+    border-radius: 5px;
     vertical-align: middle;
-    // display: inline-block;
-    // justify-content: center;
+    border: #a6a6a6 solid 1px;
+    background-color: #f7f7f7;
+}
+
+.filters button:hover {
+    border: #0E87FF solid 1px;
 }
 
 #minmax-pair {
-    padding: 3px;
+    padding: 2px;
 }
 
 #maxpricepoint {
     margin-left: 5px;
+}
+
+#filter-writing {
+    font-size: 12px;
 }
 
 #line-em-up {
@@ -50,19 +91,15 @@
 }
 
 #line-em-up #shoeprints {
-    height: 10px;
+    height: 11px;
 }
 
 #line-em-up #paperplane {
-    height: 10px;
+    height: 11px;
 }
 
 #line-em-up #grey-clock {
-    height: 10px;
-}
-
-#clear-filters {
-    margin-left: 50px;
+    height: 11px;
 }
 
 .indexpage-filters:after {          
@@ -74,6 +111,7 @@
 .indexpage-grid {
     display: grid;
     width: 100%;
+    margin-bottom: 40px;
 }
 
 .indexpage-businesses {
@@ -97,7 +135,7 @@
 .index-item {
     display: flex;
     margin-left: 12px;
-    padding: 18px;
+    padding: 20px;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
 }

@@ -23,15 +23,23 @@ const handleTakeoutChange = (filter, updateFilter) => e => (
 
 const FilterForm =({ minPricepoint, maxPricepoint, filterCategory, filterOpenNow, filterRating, filterDelivery, filterTakeout, updateFilter, refreshFilter }) => (
     <div>
-        <span>Filter Results By:</span> 
-        <br/>
+        <div className="filtered-firstline">Filter Results By:
+            <label>
+                <div id="clear-filters">
+                    <button onClick={refreshFilter}>
+                        <img id="crossed-circle" src="times-circle-regular.svg" />
+                        <span id="filter-writing">Clear Filters</span>
+                    </button>
+                </div>
+            </label>
+        </div> 
         <div className="filters">
             <div id="minmax-pair">
                 {/* <label> */}
                     <span>Min Pricepoint </span>
                     <select name="Min Pricepoint" value={minPricepoint} onChange={handlePricepointChange('minPricepoint', updateFilter)}>
                         <option selected disabled value="">- $ -</option>
-                        <option value="1">$</option>
+                        <option value="1"> $</option>
                         <option value="2">$$</option>
                         <option value="3">$$$</option>
                         <option value="4">$$$$</option>
@@ -62,7 +70,7 @@ const FilterForm =({ minPricepoint, maxPricepoint, filterCategory, filterOpenNow
                 <button value="Yes" onClick={handleOpenNow('filterOpenNow', updateFilter)}>
                     <div id="line-em-up">        
                         <img id="grey-clock" src="/grey-clock.svg" /> 
-                        <span>Open Now</span>
+                        <span id="filter-writing">Open Now</span>
                     </div>
                 </button>
             </label>
@@ -70,7 +78,7 @@ const FilterForm =({ minPricepoint, maxPricepoint, filterCategory, filterOpenNow
                 <button value="Yes" onClick={handleDeliveryChange('filterDelivery', updateFilter)}>
                     <div id="line-em-up">
                         <img id="paperplane" src="/paper-plane-regular.svg"/> 
-                        <span id="delivery-word">Delivery</span>
+                        <span id="filter-writing">Delivery</span>
                     </div>
                 </button>
             </label>
@@ -78,15 +86,11 @@ const FilterForm =({ minPricepoint, maxPricepoint, filterCategory, filterOpenNow
                 <button value="Yes" onClick={handleTakeoutChange('filterTakeout', updateFilter)}>
                     <div id="line-em-up">
                         <img id="shoeprints" src="/shoe-prints-solid.svg"/>
-                        <span id="takeout-word">Takeout</span>
+                        <span id="filter-writing">Takeout</span>
                     </div>
                 </button>
             </label>
-            <label>
-                <div id="clear-filters">
-                    <button onClick={refreshFilter}>Clear Filters</button>
-                </div>
-            </label>
+         
             {/* <label>
                 <span> Rating </span>
                 <button value="go" onClick={handleRatingChange('filterRating', updateFilter)}>Sort by Rating (h-l)</button>

@@ -341,7 +341,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "everything-but-footer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
     className: "main-header"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_10__["AuthRoute"], {
     exact: true,
@@ -366,7 +368,7 @@ var App = function App() {
     exact: true,
     path: "/",
     component: _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_footer__WEBPACK_IMPORTED_MODULE_9__["default"], null)));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_footer__WEBPACK_IMPORTED_MODULE_9__["default"], null))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -2380,7 +2382,33 @@ __webpack_require__.r(__webpack_exports__);
 var Footer = function Footer() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "footer"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thanks for visiting!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Graphics Credits"));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "adspace-wrapper"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ad-wrap"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ad-move"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "ad"
+  }, "\u2605\u2605\u2605\u2605\u2605"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "ad"
+  }, "I imagine it would be fun to advertise in this space so imagine if you were reading local promotions about say.. ice cream here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "ad"
+  }, "Sweet, chocolate chip ice cream like the one in my login page taken by Benjam\xEDn Hazael Rojas Garc\xEDa on unsplash.com"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "ad"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "true-ad"
+  }, " - Buy one get one free at Sugar Lane Corner Shoppe ! - "), "it could be ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "delightful"
+  }, "delightful!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "ad"
+  }, "Please see my Graphics Credits link for all photography & art credits and thank you again for visiting !"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "ad"
+  }, "\u2605\u2605\u2605\u2605\u2605"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "ad"
+  }, "p.s. This message will play on repeat, so feel free to hover your cursor over this area to make it stop"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "ad"
+  }, "( Also, definitely look into getting an ice cream \u263A )")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
@@ -2807,7 +2835,18 @@ var FilterForm = function FilterForm(_ref) {
       filterTakeout = _ref.filterTakeout,
       updateFilter = _ref.updateFilter,
       refreshFilter = _ref.refreshFilter;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Filter Results By:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "filtered-firstline"
+  }, "Filter Results By:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "clear-filters"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: refreshFilter
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "crossed-circle",
+    src: "times-circle-regular.svg"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "filter-writing"
+  }, "Clear Filters"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "filters"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "minmax-pair"
@@ -2821,7 +2860,7 @@ var FilterForm = function FilterForm(_ref) {
     value: ""
   }, "- $ -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "1"
-  }, "$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+  }, " $"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "2"
   }, "$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "3"
@@ -2865,7 +2904,9 @@ var FilterForm = function FilterForm(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "grey-clock",
     src: "/grey-clock.svg"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Open Now")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "filter-writing"
+  }, "Open Now")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     id: "delivery-button"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     value: "Yes",
@@ -2876,7 +2917,7 @@ var FilterForm = function FilterForm(_ref) {
     id: "paperplane",
     src: "/paper-plane-regular.svg"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "delivery-word"
+    id: "filter-writing"
   }, "Delivery")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     value: "Yes",
     onClick: handleTakeoutChange('filterTakeout', updateFilter)
@@ -2886,12 +2927,8 @@ var FilterForm = function FilterForm(_ref) {
     id: "shoeprints",
     src: "/shoe-prints-solid.svg"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "takeout-word"
-  }, "Takeout")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "clear-filters"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: refreshFilter
-  }, "Clear Filters")))));
+    id: "filter-writing"
+  }, "Takeout"))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (FilterForm);

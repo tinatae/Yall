@@ -95,12 +95,12 @@
     color: #c7ffff;
 }
 
-#add-me-link span:hover {
+#add-me-link:hover span {
     display: none;
 }
 
 #add-me-link:hover:after {
-    content: "Hello!";
+    content: "Hello !";
     color: #c7ffff;
     font-weight: 600;
 }
