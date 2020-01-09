@@ -38,14 +38,12 @@ class BusinessMap extends React.Component {
                 zoom: 16
             };
 
-            // const profileMap = new google.maps.Map(this.mapNode, profileMapOptions);
             const profileMap = new google.maps.Map(this.mapNode, profileMapOptions);
             
             // this.MarkerManager.updateMarkers([targetBusiness]);
             
             const profileMarker = new google.maps.Marker({
                 position: profileLatlng,
-                // animation: google.maps.Animation.DROP
             });
             profileMarker.setMap(profileMap);
 
@@ -65,10 +63,6 @@ class BusinessMap extends React.Component {
         this.props.updateFilter('bounds', bounds);
         });
 
-        google.maps.event.addListener(this.map, 'click', (event) => {
-            const coords = getCoordsObj(event.latLng);
-            this.handleClick(coords);
-        });
     };
 
     handleMarkerClick(business) {

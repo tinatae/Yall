@@ -9,7 +9,7 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
             <div className="nav-left">
                 <Link id="add-biz-link" style={{textDecoration: 'none'}} to="/businesses/new">
                     <img id="bizbutton" src="/white-building.svg" />
-                    <span>Add Your Business</span>
+                    <span>Add&nbsp;Your&nbsp;Business</span>
                 </Link>
                 <Link id="add-me-link" style={{ textDecoration: 'none' }} to="/businesses/new">
                     <img id="white-sun" src="./white-sun.svg" />
@@ -30,7 +30,7 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
             <div className="nav-left">
                 <Link id="add-biz-link" style={{ textDecoration: 'none' }} to="/businesses/new">
                     <img id="bizbutton" src="/white-building.svg" />
-                    <span>Add Your Business</span>
+                    <span>Add&nbsp;Your&nbsp;Business</span>
                 </Link>
                 <Link id="add-me-link" style={{ textDecoration: 'none' }} to="/businesses/new">
                     <img id="white-sun" src="./white-sun.svg" />

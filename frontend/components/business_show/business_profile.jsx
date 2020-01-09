@@ -22,6 +22,11 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
         return <img className="profile-pic" key={idx} src={photoUrl} />                               // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
     });
 
+    const timeConversion = {
+        0:"12AM", 1:"1AM", 2:"2AM", 3:"3AM", 4: "4AM", 5:"5AM", 6:"6AM", 7:"7AM", 8:"8AM", 9:"9AM", 10:"10AM", 11:"11AM", 12:"12PM", 
+        13:"1PM", 14:"2PM", 15: "3PM", 16:"4PM", 17:"5PM", 18:"6PM", 19:"7PM", 20:"8PM", 21:"9PM", 22:"10PM", 23:"11PM"
+    };
+
     return (
         <div className="profile">
 
@@ -79,13 +84,13 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
                     </div>
 
                     <div className="profile-hours">
-                        <span>Monday: {business.monopen} - {business.monclose}</span>
-                        <span>Tuesday: {business.tuesopen} - {business.tuesclose}</span>
-                        <span>Wednesday: {business.wedopen} - {business.wedclose}</span>
-                        <span>Thursday: {business.thursopen} - {business.thursclose}</span>
-                        <span>Friday: {business.friopen} - {business.friclose}</span>
-                        <span>Saturday: {business.satopen} - {business.satclose}</span>
-                        <span>Sunday: {business.sunopen} - {business.sunclose}</span>
+                        <span>Monday: {timeConversion[business.monopen]} - {timeConversion[business.monclose]}</span>
+                        <span>Tuesday: {timeConversion[business.tuesopen]} - {timeConversion[business.tuesclose]}</span>
+                        <span>Wednesday: {timeConversion[business.wedopen]} - {timeConversion[business.wedclose]}</span>
+                        <span>Thursday: {timeConversion[business.thursopen]} - {timeConversion[business.thursclose]}</span>
+                        <span>Friday: {timeConversion[business.friopen]} - {timeConversion[business.friclose]}</span>
+                        <span>Saturday: {timeConversion[business.satopen]} - {timeConversion[business.satclose]}</span>
+                        <span>Sunday: {timeConversion[business.sunopen]} - {timeConversion[business.sunclose]}</span>
                     </div>
 
                     <div className="profile-info">

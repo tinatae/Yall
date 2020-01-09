@@ -420,14 +420,13 @@ function (_React$Component) {
 
     _classCallCheck(this, BusinessForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(BusinessForm).call(this, props));
-    _this.coords = {
-      lat: props.lat,
-      lng: props.lng
-    };
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(BusinessForm).call(this, props)); // this.coords = {lat: props.lat, lng: props.lng};
+
     _this.state = {
       name: '',
       category: '',
+      lat: '',
+      lng: '',
       website: 'www.business.com',
       phonenumber: '(123)456-7890',
       address1: '123 Sesame Street',
@@ -496,10 +495,24 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var formData = new FormData();
+      var geocoder = new google.maps.Geocoder();
       formData.append('business[name]', this.state.name);
       formData.append('business[category]', this.state.category);
-      formData.append('business[lat]', this.coords['lat']);
-      formData.append('business[lng]', this.coords['lng']);
+      var address = document.getElementById('address').value;
+      geocoder.geocode({
+        'address': address
+      }, function (results, status) {
+        if (status == 'OK') {
+          // formData.append('business[lat]', results[0].geometry.location.lat());
+          // formData.append('business[lng]', results[0].geometry.location.lng());
+          console.log(results[0].geometry.location.lat() + 1);
+          console.log(results[0].geometry.location.lng() + 1);
+        } else {
+          console.log('nope' + status);
+        }
+
+        ;
+      });
       formData.append('business[website]', this.state.website);
       formData.append('business[phonenumber]', this.state.phonenumber);
       formData.append('business[address1]', this.state.address1);
@@ -536,6 +549,8 @@ function (_React$Component) {
       var _this$state = this.state,
           name = _this$state.name,
           category = _this$state.category,
+          lat = _this$state.lat,
+          lng = _this$state.lng,
           website = _this$state.website,
           phonenumber = _this$state.phonenumber,
           address1 = _this$state.address1,
@@ -558,10 +573,8 @@ function (_React$Component) {
           sunclose = _this$state2.sunclose;
       var _this$state3 = this.state,
           delivery = _this$state3.delivery,
-          takeout = _this$state3.takeout;
-      var _this$coords = this.coords,
-          lat = _this$coords.lat,
-          lng = _this$coords.lng;
+          takeout = _this$state3.takeout; // const { lat, lng } = this.coords;
+
       var preview = this.state.photoUrls ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         height: "100px",
         width: "100px",
@@ -667,6 +680,7 @@ function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizaddress"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Business Address"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "address",
         size: "75",
         type: "text",
         value: address1,
@@ -1521,11 +1535,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mSTP = function mSTP(state, _ref) {
-  var location = _ref.location;
+var mSTP = function mSTP(state) {
   return {
-    lat: new URLSearchParams(location.search).get('lat'),
-    lng: new URLSearchParams(location.search).get('lng')
+    state: state
   };
 };
 
@@ -1537,7 +1549,9 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_business_form__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_business_form__WEBPACK_IMPORTED_MODULE_1__["default"])); // const mSTP = (state, { location }) => ({
+// lat: new URLSearchParams(location.search).get('lat'),
+// lng: new URLSearchParams(location.search).get('lng')
 
 /***/ }),
 
@@ -1628,13 +1642,11 @@ function (_React$Component) {
         var profileMapOptions = {
           center: profileLatlng,
           zoom: 16
-        }; // const profileMap = new google.maps.Map(this.mapNode, profileMapOptions);
-
+        };
         var profileMap = new google.maps.Map(this.mapNode, profileMapOptions); // this.MarkerManager.updateMarkers([targetBusiness]);
 
         var profileMarker = new google.maps.Marker({
-          position: profileLatlng // animation: google.maps.Animation.DROP
-
+          position: profileLatlng
         });
         profileMarker.setMap(profileMap); // this.MarkerManager.createMarkerFromBusiness(targetBusiness)
       } else {
@@ -1665,11 +1677,6 @@ function (_React$Component) {
         };
 
         _this.props.updateFilter('bounds', bounds);
-      });
-      google.maps.event.addListener(this.map, 'click', function (event) {
-        var coords = getCoordsObj(event.latLng);
-
-        _this.handleClick(coords);
       });
     }
   }, {
@@ -1754,6 +1761,32 @@ var BusinessProfile = function BusinessProfile(_ref) {
       src: photoUrl
     }); // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
   });
+  var timeConversion = {
+    0: "12AM",
+    1: "1AM",
+    2: "2AM",
+    3: "3AM",
+    4: "4AM",
+    5: "5AM",
+    6: "6AM",
+    7: "7AM",
+    8: "8AM",
+    9: "9AM",
+    10: "10AM",
+    11: "11AM",
+    12: "12PM",
+    13: "1PM",
+    14: "2PM",
+    15: "3PM",
+    16: "4PM",
+    17: "5PM",
+    18: "6PM",
+    19: "7PM",
+    20: "8PM",
+    21: "9PM",
+    22: "10PM",
+    23: "11PM"
+  };
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1809,7 +1842,7 @@ var BusinessProfile = function BusinessProfile(_ref) {
     fetchBusiness: fetchBusiness
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-hours"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Monday: ", business.monopen, " - ", business.monclose), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Tuesday: ", business.tuesopen, " - ", business.tuesclose), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wednesday: ", business.wedopen, " - ", business.wedclose), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thursday: ", business.thursopen, " - ", business.thursclose), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Friday: ", business.friopen, " - ", business.friclose), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Saturday: ", business.satopen, " - ", business.satclose), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sunday: ", business.sunopen, " - ", business.sunclose)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Monday: ", timeConversion[business.monopen], " - ", timeConversion[business.monclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Tuesday: ", timeConversion[business.tuesopen], " - ", timeConversion[business.tuesclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wednesday: ", timeConversion[business.wedopen], " - ", timeConversion[business.wedclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thursday: ", timeConversion[business.thursopen], " - ", timeConversion[business.thursclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Friday: ", timeConversion[business.friopen], " - ", timeConversion[business.friclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Saturday: ", timeConversion[business.satopen], " - ", timeConversion[business.satclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sunday: ", timeConversion[business.sunopen], " - ", timeConversion[business.sunclose])), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-info"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizwebsite"
@@ -2392,9 +2425,9 @@ var Footer = function Footer() {
     id: "ad"
   }, "\u2605\u2605\u2605\u2605\u2605"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "ad"
-  }, "I imagine it would be fun to advertise in this space so imagine if you were reading local promotions about say.. ice cream here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "I think it would be fun to advertise in this space so imagine reading local promotions about say.. ice cream here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "ad"
-  }, "Sweet, chocolate chip ice cream like the one in my login page taken by Benjam\xEDn Hazael Rojas Garc\xEDa on unsplash.com"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Sweet, chocolate chip ice cream like the one taken by Benjam\xEDn Hazael Rojas Garc\xEDa on my login page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "ad"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "true-ad"
@@ -2406,9 +2439,9 @@ var Footer = function Footer() {
     id: "ad"
   }, "\u2605\u2605\u2605\u2605\u2605"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "ad"
-  }, "p.s. This message will play on repeat, so feel free to hover your cursor over this area to make it stop"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "p.s. This message will play on loop, so feel free to hover your cursor over this area to make it stop"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "ad"
-  }, "( Also, definitely look into getting an ice cream \u263A )")))));
+  }, "( Also, definitely look into getting that ice cream \u263A )")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
@@ -2455,7 +2488,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "bizbutton",
     src: "/white-building.svg"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Your Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     id: "add-me-link",
     style: {
       textDecoration: 'none'
@@ -2488,7 +2521,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "bizbutton",
     src: "/white-building.svg"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Your Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     id: "add-me-link",
     style: {
       textDecoration: 'none'

@@ -4,10 +4,13 @@ import {withRouter} from 'react-router';
 class BusinessForm extends React.Component {
     constructor(props) {
         super(props);
-        this.coords = {lat: props.lat, lng: props.lng};
+        // this.coords = {lat: props.lat, lng: props.lng};
+
         this.state = {
             name: '',
             category: '',
+            lat: '',
+            lng: '',
             website: 'www.business.com',
             phonenumber: '(123)456-7890',
             address1: '123 Sesame Street',
@@ -64,11 +67,21 @@ class BusinessForm extends React.Component {
         e.preventDefault();
       
         const formData = new FormData();
+        const geocoder = new google.maps.Geocoder();
 
         formData.append('business[name]', this.state.name);
         formData.append('business[category]', this.state.category);
-        formData.append('business[lat]', this.coords['lat']);
-        formData.append('business[lng]', this.coords['lng']);
+
+        const address = document.getElementById('address').value;
+        geocoder.geocode({ 'address': address }, function(results, status) {
+            if (status == 'OK') {
+                // formData.append('business[lat]', results[0].geometry.location.lat());
+                // formData.append('business[lng]', results[0].geometry.location.lng());
+                console.log(results[0].geometry.location.lat() + 1)
+                console.log(results[0].geometry.location.lng() + 1)
+            } else {console.log('nope' + status)};
+        });
+  
         formData.append('business[website]', this.state.website);
         formData.append('business[phonenumber]', this.state.phonenumber);
         formData.append('business[address1]', this.state.address1);
@@ -100,10 +113,10 @@ class BusinessForm extends React.Component {
     };
 
     render() {
-        const { name, category, website, phonenumber, address1, address2, pricepoint } = this.state;
+        const { name, category, lat, lng, website, phonenumber, address1, address2, pricepoint } = this.state;
         const { monopen, monclose, tuesopen, tuesclose, wedopen, wedclose, thursopen, thursclose, friopen, friclose, satopen, satclose, sunopen, sunclose } = this.state;
         const { delivery, takeout } = this.state;
-        const { lat, lng } = this.coords;
+        // const { lat, lng } = this.coords;
         const preview = this.state.photoUrls ? <img height="100px" width="100px" src={this.state.photoUrls[0]} /> : null;
        
         return (
@@ -197,7 +210,7 @@ class BusinessForm extends React.Component {
                         <label id="createbizaddress">
                             <div>Business Address</div>
                             <br/>
-                            <input size="75" type="text" value={address1} onChange={this.update('address1')} />
+                            <input id="address" size="75" type="text" value={address1} onChange={this.update('address1')} />
                             <br/>
                             <input size="75" type="text" value={address2} onChange={this.update('address2')} />
                         </label>
