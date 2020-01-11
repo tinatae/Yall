@@ -6,14 +6,15 @@
 
 .footer {
     background-color: orange;
-    height: 40px;
+    height: 45px;
     position: fixed;
     bottom: 0;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: red solid 20px;
+    // border-top: red solid 20px;
+    // border-top: white solid 5px;
 }
 
 // #thx {
@@ -41,7 +42,7 @@
 .ad-move {
     animation-name: ticker;
     animation-duration: 70s;
-    // animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
     display: inline-block;
     white-space: nowrap;
     padding-right: 100%;
@@ -59,18 +60,18 @@
     color: white;
 }
 
-#true-ad {
+#sugar-lane {
     color: brown;
     font-style: italic;
 }
 
-#delightful {
+#bring-friend {
     color: brown;
     font-family: Brush Script Std;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 300;
 }
 
-#white-smiley {
-    height: 25px;
+#blue-lagoon {
+    color: #4fb5cf;
 }

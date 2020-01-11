@@ -429,8 +429,8 @@ function (_React$Component) {
       lng: '',
       website: 'www.business.com',
       phonenumber: '(123)456-7890',
-      address1: '123 Sesame Street',
-      address2: 'San Francisco, CA 12345',
+      address1: '825 Battery Street',
+      address2: 'San Francisco, CA 94111',
       pricepoint: '',
       monopen: '',
       monclose: '',
@@ -451,6 +451,7 @@ function (_React$Component) {
       photoFiles: null,
       photoUrls: []
     };
+    _this.handleAddress = _this.handleAddress.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.navigateToSearch = _this.navigateToSearch.bind(_assertThisInitialized(_this));
     _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
@@ -491,28 +492,48 @@ function (_React$Component) {
       }
     }
   }, {
-    key: "handleSubmit",
-    value: function handleSubmit(e) {
-      e.preventDefault();
-      var formData = new FormData();
+    key: "handleAddress",
+    value: function handleAddress(e) {
+      this.setState({
+        address1: e.currentTarget.value
+      }, this.updateLatLng);
+    }
+  }, {
+    key: "updateLatLng",
+    value: function updateLatLng() {
+      var _this4 = this;
+
       var geocoder = new google.maps.Geocoder();
-      formData.append('business[name]', this.state.name);
-      formData.append('business[category]', this.state.category);
-      var address = document.getElementById('address').value;
       geocoder.geocode({
-        'address': address
+        'address': this.state.address1
       }, function (results, status) {
         if (status == 'OK') {
-          // formData.append('business[lat]', results[0].geometry.location.lat());
-          // formData.append('business[lng]', results[0].geometry.location.lng());
-          console.log(results[0].geometry.location.lat() + 1);
-          console.log(results[0].geometry.location.lng() + 1);
+          _this4.setState({
+            lat: results[0].geometry.location.lat()
+          });
+
+          _this4.setState({
+            lng: results[0].geometry.location.lng()
+          });
+
+          console.log(_this4.state.lat);
+          console.log(_this4.state.lng);
         } else {
           console.log('nope' + status);
         }
 
         ;
       });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var formData = new FormData();
+      formData.append('business[name]', this.state.name);
+      formData.append('business[category]', this.state.category);
+      formData.append('business[lat]', this.state.lat);
+      formData.append('business[lng]', this.state.lng);
       formData.append('business[website]', this.state.website);
       formData.append('business[phonenumber]', this.state.phonenumber);
       formData.append('business[address1]', this.state.address1);
@@ -596,14 +617,14 @@ function (_React$Component) {
         className: "business-create-bizinfo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizname"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         size: "60",
         type: "text",
         value: name,
         onChange: this.update('name')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizcategory"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Category"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Category"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Please select a Business Category",
         value: category,
         onChange: this.update('category')
@@ -617,9 +638,9 @@ function (_React$Component) {
         value: "Coffee & Tea"
       }, "Coffee & Tea"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Bars"
-      }, "Bars"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }, "Bars"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizdelivery"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Do you offer Delivery Service?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Do you offer Delivery Service?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Delivery",
         value: delivery,
         onChange: this.update('delivery')
@@ -631,9 +652,9 @@ function (_React$Component) {
         value: "Yes"
       }, "Yes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "No"
-      }, "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }, "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbiztakeout"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Do you offer Takeout Service?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Do you offer Takeout Service?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Takeout",
         value: takeout,
         onChange: this.update('takeout')
@@ -645,9 +666,9 @@ function (_React$Component) {
         value: "Yes"
       }, "Yes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "No"
-      }, "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }, "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizpricepoint"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pricepoint"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pricepoint"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Pricepoint",
         value: pricepoint,
         onChange: this.update('pricepoint')
@@ -663,34 +684,34 @@ function (_React$Component) {
         value: "3"
       }, "$$$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "$$$$"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }, "$$$$"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizwebsite"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Website"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Website"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         size: "75",
         type: "text",
         value: website,
         onChange: this.update('website')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizphonenumber"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Phone Number"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Phone Number"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         size: "75",
         type: "text",
         value: phonenumber,
         onChange: this.update('phonenumber')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizaddress"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Business Address"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Business Address"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "address",
         size: "75",
         type: "text",
         value: address1,
-        onChange: this.update('address1')
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.handleAddress
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         size: "75",
         type: "text",
         value: address2,
         onChange: this.update('address2')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-create-bizhours"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Business Hours"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bizhours-grid1"
@@ -1485,7 +1506,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Image Preview"), preview, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Add a Picture"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         onChange: this.handleFile.bind(this)
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "business-create-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
@@ -1494,11 +1515,7 @@ function (_React$Component) {
         id: "coffeecups"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: window.newbiz2URL
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "nevermind-button"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.navigateToSearch
-      }, "Back")));
+      }))));
     }
   }]);
 
@@ -1516,6 +1533,68 @@ function (_React$Component) {
 //     <input type="file" onChange={this.handleMultipleFiles} multiple />
 //     <button type="button" onClick={this.handleFiles}>Upload</button>
 // Add Business Red Button White Script
+
+{
+  /* <label>Latitude
+     <br/>
+     <input size="100" type="text" disabled value={lat} />
+  </label>
+  <label>Longitude
+     <br/>
+     <input size="100" type="text" disabled value={lng} />
+  </label>
+  <br/> */
+}
+{}
+/* <input id="address" size="75" type="text" value={address1} onChange={this.update('address1')} /> */
+// handleSubmit(e) {
+//     e.preventDefault();
+//     const formData = new FormData();
+//     const geocoder = new google.maps.Geocoder();
+//     formData.append('business[name]', this.state.name);
+//     formData.append('business[category]', this.state.category);
+//     const address = document.getElementById('address').value;
+//     geocoder.geocode({ 'address': address }, function (results, status) {
+//         if (status == 'OK') {
+//             const newBizLat = results[0].geometry.location.lat();
+//             const newBizLng = results[0].geometry.location.lng();
+//             this.setState({ lat: newBizLat });
+//             this.setState({ lng: newBizLng });
+//             // formData.append('business[lat]', this.state.lat);
+//             // formData.append('business[lng]', this.state.lng);
+//             // console.log(results[0].geometry.location.lat())
+//             // console.log(results[0].geometry.location.lng())
+//             console.log(this.state.lat);
+//             console.log(this.state.lng);
+//         } else { console.log('nope' + status) };
+//     });
+//     formData.append('business[website]', this.state.website);
+//     formData.append('business[phonenumber]', this.state.phonenumber);
+//     formData.append('business[address1]', this.state.address1);
+//     formData.append('business[address2]', this.state.address2);
+//     formData.append('business[pricepoint]', this.state.pricepoint);
+//     formData.append('business[monopen]', this.state.monopen);
+//     formData.append('business[monclose]', this.state.monclose);
+//     formData.append('business[tuesopen]', this.state.tuesopen);
+//     formData.append('business[tuesclose]', this.state.tuesclose);
+//     formData.append('business[wedopen]', this.state.wedopen);
+//     formData.append('business[wedclose]', this.state.wedclose);
+//     formData.append('business[thursopen]', this.state.thursopen);
+//     formData.append('business[thursclose]', this.state.thursclose);
+//     formData.append('business[friopen]', this.state.friopen);
+//     formData.append('business[friclose]', this.state.friclose);
+//     formData.append('business[satopen]', this.state.satopen);
+//     formData.append('business[satclose]', this.state.satclose);
+//     formData.append('business[sunopen]', this.state.sunopen);
+//     formData.append('business[sunclose]', this.state.sunclose);
+//     formData.append('business[delivery]', this.state.delivery);
+//     formData.append('business[takeout]', this.state.takeout);
+//     if (this.state.photoFiles) {
+//         formData.append('business[photos][]', this.state.photoFiles);
+//     };
+// this.props.createBusiness(formData);
+// this.navigateToSearch();
+// };
 
 /***/ }),
 
@@ -2308,10 +2387,6 @@ function (_React$Component) {
         className: "background",
         key: 4,
         src: window.home4URL
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "background",
-        key: 5,
-        src: window.home5URL
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "searchbar-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2427,21 +2502,27 @@ var Footer = function Footer() {
     id: "ad"
   }, "I think it would be fun to advertise in this space so imagine reading local promotions about say.. ice cream here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "ad"
-  }, "Sweet, chocolate chip ice cream like the one taken by Benjam\xEDn Hazael Rojas Garc\xEDa on my login page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "sugar-lane"
+  }, " - Buy one get one free at Sugar Lane Corner Shoppe - "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "bring-friend"
+  }, "Bring a Friend!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "ad"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "true-ad"
-  }, " - Buy one get one free at Sugar Lane Corner Shoppe ! - "), "it could be ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "delightful"
-  }, "delightful!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "ad"
-  }, "Please see my Graphics Credits link for all photography & art credits and thank you again for visiting !"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "blue-lagoon"
+  }, "Happy Hour Specials at the Blue Lagoon 5-8 PM!"), " $8 Mai Tais!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "ad"
   }, "\u2605\u2605\u2605\u2605\u2605"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "ad"
-  }, "p.s. This message will play on loop, so feel free to hover your cursor over this area to make it stop"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "This message will play on repeat, so feel free to put it on pause by placing your cursor over this area"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "ad"
-  }, "( Also, definitely look into getting that ice cream \u263A )")))));
+  }, "( bc I get that this could get annoying! \u263A )"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "ad"
+  }, "But as a site visitor, I actually think I would want to read all of these"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "ad"
+  }, "- something good could show up!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "ad"
+  }, "\u2605\u2605\u2605\u2605\u2605")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);

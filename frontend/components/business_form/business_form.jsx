@@ -13,8 +13,8 @@ class BusinessForm extends React.Component {
             lng: '',
             website: 'www.business.com',
             phonenumber: '(123)456-7890',
-            address1: '123 Sesame Street',
-            address2: 'San Francisco, CA 12345',
+            address1: '825 Battery Street',
+            address2: 'San Francisco, CA 94111',
             pricepoint: '',
             monopen: '',
             monclose: '',
@@ -36,6 +36,7 @@ class BusinessForm extends React.Component {
             photoUrls: [],
         };
 
+        this.handleAddress = this.handleAddress.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.navigateToSearch = this.navigateToSearch.bind(this);
         this.handleFile = this.handleFile.bind(this);
@@ -43,7 +44,7 @@ class BusinessForm extends React.Component {
 
     navigateToSearch() {
         this.props.history.push('/businesses');
-    }
+    };
 
     update(field) {
         return e => this.setState({
@@ -61,27 +62,33 @@ class BusinessForm extends React.Component {
         if (file) {
             fileReader.readAsDataURL(file);
         }
-    }
+    };
+
+    handleAddress(e) {
+        this.setState({address1: e.currentTarget.value}, this.updateLatLng);
+    } 
+
+    updateLatLng() {
+        const geocoder = new google.maps.Geocoder();
+        geocoder.geocode({'address': this.state.address1}, (results, status) => {
+            if (status == 'OK') {
+                this.setState({lat: results[0].geometry.location.lat()});
+                this.setState({lng: results[0].geometry.location.lng()});
+                console.log(this.state.lat);
+                console.log(this.state.lng);
+            } else { console.log('nope' + status)};
+        })      
+    };
 
     handleSubmit(e) {
         e.preventDefault();
       
         const formData = new FormData();
-        const geocoder = new google.maps.Geocoder();
 
         formData.append('business[name]', this.state.name);
         formData.append('business[category]', this.state.category);
-
-        const address = document.getElementById('address').value;
-        geocoder.geocode({ 'address': address }, function(results, status) {
-            if (status == 'OK') {
-                // formData.append('business[lat]', results[0].geometry.location.lat());
-                // formData.append('business[lng]', results[0].geometry.location.lng());
-                console.log(results[0].geometry.location.lat() + 1)
-                console.log(results[0].geometry.location.lng() + 1)
-            } else {console.log('nope' + status)};
-        });
-  
+        formData.append('business[lat]', this.state.lat);
+        formData.append('business[lng]', this.state.lng);
         formData.append('business[website]', this.state.website);
         formData.append('business[phonenumber]', this.state.phonenumber);
         formData.append('business[address1]', this.state.address1);
@@ -117,6 +124,7 @@ class BusinessForm extends React.Component {
         const { monopen, monclose, tuesopen, tuesclose, wedopen, wedclose, thursopen, thursclose, friopen, friclose, satopen, satclose, sunopen, sunclose } = this.state;
         const { delivery, takeout } = this.state;
         // const { lat, lng } = this.coords;
+
         const preview = this.state.photoUrls ? <img height="100px" width="100px" src={this.state.photoUrls[0]} /> : null;
        
         return (
@@ -136,13 +144,10 @@ class BusinessForm extends React.Component {
                     <div className="business-create-bizinfo">
                         <label id="createbizname">
                             <div>Name</div>
-                            <br/>
                             <input size="60" type="text" value={name} onChange={this.update('name')} />
                         </label>
-                        <br/>
                         <label id="createbizcategory">
                             <div>Category</div>
-                            <br/>
                             <select name="Please select a Business Category" value={category} onChange={this.update('category')}>
                                 <option selected disabled value="">- Please select a category -</option>
                                 <option value="Restaurants">Restaurants</option>
@@ -150,33 +155,25 @@ class BusinessForm extends React.Component {
                                 <option value="Bars">Bars</option>
                             </select>
                         </label>
-                        <br/>
-
                         <label id="createbizdelivery">
                             <div>Do you offer Delivery Service?</div>
-                            <br/>
                             <select name="Delivery" value={delivery} onChange={this.update('delivery')}>
                                 <option selected disabled value="">- Please select one -</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
                         </label>
-                        <br/>
                         <label id="createbiztakeout">
                             <div>Do you offer Takeout Service?</div>
-                            <br/>
                             <select name="Takeout" value={takeout} onChange={this.update('takeout')}>
                                 <option selected disabled value="">- Please select one -</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
                         </label>
-                        <br/>
-                    
-    
+        
                         <label id="createbizpricepoint">
                             <div>Pricepoint</div>
-                            <br/>
                             <select name="Pricepoint" value={pricepoint} onChange={this.update('pricepoint')}>
                                 <option selected disabled value="">- Pricepoint ($) -</option>
                                 <option value="1">$</option>
@@ -185,37 +182,19 @@ class BusinessForm extends React.Component {
                                 <option value="4">$$$$</option>
                             </select>
                         </label>
-                        <br/>
-                        {/* <label>Latitude
-                            <br/>
-                            <input size="100" type="text" disabled value={lat} />
-                        </label>
-                        <label>Longitude
-                            <br/>
-                            <input size="100" type="text" disabled value={lng} />
-                        </label>
-                        <br/> */}
                         <label id="createbizwebsite">
                             <div>Website</div>
-                            <br/>
                             <input size="75" type="text" value={website} onChange={this.update('website')} />
                         </label>
-                        <br/>
                         <label id="createbizphonenumber">
                             <div>Phone Number</div>
-                            <br/>
                             <input size="75" type="text" value={phonenumber} onChange={this.update('phonenumber')} />
                         </label>
-                        <br/>
                         <label id="createbizaddress">
                             <div>Business Address</div>
-                            <br/>
-                            <input id="address" size="75" type="text" value={address1} onChange={this.update('address1')} />
-                            <br/>
+                            <input id="address" size="75" type="text" value={address1} onChange={this.handleAddress} />
                             <input size="75" type="text" value={address2} onChange={this.update('address2')} />
                         </label>
-                        <br/>
-                  
                     </div>
 
                     <div className="business-create-bizhours">
@@ -653,19 +632,14 @@ class BusinessForm extends React.Component {
                             <input type="file" onChange={this.handleFile.bind(this)} /> 
                     </div>
 
-                        <hr/>
                     <div id="business-create-button">
                         <input type="submit" value="Create Newest Spot In Town!"/>
                     </div>
                 </form>
                     <div id="coffeecups">
                         <img src={window.newbiz2URL} />
-                    </div>
-                    
-            </div>
-                    <div id="nevermind-button">
-                        <button onClick={this.navigateToSearch}>Back</button>
-                    </div>
+                    </div>         
+                </div>
             </div>
         )
     }
@@ -688,3 +662,76 @@ export default withRouter(BusinessForm);
     //     <button type="button" onClick={this.handleFiles}>Upload</button>
 
     // Add Business Red Button White Script
+
+    {/* <label>Latitude
+        <br/>
+        <input size="100" type="text" disabled value={lat} />
+    </label>
+    <label>Longitude
+        <br/>
+        <input size="100" type="text" disabled value={lng} />
+    </label>
+    <br/> */}
+
+
+{/* <input id="address" size="75" type="text" value={address1} onChange={this.update('address1')} /> */ }
+
+
+// handleSubmit(e) {
+//     e.preventDefault();
+
+//     const formData = new FormData();
+//     const geocoder = new google.maps.Geocoder();
+
+//     formData.append('business[name]', this.state.name);
+//     formData.append('business[category]', this.state.category);
+
+//     const address = document.getElementById('address').value;
+//     geocoder.geocode({ 'address': address }, function (results, status) {
+//         if (status == 'OK') {
+//             const newBizLat = results[0].geometry.location.lat();
+//             const newBizLng = results[0].geometry.location.lng();
+
+//             this.setState({ lat: newBizLat });
+//             this.setState({ lng: newBizLng });
+
+//             // formData.append('business[lat]', this.state.lat);
+//             // formData.append('business[lng]', this.state.lng);
+
+//             // console.log(results[0].geometry.location.lat())
+//             // console.log(results[0].geometry.location.lng())
+//             console.log(this.state.lat);
+//             console.log(this.state.lng);
+
+//         } else { console.log('nope' + status) };
+//     });
+
+//     formData.append('business[website]', this.state.website);
+//     formData.append('business[phonenumber]', this.state.phonenumber);
+//     formData.append('business[address1]', this.state.address1);
+//     formData.append('business[address2]', this.state.address2);
+//     formData.append('business[pricepoint]', this.state.pricepoint);
+//     formData.append('business[monopen]', this.state.monopen);
+//     formData.append('business[monclose]', this.state.monclose);
+//     formData.append('business[tuesopen]', this.state.tuesopen);
+//     formData.append('business[tuesclose]', this.state.tuesclose);
+//     formData.append('business[wedopen]', this.state.wedopen);
+//     formData.append('business[wedclose]', this.state.wedclose);
+//     formData.append('business[thursopen]', this.state.thursopen);
+//     formData.append('business[thursclose]', this.state.thursclose);
+//     formData.append('business[friopen]', this.state.friopen);
+//     formData.append('business[friclose]', this.state.friclose);
+//     formData.append('business[satopen]', this.state.satopen);
+//     formData.append('business[satclose]', this.state.satclose);
+//     formData.append('business[sunopen]', this.state.sunopen);
+//     formData.append('business[sunclose]', this.state.sunclose);
+//     formData.append('business[delivery]', this.state.delivery);
+//     formData.append('business[takeout]', this.state.takeout);
+
+//     if (this.state.photoFiles) {
+//         formData.append('business[photos][]', this.state.photoFiles);
+//     };
+
+    // this.props.createBusiness(formData);
+    // this.navigateToSearch();
+// };

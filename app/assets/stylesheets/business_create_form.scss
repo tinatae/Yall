@@ -1,5 +1,5 @@
 .business-create-form {
-   margin-bottom: 60px;
+   margin-bottom: 45px;
 }
 
 .business-create-header {
@@ -39,7 +39,8 @@
 
 #coffeecups {
     // z-index: 3;
-    background-color: orange;
+    background-color: #4fb5cf;
+    // background-color: orange;
     // border-top: 15px solid red;
     // background-color: red;
 }
@@ -67,6 +68,10 @@
 
 .business-create-bizinfo label {
     font-weight: strong;
+}
+
+.business-create-bizinfo label div {
+    padding: 8px;
 }
 
 .business-create-bizhours {
@@ -151,12 +156,21 @@ select {
 // }
 
 #business-create-button {
-    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#business-create-button input {
+    padding: 5px;
+    border-radius: 5px;
     text-align: center;
 }
 
-#nevermind-button {
-    padding: 10px;
-    // background-color: #1B0C63;
-    background-color: black;
+
+#business-create-button input:hover {
+    // background-color: #c7ffff;
+    padding: 5px;
+    color: #4fb5cf;
+    border: blue solid 1px;
+    font-weight: 700;
 }

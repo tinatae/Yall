@@ -47,7 +47,6 @@ class Homepage extends React.Component {
                     <img className="background" key={2} src={window.home2URL} />
                     <img className="background" key={3} src={window.home3URL} />
                     <img className="background" key={4} src={window.home4URL} />
-                    <img className="background" key={5} src={window.home5URL} />
                 </div>
                 <div className="searchbar-container">
                     <SearchbarFormContainer />
