@@ -55,7 +55,7 @@ class SessionForm extends React.Component {
                         <div>
                             <div id="or">~ Or ~</div> 
                             <div className="alt-session-form-button">{this.props.navLink}</div>
-                            {this.renderErrors()}
+                            {/* {this.renderErrors()} */}
                         </div>
                     </form>
                 </div>

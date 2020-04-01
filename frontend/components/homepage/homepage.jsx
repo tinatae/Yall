@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchbarFormContainer from '../searchbar/searchbar_form_container';
-import {Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 class Homepage extends React.Component {
     constructor(props) {
@@ -52,21 +52,21 @@ class Homepage extends React.Component {
                     <SearchbarFormContainer />
                 </div>
                 <div className="homepage-categories">
-                    <Link id="restaurants-link" style={{ textDecoration: 'none' }} onClick={this.handleCategoryChange}>
+                    <div id="restaurants-link" style={{ textDecoration: 'none' }} onClick={this.handleCategoryChange}>
                         <img id="white-utensils" src="/white-utensils.svg" />
                         <span>Restaurants</span>
-                    </Link>
-                    <Link id="delivery-link" style={{ textDecoration: 'none' }} onClick={this.handleDeliveryChange}>
+                    </div>
+                    <div id="delivery-link" style={{ textDecoration: 'none' }} onClick={this.handleDeliveryChange}>
                         <img id="white-paper-plane" src="/white-paper-plane.svg" />
                         <span>Delivery</span>   
-                    </Link>
+                    </div>
                 </div>
             </div>
         )
     }
 };
 
-export default Homepage;
+export default withRouter(Homepage);
 
 
 {/* <img className="background" src={window.home1} /> */}

@@ -2391,7 +2391,7 @@ function (_React$Component) {
         className: "searchbar-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "homepage-categories"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "restaurants-link",
         style: {
           textDecoration: 'none'
@@ -2400,7 +2400,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         id: "white-utensils",
         src: "/white-utensils.svg"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Restaurants")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Restaurants")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "delivery-link",
         style: {
           textDecoration: 'none'
@@ -2417,7 +2417,7 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 ;
-/* harmony default export */ __webpack_exports__["default"] = (Homepage);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Homepage));
 {}
 /* <img className="background" src={window.home1} /> */
 // <label>
@@ -2500,7 +2500,7 @@ var Footer = function Footer() {
     id: "ad"
   }, "\u2605\u2605\u2605\u2605\u2605"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "ad"
-  }, "I think it would be fun to advertise in this space so imagine reading local promotions about say.. ice cream here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "I think it would be fun to advertise in this space so imagine reading about local promotions here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "ad"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "sugar-lane"
@@ -3600,7 +3600,7 @@ function (_React$Component) {
         id: "or"
       }, "~ Or ~"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alt-session-form-button"
-      }, this.props.navLink), this.renderErrors()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.navLink)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "shotglass"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: window.login2URL

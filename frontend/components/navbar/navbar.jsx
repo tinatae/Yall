@@ -7,11 +7,11 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
     const display = currentUser ? (
         <div className="loggednav">
             <div className="nav-left">
-                <Link id="add-biz-link" style={{textDecoration: 'none'}} to="/businesses/new">
+                <Link id="add-biz-link" style={{textDecoration: 'none'}} to={"/businesses/new"}>
                     <img id="bizbutton" src="/white-building.svg" />
                     <span>Add&nbsp;Your&nbsp;Business</span>
                 </Link>
-                <Link id="add-me-link" style={{ textDecoration: 'none' }} to="/businesses/new">
+                <Link id="add-me-link" style={{ textDecoration: 'none' }} to={"/businesses/new"}>
                     <img id="white-sun" src="./white-sun.svg" />
                     <span>Add Me</span>
                 </Link>
@@ -28,11 +28,11 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
     ) : (
         <div className="notlogged-nav">
             <div className="nav-left">
-                <Link id="add-biz-link" style={{ textDecoration: 'none' }} to="/businesses/new">
+                <Link id="add-biz-link" style={{ textDecoration: 'none' }} to={"/businesses/new"}>
                     <img id="bizbutton" src="/white-building.svg" />
                     <span>Add&nbsp;Your&nbsp;Business</span>
                 </Link>
-                <Link id="add-me-link" style={{ textDecoration: 'none' }} to="/businesses/new">
+                <Link id="add-me-link" style={{ textDecoration: 'none' }} to={"/businesses/new"}>
                     <img id="white-sun" src="./white-sun.svg" />
                     <span>Add Me</span>
                 </Link>
@@ -41,12 +41,12 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
             <div className="notlogged-right">
            
                     <div id="navlink-login">
-                        <Link style={{textDecoration: 'none'}} to="/login">              
+                        <Link style={{textDecoration: 'none'}} to={"/login"}>              
                             <span>Log In</span>               
                         </Link>
                     </div>
                     <div id="navlink-signup">
-                        <Link style={{textDecoration: 'none'}} to="/signup">           
+                        <Link style={{textDecoration: 'none'}} to={"/signup"}>           
                             <span>Sign Up</span>    
                         </Link>
                     </div>
@@ -65,7 +65,7 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
         <div>
             <header>
                 <div style={navbarStyles} className="navbar">
-                    <Link style={{textDecoration: 'none'}} to="/">
+                    <Link style={{textDecoration: 'none'}} to={"/"}>
                         <div className="yallr-name">y allr
                         <img id="blue-snowflake" src="/blue-snowflake.svg"></img>
                         </div>
