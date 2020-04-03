@@ -7,7 +7,8 @@ class SessionForm extends React.Component {
 
         this.state = { 
             username: '', 
-            password: '' 
+            password: '',
+            errors: {},
         };
    
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,6 +16,7 @@ class SessionForm extends React.Component {
         this.showDemo = this.showDemo.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
     };
+
 
     update(field) {
         return e => this.setState({ [field]: e.currentTarget.value });
@@ -54,7 +56,8 @@ class SessionForm extends React.Component {
     }
 
     renderErrors() {
-        if (this.props.errors) {
+        if (this.props.errors.length > 0) {
+            
             return (
             <ul>
                 {this.props.errors.map((error, i) => (
