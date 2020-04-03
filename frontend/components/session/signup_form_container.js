@@ -8,6 +8,7 @@ const mSTP = (state, ownProps) => {
     return {
         errors: state.errors.session,
         formType: 'Sign Up',
+        otherForm: 'Log-in here instead!',
         navLink: <Link to="/login"><button>Log-in here instead!</button></Link>
     }
 };

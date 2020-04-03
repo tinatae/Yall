@@ -6,37 +6,38 @@
     text-transform: uppercase;
 }
 
-.navbar #bizbutton {
+.navbar .fa-building {
     color: white;
-    height: 14px;
+    font-size: 14px;
     margin-right: 7px;
 }
 
-#blue-snowflake {
-    height: 27px;
-    margin-left: 8px;
+.yallr-name .fa-snowflake {
+    font-size: 30px;
+    margin-left: 10px;
+    color: lightblue;
 }
 
 #white-magnifying-glass {
     height: 34px;
-    // background-color: red;
     padding: 7px;
-    border-radius: 7px;
     margin-left: 1px;
 }
 
 #white-magnifying-glass:hover {
     border: white solid 1px;
+    border-radius: 7px;
 }
 
-#paperplane {
-    height: 14px;
+.fa-paper-plane {
+    font-size: 14px;
     margin-right: 5px;
 }
 
-#grey-clock {
-    height: 14px;
+.fa-clock {
+    font-size: 14px;
     margin-right: 5px;
+    // color: grey;
 }
 
 #crossed-circle {
@@ -44,27 +45,31 @@
     margin-right: 5px;
 }
 
-#shoeprints {
-    height: 14px;
+.fa-shoe-prints {
+    font-size: 14px;
     transform: rotate(-52deg);
     margin-right: 5px;
 }
 
-#white-utensils {
-    height: 14px;
+.fa-utensils {
+    font-size: 14px;
     margin-right: 6px;
+    color: white;
 }
 
-#white-paper-plane {
-    height: 14px;
+.homepage-categories .fa-paper-plane {
+    font-size: 14px;
     margin-right: 6px;
+    color: white;
 }
 
-#white-sun {
-    height: 14px;
+.fa-sun {
+    font-size: 14px;
     margin-right: 6px;
+    color: white;
 }
 
-#userbutton {
-    height: 70px;
+.fa-user-circle {
+    font-size: 70px;
+    color: lightblue;
 }

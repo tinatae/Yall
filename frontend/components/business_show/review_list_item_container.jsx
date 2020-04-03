@@ -7,21 +7,21 @@ const Review = ({ review, author }) => {
     // const reviewTime = new Date(created_at).toLocaleTimeString();
 
     return (
-        <div className="reviews-section">
-            <div id="userprofile">
-                <img id="userbutton" src="/user-circle-solid.svg" />
-                <div id="username">{author.username}</div>
-            </div>
-            <div className="reviews">
-                <div id="stars-and-date">
-                    <div id="stars">{starmaker}</div>
-                    <div id="created_at">{reviewDate}</div>
-                </div>
-
-                <div id="comment">{body}</div>
-            </div>
+      <div className="reviews-section">
+        <div id="userprofile">
+          <i class="fas fa-user-circle"></i>
+          <div id="username">{author.username}</div>
         </div>
-    )
+        <div className="reviews">
+          <div id="stars-and-date">
+            <div id="stars">{starmaker}</div>
+            <div id="created_at">{reviewDate}</div>
+          </div>
+
+          <div id="comment">{body}</div>
+        </div>
+      </div>
+    );
 };
 
 const mSTP = ({entities: { users }}, { review }) => {

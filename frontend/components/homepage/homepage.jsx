@@ -53,11 +53,11 @@ class Homepage extends React.Component {
                 </div>
                 <div className="homepage-categories">
                     <div id="restaurants-link" style={{ textDecoration: 'none' }} onClick={this.handleCategoryChange}>
-                        <img id="white-utensils" src="/white-utensils.svg" />
+                        <i class="fas fa-utensils"></i>
                         <span>Restaurants</span>
                     </div>
                     <div id="delivery-link" style={{ textDecoration: 'none' }} onClick={this.handleDeliveryChange}>
-                        <img id="white-paper-plane" src="/white-paper-plane.svg" />
+                        <i class="far fa-paper-plane"></i>
                         <span>Delivery</span>   
                     </div>
                 </div>
@@ -69,12 +69,4 @@ class Homepage extends React.Component {
 export default withRouter(Homepage);
 
 
-{/* <img className="background" src={window.home1} /> */}
-
-// <label>
-//     Delivery
-//     <button value="Yes" onClick={handleDeliveryChange('filterDelivery', changeFilter)}>
-//         <img id="paperplane" src="/paper-plane-regular.svg" />
-//     </button>
-// </label>
 

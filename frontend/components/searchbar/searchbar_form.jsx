@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class SearchbarForm extends React.Component {
     constructor(props) {
@@ -11,11 +10,6 @@ class SearchbarForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.navigateToEverything = this.navigateToEverything.bind(this);
-    };
-    
-    navigateToEverything() {
-        this.props.history.push('/businesses/')
     };
 
     update(field) {
@@ -33,22 +27,14 @@ class SearchbarForm extends React.Component {
     render() {
         const {searchQuery} = this.state;
 
-
         return (
-            <div className="searchbar-form">
-                <div>
-                    <form onSubmit={this.handleSubmit}>
-                        <div id="searchbar-container">
-                            <div>
-                                <input id="searchbar-input" type="text" placeholder="  Find | So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} />           
-                            </div>
-                            <div>   
-                                <input id="white-magnifying-glass" type="image" src="/white-magnifying-glass.svg" alt="Submit Query"/>               
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
+            <div className="searchbar-form">         
+                <form onSubmit={this.handleSubmit}>
+                    <div id="searchbar-container">                 
+                        <input id="searchbar-input" type="text" placeholder="  Find | So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} />                              
+                        <input id="white-magnifying-glass" type="image" src="/white-magnifying-glass.svg" alt="Submit Query"/>                          
+                    </div>
+                </form>        
             </div>
         )
     };

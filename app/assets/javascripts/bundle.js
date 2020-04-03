@@ -1766,11 +1766,6 @@ function (_React$Component) {
   }, {
     key: "handleClick",
     value: function handleClick(coords) {
-      // this.props.history.push({
-      //     // pathname: 'businesses/new',
-      //     pathname: '/new',
-      //     search: `lat=${coords.lat}&lng=${coords.lng}`
-      // });
       this.props.history.push("/businesses/new?lat=".concat(coords.lat, "&lng=").concat(coords.lng));
     }
   }, {
@@ -1882,7 +1877,7 @@ var BusinessProfile = function BusinessProfile(_ref) {
     id: "bizrating-section"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizrating"
-  }, business.average_rating || 'No reviews yet. Be the first to write one!'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, business.average_rating || "No reviews yet. Be the first to write one!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizreviewcount"
   }, business.reviewcount)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizpricepoint"
@@ -1894,7 +1889,7 @@ var BusinessProfile = function BusinessProfile(_ref) {
     className: "business-review-link"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_link_util__WEBPACK_IMPORTED_MODULE_5__["ReviewLink"], {
     style: {
-      textDecoration: 'none'
+      textDecoration: "none"
     },
     component: _review_form_container__WEBPACK_IMPORTED_MODULE_3__["default"],
     to: "/businesses/".concat(businessId, "/review"),
@@ -1904,12 +1899,10 @@ var BusinessProfile = function BusinessProfile(_ref) {
     component: _review_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-attributes"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "paperplane",
-    src: "/paper-plane-regular.svg"
-  }), "Delivery\xA0:\xA0", business.delivery), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "shoeprints",
-    src: "/shoe-prints-solid.svg"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "far fa-paper-plane"
+  }), "Delivery\xA0:\xA0", business.delivery), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fas fa-shoe-prints"
   }), "Takeout\xA0:\xA0", business.takeout)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-map-and-info"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1921,7 +1914,7 @@ var BusinessProfile = function BusinessProfile(_ref) {
     fetchBusiness: fetchBusiness
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-hours"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Monday: ", timeConversion[business.monopen], " - ", timeConversion[business.monclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Tuesday: ", timeConversion[business.tuesopen], " - ", timeConversion[business.tuesclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wednesday: ", timeConversion[business.wedopen], " - ", timeConversion[business.wedclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thursday: ", timeConversion[business.thursopen], " - ", timeConversion[business.thursclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Friday: ", timeConversion[business.friopen], " - ", timeConversion[business.friclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Saturday: ", timeConversion[business.satopen], " - ", timeConversion[business.satclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sunday: ", timeConversion[business.sunopen], " - ", timeConversion[business.sunclose])), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Monday: ", timeConversion[business.monopen], " -", " ", timeConversion[business.monclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Tuesday: ", timeConversion[business.tuesopen], " -", " ", timeConversion[business.tuesclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wednesday: ", timeConversion[business.wedopen], " -", " ", timeConversion[business.wedclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thursday: ", timeConversion[business.thursopen], " -", " ", timeConversion[business.thursclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Friday: ", timeConversion[business.friopen], " -", " ", timeConversion[business.friclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Saturday: ", timeConversion[business.satopen], " -", " ", timeConversion[business.satclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sunday: ", timeConversion[business.sunopen], " -", " ", timeConversion[business.sunclose])), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-info"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizwebsite"
@@ -2242,9 +2235,8 @@ var Review = function Review(_ref) {
     className: "reviews-section"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "userprofile"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "userbutton",
-    src: "/user-circle-solid.svg"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fas fa-user-circle"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "username"
   }, author.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2397,18 +2389,16 @@ function (_React$Component) {
           textDecoration: 'none'
         },
         onClick: this.handleCategoryChange
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        id: "white-utensils",
-        src: "/white-utensils.svg"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-utensils"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Restaurants")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "delivery-link",
         style: {
           textDecoration: 'none'
         },
         onClick: this.handleDeliveryChange
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        id: "white-paper-plane",
-        src: "/white-paper-plane.svg"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "far fa-paper-plane"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Delivery"))));
     }
   }]);
@@ -2418,14 +2408,6 @@ function (_React$Component) {
 
 ;
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Homepage));
-{}
-/* <img className="background" src={window.home1} /> */
-// <label>
-//     Delivery
-//     <button value="Yes" onClick={handleDeliveryChange('filterDelivery', changeFilter)}>
-//         <img id="paperplane" src="/paper-plane-regular.svg" />
-//     </button>
-// </label>
 
 /***/ }),
 
@@ -2566,18 +2548,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       textDecoration: 'none'
     },
     to: "/businesses/new"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "bizbutton",
-    src: "/white-building.svg"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "far fa-building"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     id: "add-me-link",
     style: {
       textDecoration: 'none'
     },
     to: "/businesses/new"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "white-sun",
-    src: "./white-sun.svg"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "far fa-sun"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Me"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav-right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2599,18 +2579,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       textDecoration: 'none'
     },
     to: "/businesses/new"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "bizbutton",
-    src: "/white-building.svg"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "far fa-building"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     id: "add-me-link",
     style: {
       textDecoration: 'none'
     },
     to: "/businesses/new"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "white-sun",
-    src: "./white-sun.svg"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "far fa-sun"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Me"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2641,14 +2619,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     className: "navbar"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     style: {
-      textDecoration: 'none'
+      textDecoration: "none"
     },
     to: "/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "yallr-name"
-  }, "y allr", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "blue-snowflake",
-    src: "/blue-snowflake.svg"
+  }, "y allr", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "far fa-snowflake"
   }))), display)));
 });
 {}
@@ -2951,25 +2928,15 @@ var FilterForm = function FilterForm(_ref) {
       refreshFilter = _ref.refreshFilter;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "filtered-firstline"
-  }, "Filter Results By:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "clear-filters"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: refreshFilter
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "crossed-circle",
-    src: "times-circle-regular.svg"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "filter-writing"
-  }, "Clear Filters"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Filter Results By:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "filters"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "minmax-pair"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Min Pricepoint "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     name: "Min Pricepoint",
     value: minPricepoint,
-    onChange: handlePricepointChange('minPricepoint', updateFilter)
+    onChange: handlePricepointChange("minPricepoint", updateFilter)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    selected: true,
     disabled: true,
     value: ""
   }, "- $ -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -2985,9 +2952,8 @@ var FilterForm = function FilterForm(_ref) {
   }, " Max Pricepoint "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     name: "Max Pricepoint",
     value: maxPricepoint,
-    onChange: handlePricepointChange('maxPricepoint', updateFilter)
+    onChange: handlePricepointChange("maxPricepoint", updateFilter)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    selected: true,
     disabled: true,
     value: ""
   }, "- $$$$ -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -3001,7 +2967,7 @@ var FilterForm = function FilterForm(_ref) {
   }, "$$$$"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " Category "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     name: "Category",
     value: filterCategory,
-    onChange: handleCategoryChange('filterCategory', updateFilter)
+    onChange: handleCategoryChange("filterCategory", updateFilter)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "All"
   }, "Showing All"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -3012,37 +2978,34 @@ var FilterForm = function FilterForm(_ref) {
     value: "Bars"
   }, "Bars"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     value: "Yes",
-    onClick: handleOpenNow('filterOpenNow', updateFilter)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "line-em-up"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "grey-clock",
-    src: "/grey-clock.svg"
+    onClick: handleOpenNow("filterOpenNow", updateFilter)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "far fa-clock"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "filter-writing"
-  }, "Open Now")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+  }, "Open Now"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     id: "delivery-button"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     value: "Yes",
-    onClick: handleDeliveryChange('filterDelivery', updateFilter)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "line-em-up"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "paperplane",
-    src: "/paper-plane-regular.svg"
+    onClick: handleDeliveryChange("filterDelivery", updateFilter)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "far fa-paper-plane"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "filter-writing"
-  }, "Delivery")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, "Delivery"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     value: "Yes",
-    onClick: handleTakeoutChange('filterTakeout', updateFilter)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "line-em-up"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "shoeprints",
-    src: "/shoe-prints-solid.svg"
+    onClick: handleTakeoutChange("filterTakeout", updateFilter)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fas fa-shoe-prints"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "filter-writing"
-  }, "Takeout"))))));
+  }, "Takeout"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "clear-filters"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: refreshFilter
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "filter-writing"
+  }, "Clear All Filters")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (FilterForm);
@@ -3275,9 +3238,7 @@ var mDTP = function mDTP(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -3301,7 +3262,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
 var SearchbarForm =
 /*#__PURE__*/
 function (_React$Component) {
@@ -3317,16 +3277,10 @@ function (_React$Component) {
       searchQuery: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.navigateToEverything = _this.navigateToEverything.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(SearchbarForm, [{
-    key: "navigateToEverything",
-    value: function navigateToEverything() {
-      this.props.history.push('/businesses/');
-    }
-  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -3349,22 +3303,22 @@ function (_React$Component) {
       var searchQuery = this.state.searchQuery;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "searchbar-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "searchbar-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "searchbar-input",
         type: "text",
         placeholder: "  Find | So what are we looking for..",
         value: searchQuery,
         onChange: this.update('searchQuery')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "white-magnifying-glass",
         type: "image",
         src: "/white-magnifying-glass.svg",
         alt: "Submit Query"
-      }))))));
+      }))));
     }
   }]);
 
@@ -3372,7 +3326,7 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 ;
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(SearchbarForm)); // ------------------------------------------------------------------------
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(SearchbarForm)); // ------------------------------------------------------------------------
 // import React from 'react';
 // import ReactDOM from 'react-dom';
 // import { withRouter, Link } from 'react-router-dom';
@@ -3491,6 +3445,7 @@ var mDTP = function mDTP(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -3513,6 +3468,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var SessionForm =
 /*#__PURE__*/
 function (_React$Component) {
@@ -3527,9 +3483,11 @@ function (_React$Component) {
     _this.state = {
       username: '',
       password: ''
-    }; // this.state = this.props.user;
-
+    };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleDemo = _this.handleDemo.bind(_assertThisInitialized(_this));
+    _this.showDemo = _this.showDemo.bind(_assertThisInitialized(_this));
+    _this.renderErrors = _this.renderErrors.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3546,8 +3504,39 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var user = Object.assign({}, this.state);
+      var user = {
+        username: this.state.username,
+        password: this.state.password
+      };
       this.props.processForm(user);
+    }
+  }, {
+    key: "showDemo",
+    value: function showDemo() {
+      if (this.props.location.pathname === "/login") {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          id: "demo-button",
+          onClick: this.handleDemo
+        }, "Demo Login");
+      } else {
+        return null;
+      }
+
+      ;
+    }
+  }, {
+    key: "handleDemo",
+    value: function handleDemo(e) {
+      var _this3 = this;
+
+      e.preventDefault();
+      var demoUser = {
+        username: "Demo",
+        password: "123456"
+      };
+      this.props.processForm(demoUser).then(function () {
+        return _this3.props.history.push("/");
+      });
     }
   }, {
     key: "renderErrors",
@@ -3563,11 +3552,10 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "icecream"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        id: "icecream",
         src: window.login1URL
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "center-section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "thanks"
@@ -3575,36 +3563,27 @@ function (_React$Component) {
         id: "pleasethisthat"
       }, "Please ", this.props.formType, " below!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "session-form-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        id: "username-label"
-      }, "username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "username",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.username,
-        onChange: this.update('username')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        id: "password-label"
-      }, "password:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "password",
+        onChange: this.update("username")
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "password:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.password,
-        onChange: this.update('password')
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onChange: this.update("password")
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session-form-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: this.props.formType
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "or"
       }, "~ Or ~"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alt-session-form-button"
-      }, this.props.navLink)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "shotglass"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, this.props.navLink), this.showDemo(), this.renderErrors())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        id: "shotglass",
         src: window.login2URL
-      })));
+      }));
     }
   }]);
 
@@ -3612,7 +3591,7 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 ;
-/* harmony default export */ __webpack_exports__["default"] = (SessionForm);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(SessionForm));
 
 /***/ }),
 
@@ -3641,6 +3620,7 @@ var mSTP = function mSTP(state, ownProps) {
   return {
     errors: state.errors.session,
     formType: 'Sign Up',
+    otherForm: 'Log-in here instead!',
     navLink: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
       to: "/login"
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", null, "Log-in here instead!"))

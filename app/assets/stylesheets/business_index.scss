@@ -3,27 +3,25 @@
     color: #333333;
 }
 
-.filtered-firstline {
-    display: flex;
-    justify-content: space-between;
-}
+// .filtered-firstline {
+//     margin-left: 10px;
+// }
 
 #clear-filters {
-    margin-right: 70px;
+    margin-left: 70px;
 }
 
 #clear-filters button {
     padding: 3px 8px;
-    border-radius: 8px;
-    vertical-align: middle;
+    border-radius: 5px;
     border: #a6a6a6 solid 1px;
     background-color: #f7f7f7;
+    font-size: 12px;
 }
 
 #clear-filters button:hover {
-    // background-color: red;
     border: #8d3b9c solid 1px;
-    // color: #8d3b9c;
+    color: #8d3b9c;
 }
 
 .filters {
@@ -42,6 +40,7 @@
     -moz-appearance: none;
     appearance: none;
     padding: 4px;
+    text-align-last: center;
 }
 
 .filters select:hover {
@@ -50,6 +49,7 @@
     appearance: none;
     padding: 4px;
     border: #0E87FF solid 1px;
+    color: #0E87FF;
 }
 
 .indexpage-filters {
@@ -71,6 +71,7 @@
 
 .filters button:hover {
     border: #0E87FF solid 1px;
+    color: #0E87FF;
 }
 
 #minmax-pair {
@@ -79,27 +80,6 @@
 
 #maxpricepoint {
     margin-left: 5px;
-}
-
-#filter-writing {
-    font-size: 12px;
-}
-
-#line-em-up {
-    display: flex;
-    align-items: center;
-}
-
-#line-em-up #shoeprints {
-    height: 11px;
-}
-
-#line-em-up #paperplane {
-    height: 11px;
-}
-
-#line-em-up #grey-clock {
-    height: 11px;
 }
 
 .indexpage-filters:after {          
@@ -126,6 +106,7 @@
     padding: 18px;
     right: 2%;
     top: 35%;
+    margin-top: 30px;
     z-index: 3;
     position: fixed;
     font-family: Brush Script Std;

@@ -1,98 +1,113 @@
 .session-form {
-    border-top: 25px solid orange;
-    // border-bottom: 13px solid orange;
-    display: flex;
-    justify-content: space-evenly;
+    border-top: 20px solid orange;
+    display: grid;
     font-family: Brush Script Std;
-}
-
-#icecream img {
-    z-index: 3;
-    width: 400px;
-    // padding: 10px;
-}
-
-#shotglass img {
-    z-index: 3;
-    width: 400px;
-    max-height: 560px;
-    // padding: 10px;
-}
-
-#thanks {
-    margin-top: 40px;
-    color: #4fb5cf;
-}
-
-#pleasethisthat {
-    margin-top: 20px;
-    font-size: 43px;
-    margin-bottom: 20px;
-}
-
-.session-form div {
-    color: black;
-    font-size: 45px;
-    text-align: center;
-}
-
-.session-form-info {
-    color: black;
     font-size: 40px;
-    font-weight: 100;
+    text-align: center;
 }
 
-.session-form-info #center-section {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
+#icecream {
+    grid-column: 1;
+    width: 400px;
+    height: 560px;
+    border-right: red 1px solid;
+}
+
+#center-section {
+    grid-column: 2;
     justify-content: center;
     align-content: center;
 }
 
-.session-form-info label {
+#shotglass {
+    grid-column: 3;
+    width: 400px;
+    height: 560px;
+    border-left: 1px solid red;
+}
+
+#thanks {
+    margin-top: 35px;
+    color: #4fb5cf;
+}
+
+#pleasethisthat {
+    margin-top: 18px;
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.session-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.session-form label {
     color: #349bc7;
-    // color: #4fb5cf;
     font-size: 38px;
 }
 
-.session-form-info input {
-    margin-left: 5px;
-    border-radius: 4px;
+.session-form button {
+    width: 300px;
+    margin: 0 auto;
+    font-size: 14px;
+    padding: 4px 10px;
+    margin-top: 10px;
+    border-radius: 3px;
 }
 
-.session-form-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 40px;
-    margin-top: 20px;
+.session-form label input {
+    margin-left: 5px;
+    border-radius: 3px;
 }
 
 .session-form-button input {
     padding: 5px;
     border-radius: 4px;
-    width: 100px;
+    width: 300px;
+    font-size: 14px;
+    color: darkblue;
+    border: 1px solid darkblue;
 }
 
 .session-form-button input:hover {
     background-color: #0E87FF;
     color: white;
     font-weight: 700;
+    border: 1px solid white;
 }
 
 #or {
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
-#icecream {
-    background-color: red;
+
+.alt-session-form-button button {
+    color: darkblue;
+    border: 1px solid darkblue;
 }
 
-#shotglass {
-    background-color: red; 
+.alt-session-form-button button:hover {
+    color: #0E87FF;
+    box-shadow: 0 0 50px #0E87FF;
+    border: 1px solid #0E87FF;
 }
 
-.alt-session-form-button navLink {
+#demo-button {
+    color: darkblue;
+    border: 1px solid darkblue;
+}
+
+#demo-button:hover {
+    color: #0E87FF;
+    box-shadow: 0 0 50px #0E87FF;
+    border: 1px solid #0E87FF;
+}
+
+ul li {
+    font-size: 12px;
     color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin-top: -25px;
 }

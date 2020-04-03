@@ -28,86 +28,105 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
     };
 
     return (
-        <div className="profile">
-
-            <div id="profile-pics-holder">
-                <div id="profile-pics">
-                    {photos}
-                </div>
-            </div>
-            <div className="profile-minus-pics">
-                <div className="profile-name-section">
-                    <div id="bizname">{business.name}</div>
-                    <div id="bizrating-section">
-                        <span id="bizrating">{business.average_rating || 'No reviews yet. Be the first to write one!'}</span>
-                        <span id="bizreviewcount">{business.reviewcount}</span>
-                    </div>
-                
-                    <span id="bizpricepoint">{business.dollarmaker}</span>
-                    <span id="bullet">•</span>
-                    <span id="bizcategory">{business.category}</span>
-                
-                    <div className="business-review-link">
-                        <button>
-                            <ReviewLink
-                                style={{ textDecoration: 'none' }}
-                                component={ReviewFormContainer}
-                                to={`/businesses/${businessId}/review`}
-                                label="★ Write a Review" />
-                            <ProtectedRoute
-                                path='/businesses/:businessId/review'
-                                component={ReviewFormContainer}
-                            />
-                        </button>
-                    </div>  
-                </div>
-                <div className="profile-attributes">
-                    <div>
-                        <img id="paperplane" src="/paper-plane-regular.svg" />        
-                        Delivery&nbsp;:&nbsp;{business.delivery}
-                    </div>
-                    <div>
-                        <img id="shoeprints" src="/shoe-prints-solid.svg" />
-                        Takeout&nbsp;:&nbsp;{business.takeout}
-                    </div>
-                </div>
-            
-                <div className="profile-map-and-info">
-
-                    <div className="profile-map">
-                        <BusinessMap
-                            businesses={businesses}
-                            businessId={businessId}
-                            singleBusiness={true}
-                            fetchBusiness={fetchBusiness}
-                        />
-                    </div>
-
-                    <div className="profile-hours">
-                        <span>Monday: {timeConversion[business.monopen]} - {timeConversion[business.monclose]}</span>
-                        <span>Tuesday: {timeConversion[business.tuesopen]} - {timeConversion[business.tuesclose]}</span>
-                        <span>Wednesday: {timeConversion[business.wedopen]} - {timeConversion[business.wedclose]}</span>
-                        <span>Thursday: {timeConversion[business.thursopen]} - {timeConversion[business.thursclose]}</span>
-                        <span>Friday: {timeConversion[business.friopen]} - {timeConversion[business.friclose]}</span>
-                        <span>Saturday: {timeConversion[business.satopen]} - {timeConversion[business.satclose]}</span>
-                        <span>Sunday: {timeConversion[business.sunopen]} - {timeConversion[business.sunclose]}</span>
-                    </div>
-
-                    <div className="profile-info">
-                        <span id="bizwebsite">{business.website}</span>
-                        <span id="bizphonenumber">{business.phonenumber}</span>            
-                        <span id="bizaddress1">{business.address1}</span>
-                        <span id="bizaddress2">{business.address2}</span>
-                    </div>
-
-                </div>
-                <div>
-                    <h3>Reviews</h3>
-                    {reviewList(reviews)}
-                </div>
-            </div>
-
+      <div className="profile">
+        <div id="profile-pics-holder">
+          <div id="profile-pics">{photos}</div>
         </div>
+        <div className="profile-minus-pics">
+          <div className="profile-name-section">
+            <div id="bizname">{business.name}</div>
+            <div id="bizrating-section">
+              <span id="bizrating">
+                {business.average_rating ||
+                  "No reviews yet. Be the first to write one!"}
+              </span>
+              <span id="bizreviewcount">{business.reviewcount}</span>
+            </div>
+
+            <span id="bizpricepoint">{business.dollarmaker}</span>
+            <span id="bullet">•</span>
+            <span id="bizcategory">{business.category}</span>
+
+            <div className="business-review-link">
+              <button>
+                <ReviewLink
+                  style={{ textDecoration: "none" }}
+                  component={ReviewFormContainer}
+                  to={`/businesses/${businessId}/review`}
+                  label="★ Write a Review"
+                />
+                <ProtectedRoute
+                  path="/businesses/:businessId/review"
+                  component={ReviewFormContainer}
+                />
+              </button>
+            </div>
+          </div>
+          <div className="profile-attributes">
+            <div>
+              <i class="far fa-paper-plane"></i>
+              Delivery&nbsp;:&nbsp;{business.delivery}
+            </div>
+            <div>
+              <i class="fas fa-shoe-prints"></i>
+              Takeout&nbsp;:&nbsp;{business.takeout}
+            </div>
+          </div>
+
+          <div className="profile-map-and-info">
+            <div className="profile-map">
+              <BusinessMap
+                businesses={businesses}
+                businessId={businessId}
+                singleBusiness={true}
+                fetchBusiness={fetchBusiness}
+              />
+            </div>
+
+            <div className="profile-hours">
+              <span>
+                Monday: {timeConversion[business.monopen]} -{" "}
+                {timeConversion[business.monclose]}
+              </span>
+              <span>
+                Tuesday: {timeConversion[business.tuesopen]} -{" "}
+                {timeConversion[business.tuesclose]}
+              </span>
+              <span>
+                Wednesday: {timeConversion[business.wedopen]} -{" "}
+                {timeConversion[business.wedclose]}
+              </span>
+              <span>
+                Thursday: {timeConversion[business.thursopen]} -{" "}
+                {timeConversion[business.thursclose]}
+              </span>
+              <span>
+                Friday: {timeConversion[business.friopen]} -{" "}
+                {timeConversion[business.friclose]}
+              </span>
+              <span>
+                Saturday: {timeConversion[business.satopen]} -{" "}
+                {timeConversion[business.satclose]}
+              </span>
+              <span>
+                Sunday: {timeConversion[business.sunopen]} -{" "}
+                {timeConversion[business.sunclose]}
+              </span>
+            </div>
+
+            <div className="profile-info">
+              <span id="bizwebsite">{business.website}</span>
+              <span id="bizphonenumber">{business.phonenumber}</span>
+              <span id="bizaddress1">{business.address1}</span>
+              <span id="bizaddress2">{business.address2}</span>
+            </div>
+          </div>
+          <div>
+            <h3>Reviews</h3>
+            {reviewList(reviews)}
+          </div>
+        </div>
+      </div>
     );
 };
 

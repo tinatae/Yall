@@ -7,7 +7,6 @@
     height: 100%;
 }
 
-
 #homepics {
     margin: 1em auto;
     width: 382px;
@@ -16,7 +15,6 @@
 
 #homepics img {
     background: #fff;
-    // min-width: 1024px;
     width: 100%;
     height: auto;
     position: absolute;
@@ -45,6 +43,8 @@
     to {opacity: 0.0;}
 }
 
+//------------------------------------------
+
 .homepage .searchbar-container {
     margin-top: 8%;
     font-size: 16px;
@@ -52,12 +52,12 @@
     position: absolute;
 }
 
-.searchbar-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-}
+// .searchbar-form {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-content: center;
+// }
 
 #searchbar-input {
     width: 480px;
