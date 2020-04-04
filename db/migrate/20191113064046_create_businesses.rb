@@ -13,7 +13,7 @@ class CreateBusinesses < ActiveRecord::Migration[5.2]
       t.timestamps
     end
     add_index :businesses, :name, unique: true
-    add_index :businesses, :ratings
-    add_index :businesses, :category
+    # add_index :businesses, :ratings
+    add_index :businesses, :category 
   end
 end

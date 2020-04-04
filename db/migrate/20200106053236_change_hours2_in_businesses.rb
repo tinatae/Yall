@@ -1,6 +1,6 @@
 class ChangeHours2InBusinesses < ActiveRecord::Migration[5.2]
   def change
-    remove_index :businesses, :monopen
+
     remove_index :businesses, :monclose
     remove_index :businesses, :tuesopen
     remove_index :businesses, :tuesclose
