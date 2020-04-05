@@ -1,17 +1,17 @@
 
 class Business < ApplicationRecord
     validates :name, :lat, :lng, :address1, :address2, presence: true
-    # validates :monopen, :monclose, presence: true
-    # validates :tuesopen, :tuesclose, presence: true 
-    # validates :wedopen, :wedclose, presence: true 
-    # validates :thursopen, :thursclose, presence: true
-    # validates :friopen, :friclose, presence: true  
-    # validates :satopen, :satclose, presence: true
-    # validates :sunopen, :sunclose, presence: true  
+    validates :monopen, :monclose, presence: true
+    validates :tuesopen, :tuesclose, presence: true 
+    validates :wedopen, :wedclose, presence: true 
+    validates :thursopen, :thursclose, presence: true
+    validates :friopen, :friclose, presence: true  
+    validates :satopen, :satclose, presence: true
+    validates :sunopen, :sunclose, presence: true  
     validates :name, uniqueness: true
     validates :category, inclusion: {in: ["All", "Restaurants", "Coffee & Tea", "Bars"]}
     validates :pricepoint, inclusion: { in: (1..4) }
-    validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, inclusion: { in: (0..24), allow_blank: true }
+    # validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, :inclusion => { in: (0..24)}, :allow_nil => true,
     # validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, inclusion: { in: 0..24 }
     validates :delivery, :takeout, inclusion: {in: ["All", "Yes", "No"]}
 
