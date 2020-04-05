@@ -11,15 +11,15 @@ class Business < ApplicationRecord
     validates :name, uniqueness: true
     validates :category, inclusion: {in: ["All", "Restaurants", "Coffee & Tea", "Bars"]}
     validates :pricepoint, inclusion: { in: (1..4) }
-    validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, inclusion: { in: (0..23) }
+    validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, inclusion: { in: (0..24) }
     validates :delivery, :takeout, inclusion: {in: ["All", "Yes", "No"]}
 
     # scope :named, -> (name) {where("name LIKE ?", name)}
 
     has_many :reviews
 
-    # has_many_attached :photos
-    has_one_attached :photo
+    has_many_attached :photos
+    # has_one_attached :photo
 
     # def named(name)
     #     where("name LIKE ?", name)
