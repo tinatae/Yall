@@ -1,13 +1,13 @@
 
 class Business < ApplicationRecord
     validates :name, :lat, :lng, :address1, :address2, presence: true
-    validates :monopen, :monclose, presence: true
-    validates :tuesopen, :tuesclose, presence: true 
-    validates :wedopen, :wedclose, presence: true 
-    validates :thursopen, :thursclose, presence: true
-    validates :friopen, :friclose, presence: true  
-    validates :satopen, :satclose, presence: true
-    validates :sunopen, :sunclose, presence: true  
+    # validates :monopen, :monclose, presence: true
+    # validates :tuesopen, :tuesclose, presence: true 
+    # validates :wedopen, :wedclose, presence: true 
+    # validates :thursopen, :thursclose, presence: true
+    # validates :friopen, :friclose, presence: true  
+    # validates :satopen, :satclose, presence: true
+    # validates :sunopen, :sunclose, presence: true  
     validates :name, uniqueness: true
     validates :category, inclusion: {in: ["All", "Restaurants", "Coffee & Tea", "Bars"]}
     validates :pricepoint, inclusion: { in: (1..4) }
@@ -18,7 +18,8 @@ class Business < ApplicationRecord
 
     has_many :reviews
 
-    has_many_attached :photos
+    # has_many_attached :photos
+    has_one_attached :photo
 
     # def named(name)
     #     where("name LIKE ?", name)
