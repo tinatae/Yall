@@ -18,8 +18,8 @@ sweetbabycakes = Business.create!(
     lat: 37.797514,
     lng: -122.406633,
     website: "http://sweetbbcakes.net",
-    phonenumber: "(415)111-9117",
-    address1: "53 Ginsberg Way",
+    phonenumber: "4151119117",
+    address1: "53 Ginsberg Way #2C",
     address2: "San Francisco, CA 94133",
     pricepoint: 2,
     monopen: 10,
@@ -56,12 +56,12 @@ sweetbabycakes.photos.attach(io: file3, filename: 'sweetbabycakes4.jpeg')
 whitewhale = Business.create!(
     name: "White Whale Saloon",
     category: "Bars",
-    lat: 37.799418,
-    lng: -122.401381,
+    lat: 37.7861535,
+    lng: -122.4015630,
     website: "http://whitewhalesf.com",
-    phonenumber: "(415)262-1535",
-    address1: "935 Battery St",
-    address2: "San Francisco, CA 94111",
+    phonenumber: "4152621535",
+    address1: "935 3rd St",
+    address2: "San Francisco, CA 94103",
     pricepoint: 1,
     monopen: 16,
     monclose: 2,
@@ -96,10 +96,10 @@ whitewhale.photos.attach(io: file7, filename: 'whitewhale4.jpeg')
 business3 = Business.create!(
     name: "Hola Ola",
     category: "Restaurants",
-    lat: 37.790417,
-    lng: -122.484914,
+    lat: 37.8090439,
+    lng: -122.4149626,
     website: "http://holaolasf.net",
-    phonenumber: "(415)133-8182",
+    phonenumber: "4151338182",
     address1: "372 Pershing Dr",
     address2: "San Francisco, CA 94129",
     pricepoint: 2,
@@ -121,15 +121,15 @@ business3 = Business.create!(
     takeout: "Yes",
 )
 
-file8 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola1.jpeg')
-file9 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola2.jpeg')
-file10 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola3.jpeg')
-file11 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola4.jpeg')
+file8 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola1.jpg')
+file9 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola2.jpg')
+file10 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola3.jpg')
+file11 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola4.jpg')
 
-business3.photos.attach(io: file8, filename: 'holaola1.jpeg')
-business3.photos.attach(io: file9, filename: 'holaola2.jpeg')
-business3.photos.attach(io: file10, filename: 'holaola3.jpeg')
-business3.photos.attach(io: file11, filename: 'holaola4.jpeg')
+business3.photos.attach(io: file8, filename: 'holaola1.jpg')
+business3.photos.attach(io: file9, filename: 'holaola2.jpg')
+business3.photos.attach(io: file10, filename: 'holaola3.jpg')
+business3.photos.attach(io: file11, filename: 'holaola4.jpg')
 
 business4 = Business.create!(
     name: "Telegraph Place",
@@ -137,8 +137,8 @@ business4 = Business.create!(
     lat: 37.8013,
     lng: -122.4057,
     website: "http://telegraphplacesf.com",
-    phonenumber: "(415)616-6577",
-    address1: "372 Filbert St",
+    phonenumber: "4156166577",
+    address1: "372 Filbert St 5th Floor",
     address2: "San Francisco, CA 94133",
     pricepoint: 4,
     monopen: 17,
@@ -168,6 +168,200 @@ business4.photos.attach(io: file12, filename: 'telegraph1.jpeg')
 business4.photos.attach(io: file13, filename: 'telegraph2.jpeg')
 business4.photos.attach(io: file14, filename: 'telegraph3.jpeg')
 business4.photos.attach(io: file15, filename: 'telegraph4.jpeg')
+
+business5 = Business.create!(
+    name: "Tumbler Room",
+    category: "Bars",
+    lat: 37.7667756,
+    lng: -122.4230867,
+    website: "http://tumblerroom.com",
+    phonenumber: "4158862537",
+    address1: "943 Albion St",
+    address2: "San Francisco, CA 94103",
+    pricepoint: 3,
+    monopen: 16,
+    monclose: 2,
+    tuesopen: 16,
+    tuesclose: 2,
+    wedopen: 16,
+    wedclose: 2,
+    thursopen: 16,
+    thursclose: 2,  
+    friopen: 16,
+    friclose: 2,
+    satopen: 16,
+    satclose: 2,
+    sunopen: 16,
+    sunclose: 2,
+    delivery: "No",
+    takeout: "No",
+)
+
+file16 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/tumblerroom1.jpg')
+file17 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/tumblerroom2.jpg')
+file18 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/tumblerroom3.jpg')
+# file19 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/tumblerroom4.jpg')
+file20 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/tumblerroom5.jpg')
+
+business5.photos.attach(io: file16, filename: 'tumblerroom1.jpg')
+business5.photos.attach(io: file17, filename: 'tumblerroom2.jpg')
+business5.photos.attach(io: file18, filename: 'tumblerroom3.jpg')
+# business5.photos.attach(io: file19, filename: 'tumblerroom4.jpg')
+business5.photos.attach(io: file20, filename: 'tumblerroom5.jpg')
+
+business6 = Business.create!(
+    name: "Eastern Market Hall",
+    category: "Restaurants",
+    lat: 37.7632589,
+    lng: -122.4859440,
+    website: "http://easterneatssf.com",
+    phonenumber: "4153278376",
+    address1: "500 Irving St Suite 250",
+    address2: "San Francisco, CA 94116",
+    pricepoint: 1,
+    monopen: 10,
+    monclose: 19,
+    tuesopen: 10,
+    tuesclose: 19,
+    wedopen: 10,
+    wedclose: 19,
+    thursopen: 10,
+    thursclose: 21,  
+    friopen: 10,
+    friclose: 23,
+    satopen: 10,
+    satclose: 23,
+    sunopen: 10,
+    sunclose: 19,
+    delivery: "No",
+    takeout: "Yes",
+)
+
+file21 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/eastern1.jpg')
+file22 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/eastern2.jpg')
+file23 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/eastern3.jpg')
+file24 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/eastern4.jpg')
+
+business6.photos.attach(io: file21, filename: 'eastern1.jpg')
+business6.photos.attach(io: file22, filename: 'eastern2.jpg')
+business6.photos.attach(io: file23, filename: 'eastern3.jpg')
+business6.photos.attach(io: file24, filename: 'eastern4.jpg')
+
+business7 = Business.create!(
+    name: "Sugar Shoppe",
+    category: "Dessert",
+    lat: 37.7656786,
+    lng: -122.2414147,
+    website: "http://sugarshoppe.net",
+    phonenumber: "5107842725",
+    address1: "480 Webb Ave",
+    address2: "Alameda, CA 94501",
+    pricepoint: 1,
+    monopen: 10,
+    monclose: 19,
+    tuesopen: 10,
+    tuesclose: 19,
+    wedopen: 10,
+    wedclose: 19,
+    thursopen: 10,
+    thursclose: 19,  
+    friopen: 10,
+    friclose: 22,
+    satopen: 10,
+    satclose: 22,
+    sunopen: 10,
+    sunclose: 22,
+    delivery: "No",
+    takeout: "Yes",
+)
+
+file25 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/sugarshoppe1.jpg')
+file26 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/sugarshoppe2.jpg')
+file27 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/sugarshoppe3.jpg')
+file28 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/sugarshoppe4.jpg')
+
+business7.photos.attach(io: file25, filename: 'sugarshoppe1.jpg')
+business7.photos.attach(io: file26, filename: 'sugarshoppe2.jpg')
+business7.photos.attach(io: file27, filename: 'sugarshoppe3.jpg')
+business7.photos.attach(io: file28, filename: 'sugarshoppe4.jpg')
+
+business8 = Business.create!(
+    name: "Katagama",
+    category: "Restaurants",
+    lat: 37.7379514,
+    lng: -122.2408417,
+    website: "http://katagamasushi.com",
+    phonenumber: "5105282526",
+    address1: "630 Island Dr 5A",
+    address2: "Alameda, CA 94621",
+    pricepoint: 3, 
+    monopen: 11,
+    monclose: 20,
+    tuesopen: 11,
+    tuesclose: 20,
+    wedopen: 11,
+    wedclose: 20,
+    thursopen: 11,
+    thursclose: 20,  
+    friopen: 11,
+    friclose: 22,
+    satopen: 11,
+    satclose: 22,
+    sunopen: 11,
+    sunclose: 20,
+    delivery: "Yes",
+    takeout: "Yes",
+)
+
+file29 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/katagama1.jpg')
+file30 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/katagama2.jpg')
+file31 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/katagama3.jpg')
+file32 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/katagama4.jpg')
+
+business8.photos.attach(io: file29, filename: 'katagama1.jpg')
+business8.photos.attach(io: file30, filename: 'katagama2.jpg')
+business8.photos.attach(io: file31, filename: 'katagama3.jpg')
+business8.photos.attach(io: file32, filename: 'katagama4.jpg')
+
+business9 = Business.create!(
+    name: "Brasserie Belmonde",
+    category: "Restaurants",
+    lat: 37.7961250,
+    lng: -122.2780111,
+    website: "http://belmondeoakland.com",
+    phonenumber: "5102356633",
+    address1: "95 Washington St",
+    address2: "Oakland, CA 94607",
+    pricepoint: 3, 
+    monopen: 11,
+    monclose: 21,
+    tuesopen: 11,
+    tuesclose: 21,
+    wedopen: 11,
+    wedclose: 22,
+    thursopen: 11,
+    thursclose: 22,  
+    friopen: 11,
+    friclose: 0,
+    satopen: 11,
+    satclose: 0,
+    sunopen: 11,
+    sunclose: 22,
+    delivery: "Yes",
+    takeout: "Yes",
+)
+
+file33 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/belmonde1.jpg')
+file34 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/belmonde2.jpg')
+file35 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/belmonde3.jpg')
+file36 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/belmonde4.jpg')
+
+business9.photos.attach(io: file33, filename: 'belmonde1.jpg')
+business9.photos.attach(io: file34, filename: 'belmonde2.jpg')
+business9.photos.attach(io: file35, filename: 'belmonde3.jpg')
+business9.photos.attach(io: file36, filename: 'belmonde4.jpg')
+
+
 
 User.create!(
     username: "hello",

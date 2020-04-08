@@ -9,7 +9,7 @@ const Footer = () => (
                 <div className="ad-move">
                     <div id="ad">★★★★★</div>
                     <div id="ad">I think it would be fun to advertise in this space so imagine reading about local promotions here</div>
-                    <div id="ad"><span id="sugar-lane"> - Buy one get one free at Sugar Lane Corner Shoppe - </span><span id="bring-friend">Bring a Friend!</span></div>
+                    <div id="ad"><span id="sugar-lane"> - Buy one get one free at the Sugar Shoppe - </span><span id="bring-friend">Bring a Friend!</span></div>
                     <div id="ad"><span id="blue-lagoon">Happy Hour Specials at the Blue Lagoon 5-8 PM!</span> $8 Mai Tais!</div>
                     <div id="ad">★★★★★</div>
                     <div id="ad">This message will play on repeat, so feel free to put it on pause by placing your cursor over this area</div>

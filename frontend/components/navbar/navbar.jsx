@@ -8,11 +8,11 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
         <div className="loggednav">
             <div className="nav-left">
                 <Link id="add-biz-link" style={{textDecoration: 'none'}} to={"/businesses/new"}>
-                    <i class="far fa-building"></i>
+                    <i className="far fa-building"></i>
                     <span>Add&nbsp;Your&nbsp;Business</span>
                 </Link>
                 <Link id="add-me-link" style={{ textDecoration: 'none' }} to={"/businesses/new"}>
-                    <i class="far fa-sun"></i>
+                    <i className="far fa-sun"></i>
                     <span>Add Me</span>
                 </Link>
             </div>
@@ -29,11 +29,11 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
         <div className="notlogged-nav">
             <div className="nav-left">
                 <Link id="add-biz-link" style={{ textDecoration: 'none' }} to={"/businesses/new"}>
-                    <i class="far fa-building"></i>
+                    <i className="far fa-building"></i>
                     <span>Add&nbsp;Your&nbsp;Business</span>
                 </Link>
                 <Link id="add-me-link" style={{ textDecoration: 'none' }} to={"/businesses/new"}>
-                    <i class="far fa-sun"></i>
+                    <i className="far fa-sun"></i>
                     <span>Add Me</span>
                 </Link>
             </div>
@@ -68,7 +68,7 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
             <Link style={{ textDecoration: "none" }} to={"/"}>
               <div className="yallr-name">
                 y allr
-                <i class="far fa-snowflake"></i>
+                <i className="far fa-snowflake"></i>
               </div>
             </Link>
             {display}

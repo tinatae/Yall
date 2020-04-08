@@ -638,7 +638,9 @@ function (_React$Component) {
         value: "Coffee & Tea"
       }, "Coffee & Tea"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Bars"
-      }, "Bars"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }, "Bars"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Dessert"
+      }, "Dessert"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizdelivery"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Do you offer Delivery Service?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Delivery",
@@ -1681,10 +1683,10 @@ var getCoordsObj = function getCoordsObj(latLng) {
 
 var mapOptions = {
   center: {
-    lat: 37.7758,
-    lng: -122.435
+    lat: 37.8206228,
+    lng: -122.3194160
   },
-  zoom: 11
+  zoom: 10
 };
 
 var BusinessMap =
@@ -1900,9 +1902,9 @@ var BusinessProfile = function BusinessProfile(_ref) {
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-attributes"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "far fa-paper-plane"
+    className: "far fa-paper-plane"
   }), "Delivery\xA0:\xA0", business.delivery), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "fas fa-shoe-prints"
+    className: "fas fa-shoe-prints"
   }), "Takeout\xA0:\xA0", business.takeout)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-map-and-info"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1948,7 +1950,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _business_profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business_profile */ "./frontend/components/business_show/business_profile.jsx");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2236,7 +2241,7 @@ var Review = function Review(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "userprofile"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "fas fa-user-circle"
+    className: "fas fa-user-circle"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "username"
   }, author.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2316,6 +2321,7 @@ function (_React$Component) {
     };
     _this.handleCategoryChange = _this.handleCategoryChange.bind(_assertThisInitialized(_this));
     _this.handleDeliveryChange = _this.handleDeliveryChange.bind(_assertThisInitialized(_this));
+    _this.reroute = _this.reroute.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2333,6 +2339,15 @@ function (_React$Component) {
       for (var i = 0; i < arr.length; i++) {
         arr[i].addEventListener("animationend", fadeComplete, false);
       }
+    }
+  }, {
+    key: "reroute",
+    value: function reroute(num) {
+      var _this2 = this;
+
+      return function (e) {
+        _this2.props.history.push("/businesses/".concat(num));
+      };
     }
   }, {
     key: "handleCategoryChange",
@@ -2364,21 +2379,29 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "homepics"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        title: "Grab Coffee at Hola Ola",
         className: "background",
         key: 1,
-        src: window.home1URL
+        src: window.home1URL,
+        onClick: this.reroute(3)
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        title: "Check-Out the Spring Appetizer at Katagama",
         className: "background",
         key: 2,
-        src: window.home2URL
+        src: window.home2URL,
+        onClick: this.reroute(8)
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        title: "Enjoy a tasty bowl of Noodles at Eastern Market Hall",
         className: "background",
         key: 3,
-        src: window.home3URL
+        src: window.home3URL,
+        onClick: this.reroute(6)
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        title: "Try the 'Smoke Show' at the Tumbler Room",
         className: "background",
         key: 4,
-        src: window.home4URL
+        src: window.home4URL,
+        onClick: this.reroute(5)
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "searchbar-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2390,7 +2413,7 @@ function (_React$Component) {
         },
         onClick: this.handleCategoryChange
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-utensils"
+        className: "fas fa-utensils"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Restaurants")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "delivery-link",
         style: {
@@ -2398,7 +2421,7 @@ function (_React$Component) {
         },
         onClick: this.handleDeliveryChange
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "far fa-paper-plane"
+        className: "far fa-paper-plane"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Delivery"))));
     }
   }]);
@@ -2486,7 +2509,7 @@ var Footer = function Footer() {
     id: "ad"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "sugar-lane"
-  }, " - Buy one get one free at Sugar Lane Corner Shoppe - "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, " - Buy one get one free at the Sugar Shoppe - "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bring-friend"
   }, "Bring a Friend!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "ad"
@@ -2549,7 +2572,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     to: "/businesses/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "far fa-building"
+    className: "far fa-building"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     id: "add-me-link",
     style: {
@@ -2557,7 +2580,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     to: "/businesses/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "far fa-sun"
+    className: "far fa-sun"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Me"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav-right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2580,7 +2603,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     to: "/businesses/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "far fa-building"
+    className: "far fa-building"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     id: "add-me-link",
     style: {
@@ -2588,7 +2611,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     to: "/businesses/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "far fa-sun"
+    className: "far fa-sun"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Me"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2625,7 +2648,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "yallr-name"
   }, "y allr", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "far fa-snowflake"
+    className: "far fa-snowflake"
   }))), display)));
 });
 {}
@@ -2976,11 +2999,13 @@ var FilterForm = function FilterForm(_ref) {
     value: "Coffee & Tea"
   }, "Coffee & Tea"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "Bars"
-  }, "Bars"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, "Bars"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Dessert"
+  }, "Dessert"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     value: "Yes",
     onClick: handleOpenNow("filterOpenNow", updateFilter)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "far fa-clock"
+    className: "far fa-clock"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "filter-writing"
   }, "Open Now"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -2989,14 +3014,14 @@ var FilterForm = function FilterForm(_ref) {
     value: "Yes",
     onClick: handleDeliveryChange("filterDelivery", updateFilter)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "far fa-paper-plane"
+    className: "far fa-paper-plane"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "filter-writing"
   }, "Delivery"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     value: "Yes",
     onClick: handleTakeoutChange("filterTakeout", updateFilter)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "fas fa-shoe-prints"
+    className: "fas fa-shoe-prints"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "filter-writing"
   }, "Takeout"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -36763,7 +36788,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

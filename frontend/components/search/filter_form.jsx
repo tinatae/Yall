@@ -79,6 +79,7 @@ const FilterForm = ({
           <option value="Restaurants">Restaurants</option>
           <option value="Coffee & Tea">Coffee & Tea</option>
           <option value="Bars">Bars</option>
+          <option value="Dessert">Dessert</option>
         </select>
       </label>
 
@@ -87,7 +88,7 @@ const FilterForm = ({
           value="Yes"
           onClick={handleOpenNow("filterOpenNow", updateFilter)}
         >
-            <i class="far fa-clock"></i>
+            <i className="far fa-clock"></i>
             <span id="filter-writing">Open Now</span>
         </button>
       </label>
@@ -97,7 +98,7 @@ const FilterForm = ({
           value="Yes"
           onClick={handleDeliveryChange("filterDelivery", updateFilter)}
         >
-            <i class="far fa-paper-plane"></i>
+            <i className="far fa-paper-plane"></i>
             <span id="filter-writing">Delivery</span>
         </button>
       </label>
@@ -107,7 +108,7 @@ const FilterForm = ({
           value="Yes"
           onClick={handleTakeoutChange("filterTakeout", updateFilter)}
         >
-            <i class="fas fa-shoe-prints"></i>
+            <i className="fas fa-shoe-prints"></i>
             <span id="filter-writing">Takeout</span>
         </button>
       </label>

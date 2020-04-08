@@ -9,7 +9,7 @@ class Business < ApplicationRecord
     validates :satopen, :satclose, presence: true
     validates :sunopen, :sunclose, presence: true  
     validates :name, uniqueness: true
-    validates :category, inclusion: {in: ["All", "Restaurants", "Coffee & Tea", "Bars"]}
+    validates :category, inclusion: {in: ["All", "Restaurants", "Coffee & Tea", "Bars", "Dessert"]}
     validates :pricepoint, inclusion: { in: (1..4) }
     # validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, :inclusion => { in: (0..24)}, :allow_nil => true,
     # validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, inclusion: { in: 0..24 }

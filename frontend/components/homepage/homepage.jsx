@@ -13,6 +13,7 @@ class Homepage extends React.Component {
 
         this.handleCategoryChange = this.handleCategoryChange.bind(this);
         this.handleDeliveryChange = this.handleDeliveryChange.bind(this);
+        this.reroute = this.reroute.bind(this);
     };
 
     componentDidMount() { 
@@ -23,6 +24,12 @@ class Homepage extends React.Component {
             arr[i].addEventListener("animationend", fadeComplete, false);
         }
     };
+
+    reroute(num) {
+        return e => {
+            this.props.history.push(`/businesses/${num}`)
+        }
+    }
 
     handleCategoryChange(e) {
         this.setState({ filterCategory: e.currentTarget.value });
@@ -43,21 +50,22 @@ class Homepage extends React.Component {
         return (
             <div className="homepage">
                 <div id="homepics">
-                    <img className="background" key={1} src={window.home1URL} />
-                    <img className="background" key={2} src={window.home2URL} />
-                    <img className="background" key={3} src={window.home3URL} />
-                    <img className="background" key={4} src={window.home4URL} />
+                    <img title="Grab Coffee at Hola Ola" className="background" key={1} src={window.home1URL} onClick={this.reroute(3)}/>
+                    <img title="Check-Out the Spring Appetizer at Katagama" className="background" key={2} src={window.home2URL} onClick={this.reroute(8)}/>
+                    <img title="Enjoy a tasty bowl of Noodles at Eastern Market Hall" className="background" key={3} src={window.home3URL} onClick={this.reroute(6)}/>
+                    <img title="Try the 'Smoke Show' at the Tumbler Room" className="background" key={4} src={window.home4URL} onClick={this.reroute(5)}/>
                 </div>
+
                 <div className="searchbar-container">
                     <SearchbarFormContainer />
                 </div>
                 <div className="homepage-categories">
                     <div id="restaurants-link" style={{ textDecoration: 'none' }} onClick={this.handleCategoryChange}>
-                        <i class="fas fa-utensils"></i>
+                        <i className="fas fa-utensils"></i>
                         <span>Restaurants</span>
                     </div>
                     <div id="delivery-link" style={{ textDecoration: 'none' }} onClick={this.handleDeliveryChange}>
-                        <i class="far fa-paper-plane"></i>
+                        <i className="far fa-paper-plane"></i>
                         <span>Delivery</span>   
                     </div>
                 </div>

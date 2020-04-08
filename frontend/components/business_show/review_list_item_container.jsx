@@ -9,7 +9,7 @@ const Review = ({ review, author }) => {
     return (
       <div className="reviews-section">
         <div id="userprofile">
-          <i class="fas fa-user-circle"></i>
+          <i className="fas fa-user-circle"></i>
           <div id="username">{author.username}</div>
         </div>
         <div className="reviews">

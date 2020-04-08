@@ -9,8 +9,8 @@ const getCoordsObj = latLng => ({
 });
 
 const mapOptions = {
-    center: { lat: 37.7758, lng: -122.435 },
-    zoom: 11
+    center: { lat: 37.8206228, lng: -122.3194160 },
+    zoom: 10
 };
 
 class BusinessMap extends React.Component {

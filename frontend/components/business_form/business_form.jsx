@@ -153,6 +153,7 @@ class BusinessForm extends React.Component {
                                 <option value="Restaurants">Restaurants</option>
                                 <option value="Coffee & Tea">Coffee & Tea</option>
                                 <option value="Bars">Bars</option>
+                                <option value="Dessert">Dessert</option>
                             </select>
                         </label>
                         <label id="createbizdelivery">

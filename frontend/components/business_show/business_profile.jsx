@@ -19,7 +19,7 @@ const reviewList = (reviews) => (
 const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusiness }) => {
 
     let photos = business.photoUrls.map((photoUrl, idx) => {
-        return <img className="profile-pic" key={idx} src={photoUrl} />                               // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
+        return (<img className="profile-pic" key={idx} src={photoUrl} />)                               // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
     });
 
     const timeConversion = {
@@ -64,11 +64,11 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
           </div>
           <div className="profile-attributes">
             <div>
-              <i class="far fa-paper-plane"></i>
+              <i className="far fa-paper-plane"></i>
               Delivery&nbsp;:&nbsp;{business.delivery}
             </div>
             <div>
-              <i class="fas fa-shoe-prints"></i>
+              <i className="fas fa-shoe-prints"></i>
               Takeout&nbsp;:&nbsp;{business.takeout}
             </div>
           </div>

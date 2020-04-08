@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import BusinessProfile from './business_profile';
+import { render } from 'react-dom';
 
 const BusinessShow = ({ business, businessId, fetchBusiness, reviews }) => {
     const businesses = {
