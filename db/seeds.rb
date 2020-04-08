@@ -14,7 +14,7 @@ Review.delete_all
 
 sweetbabycakes = Business.create!(
     name: "Sweet Babycakes",
-    category: "Coffee & Tea",
+    category: "Dessert",
     lat: 37.797514,
     lng: -122.406633,
     website: "http://sweetbbcakes.net",
@@ -95,7 +95,7 @@ whitewhale.photos.attach(io: file7, filename: 'whitewhale4.jpeg')
 
 business3 = Business.create!(
     name: "Hola Ola",
-    category: "Restaurants",
+    category: "Coffee & Tea",
     lat: 37.8090439,
     lng: -122.4149626,
     website: "http://holaolasf.net",
@@ -360,6 +360,120 @@ business9.photos.attach(io: file33, filename: 'belmonde1.jpg')
 business9.photos.attach(io: file34, filename: 'belmonde2.jpg')
 business9.photos.attach(io: file35, filename: 'belmonde3.jpg')
 business9.photos.attach(io: file36, filename: 'belmonde4.jpg')
+
+business10 = Business.create!(
+    name: "Chococat Cafe",
+    category: "Coffee & Tea",
+    lat: 37.8681526,
+    lng: -122.2573048,
+    website: "http://chococatcafe.com",
+    phonenumber: "5102462622",
+    address1: "638 Durant Ave Unit #2A",
+    address2: "Berkeley, CA 94704",
+    pricepoint: 2, 
+    monopen: 7,
+    monclose: 20,
+    tuesopen: 7,
+    tuesclose: 20,
+    wedopen: 7,
+    wedclose: 20,
+    thursopen: 7,
+    thursclose: 20,  
+    friopen: 7,
+    friclose: 0,
+    satopen: 7,
+    satclose: 0,
+    sunopen: 7,
+    sunclose: 0,
+    delivery: "No",
+    takeout: "Yes",
+)
+
+file37 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/chococat1.jpg')
+file38 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/chococat2.jpg')
+file39 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/chococat3.jpg')
+file40 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/chococat4.jpg')
+
+business10.photos.attach(io: file37, filename: 'chococat1.jpg')
+business10.photos.attach(io: file38, filename: 'chococat2.jpg')
+business10.photos.attach(io: file39, filename: 'chococat3.jpg')
+business10.photos.attach(io: file40, filename: 'chococat4.jpg')
+
+business11 = Business.create!(
+    name: "Green Plate",
+    category: "Restaurants",
+    lat: 37.8790292,
+    lng: -122.2678220,
+    website: "http://greenplate.com",
+    phonenumber: "5104733637",
+    address1: "638 Cedar St",
+    address2: "Berkeley, CA 94709",
+    pricepoint: 2, 
+    monopen: 10,
+    monclose: 20,
+    tuesopen: 10,
+    tuesclose: 20,
+    wedopen: 10,
+    wedclose: 20,
+    thursopen: 10,
+    thursclose: 20,  
+    friopen: 10,
+    friclose: 20,
+    satopen: 10,
+    satclose: 20,
+    sunopen: 10,
+    sunclose: 20,
+    delivery: "Yes",
+    takeout: "Yes",
+)
+
+file41 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/green1.jpg')
+file42 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/green2.jpg')
+file43 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/green3.jpg')
+file44 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/green4.jpg')
+
+business11.photos.attach(io: file41, filename: 'green1.jpg')
+business11.photos.attach(io: file42, filename: 'green2.jpg')
+business11.photos.attach(io: file43, filename: 'green3.jpg')
+business11.photos.attach(io: file44, filename: 'green4.jpg')
+
+business12 = Business.create!(
+    name: "Lucia",
+    category: "Bars",
+    lat: 37.8076720,
+    lng: -122.2699919,
+    website: "http://luciaoakland.com",
+    phonenumber: "5105824265",
+    address1: "3220 Telegraph Ave",
+    address2: "Oakland, CA 94612",
+    pricepoint: 2, 
+    monopen: 16,
+    monclose: 1,
+    tuesopen: 16,
+    tuesclose: 1,
+    wedopen: 16,
+    wedclose: 1,
+    thursopen: 16,
+    thursclose: 1,  
+    friopen: 16,
+    friclose: 2,
+    satopen: 9,
+    satclose: 2,
+    sunopen: 9,
+    sunclose: 1,
+    delivery: "No",
+    takeout: "No",
+)
+
+file45 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia1.jpg')
+file46 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia2.jpg')
+file47 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia3.jpg')
+file48 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia4.jpg')
+
+business12.photos.attach(io: file45, filename: 'lucia1.jpg')
+business12.photos.attach(io: file46, filename: 'lucia2.jpg')
+business12.photos.attach(io: file47, filename: 'lucia3.jpg')
+business12.photos.attach(io: file48, filename: 'lucia4.jpg')
 
 
 

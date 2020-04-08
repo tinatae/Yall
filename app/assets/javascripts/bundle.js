@@ -323,8 +323,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _business_show_business_show_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./business_show/business_show_container */ "./frontend/components/business_show/business_show_container.js");
 /* harmony import */ var _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./homepage/homepage_container */ "./frontend/components/homepage/homepage_container.js");
 /* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
-/* harmony import */ var _navbar_footer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./navbar/footer */ "./frontend/components/navbar/footer.jsx");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 
  // import GreetingContainer from './greeting/greeting_container';
 
@@ -336,7 +335,7 @@ __webpack_require__.r(__webpack_exports__);
 // import ReviewFormContainer from './business_show/review_form_container';
 
 
-
+ // import Footer from './navbar/footer';
 
 
 
@@ -345,15 +344,15 @@ var App = function App() {
     className: "everything-but-footer"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
     className: "main-header"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_10__["AuthRoute"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
     exact: true,
     path: "/login",
     component: _session_login_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_10__["AuthRoute"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
     exact: true,
     path: "/signup",
     component: _session_signup_form_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_10__["ProtectedRoute"], {
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["ProtectedRoute"], {
     exact: true,
     path: "/businesses/new",
     component: _business_form_business_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
@@ -368,7 +367,7 @@ var App = function App() {
     exact: true,
     path: "/",
     component: _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_footer__WEBPACK_IMPORTED_MODULE_9__["default"], null))));
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -2471,66 +2470,6 @@ var mDTP = function mDTP(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_homepage__WEBPACK_IMPORTED_MODULE_3__["default"])));
-
-/***/ }),
-
-/***/ "./frontend/components/navbar/footer.jsx":
-/*!***********************************************!*\
-  !*** ./frontend/components/navbar/footer.jsx ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-
-var Footer = function Footer() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "footer"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "adspace-wrapper"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "ad-wrap"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "ad-move"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "ad"
-  }, "\u2605\u2605\u2605\u2605\u2605"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "ad"
-  }, "I think it would be fun to advertise in this space so imagine reading about local promotions here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "ad"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "sugar-lane"
-  }, " - Buy one get one free at the Sugar Shoppe - "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "bring-friend"
-  }, "Bring a Friend!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "ad"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "blue-lagoon"
-  }, "Happy Hour Specials at the Blue Lagoon 5-8 PM!"), " $8 Mai Tais!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "ad"
-  }, "\u2605\u2605\u2605\u2605\u2605"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "ad"
-  }, "This message will play on repeat, so feel free to put it on pause by placing your cursor over this area"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "ad"
-  }, "( bc I get that this could get annoying! \u263A )"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "ad"
-  }, "But as a site visitor, I actually think I would want to read all of these"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "ad"
-  }, "- something good could show up!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "ad"
-  }, "\u2605\u2605\u2605\u2605\u2605")))));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Footer);
 
 /***/ }),
 
@@ -36788,7 +36727,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
