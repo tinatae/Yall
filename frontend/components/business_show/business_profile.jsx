@@ -15,7 +15,6 @@ const reviewList = (reviews) => (
     ))
 );
 
-
 const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusiness }) => {
 
     let photos = business.photoUrls.map((photoUrl, idx) => {
@@ -62,15 +61,96 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
               </button>
             </div>
           </div>
+
           <div className="profile-attributes">
-            <div>
-              <i className="far fa-paper-plane"></i>
-              Delivery&nbsp;:&nbsp;{business.delivery}
+         
+            <div id="row">
+                <div>
+                  <i className="far fa-paper-plane"></i>
+                  Delivery&nbsp;:&nbsp;{business.delivery}
+                </div>
+                <div>
+                  <i className="fas fa-shoe-prints"></i>
+                  Takeout&nbsp;:&nbsp;{business.takeout}
+                </div>
+                <div>
+                <i className="far fa-calendar-check"></i>
+                  Takes&nbsp;Reservations&nbsp;:&nbsp;{business.takesreservation}
+                </div>
+                <div>
+                  <i className="far fa-credit-card"></i>
+                  Accepts&nbsp;Credit&nbsp;Card&nbsp;:&nbsp;{business.creditcard}
+                </div>
             </div>
-            <div>
-              <i className="fas fa-shoe-prints"></i>
-              Takeout&nbsp;:&nbsp;{business.takeout}
+
+            <div id="row">
+              <div>
+                <i className="fab fa-google"></i>
+                Accepts&nbsp;Googlepay&nbsp;:&nbsp;{business.googlepay}
+              </div>
+              <div>
+                <i className="fab fa-cc-apple-pay"></i>
+                Accepts&nbsp;Applepay&nbsp;:&nbsp;{business.applepay}
+              </div>
+              <div>
+                <i className="fas fa-leaf"></i>
+                Vegetarian&nbsp;:&nbsp;{business.vegetarian}
+              </div>
+              <div>
+                <i className="fas fa-seedling"></i>
+                Vegan&nbsp;:&nbsp;{business.vegan}
+              </div>
             </div>
+            
+            <div id="row">
+              <div>
+                <i className="fas fa-wifi"></i>
+                Wi-Fi&nbsp;:&nbsp;{business.wifi}
+              </div>
+              <div>
+                <i className="fas fa-parking"></i>
+                Parking&nbsp;:&nbsp;{business.parking}
+              </div> 
+              <div>
+                <i className="fas fa-wheelchair"></i>
+                Wheelchair&nbsp;Accessible:&nbsp;{business.wheelchair}
+              </div>
+            </div>
+
+            <div id="row">
+              <div>
+                <i className="fas fa-transgender"></i>
+                Gender&nbsp;Neutral&nbsp;Restrooms&nbsp;:&nbsp;{business.genderneutralrestroom}
+              </div>
+              <div>
+                <i className="fas fa-baby-carriage"></i>
+                Good&nbsp;for&nbsp;Kids&nbsp;:&nbsp;{business.goodforkids}
+              </div> 
+              <div>
+                <i className="fas fa-check"></i>
+                Family&nbsp;Owned&nbsp;:&nbsp;{business.familyown}
+              </div>
+              <div>
+                <i className="fas fa-check"></i>
+                Women&nbsp;Owned&nbsp;:&nbsp;{business.womenown}
+              </div>
+            </div>
+        
+            <div id="row">
+              <div>
+                <i className="fas fa-cloud-sun"></i>
+                Outdoor&nbsp;Seating&nbsp;:&nbsp;{business.outdoor}
+              </div>
+              <div>
+                <i className="fas fa-users"></i>
+                Good&nbsp;for&nbsp;Groups&nbsp;:&nbsp;{business.goodforgroups}
+              </div>
+              <div>
+                <i className="fas fa-dog"></i>
+                Dogs&nbsp;Allowed&nbsp;:&nbsp;{business.dogsallowed}
+              </div>   
+            </div>
+
           </div>
 
           <div className="profile-map-and-info">
@@ -118,7 +198,7 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
               <span id="bizwebsite">{business.website}</span>
               <span id="bizphonenumber">{business.phonenumber}</span>
               <span id="bizaddress1">{business.address1}</span>
-              <span id="bizaddress2">{business.address2}</span>
+              <span id="bizaddress2">{business.city}, {business.state} {business.zipcode}</span>
             </div>
           </div>
           <div>

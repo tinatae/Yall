@@ -6,7 +6,8 @@ class SearchbarForm extends React.Component {
         super(props);
 
         this.state = {
-            searchQuery: ""
+            searchQuery: "",
+            searchCity: "",
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,14 +26,17 @@ class SearchbarForm extends React.Component {
     };
 
     render() {
-        const {searchQuery} = this.state;
+        const {searchQuery, searchCity} = this.state;
 
         return (
-            <div className="searchbar-form">         
+            <div>         
                 <form onSubmit={this.handleSubmit}>
-                    <div id="searchbar-container">                 
-                        <input id="searchbar-input" type="text" placeholder="  Find | So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} />                              
-                        <input id="white-magnifying-glass" type="image" src="/white-magnifying-glass.svg" alt="Submit Query"/>                          
+                    <div className="searchbar-form">
+                        <div id="searchbar-container">                 
+                            <div id="subsearch1">Find<input type="text" placeholder="  So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} /></div>        
+                            {/* <div id="subsearch2">&emsp;Near<input type="text" placeholder="Alameda, CA 94501" value={searchCity} onChange={this.update('searchCity')} /> </div>                                           */}
+                        </div>
+                        <div><input id="white-magnifying-glass" type="image" src="/white-magnifying-glass.svg" alt="Submit Query" /></div>
                     </div>
                 </form>        
             </div>

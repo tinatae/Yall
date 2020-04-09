@@ -1,13 +1,10 @@
 
 class Business < ApplicationRecord
-    validates :name, :lat, :lng, :address1, :address2, presence: true
-    validates :monopen, :monclose, presence: true
-    validates :tuesopen, :tuesclose, presence: true 
-    validates :wedopen, :wedclose, presence: true 
-    validates :thursopen, :thursclose, presence: true
-    validates :friopen, :friclose, presence: true  
-    validates :satopen, :satclose, presence: true
+    validates :name, :lat, :lng, :address1, :city, :state, presence: true
+    validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, presence: true 
+    validates :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, presence: true
     validates :sunopen, :sunclose, presence: true  
+    validates :vegetarian, :vegan, :creditcard, :wheelchair, :goodforkids, :goodforgroups, :outdoor, :wifi, :dogsallowed, presence: true  
     validates :name, uniqueness: true
     validates :category, inclusion: {in: ["All", "Restaurants", "Coffee & Tea", "Bars", "Dessert"]}
     validates :pricepoint, inclusion: { in: (1..4) }

@@ -70,6 +70,7 @@ class BusinessForm extends React.Component {
 
     updateLatLng() {
         const geocoder = new google.maps.Geocoder();
+
         geocoder.geocode({'address': this.state.address1}, (results, status) => {
             if (status == 'OK') {
                 this.setState({lat: results[0].geometry.location.lat()});

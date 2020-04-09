@@ -57,20 +57,25 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
 
     const backgroundStyle = path === '/' && isExact === true ? { backgroundColor: 'transparent' } : {backgroundColor: '#FF003C'}
 
-        const navbarStyles = {
-            ...backgroundStyle
-        }
+    const navbarStyles = {
+        ...backgroundStyle
+    }
+
+    const hideLogo = path === '/' && isExact === true ? (<div id="blank-top"> </div>) : (
+        <Link style={{ textDecoration: "none" }} to={"/"} >
+            <div className="yallr-name">
+                y allr
+                <i className="far fa-snowflake"></i>
+            </div>
+        </Link >
+    )
 
     return (
       <div>
         <header>
           <div style={navbarStyles} className="navbar">
-            <Link style={{ textDecoration: "none" }} to={"/"}>
-              <div className="yallr-name">
-                y allr
-                <i className="far fa-snowflake"></i>
-              </div>
-            </Link>
+            {hideLogo}
+       
             {display}
           </div>
         </header>

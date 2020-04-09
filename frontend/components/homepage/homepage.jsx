@@ -55,10 +55,15 @@ class Homepage extends React.Component {
                     <img title="Enjoy a tasty bowl of Noodles at Eastern Market Hall" className="background" key={3} src={window.home3URL} onClick={this.reroute(6)}/>
                     <img title="Try the 'Smoke Show' at the Tumbler Room" className="background" key={4} src={window.home4URL} onClick={this.reroute(5)}/>
                 </div>
-
+        )
+                <h1 className="yallr-name">
+                    y allr
+                    <i className="far fa-snowflake"></i>
+                </h1>
                 <div className="searchbar-container">
                     <SearchbarFormContainer />
                 </div>
+
                 <div className="homepage-categories">
                     <div id="restaurants-link" style={{ textDecoration: 'none' }} onClick={this.handleCategoryChange}>
                         <i className="fas fa-utensils"></i>

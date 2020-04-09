@@ -45,28 +45,89 @@
 
 //------------------------------------------
 
-.homepage .searchbar-container {
-    margin-top: 8%;
-    font-size: 16px;
-    z-index: 50;
+.homepage h1 {
+    z-index: 100;
+    margin-top: 1%;
     position: absolute;
+    font-size: 60px;
+    font-family: Brush Script Std;
+    color: white;
+    font-weight: 100;
+    transform: rotateZ(-1deg);
+    text-shadow:
+        -1px -1px 0 rgba(83, 17, 17, 0.578),
+        1px -1px 0 rgba(83, 17, 17, 0.578),
+        -1px 1px 0 rgba(83, 17, 17, 0.578),
+        1px 1px 0 rgba(83, 17, 17, 0.578);
 }
 
-// .searchbar-form {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-content: center;
-// }
+.homepage h1 .fa-snowflake {
+    text-shadow:
+        -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white;
+}
 
-#searchbar-input {
-    width: 480px;
-    height: 43px;
-    border-radius: 7px;
-    border: 2px solid white;
+.homepage h1:hover {
+    text-shadow:
+        -1px -1px 0 blue,
+        1px -1px 0 blue,
+        -1px 1px 0 blue,
+        1px 1px 0 blue;
+}
+
+
+.homepage .searchbar-container {
+    margin-top: 8%;
+    z-index: 50;
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #searchbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 18px;
+    font-weight: 600;
+    color: #666666;
+    width: 850px;
+    height: 43px;
+    border-radius: 7px;
+    background-color: white;
+}
+
+#subsearch1 {
+    width: 400px;
+    margin-left: 6px;
+}
+
+#subsearch2 {
+    width: 400px;
+    margin-left: 6px;
+    border-left: 1px solid lightgrey;
+}
+
+#subsearch1 input {
+    margin-left: 10px;
+    width: 300px;
+    height: 35px;
+    font-size: 18px;
+    border: none;
+    text-align: center;
+}
+
+#subsearch2 input {
+    margin-left: 10px;
+    width: 300px;
+    height: 35px;
+    font-size: 18px;
+    border: none;
+    text-align: center;
+}
+
+.searchbar-form {
     display: flex;
     align-items: center;
 }

@@ -81,7 +81,7 @@ class Api::BusinessesController < ApplicationController
 
 
   def business_params
-    params.require(:business).permit(:name, :category, :lat, :lng, :website, :phonenumber, :address1, :address2, :pricepoint, :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, :delivery, :takeout, photos: [])
+    params.require(:business).permit(:name, :category, :lat, :lng, :website, :phonenumber, :address1, :city, :state, :zipcode, :pricepoint, :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, :delivery, :takeout, :vegetarian, :vegan, :womenown, :familyown, :takesreservation, :creditcard, :googlepay, :applepay, :parking, :wheelchair, :goodforkids, :goodforgroups, :outdoor, :wifi, :dogsallowed, :genderneutralrestroom, photos: [])
   end
 
   def bounds

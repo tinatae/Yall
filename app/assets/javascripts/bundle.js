@@ -1900,11 +1900,53 @@ var BusinessProfile = function BusinessProfile(_ref) {
     component: _review_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-attributes"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "far fa-paper-plane"
   }), "Delivery\xA0:\xA0", business.delivery), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-shoe-prints"
-  }), "Takeout\xA0:\xA0", business.takeout)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), "Takeout\xA0:\xA0", business.takeout), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "far fa-calendar-check"
+  }), "Takes\xA0Reservations\xA0:\xA0", business.takesreservation), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "far fa-credit-card"
+  }), "Accepts\xA0Credit\xA0Card\xA0:\xA0", business.creditcard)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fab fa-google"
+  }), "Accepts\xA0Googlepay\xA0:\xA0", business.googlepay), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fab fa-cc-apple-pay"
+  }), "Accepts\xA0Applepay\xA0:\xA0", business.applepay), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-leaf"
+  }), "Vegetarian\xA0:\xA0", business.vegetarian), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-seedling"
+  }), "Vegan\xA0:\xA0", business.vegan)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-wifi"
+  }), "Wi-Fi\xA0:\xA0", business.wifi), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-parking"
+  }), "Parking\xA0:\xA0", business.parking), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-wheelchair"
+  }), "Wheelchair\xA0Accessible:\xA0", business.wheelchair)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-transgender"
+  }), "Gender\xA0Neutral\xA0Restrooms\xA0:\xA0", business.genderneutralrestroom), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-baby-carriage"
+  }), "Good\xA0for\xA0Kids\xA0:\xA0", business.goodforkids), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-check"
+  }), "Family\xA0Owned\xA0:\xA0", business.familyown), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-check"
+  }), "Women\xA0Owned\xA0:\xA0", business.womenown)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-cloud-sun"
+  }), "Outdoor\xA0Seating\xA0:\xA0", business.outdoor), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-users"
+  }), "Good\xA0for\xA0Groups\xA0:\xA0", business.goodforgroups), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-dog"
+  }), "Dogs\xA0Allowed\xA0:\xA0", business.dogsallowed))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-map-and-info"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-map"
@@ -1925,7 +1967,7 @@ var BusinessProfile = function BusinessProfile(_ref) {
     id: "bizaddress1"
   }, business.address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizaddress2"
-  }, business.address2))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), reviewList(reviews))));
+  }, business.city, ", ", business.state, " ", business.zipcode))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), reviewList(reviews))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (BusinessProfile);
@@ -2401,6 +2443,10 @@ function (_React$Component) {
         key: 4,
         src: window.home4URL,
         onClick: this.reroute(5)
+      })), ")", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "yallr-name"
+      }, "y allr", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-snowflake"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "searchbar-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2576,10 +2622,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   var navbarStyles = _objectSpread({}, backgroundStyle);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    style: navbarStyles,
-    className: "navbar"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  var hideLogo = path === '/' && isExact === true ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "blank-top"
+  }, " ") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     style: {
       textDecoration: "none"
     },
@@ -2588,7 +2633,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     className: "yallr-name"
   }, "y allr", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "far fa-snowflake"
-  }))), display)));
+  })));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: navbarStyles,
+    className: "navbar"
+  }, hideLogo, display)));
 });
 {}
 /* <Link style={{ textDecoration: 'none' }} to="/businesses/new">
@@ -2783,7 +2832,7 @@ function (_React$Component) {
           reviewcount = _this$props$business.reviewcount,
           phonenumber = _this$props$business.phonenumber,
           address1 = _this$props$business.address1,
-          address2 = _this$props$business.address2;
+          city = _this$props$business.city;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.handleClick
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2816,7 +2865,7 @@ function (_React$Component) {
         id: "category"
       }, category))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "col2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, phonenumber), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, address2))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, phonenumber), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, city))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "recentreview"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "werd"
@@ -3238,7 +3287,8 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SearchbarForm).call(this, props));
     _this.state = {
-      searchQuery: ""
+      searchQuery: "",
+      searchCity: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -3264,25 +3314,28 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var searchQuery = this.state.searchQuery;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "searchbar-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      var _this$state = this.state,
+          searchQuery = _this$state.searchQuery,
+          searchCity = _this$state.searchCity;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "searchbar-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "searchbar-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "searchbar-input",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "subsearch1"
+      }, "Find", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "  Find | So what are we looking for..",
+        placeholder: "  So what are we looking for..",
         value: searchQuery,
         onChange: this.update('searchQuery')
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "white-magnifying-glass",
         type: "image",
         src: "/white-magnifying-glass.svg",
         alt: "Submit Query"
-      }))));
+      })))));
     }
   }]);
 
@@ -36727,7 +36780,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

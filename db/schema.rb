@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_081600) do
+ActiveRecord::Schema.define(version: 2020_04_09_093045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_04_04_081600) do
     t.string "website"
     t.string "phonenumber"
     t.string "address1", null: false
-    t.string "address2", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "pricepoint", null: false
@@ -64,16 +63,42 @@ ActiveRecord::Schema.define(version: 2020_04_04_081600) do
     t.integer "sunclose", null: false
     t.string "delivery", default: "No", null: false
     t.string "takeout", default: "No", null: false
+    t.string "city", default: "City", null: false
+    t.string "state", default: "State", null: false
+    t.integer "zipcode", default: 0
+    t.string "vegetarian", default: "No", null: false
+    t.string "vegan", default: "No", null: false
+    t.string "womenown", default: "No"
+    t.string "familyown", default: "No"
+    t.string "takesreservation", default: "No"
+    t.string "creditcard", default: "No", null: false
+    t.string "googlepay", default: "No"
+    t.string "applepay", default: "No"
+    t.string "parking", default: "No"
+    t.string "wheelchair", default: "No", null: false
+    t.string "goodforkids", default: "No", null: false
+    t.string "goodforgroups", default: "No", null: false
+    t.string "outdoor", default: "No", null: false
+    t.string "wifi", default: "No", null: false
+    t.string "dogsallowed", default: "No", null: false
+    t.string "genderneutralrestroom", default: "No"
     t.index ["category"], name: "index_businesses_on_category"
+    t.index ["city"], name: "index_businesses_on_city"
+    t.index ["creditcard"], name: "index_businesses_on_creditcard"
     t.index ["delivery"], name: "index_businesses_on_delivery"
+    t.index ["dogsallowed"], name: "index_businesses_on_dogsallowed"
     t.index ["friclose"], name: "index_businesses_on_friclose"
     t.index ["friopen"], name: "index_businesses_on_friopen"
+    t.index ["goodforgroups"], name: "index_businesses_on_goodforgroups"
+    t.index ["goodforkids"], name: "index_businesses_on_goodforkids"
     t.index ["monclose"], name: "index_businesses_on_monclose"
     t.index ["monopen"], name: "index_businesses_on_monopen"
     t.index ["name"], name: "index_businesses_on_name", unique: true
+    t.index ["outdoor"], name: "index_businesses_on_outdoor"
     t.index ["pricepoint"], name: "index_businesses_on_pricepoint"
     t.index ["satclose"], name: "index_businesses_on_satclose"
     t.index ["satopen"], name: "index_businesses_on_satopen"
+    t.index ["state"], name: "index_businesses_on_state"
     t.index ["sunclose"], name: "index_businesses_on_sunclose"
     t.index ["sunopen"], name: "index_businesses_on_sunopen"
     t.index ["takeout"], name: "index_businesses_on_takeout"
@@ -81,8 +106,12 @@ ActiveRecord::Schema.define(version: 2020_04_04_081600) do
     t.index ["thursopen"], name: "index_businesses_on_thursopen"
     t.index ["tuesclose"], name: "index_businesses_on_tuesclose"
     t.index ["tuesopen"], name: "index_businesses_on_tuesopen"
+    t.index ["vegan"], name: "index_businesses_on_vegan"
+    t.index ["vegetarian"], name: "index_businesses_on_vegetarian"
     t.index ["wedclose"], name: "index_businesses_on_wedclose"
     t.index ["wedopen"], name: "index_businesses_on_wedopen"
+    t.index ["wheelchair"], name: "index_businesses_on_wheelchair"
+    t.index ["wifi"], name: "index_businesses_on_wifi"
   end
 
   create_table "reviews", force: :cascade do |t|
