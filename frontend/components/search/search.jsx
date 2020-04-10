@@ -8,6 +8,14 @@ class Search extends React.Component {
         super(props);
     }; 
 
+   componentDidMount() {
+        const query = new URLSearchParams(this.props.location.search).get("query");
+        console.log(query)
+        if (query) {
+            this.props.updateFilter('searchQuery', query);
+        }
+   }
+
     render () {
         const { businesses, minPricepoint, maxPricepoint, filterCategory, filterOpenNow, filterDelivery, filterTakeout, filterRating, updateFilter, searchQuery, refreshFilter } = this.props;
 
@@ -53,14 +61,5 @@ class Search extends React.Component {
 export default Search;
 
 
-// componentDidMount() {
-    // const query = new URLSearchParams(this.props.location.search).get("query");
-    // if (query !== "") {
-    //     this.setState({[this.state.searchQuery]: query});
 
-    //     this.props.updateFilter('searchQuery', Object.assign({}, this.state));
-    // };
-    // return Object.assign({}, this.state)
-    // console.log(this.state);   
-// };
 

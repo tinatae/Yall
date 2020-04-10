@@ -2,6 +2,7 @@ import { UPDATE_FILTER, CLEAR, refreshFilter } from '../actions/filter_actions';
 
 const defaultFilters = Object.freeze({
     searchQuery: "",
+    searchCity: "",
     bounds: {},
     minPricepoint: 1,
     maxPricepoint: 4,

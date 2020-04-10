@@ -22,8 +22,8 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
     });
 
     const timeConversion = {
-        0:"12AM", 1:"1AM", 2:"2AM", 3:"3AM", 4: "4AM", 5:"5AM", 6:"6AM", 7:"7AM", 8:"8AM", 9:"9AM", 10:"10AM", 11:"11AM", 12:"12PM", 
-        13:"1PM", 14:"2PM", 15: "3PM", 16:"4PM", 17:"5PM", 18:"6PM", 19:"7PM", 20:"8PM", 21:"9PM", 22:"10PM", 23:"11PM"
+        0:"12:00AM", 1:"1:00AM", 2:"2:00AM", 3:"3:00AM", 4: "4:00AM", 5:"5:00AM", 6:"6:00AM", 7:"7:00AM", 8:"8:00AM", 9:"9:00AM", 10:"10:00AM", 11:"11:00AM", 12:"12:00PM", 
+        13:"1:00PM", 14:"2:00PM", 15: "3:00PM", 16:"4:00PM", 17:"5:00PM", 18:"6:00PM", 19:"7:00PM", 20:"8:00PM", 21:"9:00PM", 22:"10:00PM", 23:"11:00PM"
     };
 
     return (
@@ -63,6 +63,7 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
           </div>
 
           <div className="profile-attributes">
+            <div id="fakeh4">Amenities</div>
          
             <div id="row">
                 <div>
@@ -79,19 +80,25 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
                 </div>
                 <div>
                   <i className="far fa-credit-card"></i>
-                  Accepts&nbsp;Credit&nbsp;Card&nbsp;:&nbsp;{business.creditcard}
+                    Accepts&nbsp;Credit&nbsp;Card&nbsp;:&nbsp;{business.creditcard}
                 </div>
+                <div>
+                  <i className="fas fa-wifi"></i>
+                  Wi-Fi&nbsp;:&nbsp;{business.wifi}
+                </div>     
             </div>
 
             <div id="row">
+           
               <div>
                 <i className="fab fa-google"></i>
-                Accepts&nbsp;Googlepay&nbsp;:&nbsp;{business.googlepay}
+                  Accepts&nbsp;Googlepay&nbsp;:&nbsp;{business.googlepay}
               </div>
               <div>
                 <i className="fab fa-cc-apple-pay"></i>
-                Accepts&nbsp;Applepay&nbsp;:&nbsp;{business.applepay}
+                  Accepts&nbsp;Applepay&nbsp;:&nbsp;{business.applepay}
               </div>
+             
               <div>
                 <i className="fas fa-leaf"></i>
                 Vegetarian&nbsp;:&nbsp;{business.vegetarian}
@@ -103,10 +110,7 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
             </div>
             
             <div id="row">
-              <div>
-                <i className="fas fa-wifi"></i>
-                Wi-Fi&nbsp;:&nbsp;{business.wifi}
-              </div>
+            
               <div>
                 <i className="fas fa-parking"></i>
                 Parking&nbsp;:&nbsp;{business.parking}
@@ -115,24 +119,9 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
                 <i className="fas fa-wheelchair"></i>
                 Wheelchair&nbsp;Accessible:&nbsp;{business.wheelchair}
               </div>
-            </div>
-
-            <div id="row">
               <div>
                 <i className="fas fa-transgender"></i>
                 Gender&nbsp;Neutral&nbsp;Restrooms&nbsp;:&nbsp;{business.genderneutralrestroom}
-              </div>
-              <div>
-                <i className="fas fa-baby-carriage"></i>
-                Good&nbsp;for&nbsp;Kids&nbsp;:&nbsp;{business.goodforkids}
-              </div> 
-              <div>
-                <i className="fas fa-check"></i>
-                Family&nbsp;Owned&nbsp;:&nbsp;{business.familyown}
-              </div>
-              <div>
-                <i className="fas fa-check"></i>
-                Women&nbsp;Owned&nbsp;:&nbsp;{business.womenown}
               </div>
             </div>
         
@@ -141,6 +130,10 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
                 <i className="fas fa-cloud-sun"></i>
                 Outdoor&nbsp;Seating&nbsp;:&nbsp;{business.outdoor}
               </div>
+              <div>
+                <i className="fas fa-baby-carriage"></i>
+                Good&nbsp;for&nbsp;Kids&nbsp;:&nbsp;{business.goodforkids}
+              </div> 
               <div>
                 <i className="fas fa-users"></i>
                 Good&nbsp;for&nbsp;Groups&nbsp;:&nbsp;{business.goodforgroups}
@@ -164,6 +157,7 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
             </div>
 
             <div className="profile-hours">
+              <div id="fakeh4">Hours of Operation</div>
               <span>
                 Monday: {timeConversion[business.monopen]} -{" "}
                 {timeConversion[business.monclose]}
@@ -195,8 +189,9 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
             </div>
 
             <div className="profile-info">
+              <div id="fakeh4">Location & Contact</div>
               <span id="bizwebsite">{business.website}</span>
-              <span id="bizphonenumber">{business.phonenumber}</span>
+              <span id="bizphonenumber">({business.phonenumber.slice(0, 3)}){business.phonenumber.slice(3, 6)}-{business.phonenumber.slice(6, 10)}</span>
               <span id="bizaddress1">{business.address1}</span>
               <span id="bizaddress2">{business.city}, {business.state} {business.zipcode}</span>
             </div>

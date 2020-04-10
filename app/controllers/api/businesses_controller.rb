@@ -2,24 +2,18 @@ class Api::BusinessesController < ApplicationController
   before_action :require_login, only: [:create]
   
   def index
-   if params[:searchQuery]
-      businesses = Business.where("name LIKE ?", "%" + params[:searchQuery] + "%").or(Business.where("category LIKE ?", "%" + params[:searchQuery] + "%" ))
-   else
-      Business.all
-   end
+
+    businesses = Business.all
+   
+    businesses = params[:searchCity] ? businesses.where("city LIKE ?", "%" + params[:searchCity] + "%") : businesses
 
     businesses = bounds ? businesses.in_bounds(bounds) : businesses
-    # businesses = bounds ? Business.in_bounds(bounds) : Business.all
+    
+    businesses = params[:minPricepoint] && params[:maxPricepoint] ? businesses.where(pricepoint: price_range) : businesses
 
-    if params[:minPricepoint] && params[:maxPricepoint]
-      businesses = businesses.where(pricepoint: price_range)
-    end
+    businesses = params[:searchQuery] ? businesses.where("name LIKE ? OR category LIKE ?", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%") : businesses
 
-    if params[:filterCategory] == "All"
-      businesses = businesses
-    else
-      businesses = businesses.where(category: params[:filterCategory]) 
-    end
+    businesses = params[:filterCategory] == "All" ? businesses : businesses.where(category: params[:filterCategory])
 
 
     if params[:filterOpenNow] == "Yes"
@@ -36,21 +30,9 @@ class Api::BusinessesController < ApplicationController
       businesses
     end
 
-    if params[:filterDelivery] == "Yes"
-      businesses = businesses.where(delivery: params[:filterDelivery])
-    else
-      businesses
-    end
+    businesses = params[:filterDelivery] == "Yes" ? businesses.where(delivery: params[:filterDelivery]) : businesses
 
-    if params[:filterTakeout] == "Yes"
-      businesses = businesses.where(takeout: params[:filterTakeout])
-    else
-      businesses
-    end
-
-    # if params[:filterRating]
-    #   businesses.sort_by {|business| business.rated}.reverse
-    # end
+    businesses = params[:filterTakeout] == "Yes" ? businesses.where(takeout: params[:filterTakeout]) : businesses
 
     @businesses = businesses.includes(:reviews)
 
@@ -81,7 +63,7 @@ class Api::BusinessesController < ApplicationController
 
 
   def business_params
-    params.require(:business).permit(:name, :category, :lat, :lng, :website, :phonenumber, :address1, :city, :state, :zipcode, :pricepoint, :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, :delivery, :takeout, :vegetarian, :vegan, :womenown, :familyown, :takesreservation, :creditcard, :googlepay, :applepay, :parking, :wheelchair, :goodforkids, :goodforgroups, :outdoor, :wifi, :dogsallowed, :genderneutralrestroom, photos: [])
+    params.require(:business).permit(:name, :category, :lat, :lng, :website, :phonenumber, :address1, :city, :state, :zipcode, :pricepoint, :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, :delivery, :takeout, :vegetarian, :vegan, :takesreservation, :creditcard, :googlepay, :applepay, :parking, :wheelchair, :goodforkids, :goodforgroups, :outdoor, :wifi, :dogsallowed, :genderneutralrestroom, photos: [])
   end
 
   def bounds

@@ -109,6 +109,11 @@
     border-bottom: 1px solid #e6e6e6;
 }
 
+.profile #fakeh4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .profile-map {
     grid-column: 1;
     width: 300px;
@@ -126,8 +131,14 @@
     border-left: 1px solid #e6e6e6;
 }
 
+.profile-hours #fakeh4 {
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
 .profile-hours > span {
     padding: 10px;
+    margin-left: 80px;
 }
 
 .profile-info {
@@ -140,27 +151,35 @@
     border-left: 1px solid #e6e6e6;
 }
 
+.profile-info #fakeh4 {
+    margin-bottom: 20px;
+}
+
 #bizwebsite {  
     color: #0073bb;
     border-bottom: 1px solid #e6e6e6;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
+    border-top: 1px solid #e6e6e6;
+    padding-top: 30px;
+
 }
 
 #bizphonenumber {
     border-bottom: 1px solid #e6e6e6;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 27px;
+    padding-bottom: 27px;
 }
 
 #bizaddress1 {
-    padding-top: 20px;
+    padding-top: 25px;
     font-weight: strong;
 }
  
 #bizaddress2 {
     font-weight: strong;
-    border-bottom: 1px solid #e6e6e6;
-    padding-bottom: 20px;
+    // border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 25px;
+    margin-top: 10px;
 }
 
 

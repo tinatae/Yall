@@ -16,7 +16,6 @@ class BusinessIndexItem extends React.Component {
     render() {
         const { name, average_rating, category, dollarmaker, photoUrls, recentreview, reviewcount, phonenumber, address1, city } = this.props.business;
 
-
         return (
             <div onClick={this.handleClick}>
                 <div className="index-item">
@@ -42,7 +41,7 @@ class BusinessIndexItem extends React.Component {
                             </div>    
                         
                             <div id="col2">
-                                <div>{phonenumber}</div>
+                                <div>({phonenumber.slice(0, 3)}){phonenumber.slice(3, 6)}-{phonenumber.slice(6, 10)}</div>
                                 <div>{address1}</div>                    
                                 <div>{city}</div>
                             </div>
@@ -51,7 +50,6 @@ class BusinessIndexItem extends React.Component {
                         <div id="recentreview">
                             <div id="werd">Word on the Street:</div>
                             <div>"{recentreview}"</div>
-                            {/* <div>{`"{recentreview}"` || 'No Reviews Yet'}</div> */}
                         </div>
                     </div>
                 </div>

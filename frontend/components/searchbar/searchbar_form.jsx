@@ -6,8 +6,8 @@ class SearchbarForm extends React.Component {
         super(props);
 
         this.state = {
-            searchQuery: "",
-            searchCity: "",
+            searchQuery: this.props.searchQuery,
+            searchCity: this.props.searchCity,
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,10 +19,13 @@ class SearchbarForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const filter = Object.assign({}, this.state);
-        this.props.changeFilter('searchQuery', this.state.searchQuery);
-           
-        this.props.history.push(`/businesses?query=${this.state.searchQuery}`)
+
+        if (this.state.searchCity !== undefined) {
+            this.props.changeFilter('searchCity', this.state.searchCity)
+            return this.props.history.push(`/businesses?query=${this.state.searchQuery}`)
+           } else { 
+            return this.props.history.push(`/businesses?query=${this.state.searchQuery}`)
+           }
     };
 
     render() {
@@ -34,7 +37,7 @@ class SearchbarForm extends React.Component {
                     <div className="searchbar-form">
                         <div id="searchbar-container">                 
                             <div id="subsearch1">Find<input type="text" placeholder="  So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} /></div>        
-                            {/* <div id="subsearch2">&emsp;Near<input type="text" placeholder="Alameda, CA 94501" value={searchCity} onChange={this.update('searchCity')} /> </div>                                           */}
+                            <div id="subsearch2">&emsp;Near<input type="text" placeholder="San Francisco Bay Area" value={searchCity} onChange={this.update('searchCity')} /> </div>                                          
                         </div>
                         <div><input id="white-magnifying-glass" type="image" src="/white-magnifying-glass.svg" alt="Submit Query" /></div>
                     </div>

@@ -1837,30 +1837,30 @@ var BusinessProfile = function BusinessProfile(_ref) {
     }); // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
   });
   var timeConversion = {
-    0: "12AM",
-    1: "1AM",
-    2: "2AM",
-    3: "3AM",
-    4: "4AM",
-    5: "5AM",
-    6: "6AM",
-    7: "7AM",
-    8: "8AM",
-    9: "9AM",
-    10: "10AM",
-    11: "11AM",
-    12: "12PM",
-    13: "1PM",
-    14: "2PM",
-    15: "3PM",
-    16: "4PM",
-    17: "5PM",
-    18: "6PM",
-    19: "7PM",
-    20: "8PM",
-    21: "9PM",
-    22: "10PM",
-    23: "11PM"
+    0: "12:00AM",
+    1: "1:00AM",
+    2: "2:00AM",
+    3: "3:00AM",
+    4: "4:00AM",
+    5: "5:00AM",
+    6: "6:00AM",
+    7: "7:00AM",
+    8: "8:00AM",
+    9: "9:00AM",
+    10: "10:00AM",
+    11: "11:00AM",
+    12: "12:00PM",
+    13: "1:00PM",
+    14: "2:00PM",
+    15: "3:00PM",
+    16: "4:00PM",
+    17: "5:00PM",
+    18: "6:00PM",
+    19: "7:00PM",
+    20: "8:00PM",
+    21: "9:00PM",
+    22: "10:00PM",
+    23: "11:00PM"
   };
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile"
@@ -1901,6 +1901,8 @@ var BusinessProfile = function BusinessProfile(_ref) {
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-attributes"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "fakeh4"
+  }, "Amenities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "far fa-paper-plane"
@@ -1910,7 +1912,9 @@ var BusinessProfile = function BusinessProfile(_ref) {
     className: "far fa-calendar-check"
   }), "Takes\xA0Reservations\xA0:\xA0", business.takesreservation), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "far fa-credit-card"
-  }), "Accepts\xA0Credit\xA0Card\xA0:\xA0", business.creditcard)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), "Accepts\xA0Credit\xA0Card\xA0:\xA0", business.creditcard), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-wifi"
+  }), "Wi-Fi\xA0:\xA0", business.wifi)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fab fa-google"
@@ -1923,26 +1927,18 @@ var BusinessProfile = function BusinessProfile(_ref) {
   }), "Vegan\xA0:\xA0", business.vegan)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-wifi"
-  }), "Wi-Fi\xA0:\xA0", business.wifi), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-parking"
   }), "Parking\xA0:\xA0", business.parking), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-wheelchair"
-  }), "Wheelchair\xA0Accessible:\xA0", business.wheelchair)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "row"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }), "Wheelchair\xA0Accessible:\xA0", business.wheelchair), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-transgender"
-  }), "Gender\xA0Neutral\xA0Restrooms\xA0:\xA0", business.genderneutralrestroom), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-baby-carriage"
-  }), "Good\xA0for\xA0Kids\xA0:\xA0", business.goodforkids), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-check"
-  }), "Family\xA0Owned\xA0:\xA0", business.familyown), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-check"
-  }), "Women\xA0Owned\xA0:\xA0", business.womenown)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), "Gender\xA0Neutral\xA0Restrooms\xA0:\xA0", business.genderneutralrestroom)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-cloud-sun"
   }), "Outdoor\xA0Seating\xA0:\xA0", business.outdoor), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-baby-carriage"
+  }), "Good\xA0for\xA0Kids\xA0:\xA0", business.goodforkids), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-users"
   }), "Good\xA0for\xA0Groups\xA0:\xA0", business.goodforgroups), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-dog"
@@ -1957,13 +1953,17 @@ var BusinessProfile = function BusinessProfile(_ref) {
     fetchBusiness: fetchBusiness
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-hours"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Monday: ", timeConversion[business.monopen], " -", " ", timeConversion[business.monclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Tuesday: ", timeConversion[business.tuesopen], " -", " ", timeConversion[business.tuesclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wednesday: ", timeConversion[business.wedopen], " -", " ", timeConversion[business.wedclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thursday: ", timeConversion[business.thursopen], " -", " ", timeConversion[business.thursclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Friday: ", timeConversion[business.friopen], " -", " ", timeConversion[business.friclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Saturday: ", timeConversion[business.satopen], " -", " ", timeConversion[business.satclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sunday: ", timeConversion[business.sunopen], " -", " ", timeConversion[business.sunclose])), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "fakeh4"
+  }, "Hours of Operation"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Monday: ", timeConversion[business.monopen], " -", " ", timeConversion[business.monclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Tuesday: ", timeConversion[business.tuesopen], " -", " ", timeConversion[business.tuesclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wednesday: ", timeConversion[business.wedopen], " -", " ", timeConversion[business.wedclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thursday: ", timeConversion[business.thursopen], " -", " ", timeConversion[business.thursclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Friday: ", timeConversion[business.friopen], " -", " ", timeConversion[business.friclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Saturday: ", timeConversion[business.satopen], " -", " ", timeConversion[business.satclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sunday: ", timeConversion[business.sunopen], " -", " ", timeConversion[business.sunclose])), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-info"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "fakeh4"
+  }, "Location & Contact"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizwebsite"
   }, business.website), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizphonenumber"
-  }, business.phonenumber), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, "(", business.phonenumber.slice(0, 3), ")", business.phonenumber.slice(3, 6), "-", business.phonenumber.slice(6, 10)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizaddress1"
   }, business.address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizaddress2"
@@ -2443,7 +2443,7 @@ function (_React$Component) {
         key: 4,
         src: window.home4URL,
         onClick: this.reroute(5)
-      })), ")", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "yallr-name"
       }, "y allr", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-snowflake"
@@ -2865,7 +2865,7 @@ function (_React$Component) {
         id: "category"
       }, category))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "col2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, phonenumber), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, city))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "(", phonenumber.slice(0, 3), ")", phonenumber.slice(3, 6), "-", phonenumber.slice(6, 10)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, city))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "recentreview"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "werd"
@@ -3123,6 +3123,16 @@ function (_React$Component) {
   }
 
   _createClass(Search, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var query = new URLSearchParams(this.props.location.search).get("query");
+      console.log(query);
+
+      if (query) {
+        this.props.updateFilter('searchQuery', query);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -3173,15 +3183,7 @@ function (_React$Component) {
   return Search;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Search); // componentDidMount() {
-// const query = new URLSearchParams(this.props.location.search).get("query");
-// if (query !== "") {
-//     this.setState({[this.state.searchQuery]: query});
-//     this.props.updateFilter('searchQuery', Object.assign({}, this.state));
-// };
-// return Object.assign({}, this.state)
-// console.log(this.state);   
-// };
+/* harmony default export */ __webpack_exports__["default"] = (Search);
 
 /***/ }),
 
@@ -3287,8 +3289,8 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SearchbarForm).call(this, props));
     _this.state = {
-      searchQuery: "",
-      searchCity: ""
+      searchQuery: _this.props.searchQuery,
+      searchCity: _this.props.searchCity
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -3307,9 +3309,13 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var filter = Object.assign({}, this.state);
-      this.props.changeFilter('searchQuery', this.state.searchQuery);
-      this.props.history.push("/businesses?query=".concat(this.state.searchQuery));
+
+      if (this.state.searchCity !== undefined) {
+        this.props.changeFilter('searchCity', this.state.searchCity);
+        return this.props.history.push("/businesses?query=".concat(this.state.searchQuery));
+      } else {
+        return this.props.history.push("/businesses?query=".concat(this.state.searchQuery));
+      }
     }
   }, {
     key: "render",
@@ -3330,7 +3336,14 @@ function (_React$Component) {
         placeholder: "  So what are we looking for..",
         value: searchQuery,
         onChange: this.update('searchQuery')
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "subsearch2"
+      }, "\u2003Near", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        placeholder: "San Francisco Bay Area",
+        value: searchCity,
+        onChange: this.update('searchCity')
+      }), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "white-magnifying-glass",
         type: "image",
         src: "/white-magnifying-glass.svg",
@@ -3390,21 +3403,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // const mSTP = (state) => {
-//     return {
-//         // searchQuery: state.ui.filters.searchQuery
-//     }
-// };
+
+
+var mSTP = function mSTP(state) {
+  return {
+    searchQuery: state.ui.filters.searchQuery,
+    searchCity: state.ui.filters.searchCity
+  };
+};
 
 var mDTP = function mDTP(dispatch) {
   return {
     changeFilter: function changeFilter(filter, value) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_4__["changeFilter"])(filter, value));
+    },
+    updateFilter: function updateFilter(filter, value) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_4__["updateFilter"])(filter, value));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null, mDTP)(_searchbar_form__WEBPACK_IMPORTED_MODULE_2__["default"])));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_searchbar_form__WEBPACK_IMPORTED_MODULE_2__["default"])));
 
 /***/ }),
 
@@ -3769,6 +3788,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var defaultFilters = Object.freeze({
   searchQuery: "",
+  searchCity: "",
   bounds: {},
   minPricepoint: 1,
   maxPricepoint: 4,

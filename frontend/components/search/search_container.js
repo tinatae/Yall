@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import Search from './search';
 import { updateFilter, changeFilter, clearFilter, refreshFilter } from '../../actions/filter_actions';
+
 import { asArray } from '../../reducers/selectors';
 import SearchbarForm from '../searchbar/searchbar_form';
 

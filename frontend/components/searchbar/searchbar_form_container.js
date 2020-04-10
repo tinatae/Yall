@@ -4,18 +4,20 @@ import SearchbarForm from './searchbar_form';
 
 import { withRouter } from 'react-router-dom';
 
-import { changeFilter } from '../../actions/filter_actions';
+import { changeFilter, updateFilter } from '../../actions/filter_actions';
 
 
-// const mSTP = (state) => {
-//     return {
-//         // searchQuery: state.ui.filters.searchQuery
-//     }
-// };
+const mSTP = (state) => {
+    return {
+        searchQuery: state.ui.filters.searchQuery,
+        searchCity: state.ui.filters.searchCity
+    }
+};
 
 const mDTP = dispatch => ({
-    changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
+    changeFilter: (filter, value) => dispatch(changeFilter(filter, value)),
+    updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
 });
 
 
-export default withRouter(connect(null, mDTP)(SearchbarForm));
+export default withRouter(connect(mSTP, mDTP)(SearchbarForm));
