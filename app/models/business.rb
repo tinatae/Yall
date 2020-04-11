@@ -8,8 +8,7 @@ class Business < ApplicationRecord
     validates :name, uniqueness: true
     validates :category, inclusion: {in: ["All", "Restaurants", "Coffee & Tea", "Bars", "Dessert"]}
     validates :pricepoint, inclusion: { in: (1..4) }
-    # validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, :inclusion => { in: (0..24)}, :allow_nil => true,
-    # validates :monopen, :monclose, :tuesopen, :tuesclose, :wedopen, :wedclose, :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, :sunopen, :sunclose, inclusion: { in: 0..24 }
+    # validates :monopen, :monclose, :inclusion => { in: (0..24)}, :allow_nil => true,
     validates :delivery, :takeout, inclusion: {in: ["All", "Yes", "No"]}
 
     # scope :named, -> (name) {where("name LIKE ?", name)}
@@ -22,13 +21,6 @@ class Business < ApplicationRecord
     # def named(name)
     #     where("name LIKE ?", name)
     # end
-
-    def self.in_bounds(bounds)
-        self.where("lat < ?", bounds[:northEast][:lat])
-        .where("lat > ?", bounds[:southWest][:lat])
-        .where("lng > ?", bounds[:southWest][:lng])
-        .where("lng < ?", bounds[:northEast][:lng])
-    end
 
     # def rated
     #     self.reviews.average(:rating)
@@ -77,21 +69,48 @@ class Business < ApplicationRecord
         end
     end
 
-    def self.open?
+    def self.in_bounds(bounds)
+        self.where("lat < ?", bounds[:northEast][:lat])
+        .where("lat > ?", bounds[:southWest][:lat])
+        .where("lng > ?", bounds[:southWest][:lng])
+        .where("lng < ?", bounds[:northEast][:lng])
+    end
+
+    def self.open
         days_of_week = {0 => "sun", 1 => "mon", 2 => "tues", 3 => "wed", 4 => "thurs", 5 => "fri", 6 => "sat"}
    
         day = days_of_week[Time.now.wday]
-        openhour = day + "open" # "sunopen"
-        closehour = day + "close" # "sunclose"
-        currenthour = Time.now.hour
+        prevday = days_of_week[Time.now.wday-1]
 
-        if self[openhour] < self[closehour]
-            self.where("currenthour BETWEEN ? AND ?", self[openhour], self[closehour])
-        elsif self[closehour] < self[openhour]
-            (self[openhour..23]) + (0..self[closehour])
+        prevopenhour = prevday + "open"
+        prevclosehour = prevday + "close"
+
+        openhour = day + "open" # "sunopen"
+        closehour = day + "close" # "sunclose" CONCAT CHANGES ARRAY
+
+        currenthour = Time.now.hour
+      
+        if currenthour >= 4
+        # if openhour < closehour
+        # if self[openhour] < self[closehour]
+
+            # self.where("currenthour BETWEEN ? AND ?", 'self[openhour]', 'self[closehour]')
+            self.where("currenthour BETWEEN ? AND ?", 'openhour', 'closehour')
+
+        # elsif currenthour < 6 && prevclosehour < prevopenhour
+        elsif currenthour < 6 
+            # && self[prevclosehour] < self[prevopenhour]
+
+            self.where("currenthour BETWEEN ? AND ?", '0', 'prevclosehour')
+            # self.where("currenthour BETWEEN ? AND ?", '0', 'self[prevclosehour]')
+
+        # elsif currenthour > 17 && closehour < openhour
+        elsif currenthour > 17 
+            # && self[closehour] < self[openhour]
+
+            self.where("currenthour BETWEEN ? AND ?", 'openhour', '23')
+            # self.where("currenthour BETWEEN ? AND ?", self[openhour], 23)
         end
-            
-        "No"
     end
 
 end

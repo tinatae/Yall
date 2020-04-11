@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router';
+import BusinessMap from '../business_map/business_map';
 
 class BusinessForm extends React.Component {
     constructor(props) {
@@ -11,10 +12,12 @@ class BusinessForm extends React.Component {
             category: '',
             lat: '',
             lng: '',
-            website: 'www.business.com',
-            phonenumber: '(123)456-7890',
-            address1: '825 Battery Street',
-            address2: 'San Francisco, CA 94111',
+            website: '',
+            phonenumber: '',
+            address1: '',
+            city: '',
+            state: '',
+            zipcode: '',
             pricepoint: '',
             monopen: '',
             monclose: '',
@@ -32,15 +35,43 @@ class BusinessForm extends React.Component {
             sunclose: '',
             delivery: '',
             takeout: '',
+
+            vegetarian: "No",
+            vegan: "No",
+            takesreservation: "No",
+            creditcard: "No",
+            googlepay: "No",
+            applepay: "No",
+            parking: "No",
+            wheelchair: "No",
+            goodforkids: "No",
+            goodforgroups: "No",
+            outdoor: "No",
+            wifi: "No",
+            dogsallowed: "No",
+            genderneutralrestroom: "No",
+
             photoFiles: null,
             photoUrls: [],
+
+            areacode: "",
+            number1: "",
+            number2: "",
         };
 
-        this.handleAddress = this.handleAddress.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.navigateToSearch = this.navigateToSearch.bind(this);
         this.handleFile = this.handleFile.bind(this);
+        this.updateCheckBox = this.updateCheckBox.bind(this);
+        this.handleNumber = this.handleNumber.bind(this);
+        this.updateLatLng = this.updateLatLng.bind(this);
     }
+
+    // shouldComponentUpdate(nextProps, nextState) {  // DON'T DO THIS. FREEZES INPUTS AFTER MAP RENDER
+    //     if (this.state.lat !== "" && this.state.lat === nextState.lat && this.state.lng === nextState.lng) {
+    //         return false
+    //     } else {return true}
+    // }  
 
     navigateToSearch() {
         this.props.history.push('/businesses');
@@ -50,6 +81,12 @@ class BusinessForm extends React.Component {
         return e => this.setState({
             [field]: e.target.value
         });
+    }
+
+    updateCheckBox(field) {
+        return e => {
+            this.setState({ [field]: e.currentTarget.value });
+        };
     }
 
     handleFile(e) {
@@ -64,26 +101,45 @@ class BusinessForm extends React.Component {
         }
     };
 
-    handleAddress(e) {
-        this.setState({address1: e.currentTarget.value}, this.updateLatLng);
-    } 
+    handleNumber() {
+        if (this.state.areacode && this.state.number1 && this.state.number2 && this.state.address1) {
+            const together = this.state.areacode.concat(this.state.number1).concat(this.state.number2)
+
+            if (together.length === 10) {
+                return (<div id="checked-info"><i className="far fa-check-circle"></i>({together.slice(0, 3)}){together.slice(3, 6)}-{together.slice(6)}</div>)
+            } else if (together.length > 10) { 
+                return (
+                    <div id="nope">
+                        <div>This does not seem like a valid phone number. </div>
+                        <div>Please re-enter phone number in format: 123 456 7890</div>
+                    </div>
+                )
+            };
+        } else {return null}
+    }
 
     updateLatLng() {
-        const geocoder = new google.maps.Geocoder();
+        if (this.state.address1 && this.state.city && this.state.state && this.state.zipcode) {
 
-        geocoder.geocode({'address': this.state.address1}, (results, status) => {
-            if (status == 'OK') {
-                this.setState({lat: results[0].geometry.location.lat()});
-                this.setState({lng: results[0].geometry.location.lng()});
-                console.log(this.state.lat);
-                console.log(this.state.lng);
-            } else { console.log('nope' + status)};
-        })      
+            const geocoder = new google.maps.Geocoder();
+            const lookup = `${this.state.address1}, ${this.state.city}, ${this.state.state}`;
+    
+            geocoder.geocode({'address': lookup}, (results, status) => {
+                if (status == 'OK') {
+                    this.setState({lat: results[0].geometry.location.lat()});
+                    this.setState({lng: results[0].geometry.location.lng()});         
+                } else { 
+                    console.log(status)
+                };
+            })      
+        } else {return null}
     };
 
     handleSubmit(e) {
         e.preventDefault();
-      
+
+        const together = this.state.areacode.concat(this.state.number1).concat(this.state.number2)
+        
         const formData = new FormData();
 
         formData.append('business[name]', this.state.name);
@@ -93,7 +149,9 @@ class BusinessForm extends React.Component {
         formData.append('business[website]', this.state.website);
         formData.append('business[phonenumber]', this.state.phonenumber);
         formData.append('business[address1]', this.state.address1);
-        formData.append('business[address2]', this.state.address2);
+        formData.append('business[city]', this.state.city);
+        formData.append('business[state]', this.state.state);
+        formData.append('business[zipcode]', this.state.zipcode); 
         formData.append('business[pricepoint]', this.state.pricepoint);
         formData.append('business[monopen]', this.state.monopen);
         formData.append('business[monclose]', this.state.monclose);
@@ -112,20 +170,35 @@ class BusinessForm extends React.Component {
         formData.append('business[delivery]', this.state.delivery);
         formData.append('business[takeout]', this.state.takeout);
 
+        formData.append('business[vegetarian]', this.state.vegetarian);
+        formData.append('business[vegan]', this.state.vegan);
+        formData.append('business[takesreservation]', this.state.takesreservation);
+        formData.append('business[creditcard]', this.state.creditcard);
+        formData.append('business[googlepay]', this.state.googlepay);
+        formData.append('business[applepay]', this.state.applepay);
+        formData.append('business[parking]', this.state.parking);
+        formData.append('business[wheelchair]', this.state.wheelchair);
+        formData.append('business[goodforkids]', this.state.goodforkids);
+        formData.append('business[goodforgroups]', this.state.goodforgroups);
+        formData.append('business[outdoor]', this.state.outdoor);
+        formData.append('business[wifi]', this.state.wifi);
+        formData.append('business[dogsallowed]', this.state.dogsallowed);
+        formData.append('business[genderneutralrestroom]', this.state.genderneutralrestroom);
+
         if (this.state.photoFiles) {
             formData.append('business[photos][]', this.state.photoFiles);
         };
     
         this.props.createBusiness(formData);
+        console.log(this.state)
         this.navigateToSearch();
     };
 
     render() {
-        const { name, category, lat, lng, website, phonenumber, address1, address2, pricepoint } = this.state;
+        const { name, category, lat, lng, website, phonenumber, address1, city, state, zipcode, pricepoint } = this.state;
         const { monopen, monclose, tuesopen, tuesclose, wedopen, wedclose, thursopen, thursclose, friopen, friclose, satopen, satclose, sunopen, sunclose } = this.state;
-        const { delivery, takeout } = this.state;
-        // const { lat, lng } = this.coords;
-
+        const { delivery, takeout, vegetarian, vegan, takesreservation, creditcard, googlepay, applepay, parking, wheelchair, goodforkids, goodforgroups, outdoor, wifi, dogsallowed, genderneutralrestroom} = this.state;
+        const {arecode, number1, number2} = this.state
         const preview = this.state.photoUrls ? <img height="100px" width="100px" src={this.state.photoUrls[0]} /> : null;
        
         return (
@@ -135,6 +208,7 @@ class BusinessForm extends React.Component {
                     <h3>Add Your Business to Our Site!</h3>
                     <h3>Please Fill-out Details Below</h3>
                 </div>
+
             <div className="business-create-body">
                 <div id="yellowchair">
                     <img src={window.newbiz1URL}/>
@@ -143,69 +217,83 @@ class BusinessForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
 
                     <div className="business-create-bizinfo">
+
                         <label id="createbizname">
                             <div>Name</div>
                             <input size="60" type="text" value={name} onChange={this.update('name')} />
                         </label>
+
                         <label id="createbizcategory">
                             <div>Category</div>
                             <select name="Please select a Business Category" value={category} onChange={this.update('category')}>
-                                <option selected disabled value="">- Please select a category -</option>
+                                <option value="" disabled>- Please select a category -</option>
                                 <option value="Restaurants">Restaurants</option>
                                 <option value="Coffee & Tea">Coffee & Tea</option>
                                 <option value="Bars">Bars</option>
                                 <option value="Dessert">Dessert</option>
                             </select>
                         </label>
-                        <label id="createbizdelivery">
-                            <div>Do you offer Delivery Service?</div>
-                            <select name="Delivery" value={delivery} onChange={this.update('delivery')}>
-                                <option selected disabled value="">- Please select one -</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </label>
-                        <label id="createbiztakeout">
-                            <div>Do you offer Takeout Service?</div>
-                            <select name="Takeout" value={takeout} onChange={this.update('takeout')}>
-                                <option selected disabled value="">- Please select one -</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </label>
         
                         <label id="createbizpricepoint">
                             <div>Pricepoint</div>
                             <select name="Pricepoint" value={pricepoint} onChange={this.update('pricepoint')}>
-                                <option selected disabled value="">- Pricepoint ($) -</option>
+                                <option value="" disabled>- Pricepoint ($) -</option>
                                 <option value="1">$</option>
                                 <option value="2">$$</option>
                                 <option value="3">$$$</option>
                                 <option value="4">$$$$</option>
                             </select>
                         </label>
+
                         <label id="createbizwebsite">
                             <div>Website</div>
-                            <input size="75" type="text" value={website} onChange={this.update('website')} />
+                            <span>http: //</span><input size="60" type="text" placeholder="tastytreat.com" value={website} onChange={this.update('website')} />
                         </label>
+
                         <label id="createbizphonenumber">
                             <div>Phone Number</div>
-                            <input size="75" type="text" value={phonenumber} onChange={this.update('phonenumber')} />
+                            <div id="content">
+                                (&nbsp;<input size="10" type="text" placeholder="510" value={arecode} onChange={this.update('areacode')} />&nbsp;)&nbsp;
+                                &nbsp;<input size="10" type="text" placeholder="123" value={number1} onChange={this.update('number1')} />&nbsp;
+                                &nbsp;-&emsp;<input size="10" type="text" placeholder="4567" value={number2} onChange={this.update('number2')} />
+                            </div>
                         </label>
+
+                        {this.handleNumber()}
+
                         <label id="createbizaddress">
                             <div>Business Address</div>
-                            <input id="address" size="75" type="text" value={address1} onChange={this.handleAddress} />
-                            <input size="75" type="text" value={address2} onChange={this.update('address2')} />
+                                <input id="address" size="60" type="text" placeholder="123 Sesame Street" value={address1} onChange={this.update('address1')} />
+                            <div id="address2">
+                                <input size="30" type="text" placeholder="San Francisco" value={city} onChange={this.update('city')} />
+                                <input size="10" type="text" placeholder="CA" value={state} onChange={this.update('state')} />
+                                <input size="20" type="text" placeholder="12345" value={zipcode} onChange={this.update('zipcode')} />
+                            </div>
                         </label>
+                        {this.updateLatLng()}
+                        {this.state.lat && this.state.lng && (
+                            <div id="checked-info">
+                                <div><i className="far fa-check-circle"></i>{this.state.address1}</div>
+                                <div>{this.state.city}, {this.state.state} {this.state.zipcode}</div>
+                            </div>
+                        )}
+
+                        {this.state.lat && this.state.lng && (
+                            <BusinessMap 
+                                addBusiness={true}
+                                lat = {this.state.lat}
+                                lng = {this.state.lng}
+                            />
+                        )}
                     </div>
 
-                    <div className="business-create-bizhours">
-                        <h3>Business Hours</h3>
+                    <h3>Business Hours</h3>
+                    <div className="business-create-bizhours">                   
                         <div className="bizhours-grid1">
                             <label>
                                 <div>Monday Open:</div>
                                 <select name="Monday Open" value={monopen} onChange={this.update('monopen')}>
-                                    <option selected disabled value="">- Open -</option>
+                                    <option value="" disabled>- Open -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -235,7 +323,7 @@ class BusinessForm extends React.Component {
                             <label>
                                 <div>Tuesday Open:</div>
                                 <select name="Tuesday Open" value={tuesopen} onChange={this.update('tuesopen')}>
-                                    <option selected disabled value="">- Open -</option>
+                                    <option value="" disabled>- Open -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -265,7 +353,7 @@ class BusinessForm extends React.Component {
                             <label>
                                 <div>Wednesday Open:</div>
                                 <select name="Wednesday Open" value={wedopen} onChange={this.update('wedopen')}>
-                                    <option selected disabled value="">- Open -</option>
+                                    <option value="" disabled>- Open -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -295,7 +383,7 @@ class BusinessForm extends React.Component {
                             <label>
                                 <div>Thursday Open:</div>
                                 <select name="Thursday Open" value={thursopen} onChange={this.update('thursopen')}>
-                                    <option selected disabled value="">- Open -</option>
+                                    <option value="" disabled>- Open -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -325,7 +413,7 @@ class BusinessForm extends React.Component {
                             <label>
                                 <div>Friday Open:</div>
                                 <select name="Friday Open" value={friopen} onChange={this.update('friopen')}>
-                                    <option selected disabled value="">- Open -</option>
+                                    <option value="" disabled>- Open -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -355,7 +443,7 @@ class BusinessForm extends React.Component {
                             <label>
                                 <div>Saturday Open:</div>
                                 <select name="Saturday Open" value={satopen} onChange={this.update('satopen')}>
-                                    <option selected disabled value="">- Open -</option>
+                                    <option value="" disabled>- Open -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -385,7 +473,7 @@ class BusinessForm extends React.Component {
                             <label>
                                 <div>Sunday Open:</div>
                                 <select name="Sunday Open" value={sunopen} onChange={this.update('sunopen')}>
-                                    <option selected disabled value="">- Open -</option>
+                                    <option value="" disabled>- Open -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -413,11 +501,13 @@ class BusinessForm extends React.Component {
                                 </select>
                             </label>
                         </div>
+
+
                         <div className="bizhours-grid2">
                             <label>
                                 <div>Monday Close:</div>
                                 <select name="Monday Close" value={monclose} onChange={this.update('monclose')}>
-                                    <option selected disabled value="">- Close -</option>
+                                    <option value="" disabled>- Close -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -447,7 +537,7 @@ class BusinessForm extends React.Component {
                             <label>
                                 <div>Tuesday Close:</div>
                                 <select name="tuesday Close" value={tuesclose} onChange={this.update('tuesclose')}>
-                                    <option selected disabled value="">- Close -</option>
+                                    <option value="" disabled>- Close -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -477,7 +567,7 @@ class BusinessForm extends React.Component {
                             <label>
                                 <div>Wednesday Close:</div>
                                 <select name="Wednesday Close" value={wedclose} onChange={this.update('wedclose')}>
-                                    <option selected disabled value="">- Close -</option>
+                                    <option value="" disabled>- Close -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -507,7 +597,7 @@ class BusinessForm extends React.Component {
                             <label>
                                 <div>Thursday Close:</div>
                                 <select name="Thursday Close" value={thursclose} onChange={this.update('thursclose')}>
-                                    <option selected disabled value="">- Close -</option>
+                                    <option value="" disabled>- Close -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -537,7 +627,7 @@ class BusinessForm extends React.Component {
                             <label>
                                 <div>Friday Close:</div>
                                 <select name="Friday Close" value={friclose} onChange={this.update('friclose')}>
-                                    <option selected disabled value="">- Close -</option>
+                                    <option value="" disabled>- Close -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -567,7 +657,7 @@ class BusinessForm extends React.Component {
                             <label>
                                 <div>Saturday Close:</div>
                                 <select name="Saturday Close" value={satclose} onChange={this.update('satclose')}>
-                                    <option selected disabled value="">- Close -</option>
+                                    <option value="" disabled>- Close -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -597,7 +687,7 @@ class BusinessForm extends React.Component {
                             <label>
                                 <div>Sunday Close:</div>
                                 <select name="Sunday Close" value={sunclose} onChange={this.update('sunclose')}>
-                                    <option selected disabled value="">- Close -</option>
+                                    <option value="" disabled>- Close -</option>
                                     <option value="0">12AM</option>
                                     <option value="1">1AM</option>
                                     <option value="2">2AM</option>
@@ -626,6 +716,175 @@ class BusinessForm extends React.Component {
                             </label>   
                         </div>
                     </div>      
+                        
+                    <h3>Services & Amenities</h3>
+                    <div className="amenities">                  
+                        <div className="checkboxes">                         
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="delivery"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("delivery")}
+                                />
+                                <span>Delivery</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="takeout"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("takeout")}
+                                />
+                                <span>Take-Out</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="reservations"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("takesreservation")}
+                                />
+                                <span>Takes&nbsp;Reservations</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="vegetarian"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("vegetarian")}
+                                />
+                                <span>Vegetarian</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="vegan"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("vegan")}
+                                />
+                                <span>Vegan</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="creditcard"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("creditcard")}
+                                />
+                                <span>Accepts&nbsp;Credit&nbsp;Card</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="googlepay"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("googlepay")}
+                                />
+                                <span>Accepts&nbsp;Google&nbsp;Pay</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="applepay"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("applepay")}
+                                />
+                                <span>Accepts&nbsp;Apple&nbsp;Pay</span>
+                            </label>
+                        </div>
+                        <div className="checkboxes">
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="parking"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("parking")}
+                                />
+                                <span>Parking</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="wheelchair"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("wheelchair")}
+                                />
+                                <span>Wheelchair&nbsp;Accessible</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="goodforkids"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("goodforkids")}
+                                />
+                                <span>Good&nbsp;For&nbsp;Kids</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="goodforgroups"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("goodforgroups")}
+                                />
+                                <span>Good&nbsp;For&nbsp;Groups</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="outdoor"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("outdoor")}
+                                />
+                                <span>Outdoor&nbsp;Seating</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="wifi"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("wifi")}
+                                />
+                                <span>Wi-Fi</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="dogsallowed"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("dogsallowed")}
+                                />
+                                <span>Dogs&nbsp;Allowed</span>
+                            </label>
+
+                            <label className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="genderneutralrestroom"
+                                    value="Yes"
+                                    onClick={this.updateCheckBox("genderneutralrestroom")}
+                                />
+                                <span>Gender&nbsp;Neutral&nbsp;Restrooms</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    {/* {this.handleNumber()} */}
+
 
                     <div className="business-create-bizphoto">
                         <h3>Image Preview</h3>

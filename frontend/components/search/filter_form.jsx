@@ -132,20 +132,6 @@ const FilterForm = ({
 export default FilterForm;
 
 
-{/* <label id="createbizpricepoint">
-    <span>Pricepoint</span>
-    <br />
-    <select name="Pricepoint" value={pricepoint} onChange={this.update('pricepoint')}>
-        <option selected disabled value="">- Pricepoint ($) -</option>
-        <option value="1">$</option>
-        <option value="2">$$</option>
-        <option value="3">$$$</option>
-        <option value="4">$$$$</option>
-    </select>
-</label> */}
-
-
-
 // const openNow = (filter, value) => (dispatch, getState) => {
 //     dispatch(updateFilter(filter, value)};
 //     c

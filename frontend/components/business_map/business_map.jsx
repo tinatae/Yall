@@ -19,7 +19,21 @@ class BusinessMap extends React.Component {
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
 
-        if (this.props.singleBusiness) {
+        if (this.props.addBusiness) {
+            const addLatLng = new google.maps.LatLng(this.props.lat, this.props.lng);
+
+            const addMapOptions = {
+                center: addLatLng,
+                zoom: 16
+            }
+
+            const addMap = new google.maps.Map(this.mapNode, addMapOptions)
+
+            const addMarker = new google.maps.Marker({
+                position: addLatLng,
+            });
+            addMarker.setMap(addMap);
+        } else if (this.props.singleBusiness) {
             this.props.fetchBusiness(this.props.businessId);
         } else  {
             this.registerListeners();
@@ -28,6 +42,11 @@ class BusinessMap extends React.Component {
     };
 
     componentDidUpdate() {
+        // if (this.props.addBusiness) {
+     
+        //     const add = "hi"
+
+        // } else 
         if (this.props.singleBusiness) {
             const targetBusinessKey = Object.keys(this.props.businesses)[0];
             const targetBusiness = this.props.businesses[targetBusinessKey];
@@ -40,15 +59,12 @@ class BusinessMap extends React.Component {
 
             const profileMap = new google.maps.Map(this.mapNode, profileMapOptions);
             
-            // this.MarkerManager.updateMarkers([targetBusiness]);
-            
             const profileMarker = new google.maps.Marker({
                 position: profileLatlng,
             });
-            profileMarker.setMap(profileMap);
+            profileMarker.setMap(profileMap); 
 
-            // this.MarkerManager.createMarkerFromBusiness(targetBusiness)
-        } else {
+        } else if (!this.props.singleBusiness && !this.props.addBusiness){
             this.MarkerManager.updateMarkers(this.props.businesses);
         }
     };

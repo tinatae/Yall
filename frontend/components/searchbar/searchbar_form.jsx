@@ -6,8 +6,8 @@ class SearchbarForm extends React.Component {
         super(props);
 
         this.state = {
-            searchQuery: this.props.searchQuery,
-            searchCity: this.props.searchCity,
+            searchQuery: "",
+            searchCity: "",
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);

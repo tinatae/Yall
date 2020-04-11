@@ -22,8 +22,8 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
     });
 
     const timeConversion = {
-        0:"12:00AM", 1:"1:00AM", 2:"2:00AM", 3:"3:00AM", 4: "4:00AM", 5:"5:00AM", 6:"6:00AM", 7:"7:00AM", 8:"8:00AM", 9:"9:00AM", 10:"10:00AM", 11:"11:00AM", 12:"12:00PM", 
-        13:"1:00PM", 14:"2:00PM", 15: "3:00PM", 16:"4:00PM", 17:"5:00PM", 18:"6:00PM", 19:"7:00PM", 20:"8:00PM", 21:"9:00PM", 22:"10:00PM", 23:"11:00PM"
+        0:"12:00 AM", 1:"1:00 AM", 2:"2:00 AM", 3:"3:00 AM", 4: "4:00 AM", 5:"5:00 AM", 6:"6:00 AM", 7:"7:00 AM", 8:"8:00 AM", 9:"9:00 AM", 10:"10:00 AM", 11:"11:00 AM", 12:"12:00 PM", 
+        13:"1:00 PM", 14:"2:00 PM", 15: "3:00 PM", 16:"4:00 PM", 17:"5:00 PM", 18:"6:00 PM", 19:"7:00 PM", 20:"8:00 PM", 21:"9:00 PM", 22:"10:00 PM", 23:"11:00 PM"
     };
 
     return (
@@ -92,11 +92,11 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
            
               <div>
                 <i className="fab fa-google"></i>
-                  Accepts&nbsp;Googlepay&nbsp;:&nbsp;{business.googlepay}
+                  Accepts&nbsp;Google&nbsp;Pay&nbsp;:&nbsp;{business.googlepay}
               </div>
               <div>
                 <i className="fab fa-cc-apple-pay"></i>
-                  Accepts&nbsp;Applepay&nbsp;:&nbsp;{business.applepay}
+                  Accepts&nbsp;Apple&nbsp;Pay&nbsp;:&nbsp;{business.applepay}
               </div>
              
               <div>

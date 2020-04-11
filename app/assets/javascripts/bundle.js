@@ -386,6 +386,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _business_map_business_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../business_map/business_map */ "./frontend/components/business_map/business_map.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -409,6 +410,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var BusinessForm =
 /*#__PURE__*/
 function (_React$Component) {
@@ -426,10 +428,12 @@ function (_React$Component) {
       category: '',
       lat: '',
       lng: '',
-      website: 'www.business.com',
-      phonenumber: '(123)456-7890',
-      address1: '825 Battery Street',
-      address2: 'San Francisco, CA 94111',
+      website: '',
+      phonenumber: '',
+      address1: '',
+      city: '',
+      state: '',
+      zipcode: '',
       pricepoint: '',
       monopen: '',
       monclose: '',
@@ -447,15 +451,39 @@ function (_React$Component) {
       sunclose: '',
       delivery: '',
       takeout: '',
+      vegetarian: "No",
+      vegan: "No",
+      takesreservation: "No",
+      creditcard: "No",
+      googlepay: "No",
+      applepay: "No",
+      parking: "No",
+      wheelchair: "No",
+      goodforkids: "No",
+      goodforgroups: "No",
+      outdoor: "No",
+      wifi: "No",
+      dogsallowed: "No",
+      genderneutralrestroom: "No",
       photoFiles: null,
-      photoUrls: []
+      photoUrls: [],
+      areacode: "",
+      number1: "",
+      number2: ""
     };
-    _this.handleAddress = _this.handleAddress.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.navigateToSearch = _this.navigateToSearch.bind(_assertThisInitialized(_this));
     _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
+    _this.updateCheckBox = _this.updateCheckBox.bind(_assertThisInitialized(_this));
+    _this.handleNumber = _this.handleNumber.bind(_assertThisInitialized(_this));
+    _this.updateLatLng = _this.updateLatLng.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // shouldComponentUpdate(nextProps, nextState) {  // DON'T DO THIS. FREEZES INPUTS AFTER MAP RENDER
+  //     if (this.state.lat !== "" && this.state.lat === nextState.lat && this.state.lng === nextState.lng) {
+  //         return false
+  //     } else {return true}
+  // }  
+
 
   _createClass(BusinessForm, [{
     key: "navigateToSearch",
@@ -472,15 +500,24 @@ function (_React$Component) {
       };
     }
   }, {
+    key: "updateCheckBox",
+    value: function updateCheckBox(field) {
+      var _this3 = this;
+
+      return function (e) {
+        _this3.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
     key: "handleFile",
     value: function handleFile(e) {
-      var _this3 = this;
+      var _this4 = this;
 
       var file = e.currentTarget.files[0];
       var fileReader = new FileReader();
 
       fileReader.onloadend = function () {
-        _this3.setState({
+        _this4.setState({
           photoFiles: file,
           photoUrls: [fileReader.result]
         });
@@ -491,43 +528,62 @@ function (_React$Component) {
       }
     }
   }, {
-    key: "handleAddress",
-    value: function handleAddress(e) {
-      this.setState({
-        address1: e.currentTarget.value
-      }, this.updateLatLng);
+    key: "handleNumber",
+    value: function handleNumber() {
+      if (this.state.areacode && this.state.number1 && this.state.number2 && this.state.address1) {
+        var together = this.state.areacode.concat(this.state.number1).concat(this.state.number2);
+
+        if (together.length === 10) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            id: "checked-info"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "far fa-check-circle"
+          }), "(", together.slice(0, 3), ")", together.slice(3, 6), "-", together.slice(6));
+        } else if (together.length > 10) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            id: "nope"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "This does not seem like a valid phone number. "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Please re-enter phone number in format: 123 456 7890"));
+        }
+
+        ;
+      } else {
+        return null;
+      }
     }
   }, {
     key: "updateLatLng",
     value: function updateLatLng() {
-      var _this4 = this;
+      var _this5 = this;
 
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({
-        'address': this.state.address1
-      }, function (results, status) {
-        if (status == 'OK') {
-          _this4.setState({
-            lat: results[0].geometry.location.lat()
-          });
+      if (this.state.address1 && this.state.city && this.state.state && this.state.zipcode) {
+        var geocoder = new google.maps.Geocoder();
+        var lookup = "".concat(this.state.address1, ", ").concat(this.state.city, ", ").concat(this.state.state);
+        geocoder.geocode({
+          'address': lookup
+        }, function (results, status) {
+          if (status == 'OK') {
+            _this5.setState({
+              lat: results[0].geometry.location.lat()
+            });
 
-          _this4.setState({
-            lng: results[0].geometry.location.lng()
-          });
+            _this5.setState({
+              lng: results[0].geometry.location.lng()
+            });
+          } else {
+            console.log(status);
+          }
 
-          console.log(_this4.state.lat);
-          console.log(_this4.state.lng);
-        } else {
-          console.log('nope' + status);
-        }
-
-        ;
-      });
+          ;
+        });
+      } else {
+        return null;
+      }
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
+      var together = this.state.areacode.concat(this.state.number1).concat(this.state.number2);
       var formData = new FormData();
       formData.append('business[name]', this.state.name);
       formData.append('business[category]', this.state.category);
@@ -536,7 +592,9 @@ function (_React$Component) {
       formData.append('business[website]', this.state.website);
       formData.append('business[phonenumber]', this.state.phonenumber);
       formData.append('business[address1]', this.state.address1);
-      formData.append('business[address2]', this.state.address2);
+      formData.append('business[city]', this.state.city);
+      formData.append('business[state]', this.state.state);
+      formData.append('business[zipcode]', this.state.zipcode);
       formData.append('business[pricepoint]', this.state.pricepoint);
       formData.append('business[monopen]', this.state.monopen);
       formData.append('business[monclose]', this.state.monclose);
@@ -554,6 +612,20 @@ function (_React$Component) {
       formData.append('business[sunclose]', this.state.sunclose);
       formData.append('business[delivery]', this.state.delivery);
       formData.append('business[takeout]', this.state.takeout);
+      formData.append('business[vegetarian]', this.state.vegetarian);
+      formData.append('business[vegan]', this.state.vegan);
+      formData.append('business[takesreservation]', this.state.takesreservation);
+      formData.append('business[creditcard]', this.state.creditcard);
+      formData.append('business[googlepay]', this.state.googlepay);
+      formData.append('business[applepay]', this.state.applepay);
+      formData.append('business[parking]', this.state.parking);
+      formData.append('business[wheelchair]', this.state.wheelchair);
+      formData.append('business[goodforkids]', this.state.goodforkids);
+      formData.append('business[goodforgroups]', this.state.goodforgroups);
+      formData.append('business[outdoor]', this.state.outdoor);
+      formData.append('business[wifi]', this.state.wifi);
+      formData.append('business[dogsallowed]', this.state.dogsallowed);
+      formData.append('business[genderneutralrestroom]', this.state.genderneutralrestroom);
 
       if (this.state.photoFiles) {
         formData.append('business[photos][]', this.state.photoFiles);
@@ -561,6 +633,7 @@ function (_React$Component) {
 
       ;
       this.props.createBusiness(formData);
+      console.log(this.state);
       this.navigateToSearch();
     }
   }, {
@@ -574,7 +647,9 @@ function (_React$Component) {
           website = _this$state.website,
           phonenumber = _this$state.phonenumber,
           address1 = _this$state.address1,
-          address2 = _this$state.address2,
+          city = _this$state.city,
+          state = _this$state.state,
+          zipcode = _this$state.zipcode,
           pricepoint = _this$state.pricepoint;
       var _this$state2 = this.state,
           monopen = _this$state2.monopen,
@@ -593,8 +668,25 @@ function (_React$Component) {
           sunclose = _this$state2.sunclose;
       var _this$state3 = this.state,
           delivery = _this$state3.delivery,
-          takeout = _this$state3.takeout; // const { lat, lng } = this.coords;
-
+          takeout = _this$state3.takeout,
+          vegetarian = _this$state3.vegetarian,
+          vegan = _this$state3.vegan,
+          takesreservation = _this$state3.takesreservation,
+          creditcard = _this$state3.creditcard,
+          googlepay = _this$state3.googlepay,
+          applepay = _this$state3.applepay,
+          parking = _this$state3.parking,
+          wheelchair = _this$state3.wheelchair,
+          goodforkids = _this$state3.goodforkids,
+          goodforgroups = _this$state3.goodforgroups,
+          outdoor = _this$state3.outdoor,
+          wifi = _this$state3.wifi,
+          dogsallowed = _this$state3.dogsallowed,
+          genderneutralrestroom = _this$state3.genderneutralrestroom;
+      var _this$state4 = this.state,
+          arecode = _this$state4.arecode,
+          number1 = _this$state4.number1,
+          number2 = _this$state4.number2;
       var preview = this.state.photoUrls ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         height: "100px",
         width: "100px",
@@ -628,9 +720,8 @@ function (_React$Component) {
         value: category,
         onChange: this.update('category')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Please select a category -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Restaurants"
       }, "Restaurants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -640,43 +731,14 @@ function (_React$Component) {
       }, "Bars"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Dessert"
       }, "Dessert"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        id: "createbizdelivery"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Do you offer Delivery Service?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Delivery",
-        value: delivery,
-        onChange: this.update('delivery')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- Please select one -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Yes"
-      }, "Yes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "No"
-      }, "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        id: "createbiztakeout"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Do you offer Takeout Service?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "Takeout",
-        value: takeout,
-        onChange: this.update('takeout')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
-      }, "- Please select one -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Yes"
-      }, "Yes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "No"
-      }, "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizpricepoint"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pricepoint"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Pricepoint",
         value: pricepoint,
         onChange: this.update('pricepoint')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Pricepoint ($) -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
       }, "$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -687,43 +749,82 @@ function (_React$Component) {
         value: "4"
       }, "$$$$"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizwebsite"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Website"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        size: "75",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Website"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "http: //"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        size: "60",
         type: "text",
+        placeholder: "tastytreat.com",
         value: website,
         onChange: this.update('website')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizphonenumber"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Phone Number"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        size: "75",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Phone Number"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "content"
+      }, "(\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        size: "10",
         type: "text",
-        value: phonenumber,
-        onChange: this.update('phonenumber')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        placeholder: "510",
+        value: arecode,
+        onChange: this.update('areacode')
+      }), "\xA0)\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        size: "10",
+        type: "text",
+        placeholder: "123",
+        value: number1,
+        onChange: this.update('number1')
+      }), "\xA0 \xA0-\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        size: "10",
+        type: "text",
+        placeholder: "4567",
+        value: number2,
+        onChange: this.update('number2')
+      }))), this.handleNumber(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizaddress"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Business Address"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "address",
-        size: "75",
+        size: "60",
         type: "text",
+        placeholder: "123 Sesame Street",
         value: address1,
-        onChange: this.handleAddress
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        size: "75",
+        onChange: this.update('address1')
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "address2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        size: "30",
         type: "text",
-        value: address2,
-        onChange: this.update('address2')
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        placeholder: "San Francisco",
+        value: city,
+        onChange: this.update('city')
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        size: "10",
+        type: "text",
+        placeholder: "CA",
+        value: state,
+        onChange: this.update('state')
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        size: "20",
+        type: "text",
+        placeholder: "12345",
+        value: zipcode,
+        onChange: this.update('zipcode')
+      }))), this.updateLatLng(), this.state.lat && this.state.lng && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "checked-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-check-circle"
+      }), this.state.address1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.city, ", ", this.state.state, " ", this.state.zipcode)), this.state.lat && this.state.lng && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map_business_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        addBusiness: true,
+        lat: this.state.lat,
+        lng: this.state.lng
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Business Hours"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-create-bizhours"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Business Hours"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bizhours-grid1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Monday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Monday Open",
         value: monopen,
         onChange: this.update('monopen')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -777,9 +878,8 @@ function (_React$Component) {
         value: tuesopen,
         onChange: this.update('tuesopen')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -833,9 +933,8 @@ function (_React$Component) {
         value: wedopen,
         onChange: this.update('wedopen')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -889,9 +988,8 @@ function (_React$Component) {
         value: thursopen,
         onChange: this.update('thursopen')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -945,9 +1043,8 @@ function (_React$Component) {
         value: friopen,
         onChange: this.update('friopen')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1001,9 +1098,8 @@ function (_React$Component) {
         value: satopen,
         onChange: this.update('satopen')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1057,9 +1153,8 @@ function (_React$Component) {
         value: sunopen,
         onChange: this.update('sunopen')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1115,9 +1210,8 @@ function (_React$Component) {
         value: monclose,
         onChange: this.update('monclose')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1171,9 +1265,8 @@ function (_React$Component) {
         value: tuesclose,
         onChange: this.update('tuesclose')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1227,9 +1320,8 @@ function (_React$Component) {
         value: wedclose,
         onChange: this.update('wedclose')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1283,9 +1375,8 @@ function (_React$Component) {
         value: thursclose,
         onChange: this.update('thursclose')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1339,9 +1430,8 @@ function (_React$Component) {
         value: friclose,
         onChange: this.update('friclose')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1395,9 +1485,8 @@ function (_React$Component) {
         value: satclose,
         onChange: this.update('satclose')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1451,9 +1540,8 @@ function (_React$Component) {
         value: sunclose,
         onChange: this.update('sunclose')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        selected: true,
-        disabled: true,
-        value: ""
+        value: "",
+        disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1502,7 +1590,125 @@ function (_React$Component) {
         value: "22"
       }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "11PM"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Services & Amenities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "amenities"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "checkboxes"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "delivery",
+        value: "Yes",
+        onClick: this.updateCheckBox("delivery")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Delivery")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "takeout",
+        value: "Yes",
+        onClick: this.updateCheckBox("takeout")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Take-Out")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "reservations",
+        value: "Yes",
+        onClick: this.updateCheckBox("takesreservation")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Takes\xA0Reservations")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "vegetarian",
+        value: "Yes",
+        onClick: this.updateCheckBox("vegetarian")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Vegetarian")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "vegan",
+        value: "Yes",
+        onClick: this.updateCheckBox("vegan")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Vegan")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "creditcard",
+        value: "Yes",
+        onClick: this.updateCheckBox("creditcard")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Accepts\xA0Credit\xA0Card")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "googlepay",
+        value: "Yes",
+        onClick: this.updateCheckBox("googlepay")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Accepts\xA0Google\xA0Pay")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "applepay",
+        value: "Yes",
+        onClick: this.updateCheckBox("applepay")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Accepts\xA0Apple\xA0Pay"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "checkboxes"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "parking",
+        value: "Yes",
+        onClick: this.updateCheckBox("parking")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Parking")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "wheelchair",
+        value: "Yes",
+        onClick: this.updateCheckBox("wheelchair")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wheelchair\xA0Accessible")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "goodforkids",
+        value: "Yes",
+        onClick: this.updateCheckBox("goodforkids")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Good\xA0For\xA0Kids")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "goodforgroups",
+        value: "Yes",
+        onClick: this.updateCheckBox("goodforgroups")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Good\xA0For\xA0Groups")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "outdoor",
+        value: "Yes",
+        onClick: this.updateCheckBox("outdoor")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Outdoor\xA0Seating")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "wifi",
+        value: "Yes",
+        onClick: this.updateCheckBox("wifi")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wi-Fi")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "dogsallowed",
+        value: "Yes",
+        onClick: this.updateCheckBox("dogsallowed")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Dogs\xA0Allowed")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "checkbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "genderneutralrestroom",
+        value: "Yes",
+        onClick: this.updateCheckBox("genderneutralrestroom")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Gender\xA0Neutral\xA0Restrooms")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-create-bizphoto"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Image Preview"), preview, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Add a Picture"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
@@ -1705,7 +1911,18 @@ function (_React$Component) {
       this.map = new google.maps.Map(this.mapNode, mapOptions);
       this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map, this.handleMarkerClick.bind(this));
 
-      if (this.props.singleBusiness) {
+      if (this.props.addBusiness) {
+        var addLatLng = new google.maps.LatLng(this.props.lat, this.props.lng);
+        var addMapOptions = {
+          center: addLatLng,
+          zoom: 16
+        };
+        var addMap = new google.maps.Map(this.mapNode, addMapOptions);
+        var addMarker = new google.maps.Marker({
+          position: addLatLng
+        });
+        addMarker.setMap(addMap);
+      } else if (this.props.singleBusiness) {
         this.props.fetchBusiness(this.props.businessId);
       } else {
         this.registerListeners();
@@ -1715,6 +1932,9 @@ function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
+      // if (this.props.addBusiness) {
+      //     const add = "hi"
+      // } else 
       if (this.props.singleBusiness) {
         var targetBusinessKey = Object.keys(this.props.businesses)[0];
         var targetBusiness = this.props.businesses[targetBusinessKey];
@@ -1723,13 +1943,12 @@ function (_React$Component) {
           center: profileLatlng,
           zoom: 16
         };
-        var profileMap = new google.maps.Map(this.mapNode, profileMapOptions); // this.MarkerManager.updateMarkers([targetBusiness]);
-
+        var profileMap = new google.maps.Map(this.mapNode, profileMapOptions);
         var profileMarker = new google.maps.Marker({
           position: profileLatlng
         });
-        profileMarker.setMap(profileMap); // this.MarkerManager.createMarkerFromBusiness(targetBusiness)
-      } else {
+        profileMarker.setMap(profileMap);
+      } else if (!this.props.singleBusiness && !this.props.addBusiness) {
         this.MarkerManager.updateMarkers(this.props.businesses);
       }
     }
@@ -1837,30 +2056,30 @@ var BusinessProfile = function BusinessProfile(_ref) {
     }); // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
   });
   var timeConversion = {
-    0: "12:00AM",
-    1: "1:00AM",
-    2: "2:00AM",
-    3: "3:00AM",
-    4: "4:00AM",
-    5: "5:00AM",
-    6: "6:00AM",
-    7: "7:00AM",
-    8: "8:00AM",
-    9: "9:00AM",
-    10: "10:00AM",
-    11: "11:00AM",
-    12: "12:00PM",
-    13: "1:00PM",
-    14: "2:00PM",
-    15: "3:00PM",
-    16: "4:00PM",
-    17: "5:00PM",
-    18: "6:00PM",
-    19: "7:00PM",
-    20: "8:00PM",
-    21: "9:00PM",
-    22: "10:00PM",
-    23: "11:00PM"
+    0: "12:00 AM",
+    1: "1:00 AM",
+    2: "2:00 AM",
+    3: "3:00 AM",
+    4: "4:00 AM",
+    5: "5:00 AM",
+    6: "6:00 AM",
+    7: "7:00 AM",
+    8: "8:00 AM",
+    9: "9:00 AM",
+    10: "10:00 AM",
+    11: "11:00 AM",
+    12: "12:00 PM",
+    13: "1:00 PM",
+    14: "2:00 PM",
+    15: "3:00 PM",
+    16: "4:00 PM",
+    17: "5:00 PM",
+    18: "6:00 PM",
+    19: "7:00 PM",
+    20: "8:00 PM",
+    21: "9:00 PM",
+    22: "10:00 PM",
+    23: "11:00 PM"
   };
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile"
@@ -1918,9 +2137,9 @@ var BusinessProfile = function BusinessProfile(_ref) {
     id: "row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fab fa-google"
-  }), "Accepts\xA0Googlepay\xA0:\xA0", business.googlepay), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }), "Accepts\xA0Google\xA0Pay\xA0:\xA0", business.googlepay), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fab fa-cc-apple-pay"
-  }), "Accepts\xA0Applepay\xA0:\xA0", business.applepay), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }), "Accepts\xA0Apple\xA0Pay\xA0:\xA0", business.applepay), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-leaf"
   }), "Vegetarian\xA0:\xA0", business.vegetarian), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-seedling"
@@ -3021,20 +3240,7 @@ var FilterForm = function FilterForm(_ref) {
   }, "Clear All Filters")))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (FilterForm);
-{}
-/* <label id="createbizpricepoint">
-   <span>Pricepoint</span>
-   <br />
-   <select name="Pricepoint" value={pricepoint} onChange={this.update('pricepoint')}>
-       <option selected disabled value="">- Pricepoint ($) -</option>
-       <option value="1">$</option>
-       <option value="2">$$</option>
-       <option value="3">$$$</option>
-       <option value="4">$$$$</option>
-   </select>
-</label> */
-// const openNow = (filter, value) => (dispatch, getState) => {
+/* harmony default export */ __webpack_exports__["default"] = (FilterForm); // const openNow = (filter, value) => (dispatch, getState) => {
 //     dispatch(updateFilter(filter, value)};
 //     c
 // const openNow() {
@@ -3289,8 +3495,8 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SearchbarForm).call(this, props));
     _this.state = {
-      searchQuery: _this.props.searchQuery,
-      searchCity: _this.props.searchCity
+      searchQuery: "",
+      searchCity: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
