@@ -11,6 +11,7 @@ import BusinessShowContainer from './business_show/business_show_container';
 // import ReviewFormContainer from './business_show/review_form_container';
 import HomepageContainer from './homepage/homepage_container';
 import NavbarContainer from './navbar/navbar_container';
+import CreditContainer from './credit/credit_container';
 // import Footer from './navbar/footer';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -31,6 +32,7 @@ const App = () => (
                 <Route path="/businesses/:businessId" component={BusinessShowContainer} />
                 <Route exact path="/businesses" component={SearchContainer} />
                 <Route exact path="/" component={HomepageContainer} />
+                <Route exact path="/credits" component={CreditContainer} />
             </Switch>     
             {/* <footer>
                 <Footer />

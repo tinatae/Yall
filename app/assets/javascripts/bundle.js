@@ -323,7 +323,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _business_show_business_show_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./business_show/business_show_container */ "./frontend/components/business_show/business_show_container.js");
 /* harmony import */ var _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./homepage/homepage_container */ "./frontend/components/homepage/homepage_container.js");
 /* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _credit_credit_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./credit/credit_container */ "./frontend/components/credit/credit_container.js");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 
  // import GreetingContainer from './greeting/greeting_container';
 
@@ -335,6 +336,7 @@ __webpack_require__.r(__webpack_exports__);
 // import ReviewFormContainer from './business_show/review_form_container';
 
 
+
  // import Footer from './navbar/footer';
 
 
@@ -344,15 +346,15 @@ var App = function App() {
     className: "everything-but-footer"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
     className: "main-header"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_10__["AuthRoute"], {
     exact: true,
     path: "/login",
     component: _session_login_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_10__["AuthRoute"], {
     exact: true,
     path: "/signup",
     component: _session_signup_form_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["ProtectedRoute"], {
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_10__["ProtectedRoute"], {
     exact: true,
     path: "/businesses/new",
     component: _business_form_business_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
@@ -367,6 +369,10 @@ var App = function App() {
     exact: true,
     path: "/",
     component: _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/credits",
+    component: _credit_credit_container__WEBPACK_IMPORTED_MODULE_11__["default"]
   }))));
 };
 
@@ -2529,6 +2535,231 @@ var mSTP = function mSTP(_ref2, _ref3) {
 
 /***/ }),
 
+/***/ "./frontend/components/credit/credit.jsx":
+/*!***********************************************!*\
+  !*** ./frontend/components/credit/credit.jsx ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Credit =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Credit, _React$Component);
+
+  function Credit(props) {
+    var _this;
+
+    _classCallCheck(this, Credit);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Credit).call(this, props));
+    _this.state = {
+      showLogin: false,
+      showHome: false,
+      showAdd: false,
+      showBusinesses: false
+    };
+    _this.handleOpenLogin = _this.handleOpenLogin.bind(_assertThisInitialized(_this));
+    _this.handleCloseLogin = _this.handleCloseLogin.bind(_assertThisInitialized(_this));
+    _this.handleOpenHome = _this.handleOpenHome.bind(_assertThisInitialized(_this));
+    _this.handleCloseHome = _this.handleCloseHome.bind(_assertThisInitialized(_this));
+    _this.handleOpenAdd = _this.handleOpenAdd.bind(_assertThisInitialized(_this));
+    _this.handleCloseAdd = _this.handleCloseAdd.bind(_assertThisInitialized(_this));
+    _this.handleOpenBusinesses = _this.handleOpenBusinesses.bind(_assertThisInitialized(_this));
+    _this.handleCloseBusinesses = _this.handleCloseBusinesses.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Credit, [{
+    key: "handleOpenLogin",
+    value: function handleOpenLogin(e) {
+      var _this2 = this;
+
+      return function (e) {
+        _this2.setState({
+          showLogin: true
+        });
+      };
+    }
+  }, {
+    key: "handleCloseLogin",
+    value: function handleCloseLogin(e) {
+      var _this3 = this;
+
+      return function (e) {
+        _this3.setState({
+          showLogin: false
+        });
+      };
+    }
+  }, {
+    key: "handleOpenHome",
+    value: function handleOpenHome(e) {
+      var _this4 = this;
+
+      return function (e) {
+        _this4.setState({
+          showHome: true
+        });
+      };
+    }
+  }, {
+    key: "handleCloseHome",
+    value: function handleCloseHome(e) {
+      var _this5 = this;
+
+      return function (e) {
+        _this5.setState({
+          showHome: false
+        });
+      };
+    }
+  }, {
+    key: "handleOpenAdd",
+    value: function handleOpenAdd(e) {
+      var _this6 = this;
+
+      return function (e) {
+        _this6.setState({
+          showAdd: true
+        });
+      };
+    }
+  }, {
+    key: "handleCloseAdd",
+    value: function handleCloseAdd(e) {
+      var _this7 = this;
+
+      return function (e) {
+        _this7.setState({
+          showAdd: false
+        });
+      };
+    }
+  }, {
+    key: "handleOpenBusinesses",
+    value: function handleOpenBusinesses(e) {
+      var _this8 = this;
+
+      return function (e) {
+        _this8.setState({
+          showBusinesses: true
+        });
+      };
+    }
+  }, {
+    key: "handleCloseBusinesses",
+    value: function handleCloseBusinesses(e) {
+      var _this9 = this;
+
+      return function (e) {
+        _this9.setState({
+          showBusinesses: false
+        });
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "credits"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.formType), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "So first things first: I love an Easter Egg. That said, I am also of the mind that many times artists are underpaid and go unrecognized for their talent and hard work."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "So while all of these photos for this project were taken for free from unsplash.com, I just thought I'd make a little credits page in case anyone was interested in any of the images and/or reaching out to the individual artists themselves"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "They are organized by Component", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-grin-alt"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        onClick: this.handleOpenLogin()
+      }, "Login/Signup Form", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-palette"
+      })), this.state.showLogin && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "section"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Scattered Ice Creams"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Orange/Turquoise Shot Glasses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleCloseLogin()
+      }, "Close Section")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        onClick: this.handleOpenHome()
+      }, "Homepage", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-palette"
+      })), this.state.showHome && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "section"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Big Spread of Espresso Drinks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Floral Sashimi Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dining Hall with Asian Lights and Noodles"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Smoky Cocktail in Tumbler"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleCloseHome()
+      }, "Close Section")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        onClick: this.handleOpenAdd()
+      }, "'Add Your Business' Form", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-palette"
+      })), this.state.showAdd && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "section"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Yellow Chair & Bistro Table"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "3 Vertical Espresso Drinks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleCloseAdd()
+      }, "Close Section")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        onClick: this.handleOpenBusinesses()
+      }, "All the Little Businesses", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-palette"
+      })), this.state.showBusinesses && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "section"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sweet Baby Cakes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dozens of Donuts on Trays"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cupcakes in a White Box"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hands holding Pastry"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Quarter-section of Salami Sandwich"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "White Whale Saloon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Empty Wooden Dining Room with vintage photos on walls"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Colorful wood-railed bar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sugar-rimmed Martini Glass with Red Liquid"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lone Beer on Wooden Bar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Hola Ola"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Big Spread of Espresso Drinks (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "View of Ocean through Tall Vertical Windows and Backs of People"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Simple shot of Healthy Burger"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bowl of Guacamole & Chips with Olives"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Telegraph Place"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Long dining room table, empty with pink theme"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bowl of halved-shrimps and pasta noodles in white dish"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Slice of steak"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Plated Carrots"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Tumbler Room"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Smoky Cocktail in Tumbler (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Red Velvet Lounge Sofas and Bar Tables"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Serving tray of chilled Martini Glasses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Amber-colored cocktail with garnishes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Eastern Market Hall"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dining Hall with Asian Lights and Noodles (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Foamy Drink in Wine Glass with small bowl of snacks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Three shallow trays of dumplings"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Half-drunk glass with straw in empty bar corner"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sugar Shoppe"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Layered chocolate pudding dessert in goblet"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Three hands holding ice cream cones"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dog licking two-scoop ice cream cone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Raspberry popsicle bars on white marble top"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Katagama"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Floral Sashimi Plate (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sashimi with Vegetables in Black Bowl"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sushi Chef behind Counter"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Mixed Sushi Plate with Big Cuts of Fish and Seafood"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Brasserie Belmonde"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Side View of Halved Cheesy Pocket"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Grilled fish steak on plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "4 Fish on Grill"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cocktail Oysters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Chococat Cafe"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Rosetta Latte Art on Yellow Saucer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Rosetta Matcha Latte Art"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Seahorse Latte Art"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bagel Sandwich on Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Green Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pea, Sprout Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Avocado Burger on Plate with Veggies"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pesto Pasta Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Orange Noodles Tossed with Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Lucia"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Yellow Cocktail with Lemon Wedge & Cloves"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tall Column Bar with Vertical Lights"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Small Burger with Chips and Orange Drink in Wine Glass"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Red Cocktail in Coupe Glass")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleCloseBusinesses()
+      }, "Close Section")));
+    }
+  }]);
+
+  return Credit;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (Credit);
+
+/***/ }),
+
+/***/ "./frontend/components/credit/credit_container.js":
+/*!********************************************************!*\
+  !*** ./frontend/components/credit/credit_container.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _credit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./credit */ "./frontend/components/credit/credit.jsx");
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {
+    formType: "Art Credits"
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, null)(_credit__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/homepage/homepage.jsx":
 /*!***************************************************!*\
   !*** ./frontend/components/homepage/homepage.jsx ***!
@@ -2582,6 +2813,7 @@ function (_React$Component) {
     _this.handleCategoryChange = _this.handleCategoryChange.bind(_assertThisInitialized(_this));
     _this.handleDeliveryChange = _this.handleDeliveryChange.bind(_assertThisInitialized(_this));
     _this.reroute = _this.reroute.bind(_assertThisInitialized(_this));
+    _this.goCredits = _this.goCredits.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2607,6 +2839,15 @@ function (_React$Component) {
 
       return function (e) {
         _this2.props.history.push("/businesses/".concat(num));
+      };
+    }
+  }, {
+    key: "goCredits",
+    value: function goCredits(e) {
+      var _this3 = this;
+
+      return function (e) {
+        _this3.props.history.push('/credits');
       };
     }
   }, {
@@ -2663,7 +2904,8 @@ function (_React$Component) {
         src: window.home4URL,
         onClick: this.reroute(5)
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "yallr-name"
+        className: "yallr-name",
+        onClick: this.goCredits()
       }, "y allr", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-snowflake"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3774,7 +4016,7 @@ function (_React$Component) {
 
       e.preventDefault();
       var demoUser = {
-        username: "Demo",
+        username: "DemoUser",
         password: "123456"
       };
       this.props.processForm(demoUser).then(function () {

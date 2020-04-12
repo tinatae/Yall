@@ -14,6 +14,7 @@ class Homepage extends React.Component {
         this.handleCategoryChange = this.handleCategoryChange.bind(this);
         this.handleDeliveryChange = this.handleDeliveryChange.bind(this);
         this.reroute = this.reroute.bind(this);
+        this.goCredits = this.goCredits.bind(this);
     };
 
     componentDidMount() { 
@@ -28,6 +29,12 @@ class Homepage extends React.Component {
     reroute(num) {
         return e => {
             this.props.history.push(`/businesses/${num}`)
+        }
+    }
+
+    goCredits(e) {
+        return(e) => {
+            this.props.history.push('/credits')
         }
     }
 
@@ -56,7 +63,7 @@ class Homepage extends React.Component {
                     <img title="Try the 'Smoke Show' at the Tumbler Room" className="background" key={4} src={window.home4URL} onClick={this.reroute(5)}/>
                 </div>
         
-                <h1 className="yallr-name">
+                <h1 className="yallr-name" onClick={this.goCredits()}>
                     y allr
                     <i className="far fa-snowflake"></i>
                 </h1>

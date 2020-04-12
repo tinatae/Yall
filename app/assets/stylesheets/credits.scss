@@ -1,0 +1,37 @@
+.credits {
+    padding: 30px;
+}
+
+.credits h2 {
+    text-align: center;
+}
+
+.credits h3 {
+    text-align: center;
+}
+
+
+.credits p {
+    text-indent: 2em;
+}
+
+.credits button {
+    width: 150px;
+    border-radius: 3px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border: 1px solid blue;
+    color: blue;
+}
+
+.credits button:hover {
+    border: 1px solid red;
+    color: red;
+}
+
+.credits .section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}

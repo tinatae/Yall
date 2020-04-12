@@ -667,11 +667,65 @@ business12.photos.attach(io: file46, filename: 'lucia2.jpg')
 business12.photos.attach(io: file47, filename: 'lucia3.jpg')
 business12.photos.attach(io: file48, filename: 'lucia4.jpg')
 
+business13 = Business.create!(
+    name: "Squash Blossom",
+    category: "Coffee & Tea",
+    lat: 37.8468400,
+    lng: -122.2909785,
+    website: "http://squashblossom.com",
+    phonenumber: "5107782747",
+    address1: "946 65th St",
+    city: "Emeryville",
+    state: "CA",
+    zipcode: 94608,
+    pricepoint: 2, 
+    monopen: 7,
+    monclose: 19,
+    tuesopen: 7,
+    tuesclose: 19,
+    wedopen: 7,
+    wedclose: 19,
+    thursopen: 7,
+    thursclose: 19,  
+    friopen: 7,
+    friclose: 19,
+    satopen: 9,
+    satclose: 19,
+    sunopen: 9,
+    sunclose: 19,
+    delivery: "No",
+    takeout: "Yes",
+    vegetarian: "Yes",
+    vegan: "Yes",
+    takesreservation: "No",
+    creditcard: "Yes",
+    googlepay: "Yes",
+    applepay: "Yes",
+    parking: "Street", 
+    wheelchair: "Yes",
+    goodforkids: "Yes",
+    goodforgroups: "Yes",
+    outdoor: "Yes",
+    wifi: "Yes",
+    dogsallowed: "Yes",
+    genderneutralrestroom: "Yes",
+)
+
+file49 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia1.jpg')
+file50 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia2.jpg')
+file51 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia3.jpg')
+file52 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia4.jpg')
+
+business13.photos.attach(io: file49, filename: 'lucia1.jpg')
+business13.photos.attach(io: file50, filename: 'lucia2.jpg')
+business13.photos.attach(io: file51, filename: 'lucia3.jpg')
+business13.photos.attach(io: file52, filename: 'lucia4.jpg')
+
 
 
 User.create!(
-    username: "hello",
-    password: "stayawhile"
+    username: "DemoUser",
+    password: "123456"
 )
 
 User.create!(
@@ -685,13 +739,23 @@ User.create!(
 )
 
 User.create!(
-    username: "wavywavy",
+    username: "Wavywavy",
     password: "oceanic"
 )
 
 User.create!(
     username: "MalloryP",
     password: "spark123"
+)
+
+User.create!(
+    username: "CoffeeInMyCup",
+    password: "zerosugar"
+)
+
+User.create!(
+    username: "ssam_the_ssnake",
+    password: "ssnacks"
 )
 
 Review.create!(
