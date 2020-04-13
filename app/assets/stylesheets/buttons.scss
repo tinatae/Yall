@@ -30,6 +30,18 @@
     border: 1px solid white;
 }
 
+.navsearch #white-magnifying-glass {
+    height: 25px;
+    padding: 5px;
+    margin-left: 1px;
+}
+
+.navsearch #white-magnifying-glass:hover {
+    border-radius: 7px;
+    background-color: lightblue;
+    border: 1px solid white;
+}
+
 .fa-paper-plane {
     font-size: 14px;
     margin-right: 5px;
@@ -174,10 +186,15 @@
 
 .fa-grin-alt {
     margin-left: -25px;
-    color: purple;
+    color: blue;
 }
 
 .fa-palette {
-    margin-left: 5px;
+    margin-left: 10px;
     color: purple;
+    font-size: 25px;
+}
+
+.fa-arrow-up {
+    margin-left: 5px;
 }

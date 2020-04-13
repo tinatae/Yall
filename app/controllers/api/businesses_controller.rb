@@ -7,6 +7,8 @@ class Api::BusinessesController < ApplicationController
    
     businesses = params[:searchCity] ? businesses.where("city LIKE ?", "%" + params[:searchCity] + "%") : businesses
 
+    businesses = params[:filterDelivery] == "Yes" ? businesses.where(delivery: params[:filterDelivery]) : businesses
+
     businesses = bounds ? businesses.in_bounds(bounds) : businesses
     
     businesses = params[:minPricepoint] && params[:maxPricepoint] ? businesses.where(pricepoint: price_range) : businesses
@@ -32,7 +34,7 @@ class Api::BusinessesController < ApplicationController
     #   businesses
     # end
 
-    businesses = params[:filterDelivery] == "Yes" ? businesses.where(delivery: params[:filterDelivery]) : businesses
+   
 
     businesses = params[:filterTakeout] == "Yes" ? businesses.where(takeout: params[:filterTakeout]) : businesses
 

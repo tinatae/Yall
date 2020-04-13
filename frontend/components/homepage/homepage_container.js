@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeFilter } from '../../actions/filter_actions';
+import { changeFilter, refreshFilter } from '../../actions/filter_actions';
 import Homepage from './homepage';
 
 import { withRouter } from 'react-router-dom';
@@ -13,6 +13,7 @@ const mSTP = (state) => ({
 
 const mDTP = dispatch => ({
     changeFilter: (filter, value) => dispatch(changeFilter(filter, value)),
+    refreshFilter: () => dispatch(refreshFilter())
 });
 
 

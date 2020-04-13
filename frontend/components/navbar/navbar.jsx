@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import SearchbarFormContainer from '../searchbar/searchbar_form_container';
 
-// import SearchbarForm from '../searchbar/searchbar_form';
+const NavBar = ({ currentUser, logout, match: { path, isExact } }) => {
+    
+    function searchBar() {
+        if (path === '/' && isExact === false) {
+        return <div><SearchbarFormContainer /></div>
+         } else {return null}
+    }
 
-export default ({ currentUser, logout, match: { path, isExact } }) => {
+    
     const display = currentUser ? (
         <div className="loggednav">
             <div className="nav-left">
@@ -16,6 +23,8 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
                     <span>Add Me</span>
                 </Link>
             </div>
+
+            {searchBar()}
 
             <div className="loggednav-right">
                 <div className="greeting">
@@ -38,6 +47,8 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
                 </Link>
             </div>
 
+            {searchBar()}
+               
             <div className="notlogged-right">
            
                     <div id="navlink-login">
@@ -55,6 +66,7 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
         </div>
         );
 
+    
     const backgroundStyle = path === '/' && isExact === true ? { backgroundColor: 'transparent' } : {backgroundColor: '#FF003C'}
 
     const navbarStyles = {
@@ -83,9 +95,4 @@ export default ({ currentUser, logout, match: { path, isExact } }) => {
     );
 };
 
-{/* <Link style={{ textDecoration: 'none' }} to="/businesses/new">
-    <img id="bizbutton" src="/building-regular.svg" />
-    <span>Add Your Business</span>
-</Link> */}
-
-// {/* <span>Add me to your Business</span> */ }
+export default withRouter(NavBar);

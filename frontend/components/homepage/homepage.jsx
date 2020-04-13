@@ -24,6 +24,7 @@ class Homepage extends React.Component {
         for (let i = 0; i < arr.length; i++) {
             arr[i].addEventListener("animationend", fadeComplete, false);
         }
+        this.props.refreshFilter();
     };
 
     reroute(num) {
@@ -39,20 +40,21 @@ class Homepage extends React.Component {
     }
 
     handleCategoryChange(e) {
-        this.setState({ filterCategory: e.currentTarget.value });
+        e.preventDefault();
+
         this.props.changeFilter('filterCategory', this.state.filterCategory);
-        this.props.history.push('/businesses?query=$Restaurants')
+        this.props.history.push('/businesses');
     };
 
     handleDeliveryChange(e) {
         e.preventDefault();
-        this.setState({ filterDelivery: e.currentTarget.value });
+
         this.props.changeFilter('filterDelivery', this.state.filterDelivery);
-        this.props.history.push('/businesses?query=$Delivery')
+        this.props.history.push('/businesses');
     };
 
     render() {
-        const { filterCategory, filterDelivery} = this.state;
+        // const { filterCategory, filterDelivery} = this.state;
   
         return (
             <div className="homepage">

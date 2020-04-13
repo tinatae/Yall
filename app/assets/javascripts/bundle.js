@@ -323,7 +323,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _business_show_business_show_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./business_show/business_show_container */ "./frontend/components/business_show/business_show_container.js");
 /* harmony import */ var _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./homepage/homepage_container */ "./frontend/components/homepage/homepage_container.js");
 /* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
-/* harmony import */ var _credit_credit_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./credit/credit_container */ "./frontend/components/credit/credit_container.js");
+/* harmony import */ var _credit_credit_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./credit/credit_container */ "./frontend/components/credit/credit_container.js");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 
  // import GreetingContainer from './greeting/greeting_container';
@@ -372,7 +372,7 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/credits",
-    component: _credit_credit_container__WEBPACK_IMPORTED_MODULE_11__["default"]
+    component: _credit_credit_container__WEBPACK_IMPORTED_MODULE_9__["default"]
   }))));
 };
 
@@ -1897,7 +1897,7 @@ var mapOptions = {
     lat: 37.8206228,
     lng: -122.3194160
   },
-  zoom: 10
+  zoom: 9
 };
 
 var BusinessMap =
@@ -2584,13 +2584,10 @@ function (_React$Component) {
       showBusinesses: false
     };
     _this.handleOpenLogin = _this.handleOpenLogin.bind(_assertThisInitialized(_this));
-    _this.handleCloseLogin = _this.handleCloseLogin.bind(_assertThisInitialized(_this));
     _this.handleOpenHome = _this.handleOpenHome.bind(_assertThisInitialized(_this));
-    _this.handleCloseHome = _this.handleCloseHome.bind(_assertThisInitialized(_this));
     _this.handleOpenAdd = _this.handleOpenAdd.bind(_assertThisInitialized(_this));
-    _this.handleCloseAdd = _this.handleCloseAdd.bind(_assertThisInitialized(_this));
     _this.handleOpenBusinesses = _this.handleOpenBusinesses.bind(_assertThisInitialized(_this));
-    _this.handleCloseBusinesses = _this.handleCloseBusinesses.bind(_assertThisInitialized(_this));
+    _this.backToTop = _this.backToTop.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2600,18 +2597,9 @@ function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
-        _this2.setState({
+        _this2.state.showLogin === false ? _this2.setState({
           showLogin: true
-        });
-      };
-    }
-  }, {
-    key: "handleCloseLogin",
-    value: function handleCloseLogin(e) {
-      var _this3 = this;
-
-      return function (e) {
-        _this3.setState({
+        }) : _this2.setState({
           showLogin: false
         });
       };
@@ -2619,21 +2607,12 @@ function (_React$Component) {
   }, {
     key: "handleOpenHome",
     value: function handleOpenHome(e) {
-      var _this4 = this;
+      var _this3 = this;
 
       return function (e) {
-        _this4.setState({
+        _this3.state.showHome === false ? _this3.setState({
           showHome: true
-        });
-      };
-    }
-  }, {
-    key: "handleCloseHome",
-    value: function handleCloseHome(e) {
-      var _this5 = this;
-
-      return function (e) {
-        _this5.setState({
+        }) : _this3.setState({
           showHome: false
         });
       };
@@ -2641,43 +2620,32 @@ function (_React$Component) {
   }, {
     key: "handleOpenAdd",
     value: function handleOpenAdd(e) {
-      var _this6 = this;
+      var _this4 = this;
 
       return function (e) {
-        _this6.setState({
+        _this4.state.showAdd === false ? _this4.setState({
           showAdd: true
-        });
-      };
-    }
-  }, {
-    key: "handleCloseAdd",
-    value: function handleCloseAdd(e) {
-      var _this7 = this;
-
-      return function (e) {
-        _this7.setState({
+        }) : _this4.setState({
           showAdd: false
         });
       };
     }
   }, {
-    key: "handleOpenBusinesses",
-    value: function handleOpenBusinesses(e) {
-      var _this8 = this;
-
+    key: "backToTop",
+    value: function backToTop(e) {
       return function (e) {
-        _this8.setState({
-          showBusinesses: true
-        });
+        window.scrollTo(0, 0);
       };
     }
   }, {
-    key: "handleCloseBusinesses",
-    value: function handleCloseBusinesses(e) {
-      var _this9 = this;
+    key: "handleOpenBusinesses",
+    value: function handleOpenBusinesses(e) {
+      var _this5 = this;
 
       return function (e) {
-        _this9.setState({
+        _this5.state.showBusinesses === false ? _this5.setState({
+          showBusinesses: true
+        }) : _this5.setState({
           showBusinesses: false
         });
       };
@@ -2687,41 +2655,157 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "credits"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.formType), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "So first things first: I love an Easter Egg. That said, I am also of the mind that many times artists are underpaid and go unrecognized for their talent and hard work."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "So while all of these photos for this project were taken for free from unsplash.com, I just thought I'd make a little credits page in case anyone was interested in any of the images and/or reaching out to the individual artists themselves"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "They are organized by Component", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.formType), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "So first things first: I love an Easter Egg. That said, I am also of the mind that many times artists are underpaid and go unrecognized for their talent and hard work."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "So while all of these photos for this project were taken for free from unsplash.com, I just thought I'd make a little credits page in case anyone was interested in any of the images and/or reaching out to the individual artists themselves"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "They are organized by Page", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-grin-alt"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         onClick: this.handleOpenLogin()
-      }, "Login/Signup Form", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, "Login / Signup", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-palette"
       })), this.state.showLogin && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "section"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Scattered Ice Creams"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Orange/Turquoise Shot Glasses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.handleCloseLogin()
-      }, "Close Section")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Scattered Ice Creams"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Benjam\xEDn Hazael Rojas Garc\xEDa")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Orange/Turquoise Shot Glasses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ram HO"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         onClick: this.handleOpenHome()
-      }, "Homepage", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, "Home Page", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-palette"
       })), this.state.showHome && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "section"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Big Spread of Espresso Drinks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Floral Sashimi Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dining Hall with Asian Lights and Noodles"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Smoky Cocktail in Tumbler"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.handleCloseHome()
-      }, "Close Section")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Big Spread of Espresso Drinks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cyril Saulnier")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Floral Sashimi Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Augustine Fou")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dining Hall with Asian Lights and Noodles"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hien Nguyen")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Smoky Cocktail in Tumbler"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Miguel Maldonado"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         onClick: this.handleOpenAdd()
-      }, "'Add Your Business' Form", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, "'Add Your Business'", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-palette"
       })), this.state.showAdd && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "section"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Yellow Chair & Bistro Table"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "3 Vertical Espresso Drinks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.handleCloseAdd()
-      }, "Close Section")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Yellow Chair & Bistro Table"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Kenan S\xFCleymano\u011Flu")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "3 Vertical Espresso Drinks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Nathan Dumlao"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         onClick: this.handleOpenBusinesses()
-      }, "All the Little Businesses", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, "Business Profiles", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-palette"
       })), this.state.showBusinesses && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "section"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sweet Baby Cakes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dozens of Donuts on Trays"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cupcakes in a White Box"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hands holding Pastry"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Quarter-section of Salami Sandwich"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "White Whale Saloon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Empty Wooden Dining Room with vintage photos on walls"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Colorful wood-railed bar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sugar-rimmed Martini Glass with Red Liquid"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lone Beer on Wooden Bar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Hola Ola"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Big Spread of Espresso Drinks (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "View of Ocean through Tall Vertical Windows and Backs of People"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Simple shot of Healthy Burger"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bowl of Guacamole & Chips with Olives"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Telegraph Place"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Long dining room table, empty with pink theme"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bowl of halved-shrimps and pasta noodles in white dish"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Slice of steak"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Plated Carrots"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Tumbler Room"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Smoky Cocktail in Tumbler (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Red Velvet Lounge Sofas and Bar Tables"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Serving tray of chilled Martini Glasses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Amber-colored cocktail with garnishes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Eastern Market Hall"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dining Hall with Asian Lights and Noodles (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Foamy Drink in Wine Glass with small bowl of snacks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Three shallow trays of dumplings"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Half-drunk glass with straw in empty bar corner"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sugar Shoppe"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Layered chocolate pudding dessert in goblet"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Three hands holding ice cream cones"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dog licking two-scoop ice cream cone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Raspberry popsicle bars on white marble top"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Katagama"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Floral Sashimi Plate (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sashimi with Vegetables in Black Bowl"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sushi Chef behind Counter"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Mixed Sushi Plate with Big Cuts of Fish and Seafood"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Brasserie Belmonde"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Side View of Halved Cheesy Pocket"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Grilled fish steak on plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "4 Fish on Grill"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cocktail Oysters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Chococat Cafe"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Rosetta Latte Art on Yellow Saucer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Rosetta Matcha Latte Art"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Seahorse Latte Art"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bagel Sandwich on Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Green Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pea, Sprout Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Avocado Burger on Plate with Veggies"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pesto Pasta Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Orange Noodles Tossed with Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Lucia"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Yellow Cocktail with Lemon Wedge & Cloves"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tall Column Bar with Vertical Lights"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Small Burger with Chips and Orange Drink in Wine Glass"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Red Cocktail in Coupe Glass")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.handleCloseBusinesses()
-      }, "Close Section")));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sweet Baby Cakes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dozens of Donuts on Trays"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Elisheva Gohar")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cupcakes in a White Box"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Persnickety Prints")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hands holding Pastry"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ham Kris")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Quarter-section of Salami Sandwich"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Eaters Collective"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "White Whale Saloon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Empty Wooden Dining Room with vintage photos on walls"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Austin Gardner")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Colorful wood-railed bar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jared Burris")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sugar-rimmed Martini Glass with Red Liquid"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Oleh Moskaliuk")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lone Beer on Wooden Bar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "mnm.all"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Hola Ola"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Big Spread of Espresso Drinks (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cyril Saulnier")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "View of Ocean through Tall Vertical Windows and Backs of People"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sung Jin Cho")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Simple shot of Healthy Burger"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jiroe")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bowl of Guacamole & Chips with Olives"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ronise daluz"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Telegraph Place"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Long dining room table, empty with pink theme"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Juliette F")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bowl of halved-shrimps and pasta noodles in white dish"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "UY VO")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Slice of steak"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jos\xE9 Ignacio Pomp\xE9")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Plated Carrots"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Adam Jaime"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Tumbler Room"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Smoky Cocktail in Tumbler (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Miguel Maldonado")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Red Velvet Lounge Sofas and Bar Tables"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Taylor Simpson")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Serving tray of chilled Martini Glasses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Olivier Rouge")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Amber-colored cocktail with garnishes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ash Edmonds"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Eastern Market Hall"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dining Hall with Asian Lights and Noodles (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hien Nguyen")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Foamy Drink in Wine Glass with small bowl of snacks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jakub Dziubak")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Three shallow trays of dumplings"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Abhishek Sanwa Limbu")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Half-drunk glass with straw in empty bar corner"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sergey Isakhanyan"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sugar Shoppe"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Layered chocolate pudding dessert in goblet"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Emile Mbunzama")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Three hands holding ice cream cones"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Mark Cruz")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dog licking two-scoop ice cream cone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Christian Bowen")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Raspberry popsicle bars on white marble top"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Daniel \xD6berg"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Katagama"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Floral Sashimi Plate (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Augustine Fou")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sashimi with Vegetables in Black Bowl"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jesse Ballantyne")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sushi Chef behind Counter"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thomas Marban")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Mixed Sushi Plate with Big Cuts of Fish and Seafood"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cloris Ying"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Brasserie Belmonde"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Side View of Halved Cheesy Pocket"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Roberto Valdivia")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Grilled fish steak on plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sander Dalhuisen")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "4 Fish on Grill"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Clint Bustrillos")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cocktail Oysters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Laura Peruchi"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Chococat Cafe"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Rosetta Latte Art on Yellow Saucer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cristian Cristian")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Rosetta Matcha Latte Art"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jason Leung")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Seahorse Latte Art"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Mazen Ir")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bagel Sandwich on Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Christian Kaindl"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Green Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pea, Sprout Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jonathan Farber")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Avocado Burger on Plate with Veggies"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Filip Mishevski")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pesto Pasta Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Eaters Collective")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Orange Noodles Tossed with Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Toa Heftiba"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Lucia"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Yellow Cocktail with Lemon Wedge & Cloves"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pushpak Dsilva")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tall Column Bar with Vertical Lights"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "DeMorris Byrd")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Small Burger with Chips and Orange Drink in Wine Glass"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Gabrielle Cepella")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Red Cocktail in Coupe Glass"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Nikita Tikhomirov"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Squash Blossom"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Diamond Patterned Coffee Cups"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Nathan Dumlao")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Muffin, Coffee, Cactus"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Robert Bye")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Orange Furnished Cafe Environment"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sebastian Schuppik")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Many Cactii against window"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tiplada Mekvisan")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.backToTop()
+      }, "Back To Top", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-arrow-up"
+      }))));
     }
   }]);
 
@@ -2831,6 +2915,8 @@ function (_React$Component) {
       for (var i = 0; i < arr.length; i++) {
         arr[i].addEventListener("animationend", fadeComplete, false);
       }
+
+      this.props.refreshFilter();
     }
   }, {
     key: "reroute",
@@ -2853,28 +2939,21 @@ function (_React$Component) {
   }, {
     key: "handleCategoryChange",
     value: function handleCategoryChange(e) {
-      this.setState({
-        filterCategory: e.currentTarget.value
-      });
+      e.preventDefault();
       this.props.changeFilter('filterCategory', this.state.filterCategory);
-      this.props.history.push('/businesses?query=$Restaurants');
+      this.props.history.push('/businesses');
     }
   }, {
     key: "handleDeliveryChange",
     value: function handleDeliveryChange(e) {
       e.preventDefault();
-      this.setState({
-        filterDelivery: e.currentTarget.value
-      });
       this.props.changeFilter('filterDelivery', this.state.filterDelivery);
-      this.props.history.push('/businesses?query=$Delivery');
+      this.props.history.push('/businesses');
     }
   }, {
     key: "render",
     value: function render() {
-      var _this$state = this.state,
-          filterCategory = _this$state.filterCategory,
-          filterDelivery = _this$state.filterDelivery;
+      // const { filterCategory, filterDelivery} = this.state;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "homepage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2972,6 +3051,9 @@ var mDTP = function mDTP(dispatch) {
   return {
     changeFilter: function changeFilter(filter, value) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_2__["changeFilter"])(filter, value));
+    },
+    refreshFilter: function refreshFilter() {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_2__["refreshFilter"])());
     }
   };
 };
@@ -2992,6 +3074,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../searchbar/searchbar_form_container */ "./frontend/components/searchbar/searchbar_form_container.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2999,14 +3082,24 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
- // import SearchbarForm from '../searchbar/searchbar_form';
 
-/* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
+
+
+var NavBar = function NavBar(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout,
       _ref$match = _ref.match,
       path = _ref$match.path,
       isExact = _ref$match.isExact;
+
+  function searchBar() {
+    if (path === '/' && isExact === false) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+    } else {
+      return null;
+    }
+  }
+
   var display = currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3027,7 +3120,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     to: "/businesses/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "far fa-sun"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Me"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Me"))), searchBar(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav-right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "greeting"
@@ -3058,7 +3151,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     to: "/businesses/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "far fa-sun"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Me"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Me"))), searchBar(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "navlink-login"
@@ -3099,13 +3192,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     style: navbarStyles,
     className: "navbar"
   }, hideLogo, display)));
-});
-{}
-/* <Link style={{ textDecoration: 'none' }} to="/businesses/new">
-   <img id="bizbutton" src="/building-regular.svg" />
-   <span>Add Your Business</span>
-</Link> */
-// {/* <span>Add me to your Business</span> */ }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(NavBar));
 
 /***/ }),
 
@@ -3574,7 +3663,6 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var query = new URLSearchParams(this.props.location.search).get("query");
-      console.log(query);
 
       if (query) {
         this.props.updateFilter('searchQuery', query);
@@ -3758,11 +3846,15 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
 
-      if (this.state.searchCity !== undefined) {
-        this.props.changeFilter('searchCity', this.state.searchCity);
-        return this.props.history.push("/businesses?query=".concat(this.state.searchQuery));
-      } else {
-        return this.props.history.push("/businesses?query=".concat(this.state.searchQuery));
+      if (this.props.location.pathname !== '/businesses' && this.props.location.pathname !== '/credits') {
+        if (this.state.searchCity !== undefined) {
+          this.props.changeFilter('searchCity', this.state.searchCity);
+          return this.props.history.push("/businesses?query=".concat(this.state.searchQuery));
+        } else {
+          return this.props.history.push("/businesses?query=".concat(this.state.searchQuery));
+        }
+      } else if (this.props.location.pathname === '/businesses') {
+        return this.props.updateFilter('searchQuery', this.state.searchQuery);
       }
     }
   }, {
@@ -3771,32 +3863,55 @@ function (_React$Component) {
       var _this$state = this.state,
           searchQuery = _this$state.searchQuery,
           searchCity = _this$state.searchCity;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "searchbar-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "searchbar-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "subsearch1"
-      }, "Find", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        placeholder: "  So what are we looking for..",
-        value: searchQuery,
-        onChange: this.update('searchQuery')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "subsearch2"
-      }, "\u2003Near", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        placeholder: "San Francisco Bay Area",
-        value: searchCity,
-        onChange: this.update('searchCity')
-      }), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "white-magnifying-glass",
-        type: "image",
-        src: "/white-magnifying-glass.svg",
-        alt: "Submit Query"
-      })))));
+
+      if (this.props.location.pathname === "/credits") {
+        return null;
+      } else if (this.props.location.pathname === "/businesses" || this.props.location.pathname !== "/") {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "navsearch"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          onSubmit: this.handleSubmit
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "navsearch1"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          placeholder: "  So what are we looking for..",
+          value: searchQuery,
+          onChange: this.update('searchQuery')
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          id: "white-magnifying-glass",
+          type: "image",
+          src: "/white-magnifying-glass.svg",
+          alt: "Submit Query"
+        }))));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          onSubmit: this.handleSubmit
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "searchbar-form"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "searchbar-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "subsearch1"
+        }, "Find", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          placeholder: "  So what are we looking for..",
+          value: searchQuery,
+          onChange: this.update('searchQuery')
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "subsearch2"
+        }, "\u2003Near", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          placeholder: "San Francisco Bay Area",
+          value: searchCity,
+          onChange: this.update('searchCity')
+        }), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          id: "white-magnifying-glass",
+          type: "image",
+          src: "/white-magnifying-glass.svg",
+          alt: "Submit Query"
+        })))));
+      }
     }
   }]);
 
@@ -3847,6 +3962,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _searchbar_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./searchbar_form */ "./frontend/components/searchbar/searchbar_form.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
+
 
 
 
@@ -3867,6 +3984,12 @@ var mDTP = function mDTP(dispatch) {
     },
     updateFilter: function updateFilter(filter, value) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_4__["updateFilter"])(filter, value));
+    },
+    refreshFilter: function refreshFilter() {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_4__["refreshFilter"])());
+    },
+    fetchBusinesses: function fetchBusinesses() {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_5__["fetchBusinesses"])());
     }
   };
 };

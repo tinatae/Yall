@@ -10,7 +10,7 @@ class Search extends React.Component {
 
    componentDidMount() {
         const query = new URLSearchParams(this.props.location.search).get("query");
-        console.log(query)
+ 
         if (query) {
             this.props.updateFilter('searchQuery', query);
         }

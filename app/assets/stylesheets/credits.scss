@@ -4,10 +4,21 @@
 
 .credits h2 {
     text-align: center;
+    font-size: 35px;
+    font-family: Brush Script Std;
+    color: black;
+    //  text-shadow:
+    //     -1px -1px 0 red,
+    //     1px -1px 0 red,
+    //     -1px 1px 0 red,
+    //     1px 1px 0 red;
 }
 
 .credits h3 {
     text-align: center;
+    color: darkblue;
+    font-size: 28px;
+    font-family: Brush Script Std;
 }
 
 
@@ -19,14 +30,15 @@
     width: 150px;
     border-radius: 3px;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     border: 1px solid blue;
     color: blue;
 }
 
 .credits button:hover {
-    border: 1px solid red;
-    color: red;
+    border: 1px solid purple;
+    color: purple;
 }
 
 .credits .section {
@@ -34,4 +46,15 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+}
+
+.credits #pair {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    justify-content: center;
+}
+
+.credits #pair div {
+    padding: 5px;
 }

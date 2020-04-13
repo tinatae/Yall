@@ -667,17 +667,71 @@ business12.photos.attach(io: file46, filename: 'lucia2.jpg')
 business12.photos.attach(io: file47, filename: 'lucia3.jpg')
 business12.photos.attach(io: file48, filename: 'lucia4.jpg')
 
-business13 = Business.create!(
+# business13 = Business.create!(
+#     name: "Squash Blossom",
+#     category: "Coffee & Tea",
+#     lat: 37.8468400,
+#     lng: -122.2909785,
+#     website: "http://squashblossom.com",
+#     phonenumber: "5107782747",
+#     address1: "946 65th St",
+#     city: "Emeryville",
+#     state: "CA",
+#     zipcode: 94608,
+#     pricepoint: 2, 
+#     monopen: 7,
+#     monclose: 19,
+#     tuesopen: 7,
+#     tuesclose: 19,
+#     wedopen: 7,
+#     wedclose: 19,
+#     thursopen: 7,
+#     thursclose: 19,  
+#     friopen: 7,
+#     friclose: 19,
+#     satopen: 9,
+#     satclose: 19,
+#     sunopen: 9,
+#     sunclose: 19,
+#     delivery: "No",
+#     takeout: "Yes",
+#     vegetarian: "Yes",
+#     vegan: "Yes",
+#     takesreservation: "No",
+#     creditcard: "Yes",
+#     googlepay: "Yes",
+#     applepay: "Yes",
+#     parking: "Street", 
+#     wheelchair: "Yes",
+#     goodforkids: "Yes",
+#     goodforgroups: "Yes",
+#     outdoor: "Yes",
+#     wifi: "Yes",
+#     dogsallowed: "Yes",
+#     genderneutralrestroom: "Yes",
+# )
+
+# file49 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia1.jpg')
+# file50 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia2.jpg')
+# file51 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia3.jpg')
+# file52 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia4.jpg')
+
+# business13.photos.attach(io: file49, filename: 'lucia1.jpg')
+# business13.photos.attach(io: file50, filename: 'lucia2.jpg')
+# business13.photos.attach(io: file51, filename: 'lucia3.jpg')
+# business13.photos.attach(io: file52, filename: 'lucia4.jpg')
+
+business14 = Business.create!(
     name: "Squash Blossom",
     category: "Coffee & Tea",
-    lat: 37.8468400,
-    lng: -122.2909785,
-    website: "http://squashblossom.com",
-    phonenumber: "5107782747",
-    address1: "946 65th St",
-    city: "Emeryville",
+    lat: 37.8985052,
+    lng: -122.0619337,
+    website: "http://squashblossomwc.com",
+    phonenumber: "9257782747",
+    address1: "482 Locust St",
+    city: "Walnut Creek",
     state: "CA",
-    zipcode: 94608,
+    zipcode: 94596,
     pricepoint: 2, 
     monopen: 7,
     monclose: 19,
@@ -688,38 +742,38 @@ business13 = Business.create!(
     thursopen: 7,
     thursclose: 19,  
     friopen: 7,
-    friclose: 19,
+    friclose: 22,
     satopen: 9,
-    satclose: 19,
+    satclose: 22,
     sunopen: 9,
-    sunclose: 19,
+    sunclose: 20,
     delivery: "No",
     takeout: "Yes",
     vegetarian: "Yes",
     vegan: "Yes",
     takesreservation: "No",
     creditcard: "Yes",
-    googlepay: "Yes",
-    applepay: "Yes",
+    googlepay: "No",
+    applepay: "No",
     parking: "Street", 
     wheelchair: "Yes",
     goodforkids: "Yes",
     goodforgroups: "Yes",
     outdoor: "Yes",
     wifi: "Yes",
-    dogsallowed: "Yes",
-    genderneutralrestroom: "Yes",
+    dogsallowed: "No",
+    genderneutralrestroom: "No",
 )
 
-file49 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia1.jpg')
-file50 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia2.jpg')
-file51 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia3.jpg')
-file52 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia4.jpg')
+file53 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/squash1.jpg')
+file54 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/squash2.jpg')
+file55 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/squash3.jpg')
+file56 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/squash4.jpg')
 
-business13.photos.attach(io: file49, filename: 'lucia1.jpg')
-business13.photos.attach(io: file50, filename: 'lucia2.jpg')
-business13.photos.attach(io: file51, filename: 'lucia3.jpg')
-business13.photos.attach(io: file52, filename: 'lucia4.jpg')
+business14.photos.attach(io: file53, filename: 'squash1.jpg')
+business14.photos.attach(io: file54, filename: 'squash2.jpg')
+business14.photos.attach(io: file55, filename: 'squash3.jpg')
+business14.photos.attach(io: file56, filename: 'squash4.jpg')
 
 
 

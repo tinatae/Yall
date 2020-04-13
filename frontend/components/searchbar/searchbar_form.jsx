@@ -20,30 +20,47 @@ class SearchbarForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        if (this.state.searchCity !== undefined) {
-            this.props.changeFilter('searchCity', this.state.searchCity)
-            return this.props.history.push(`/businesses?query=${this.state.searchQuery}`)
-           } else { 
-            return this.props.history.push(`/businesses?query=${this.state.searchQuery}`)
-           }
+        if (this.props.location.pathname !== '/businesses' && this.props.location.pathname !== '/credits') {
+            if (this.state.searchCity !== undefined) {
+                this.props.changeFilter('searchCity', this.state.searchCity)
+                return this.props.history.push(`/businesses?query=${this.state.searchQuery}`)
+               } else { 
+                return this.props.history.push(`/businesses?query=${this.state.searchQuery}`)
+               }
+        } else if (this.props.location.pathname === '/businesses') {
+            return this.props.updateFilter('searchQuery', this.state.searchQuery)    
+        }
     };
 
     render() {
         const {searchQuery, searchCity} = this.state;
 
-        return (
-            <div>         
-                <form onSubmit={this.handleSubmit}>
-                    <div className="searchbar-form">
-                        <div id="searchbar-container">                 
-                            <div id="subsearch1">Find<input type="text" placeholder="  So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} /></div>        
-                            <div id="subsearch2">&emsp;Near<input type="text" placeholder="San Francisco Bay Area" value={searchCity} onChange={this.update('searchCity')} /> </div>                                          
-                        </div>
+        if (this.props.location.pathname === "/credits") {
+            return null
+        } else if (this.props.location.pathname === "/businesses" || this.props.location.pathname !== "/") {
+            return (
+                <div className="navsearch">
+                    <form onSubmit={this.handleSubmit}>
+                        <div id="navsearch1"><input type="text" placeholder="  So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} /></div>
                         <div><input id="white-magnifying-glass" type="image" src="/white-magnifying-glass.svg" alt="Submit Query" /></div>
-                    </div>
-                </form>        
-            </div>
-        )
+                    </form>
+                </div>
+            )
+        } else {
+            return (
+                <div>         
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="searchbar-form">
+                            <div id="searchbar-container">                 
+                                <div id="subsearch1">Find<input type="text" placeholder="  So what are we looking for.." value={searchQuery} onChange={this.update('searchQuery')} /></div>        
+                                <div id="subsearch2">&emsp;Near<input type="text" placeholder="San Francisco Bay Area" value={searchCity} onChange={this.update('searchCity')} /> </div>                                          
+                            </div>
+                            <div><input id="white-magnifying-glass" type="image" src="/white-magnifying-glass.svg" alt="Submit Query" /></div>
+                        </div>
+                    </form>        
+                </div>
+            )
+        }  
     };
 };
 
