@@ -18,23 +18,8 @@ class Api::BusinessesController < ApplicationController
     businesses = params[:filterCategory] == "All" ? businesses : businesses.where(category: params[:filterCategory])
 
     businesses = params[:filterOpenNow] == "Yes" ? businesses.open : businesses
- 
 
-    # if params[:filterOpenNow] == "Yes"
-    #   openhour = weekday + "open"
-    #   closehour = weekday + "close" 
-    #   currenthour = Time.now.hour
-    
-    #   # if params[:"#{openhour}"] < params[:"#{closehour}"]
-      
-    #   businesses = businesses.where("#{openhour} <= '#{currenthour}' and #{closehour} >= '#{currenthour}'")   
-     
-    #   # businesses = businesses.where("#{openhour} >= '?'", currenthour)      
-    # else
-    #   businesses
-    # end
-
-   
+    # businesses = params[:filterRating] == "go" ? businesses.select("businesses.*, reviews.*, AVG(reviews.rating) as average").joins('LEFT OUTER JOIN reviews on reviews.business_id = businesses.id').group('businesses.id, review.id').order('average desc') : businesses
 
     businesses = params[:filterTakeout] == "Yes" ? businesses.where(takeout: params[:filterTakeout]) : businesses
 

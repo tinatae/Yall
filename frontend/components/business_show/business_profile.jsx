@@ -23,8 +23,46 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
 
     const timeConversion = {
         0:"12:00 AM", 1:"1:00 AM", 2:"2:00 AM", 3:"3:00 AM", 4: "4:00 AM", 5:"5:00 AM", 6:"6:00 AM", 7:"7:00 AM", 8:"8:00 AM", 9:"9:00 AM", 10:"10:00 AM", 11:"11:00 AM", 12:"12:00 PM", 
-        13:"1:00 PM", 14:"2:00 PM", 15: "3:00 PM", 16:"4:00 PM", 17:"5:00 PM", 18:"6:00 PM", 19:"7:00 PM", 20:"8:00 PM", 21:"9:00 PM", 22:"10:00 PM", 23:"11:00 PM"
+        13:"1:00 PM", 14:"2:00 PM", 15: "3:00 PM", 16:"4:00 PM", 17:"5:00 PM", 18:"6:00 PM", 19:"7:00 PM", 20:"8:00 PM", 21:"9:00 PM", 22:"10:00 PM", 23:"11:00 PM",
+        24:"12:00 AM", 25:"1:00 AM", 26: "2:00 AM", 27:"3:00 AM", 28:"4:00 AM", 29:"5:00 AM", 30:"6:00 AM"
     };
+
+  const starTable = {
+    5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
+    4.5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
+    4: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
+    3.5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
+    3: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
+    2.5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
+    2: <span><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
+    1.5: <span><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
+    1: <span><i className="fas fa-star"></i></span>,
+    0.5: <span><i className="fas fa-star-half"></i></span>,
+  }
+
+  function bizStars(avg) {
+    if (avg === 5) {
+      return starTable[5]
+    } else if (avg >= 4.5) {
+      return starTable[4.5]
+    } else if (avg >= 4) {
+      return starTable[4]
+    } else if (avg >= 3.5) {
+      return starTable[3.5]
+    } else if (avg >= 3) {
+      return starTable[3]
+    } else if (avg >= 2.5) {
+      return starTable[2.5]
+    } else if (avg >= 2) {
+      return starTable[2]
+    } else if (avg >= 1.5) {
+      return starTable[1.5]
+    } else if (avg >= 1) {
+      return starTable[1]
+    } else if (avg >= 0.5) {
+      return starTable[0.5]
+    }
+  }
 
     return (
       <div className="profile">
@@ -36,8 +74,10 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
             <div id="bizname">{business.name}</div>
             <div id="bizrating-section">
               <span id="bizrating">
-                {business.average_rating ||
+                {bizStars(business.average_rating) ||
                   "No reviews yet. Be the first to write one!"}
+                {/* {business.average_rating ||
+                  "No reviews yet. Be the first to write one!"} */}
               </span>
               <span id="bizreviewcount">{business.reviewcount}</span>
             </div>

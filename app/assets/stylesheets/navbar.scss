@@ -70,6 +70,7 @@
 .loggednav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px;
 }
 
@@ -151,7 +152,8 @@
 }
 
 .navsearch #navsearch1 input {
-    width: 400px;
+    width: 250px;
     height: 30px;
     border-radius: 7px;
+    text-align: center;
 }

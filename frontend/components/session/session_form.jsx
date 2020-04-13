@@ -1,5 +1,7 @@
 import React from 'react';
-import { withRouter } from "react-router-dom";
+import { withRouter, 
+  // useHistory 
+} from "react-router-dom";
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -53,6 +55,8 @@ class SessionForm extends React.Component {
 
         this.props.processForm(demoUser)
         .then(() => this.props.history.push("/"))
+
+        // this.props.history.goBack()
     }
 
     renderErrors() {

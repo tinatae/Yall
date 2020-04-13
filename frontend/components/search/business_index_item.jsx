@@ -16,6 +16,46 @@ class BusinessIndexItem extends React.Component {
     render() {
         const { name, average_rating, category, dollarmaker, photoUrls, recentreview, reviewcount, phonenumber, address1, city } = this.props.business;
 
+        const starTable = {
+            5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
+            4.5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
+            4: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
+            3.5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
+            3: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
+            2.5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
+            2: <span><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
+            1.5: <span><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
+            1: <span><i className="fas fa-star"></i></span>,
+            0.5: <span><i className="fas fa-star-half"></i></span>,
+        }
+
+        function bizStars(avg) {
+
+            if (avg === 5) {
+                return starTable[5]
+            } else if (avg >= 4.5) {
+                return starTable[4.5]
+            } else if (avg >= 4) {
+                return starTable[4]
+            } else if (avg >= 3.5) {
+                return starTable[3.5]
+            } else if (avg >= 3) {
+                return starTable[3]
+            } else if (avg >= 2.5) {
+                return starTable[2.5]
+            } else if (avg >= 2) {
+                return starTable[2]
+            } else if (avg >= 1.5) {
+                return starTable[1.5]
+            } else if (avg >= 1) {
+                return starTable[1]
+            } else if (avg >= 0.5) {
+                return starTable[0.5]
+            // } else if (avg === null) {
+            //     return <div>No Reviews Yet</div>
+            }
+        }
+
         return (
             <div onClick={this.handleClick}>
                 <div className="index-item">
@@ -29,7 +69,8 @@ class BusinessIndexItem extends React.Component {
                                 <div id="name">{name}</div>
                              
                                 <div id="rating-block">
-                                    <span id="rating">{average_rating || 'No Reviews Yet'}</span>
+                                    <span id="rating">{bizStars(average_rating) || 'No Reviews Yet'}</span>
+                                    {/* <span id="rating">{average_rating || 'No Reviews Yet'}</span> */}
                                     <span id="reviewcount">{reviewcount}</span>
                                 </div>
                             

@@ -359,6 +359,26 @@ class Credit extends React.Component {
                                 </div>                          
                             </div>
 
+                            <h4>Pixel Point</h4>
+                            <div>
+                                <div id="pair">
+                                    <div>Cafe Environment with People</div>
+                                    <div>Wade Austin Ellis</div>
+                                </div>
+                                <div id="pair">
+                                    <div>Espresso Drinks & Plants</div>
+                                    <div>Nathan Dumlao</div>
+                                </div>
+                                <div id="pair">
+                                    <div>To-Go Sandwich</div>
+                                    <div>Pille-Riin Priske</div>
+                                </div>
+                                <div id="pair">
+                                    <div>Dog on Outdoor Porch</div>
+                                    <div>Ross Sokolovski</div>
+                                </div>                          
+                            </div>
+
                             <h4>Squash Blossom</h4>
                             <div>
                                 <div id="pair">

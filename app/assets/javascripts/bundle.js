@@ -833,53 +833,53 @@ function (_React$Component) {
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tuesday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "11 PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tuesday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Tuesday Open",
         value: tuesopen,
         onChange: this.update('tuesopen')
@@ -888,53 +888,53 @@ function (_React$Component) {
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wednesday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "11 PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wednesday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Wednesday Open",
         value: wedopen,
         onChange: this.update('wedopen')
@@ -943,53 +943,53 @@ function (_React$Component) {
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thursday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "11 PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thursday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Thursday Open",
         value: thursopen,
         onChange: this.update('thursopen')
@@ -998,53 +998,53 @@ function (_React$Component) {
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Friday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "11 PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Friday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Friday Open",
         value: friopen,
         onChange: this.update('friopen')
@@ -1053,53 +1053,53 @@ function (_React$Component) {
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Saturday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "11 PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Saturday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Saturday Open",
         value: satopen,
         onChange: this.update('satopen')
@@ -1108,53 +1108,53 @@ function (_React$Component) {
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sunday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "11 PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sunday Open:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Sunday Open",
         value: sunopen,
         onChange: this.update('sunopen')
@@ -1163,53 +1163,53 @@ function (_React$Component) {
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "11 PM")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bizhours-grid2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Monday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Monday Close",
@@ -1219,54 +1219,54 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "24"
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "25"
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "26"
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "27"
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "28"
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "29"
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "30"
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tuesday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "11 PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tuesday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "tuesday Close",
         value: tuesclose,
         onChange: this.update('tuesclose')
@@ -1274,54 +1274,54 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "24"
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "25"
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "26"
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "27"
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "28"
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "29"
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "30"
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wednesday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "11 PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wednesday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Wednesday Close",
         value: wedclose,
         onChange: this.update('wedclose')
@@ -1329,54 +1329,54 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "24"
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "25"
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "26"
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "27"
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "28"
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "29"
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "30"
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thursday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "11 PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thursday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Thursday Close",
         value: thursclose,
         onChange: this.update('thursclose')
@@ -1384,54 +1384,54 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "24"
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "25"
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "26"
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "27"
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "28"
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "29"
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "30"
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Friday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "11 PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Friday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Friday Close",
         value: friclose,
         onChange: this.update('friclose')
@@ -1439,54 +1439,54 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "24"
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "25"
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "26"
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "27"
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "28"
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "29"
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "30"
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Saturday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "11 PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Saturday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Saturday Close",
         value: satclose,
         onChange: this.update('satclose')
@@ -1494,54 +1494,54 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "24"
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "25"
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "26"
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "27"
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "28"
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "29"
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "30"
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sunday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "11 PM"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sunday Close:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Sunday Close",
         value: sunclose,
         onChange: this.update('sunclose')
@@ -1549,54 +1549,54 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "0"
-      }, "12AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "1"
-      }, "1AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "2"
-      }, "2AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "3"
-      }, "3AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "4"
-      }, "4AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "5"
-      }, "5AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "6"
-      }, "6AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "24"
+      }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "25"
+      }, "1 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "26"
+      }, "2 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "27"
+      }, "3 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "28"
+      }, "4 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "29"
+      }, "5 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "30"
+      }, "6 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "7"
-      }, "7AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "8"
-      }, "8AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "9"
-      }, "9AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
-      }, "10AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "11"
-      }, "11AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "11 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "12PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "12 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "13"
-      }, "1PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "1 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "14"
-      }, "2PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "2 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "15"
-      }, "3PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "3 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "16"
-      }, "4PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "4 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "17"
-      }, "5PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "5 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "18"
-      }, "6PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "6 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "19"
-      }, "7PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "7 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "20"
-      }, "8PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "8 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "21"
-      }, "9PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "9 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "22"
-      }, "10PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "10 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "23"
-      }, "11PM"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Services & Amenities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "11 PM"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Services & Amenities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "amenities"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "checkboxes"
@@ -2085,8 +2085,112 @@ var BusinessProfile = function BusinessProfile(_ref) {
     20: "8:00 PM",
     21: "9:00 PM",
     22: "10:00 PM",
-    23: "11:00 PM"
+    23: "11:00 PM",
+    24: "12:00 AM",
+    25: "1:00 AM",
+    26: "2:00 AM",
+    27: "3:00 AM",
+    28: "4:00 AM",
+    29: "5:00 AM",
+    30: "6:00 AM"
   };
+  var starTable = {
+    5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    4.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    })),
+    4: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    3.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    })),
+    3: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    2.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    })),
+    2: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    1.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    })),
+    1: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    0.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    }))
+  };
+
+  function bizStars(avg) {
+    if (avg === 5) {
+      return starTable[5];
+    } else if (avg >= 4.5) {
+      return starTable[4.5];
+    } else if (avg >= 4) {
+      return starTable[4];
+    } else if (avg >= 3.5) {
+      return starTable[3.5];
+    } else if (avg >= 3) {
+      return starTable[3];
+    } else if (avg >= 2.5) {
+      return starTable[2.5];
+    } else if (avg >= 2) {
+      return starTable[2];
+    } else if (avg >= 1.5) {
+      return starTable[1.5];
+    } else if (avg >= 1) {
+      return starTable[1];
+    } else if (avg >= 0.5) {
+      return starTable[0.5];
+    }
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2103,7 +2207,7 @@ var BusinessProfile = function BusinessProfile(_ref) {
     id: "bizrating-section"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizrating"
-  }, business.average_rating || "No reviews yet. Be the first to write one!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, bizStars(business.average_rating) || "No reviews yet. Be the first to write one!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizreviewcount"
   }, business.reviewcount)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizpricepoint"
@@ -2493,14 +2597,111 @@ __webpack_require__.r(__webpack_exports__);
 var Review = function Review(_ref) {
   var review = _ref.review,
       author = _ref.author;
-  var starmaker = review.starmaker,
-      body = review.body,
+  var body = review.body,
+      rating = review.rating,
       created_at = review.created_at;
   var reviewDate = new Date(created_at).toLocaleDateString("en-US", {
     year: "2-digit",
     month: "2-digit",
     day: "2-digit"
   }); // const reviewTime = new Date(created_at).toLocaleTimeString();
+
+  var starTable = {
+    5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    4.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    })),
+    4: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    3.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    })),
+    3: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    2.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    })),
+    2: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    1.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    })),
+    1: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    0.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    }))
+  };
+
+  function bizStars(avg) {
+    if (avg === 5) {
+      return starTable[5];
+    } else if (avg >= 4.5) {
+      return starTable[4.5];
+    } else if (avg >= 4) {
+      return starTable[4];
+    } else if (avg >= 3.5) {
+      return starTable[3.5];
+    } else if (avg >= 3) {
+      return starTable[3];
+    } else if (avg >= 2.5) {
+      return starTable[2.5];
+    } else if (avg >= 2) {
+      return starTable[2];
+    } else if (avg >= 1.5) {
+      return starTable[1.5];
+    } else if (avg >= 1) {
+      return starTable[1];
+    } else if (avg >= 0.5) {
+      return starTable[0.5];
+    }
+  }
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "reviews-section"
@@ -2516,7 +2717,7 @@ var Review = function Review(_ref) {
     id: "stars-and-date"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "stars"
-  }, starmaker), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, bizStars(rating)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "created_at"
   }, reviewDate)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "comment"
@@ -2793,7 +2994,15 @@ function (_React$Component) {
         id: "pair"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Small Burger with Chips and Orange Drink in Wine Glass"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Gabrielle Cepella")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Red Cocktail in Coupe Glass"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Nikita Tikhomirov"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Squash Blossom"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Red Cocktail in Coupe Glass"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Nikita Tikhomirov"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Pixel Point"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cafe Environment with People"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wade Austin Ellis")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Espresso Drinks & Plants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Nathan Dumlao")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "To-Go Sandwich"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pille-Riin Priske")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dog on Outdoor Porch"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ross Sokolovski"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Squash Blossom"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Diamond Patterned Coffee Cups"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Nathan Dumlao")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
@@ -3291,7 +3500,18 @@ var BusinessIndex = function BusinessIndex(_ref) {
       searchQuery = _ref.searchQuery,
       updateFilter = _ref.updateFilter,
       clearFilter = _ref.clearFilter;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "BEST IN TOWN"), businesses.map(function (business) {
+
+  function noBusinesses() {
+    if (businesses.length === 0) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "no-biz-message"
+      }, "Sorry, we could not find any businesses that match your query");
+    } else {
+      return null;
+    }
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "BEST IN TOWN"), noBusinesses(), businesses.map(function (business) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
       searchQuery: searchQuery,
       updateFilter: updateFilter,
@@ -3383,6 +3603,104 @@ function (_React$Component) {
           phonenumber = _this$props$business.phonenumber,
           address1 = _this$props$business.address1,
           city = _this$props$business.city;
+      var starTable = {
+        5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        4.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        })),
+        4: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        3.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        })),
+        3: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        2.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        })),
+        2: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        1.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        })),
+        1: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        0.5: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        }))
+      };
+
+      function bizStars(avg) {
+        if (avg === 5) {
+          return starTable[5];
+        } else if (avg >= 4.5) {
+          return starTable[4.5];
+        } else if (avg >= 4) {
+          return starTable[4];
+        } else if (avg >= 3.5) {
+          return starTable[3.5];
+        } else if (avg >= 3) {
+          return starTable[3];
+        } else if (avg >= 2.5) {
+          return starTable[2.5];
+        } else if (avg >= 2) {
+          return starTable[2];
+        } else if (avg >= 1.5) {
+          return starTable[1.5];
+        } else if (avg >= 1) {
+          return starTable[1];
+        } else if (avg >= 0.5) {
+          return starTable[0.5]; // } else if (avg === null) {
+          //     return <div>No Reviews Yet</div>
+        }
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.handleClick
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3403,7 +3721,7 @@ function (_React$Component) {
         id: "rating-block"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "rating"
-      }, average_rating || 'No Reviews Yet'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, bizStars(average_rating) || 'No Reviews Yet'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "reviewcount"
       }, reviewcount)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pricepoint-block"
@@ -3463,7 +3781,10 @@ var handleOpenNow = function handleOpenNow(filter, updateFilter) {
   return function (e) {
     return updateFilter(filter, e.currentTarget.value);
   };
-};
+}; // const handleRatingChange= (filter, updateFilter) => e => (
+//     updateFilter(filter, e.currentTarget.value)
+// );
+
 
 var handleDeliveryChange = function handleDeliveryChange(filter, updateFilter) {
   return function (e) {
@@ -3571,41 +3892,7 @@ var FilterForm = function FilterForm(_ref) {
   }, "Clear All Filters")))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (FilterForm); // const openNow = (filter, value) => (dispatch, getState) => {
-//     dispatch(updateFilter(filter, value)};
-//     c
-// const openNow() {
-//     const dayOfWeek = { 0: "sun", 1: "mon", 2: "tues", 3: "wed", 4: "thurs", 5: "fri", 6: "sat" }
-//     const weekdayNumber = new Date().getUTCDay();
-//     const weekday = dayOfWeek[weekdayNumber];
-//     const openhour = weekday.concat("open");
-//     const openhourapx = weekday.concat("openend");
-//     const closehour = weekday.concat("close");
-//     const closehourapx = weekday.concat("close");
-// #     if self[openhourapx] == "AM" && self[closehourapx] == "AM"
-// #         return "Yes" if (self[openhour]..self[closehour]).include ? (Time.now.hour)
-// #     elsif self[openhourapx] == "PM" && self[closehourapx] == "PM"
-// #         self[openhour] += 12
-// #         self[closehour] += 12
-// #         return "Yes" if (self[openhour]..self[closehour]).include ? (Time.now.hour)
-// #     elsif self[openhourapx] == "AM" && self[closehourapx] == "PM"
-// #         self[closehour] += 12
-// #         return "Yes" if (self[openhour]..self[closehour]).include ? (Time.now.hour)
-// #     elsif self[openhourapx] == "PM" && self[closehourapx] == "AM"
-// #         if self[openhour] != 12
-// #             self[openhour] += 12
-// #         end
-// #         if Time.now.hour >= 12
-// #             return "Yes" if Time.now.hour > self[openhour]
-// #         elsif Time.now.hour < 12
-// #             return "Yes" if Time.now.hour < self[closehour]
-// #         end
-// #     end
-// #     "No"
-// # end
-// return fetchBusinesses(getState().ui.filters)(dispatch)
-// }
-// const handleRatingChange = (filter, updateFilter) => e => (
+/* harmony default export */ __webpack_exports__["default"] = (FilterForm); // const handleRatingChange = (filter, updateFilter) => e => (
 //     updateFilter(filter, e.currentTarget.value)
 // );
 
@@ -4144,7 +4431,7 @@ function (_React$Component) {
       };
       this.props.processForm(demoUser).then(function () {
         return _this3.props.history.push("/");
-      });
+      }); // this.props.history.goBack()
     }
   }, {
     key: "renderErrors",

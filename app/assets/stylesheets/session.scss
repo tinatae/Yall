@@ -72,9 +72,11 @@
 
 .session-form-button input:hover {
     background-color: #0E87FF;
+    // color: gold;
     color: white;
     font-weight: 700;
-    border: 1px solid white;
+    border: 1px solid red;
+    // border: 1px solid white;
 }
 
 #or {
@@ -88,20 +90,28 @@
 }
 
 .alt-session-form-button button:hover {
-    color: #0E87FF;
-    box-shadow: 0 0 50px #0E87FF;
-    border: 1px solid #0E87FF;
+    // color: #0E87FF;
+    // border: 1px solid #0E87FF;
+    color: white;
+    background-color: rgb(0, 135, 121);
+    font-weight: 700;
+    border: 1px solid orange;
 }
 
 #demo-button {
+    margin-top: 10px;
     color: darkblue;
     border: 1px solid darkblue;
 }
 
 #demo-button:hover {
-    color: #0E87FF;
-    box-shadow: 0 0 50px #0E87FF;
-    border: 1px solid #0E87FF;
+    // color: #0E87FF;
+    // border: 1px solid #0E87FF;
+    color: white;
+    background-color: rgb(0, 135, 121);
+    font-weight: 700;
+    //  border: 1px solid rgb(0, 135, 121);
+     border: 1px solid orange;
 }
 
 ul li {

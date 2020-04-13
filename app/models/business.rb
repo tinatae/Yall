@@ -8,7 +8,7 @@ class Business < ApplicationRecord
     validates :name, uniqueness: true
     validates :category, inclusion: {in: ["All", "Restaurants", "Coffee & Tea", "Bars", "Dessert"]}
     validates :pricepoint, inclusion: { in: (1..4) }
-    # validates :monopen, :monclose, :inclusion => { in: (0..24)}, :allow_nil => true,
+    # validates :monopen, :monclose, :inclusion => { in: (0..30)}, :allow_nil => true,
     validates :delivery, :takeout, inclusion: {in: ["All", "Yes", "No"]}
 
     # scope :named, -> (name) {where("name LIKE ?", name)}
@@ -26,29 +26,15 @@ class Business < ApplicationRecord
     #     self.reviews.average(:rating)
     # end
 
+
     def average_rating
         avgrev = reviews.average(:rating)
-        return "No reviews yet!" if avgrev == 0 || avgrev.nil?
-        if (avgrev%1) == 0
-            return ("★")*(avgrev)
-        elsif (avgrev%1) >= 0.95
-            # return ("★")*(avgrev.to_i)+"★ ( we're off by " + (1-(avgrev%1)).to_s + " of a ★, so pretty much ! )"
-            return ("★")*(avgrev.to_i)+"★"
-        elsif (avgrev%1) >= 0.80
-            return ("★")*(avgrev.to_i)+("⅘")
-        elsif (avgrev%1) >= 0.75
-            return ("★")*(avgrev.to_i)+("¾")
-        elsif (avgrev%1) >= 0.6
-            return ("★")*(avgrev.to_i)+("⅗")
-        elsif (avgrev%1) >= 0.5
-            return ("★")*(avgrev.to_i)+("½")
-        # elsif (avgrev%1) >= 0.4
-        #     return ("★")*(avgrev.to_i)+("⅖")
-        elsif (avgrev%1) >= 0.33
-            return ("★")*(avgrev.to_i)+("⅓")
-        elsif (avgrev%1) >= 0.25
-            return ("★")*(avgrev.to_i)+("¼")
-        end   
+        
+        if avgrev == 0 || avgrev.nil?
+            avgrev = 0
+        else
+            avgrev 
+        end
     end
 
     def dollarmaker
@@ -76,40 +62,56 @@ class Business < ApplicationRecord
         .where("lng < ?", bounds[:northEast][:lng])
     end
 
-    def self.open
-        days_of_week = {0 => "sun", 1 => "mon", 2 => "tues", 3 => "wed", 4 => "thurs", 5 => "fri", 6 => "sat"}
-   
-        day = days_of_week[Time.now.wday]
-        prevday = days_of_week[Time.now.wday-1]
+    def self.monhours
+        prevday = Time.now.hour + 24
+        self.where("? BETWEEN monopen AND monclose", Time.now.hour).or(where("? BETWEEN sunopen AND sunclose", prevday))
+    end
 
-        prevopenhour = prevday + "open"
-        prevclosehour = prevday + "close"
+    def self.tueshours
+        prevday = Time.now.hour + 24
+        self.where("? BETWEEN tuesopen AND tuesclose", Time.now.hour).or(where("? BETWEEN monopen AND monclose", prevday))
+    end
 
-        openhour = day + "open" # "sunopen"
-        closehour = day + "close" # "sunclose" CONCAT CHANGES ARRAY
+    def self.wedhours
+        prevday = Time.now.hour + 24
+        self.where("? BETWEEN wedopen AND wedclose", Time.now.hour).or(where("? BETWEEN tuesopen AND tuesclose", prevday))
+    end
 
-        currenthour = Time.now.hour
-      
-        if currenthour >= 4
-        # if openhour < closehour
-        # if self[openhour] < self[closehour]
+    def self.thurshours
+        prevday = Time.now.hour + 24
+        self.where("? BETWEEN thursopen AND thursclose", Time.now.hour).or(where("? BETWEEN wedopen AND wedclose", prevday))
+    end
 
-            # self.where("currenthour BETWEEN ? AND ?", 'self[openhour]', 'self[closehour]')
-            self.where("currenthour BETWEEN ? AND ?", 'openhour', 'closehour')
+    def self.frihours
+        prevday = Time.now.hour + 24
+        self.where("? BETWEEN friopen AND friclose", Time.now.hour).or(where("? BETWEEN thursopen AND thursclose", prevday))
+    end
 
-        # elsif currenthour < 6 && prevclosehour < prevopenhour
-        elsif currenthour < 6 
-            # && self[prevclosehour] < self[prevopenhour]
+    def self.sathours
+        prevday = Time.now.hour + 24
+        self.where("? BETWEEN satopen AND satclose", Time.now.hour).or(where("? BETWEEN friopen AND friclose", prevday))
+    end
 
-            self.where("currenthour BETWEEN ? AND ?", '0', 'prevclosehour')
-            # self.where("currenthour BETWEEN ? AND ?", '0', 'self[prevclosehour]')
+    def self.sunhours
+        prevday = Time.now.hour + 24
+        self.where("? BETWEEN sunopen AND sunclose", Time.now.hour).or(where("? BETWEEN satopen AND satclose", prevday))
+    end
 
-        # elsif currenthour > 17 && closehour < openhour
-        elsif currenthour > 17 
-            # && self[closehour] < self[openhour]
-
-            self.where("currenthour BETWEEN ? AND ?", 'openhour', '23')
-            # self.where("currenthour BETWEEN ? AND ?", self[openhour], 23)
+    def self.open           
+        if Time.now.wday == 0
+            self.sunhours
+        elsif Time.now.wday == 1
+            self.monhours
+        elsif Time.now.wday == 2
+            self.tueshours
+        elsif Time.now.wday == 3
+            self.wedhours
+        elsif Time.now.wday == 4
+            self.thurshours
+        elsif Time.now.wday == 5
+            self.frihours
+        else
+            self.sathours
         end
     end
 
