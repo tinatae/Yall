@@ -427,8 +427,7 @@ function (_React$Component) {
 
     _classCallCheck(this, BusinessForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(BusinessForm).call(this, props)); // this.coords = {lat: props.lat, lng: props.lng};
-
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(BusinessForm).call(this, props));
     _this.state = {
       name: '',
       category: '',
@@ -472,10 +471,7 @@ function (_React$Component) {
       dogsallowed: "No",
       genderneutralrestroom: "No",
       photoFiles: null,
-      photoUrls: [],
-      areacode: "",
-      number1: "",
-      number2: ""
+      photoUrls: []
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.navigateToSearch = _this.navigateToSearch.bind(_assertThisInitialized(_this));
@@ -536,24 +532,20 @@ function (_React$Component) {
   }, {
     key: "handleNumber",
     value: function handleNumber() {
-      if (this.state.areacode && this.state.number1 && this.state.number2 && this.state.address1) {
-        var together = this.state.areacode.concat(this.state.number1).concat(this.state.number2);
-
-        if (together.length === 10) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            id: "checked-info"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-            className: "far fa-check-circle"
-          }), "(", together.slice(0, 3), ")", together.slice(3, 6), "-", together.slice(6));
-        } else if (together.length > 10) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            id: "nope"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "This does not seem like a valid phone number. "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Please re-enter phone number in format: 123 456 7890"));
-        }
-
-        ;
-      } else {
+      if (this.state.phonenumber.length === 0) {
         return null;
+      } else if (this.state.phonenumber.length === 10) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "checked-info"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "far fa-check-circle"
+        }), "(", this.state.phonenumber.slice(0, 3), ")", this.state.phonenumber.slice(3, 6), "-", this.state.phonenumber.slice(6));
+      } else if (this.state.phonenumber.length > 6) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "(", this.state.phonenumber.slice(0, 3), ")", this.state.phonenumber.slice(3, 6), "-", this.state.phonenumber.slice(6));
+      } else if (this.state.phonenumber.length > 3 && this.state.phonenumber.length <= 6) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "(", this.state.phonenumber.slice(0, 3), ")", this.state.phonenumber.slice(3));
+      } else if (this.state.phonenumber.length > 0 && this.state.phonenumber.length <= 3) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "(", this.state.phonenumber, ")");
       }
     }
   }, {
@@ -589,7 +581,6 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var together = this.state.areacode.concat(this.state.number1).concat(this.state.number2);
       var formData = new FormData();
       formData.append('business[name]', this.state.name);
       formData.append('business[category]', this.state.category);
@@ -631,7 +622,12 @@ function (_React$Component) {
       formData.append('business[outdoor]', this.state.outdoor);
       formData.append('business[wifi]', this.state.wifi);
       formData.append('business[dogsallowed]', this.state.dogsallowed);
-      formData.append('business[genderneutralrestroom]', this.state.genderneutralrestroom);
+      formData.append('business[genderneutralrestroom]', this.state.genderneutralrestroom); // if (this.state.photoFiles) {
+      //     for (let i = 0; i < this.state.photoFiles.length; i++) {
+      //         formData.append('business[photos][]', this.state.photoFiles[i]);
+      //     }
+      // };
+      // ORIGINAL
 
       if (this.state.photoFiles) {
         formData.append('business[photos][]', this.state.photoFiles);
@@ -688,11 +684,9 @@ function (_React$Component) {
           outdoor = _this$state3.outdoor,
           wifi = _this$state3.wifi,
           dogsallowed = _this$state3.dogsallowed,
-          genderneutralrestroom = _this$state3.genderneutralrestroom;
-      var _this$state4 = this.state,
-          arecode = _this$state4.arecode,
-          number1 = _this$state4.number1,
-          number2 = _this$state4.number2;
+          genderneutralrestroom = _this$state3.genderneutralrestroom; // const preview = this.state.photoUrls ? this.state.photoUrls.map(image => <img height="100px" width="100px" src={image[0]} />) : null;
+      //    ORIGINAL 
+
       var preview = this.state.photoUrls ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         height: "100px",
         width: "100px",
@@ -765,24 +759,13 @@ function (_React$Component) {
         id: "createbizphonenumber"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Phone Number"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "content"
-      }, "(\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        size: "10",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        size: "60",
         type: "text",
-        placeholder: "510",
-        value: arecode,
-        onChange: this.update('areacode')
-      }), "\xA0)\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        size: "10",
-        type: "text",
-        placeholder: "123",
-        value: number1,
-        onChange: this.update('number1')
-      }), "\xA0 \xA0-\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        size: "10",
-        type: "text",
-        placeholder: "4567",
-        value: number2,
-        onChange: this.update('number2')
+        maxLength: 10,
+        placeholder: "510 123 4567",
+        value: phonenumber,
+        onChange: this.update('phonenumber')
       }))), this.handleNumber(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "createbizaddress"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Business Address"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -832,6 +815,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
@@ -887,6 +872,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
@@ -942,6 +929,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
@@ -997,6 +986,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
@@ -1052,6 +1043,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
@@ -1107,6 +1100,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
@@ -1162,6 +1157,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Open -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
@@ -1219,6 +1216,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "24"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "25"
@@ -1274,6 +1273,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "24"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "25"
@@ -1329,6 +1330,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "24"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "25"
@@ -1384,6 +1387,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "24"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "25"
@@ -1439,6 +1444,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "24"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "25"
@@ -1494,6 +1501,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "24"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "25"
@@ -1549,6 +1558,8 @@ function (_React$Component) {
         value: "",
         disabled: true
       }, "- Close -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "-100"
+      }, "Closed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "24"
       }, "12 AM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "25"
@@ -1745,69 +1756,9 @@ function (_React$Component) {
 //     ))}
 //     <input type="file" onChange={this.handleMultipleFiles} multiple />
 //     <button type="button" onClick={this.handleFiles}>Upload</button>
-// Add Business Red Button White Script
-
-{
-  /* <label>Latitude
-     <br/>
-     <input size="100" type="text" disabled value={lat} />
-  </label>
-  <label>Longitude
-     <br/>
-     <input size="100" type="text" disabled value={lng} />
-  </label>
-  <br/> */
-}
-{}
-/* <input id="address" size="75" type="text" value={address1} onChange={this.update('address1')} /> */
-// handleSubmit(e) {
-//     e.preventDefault();
-//     const formData = new FormData();
-//     const geocoder = new google.maps.Geocoder();
-//     formData.append('business[name]', this.state.name);
-//     formData.append('business[category]', this.state.category);
-//     const address = document.getElementById('address').value;
-//     geocoder.geocode({ 'address': address }, function (results, status) {
-//         if (status == 'OK') {
-//             const newBizLat = results[0].geometry.location.lat();
-//             const newBizLng = results[0].geometry.location.lng();
-//             this.setState({ lat: newBizLat });
-//             this.setState({ lng: newBizLng });
-//             // formData.append('business[lat]', this.state.lat);
-//             // formData.append('business[lng]', this.state.lng);
-//             // console.log(results[0].geometry.location.lat())
-//             // console.log(results[0].geometry.location.lng())
-//             console.log(this.state.lat);
-//             console.log(this.state.lng);
-//         } else { console.log('nope' + status) };
-//     });
-//     formData.append('business[website]', this.state.website);
-//     formData.append('business[phonenumber]', this.state.phonenumber);
-//     formData.append('business[address1]', this.state.address1);
-//     formData.append('business[address2]', this.state.address2);
-//     formData.append('business[pricepoint]', this.state.pricepoint);
-//     formData.append('business[monopen]', this.state.monopen);
-//     formData.append('business[monclose]', this.state.monclose);
-//     formData.append('business[tuesopen]', this.state.tuesopen);
-//     formData.append('business[tuesclose]', this.state.tuesclose);
-//     formData.append('business[wedopen]', this.state.wedopen);
-//     formData.append('business[wedclose]', this.state.wedclose);
-//     formData.append('business[thursopen]', this.state.thursopen);
-//     formData.append('business[thursclose]', this.state.thursclose);
-//     formData.append('business[friopen]', this.state.friopen);
-//     formData.append('business[friclose]', this.state.friclose);
-//     formData.append('business[satopen]', this.state.satopen);
-//     formData.append('business[satclose]', this.state.satclose);
-//     formData.append('business[sunopen]', this.state.sunopen);
-//     formData.append('business[sunclose]', this.state.sunclose);
-//     formData.append('business[delivery]', this.state.delivery);
-//     formData.append('business[takeout]', this.state.takeout);
 //     if (this.state.photoFiles) {
 //         formData.append('business[photos][]', this.state.photoFiles);
 //     };
-// this.props.createBusiness(formData);
-// this.navigateToSearch();
-// };
 
 /***/ }),
 
@@ -2062,6 +2013,7 @@ var BusinessProfile = function BusinessProfile(_ref) {
     }); // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
   });
   var timeConversion = {
+    "-100": "Closed",
     0: "12:00 AM",
     1: "1:00 AM",
     2: "2:00 AM",
@@ -2191,6 +2143,14 @@ var BusinessProfile = function BusinessProfile(_ref) {
     }
   }
 
+  function isClosed(hour) {
+    if (hour < 0) {
+      return null;
+    } else {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "-\xA0", timeConversion[hour]);
+    }
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2284,7 +2244,7 @@ var BusinessProfile = function BusinessProfile(_ref) {
     className: "profile-hours"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "fakeh4"
-  }, "Hours of Operation"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Monday: ", timeConversion[business.monopen], " -", " ", timeConversion[business.monclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Tuesday: ", timeConversion[business.tuesopen], " -", " ", timeConversion[business.tuesclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wednesday: ", timeConversion[business.wedopen], " -", " ", timeConversion[business.wedclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thursday: ", timeConversion[business.thursopen], " -", " ", timeConversion[business.thursclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Friday: ", timeConversion[business.friopen], " -", " ", timeConversion[business.friclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Saturday: ", timeConversion[business.satopen], " -", " ", timeConversion[business.satclose]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sunday: ", timeConversion[business.sunopen], " -", " ", timeConversion[business.sunclose])), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Hours of Operation"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Monday: ", timeConversion[business.monopen], isClosed(business.monclose)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Tuesday: ", timeConversion[business.tuesopen], isClosed(business.tuesclose)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wednesday: ", timeConversion[business.wedopen], isClosed(business.wedclose)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thursday: ", timeConversion[business.thursopen], isClosed(business.thursclose)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Friday: ", timeConversion[business.friopen], isClosed(business.friclose)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Saturday: ", timeConversion[business.satopen], isClosed(business.satclose)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sunday: ", timeConversion[business.sunopen], isClosed(business.sunclose))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-info"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "fakeh4"

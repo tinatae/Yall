@@ -22,7 +22,7 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
     });
 
     const timeConversion = {
-        0:"12:00 AM", 1:"1:00 AM", 2:"2:00 AM", 3:"3:00 AM", 4: "4:00 AM", 5:"5:00 AM", 6:"6:00 AM", 7:"7:00 AM", 8:"8:00 AM", 9:"9:00 AM", 10:"10:00 AM", 11:"11:00 AM", 12:"12:00 PM", 
+        "-100":"Closed", 0:"12:00 AM", 1:"1:00 AM", 2:"2:00 AM", 3:"3:00 AM", 4: "4:00 AM", 5:"5:00 AM", 6:"6:00 AM", 7:"7:00 AM", 8:"8:00 AM", 9:"9:00 AM", 10:"10:00 AM", 11:"11:00 AM", 12:"12:00 PM", 
         13:"1:00 PM", 14:"2:00 PM", 15: "3:00 PM", 16:"4:00 PM", 17:"5:00 PM", 18:"6:00 PM", 19:"7:00 PM", 20:"8:00 PM", 21:"9:00 PM", 22:"10:00 PM", 23:"11:00 PM",
         24:"12:00 AM", 25:"1:00 AM", 26: "2:00 AM", 27:"3:00 AM", 28:"4:00 AM", 29:"5:00 AM", 30:"6:00 AM"
     };
@@ -61,6 +61,14 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
       return starTable[1]
     } else if (avg >= 0.5) {
       return starTable[0.5]
+    }
+  }
+
+  function isClosed(hour) {
+    if (hour < 0) {
+      return null
+    } else {
+      return <span>-&nbsp;{timeConversion[hour]}</span>
     }
   }
 
@@ -199,32 +207,25 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
             <div className="profile-hours">
               <div id="fakeh4">Hours of Operation</div>
               <span>
-                Monday: {timeConversion[business.monopen]} -{" "}
-                {timeConversion[business.monclose]}
+                Monday: {timeConversion[business.monopen]}{isClosed(business.monclose)}
               </span>
               <span>
-                Tuesday: {timeConversion[business.tuesopen]} -{" "}
-                {timeConversion[business.tuesclose]}
+                Tuesday: {timeConversion[business.tuesopen]}{isClosed(business.tuesclose)}
               </span>
               <span>
-                Wednesday: {timeConversion[business.wedopen]} -{" "}
-                {timeConversion[business.wedclose]}
+                Wednesday: {timeConversion[business.wedopen]}{isClosed(business.wedclose)}
               </span>
               <span>
-                Thursday: {timeConversion[business.thursopen]} -{" "}
-                {timeConversion[business.thursclose]}
+                Thursday: {timeConversion[business.thursopen]}{isClosed(business.thursclose)}
               </span>
               <span>
-                Friday: {timeConversion[business.friopen]} -{" "}
-                {timeConversion[business.friclose]}
+                Friday: {timeConversion[business.friopen]}{isClosed(business.friclose)}
               </span>
               <span>
-                Saturday: {timeConversion[business.satopen]} -{" "}
-                {timeConversion[business.satclose]}
+                Saturday: {timeConversion[business.satopen]}{isClosed(business.satclose)}
               </span>
               <span>
-                Sunday: {timeConversion[business.sunopen]} -{" "}
-                {timeConversion[business.sunclose]}
+                Sunday: {timeConversion[business.sunopen]}{isClosed(business.sunclose)}
               </span>
             </div>
 

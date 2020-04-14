@@ -5,7 +5,6 @@ import BusinessMap from '../business_map/business_map';
 class BusinessForm extends React.Component {
     constructor(props) {
         super(props);
-        // this.coords = {lat: props.lat, lng: props.lng};
 
         this.state = {
             name: '',
@@ -53,10 +52,6 @@ class BusinessForm extends React.Component {
 
             photoFiles: null,
             photoUrls: [],
-
-            areacode: "",
-            number1: "",
-            number2: "",
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -102,20 +97,17 @@ class BusinessForm extends React.Component {
     };
 
     handleNumber() {
-        if (this.state.areacode && this.state.number1 && this.state.number2 && this.state.address1) {
-            const together = this.state.areacode.concat(this.state.number1).concat(this.state.number2)
-
-            if (together.length === 10) {
-                return (<div id="checked-info"><i className="far fa-check-circle"></i>({together.slice(0, 3)}){together.slice(3, 6)}-{together.slice(6)}</div>)
-            } else if (together.length > 10) { 
-                return (
-                    <div id="nope">
-                        <div>This does not seem like a valid phone number. </div>
-                        <div>Please re-enter phone number in format: 123 456 7890</div>
-                    </div>
-                )
-            };
-        } else {return null}
+        if (this.state.phonenumber.length === 0) {
+            return null
+        } else if (this.state.phonenumber.length === 10) {
+            return (<div id="checked-info"><i className="far fa-check-circle"></i>({this.state.phonenumber.slice(0, 3)}){this.state.phonenumber.slice(3, 6)}-{this.state.phonenumber.slice(6)}</div>)
+        } else if (this.state.phonenumber.length > 6) { 
+            return (<div>({this.state.phonenumber.slice(0, 3)}){this.state.phonenumber.slice(3, 6)}-{this.state.phonenumber.slice(6)}</div>)
+        } else if (this.state.phonenumber.length > 3 && this.state.phonenumber.length <= 6) {
+            return (<div>({this.state.phonenumber.slice(0,3)}){this.state.phonenumber.slice(3)}</div>)
+        } else if (this.state.phonenumber.length > 0 && this.state.phonenumber.length <= 3) {
+            return <div>({this.state.phonenumber})</div>
+        }
     }
 
     updateLatLng() {
@@ -138,8 +130,6 @@ class BusinessForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        const together = this.state.areacode.concat(this.state.number1).concat(this.state.number2)
-        
         const formData = new FormData();
 
         formData.append('business[name]', this.state.name);
@@ -185,6 +175,13 @@ class BusinessForm extends React.Component {
         formData.append('business[dogsallowed]', this.state.dogsallowed);
         formData.append('business[genderneutralrestroom]', this.state.genderneutralrestroom);
 
+        // if (this.state.photoFiles) {
+        //     for (let i = 0; i < this.state.photoFiles.length; i++) {
+        //         formData.append('business[photos][]', this.state.photoFiles[i]);
+        //     }
+        // };
+
+        // ORIGINAL
         if (this.state.photoFiles) {
             formData.append('business[photos][]', this.state.photoFiles);
         };
@@ -192,14 +189,16 @@ class BusinessForm extends React.Component {
         this.props.createBusiness(formData);
         console.log(this.state)
         this.navigateToSearch();
+     
     };
 
     render() {
         const { name, category, lat, lng, website, phonenumber, address1, city, state, zipcode, pricepoint } = this.state;
         const { monopen, monclose, tuesopen, tuesclose, wedopen, wedclose, thursopen, thursclose, friopen, friclose, satopen, satclose, sunopen, sunclose } = this.state;
         const { delivery, takeout, vegetarian, vegan, takesreservation, creditcard, googlepay, applepay, parking, wheelchair, goodforkids, goodforgroups, outdoor, wifi, dogsallowed, genderneutralrestroom} = this.state;
-        const {arecode, number1, number2} = this.state
-        const preview = this.state.photoUrls ? <img height="100px" width="100px" src={this.state.photoUrls[0]} /> : null;
+        // const preview = this.state.photoUrls ? this.state.photoUrls.map(image => <img height="100px" width="100px" src={image[0]} />) : null;
+    //    ORIGINAL 
+       const preview = this.state.photoUrls ? <img height="100px" width="100px" src={this.state.photoUrls[0]} /> : null;
        
         return (
             <div className="business-create-form">
@@ -253,9 +252,7 @@ class BusinessForm extends React.Component {
                         <label id="createbizphonenumber">
                             <div>Phone Number</div>
                             <div id="content">
-                                (&nbsp;<input size="10" type="text" placeholder="510" value={arecode} onChange={this.update('areacode')} />&nbsp;)&nbsp;
-                                &nbsp;<input size="10" type="text" placeholder="123" value={number1} onChange={this.update('number1')} />&nbsp;
-                                &nbsp;-&emsp;<input size="10" type="text" placeholder="4567" value={number2} onChange={this.update('number2')} />
+                                <input size="60" type="text" maxLength={10} placeholder="510 123 4567" value={phonenumber} onChange={this.update('phonenumber')} />
                             </div>
                         </label>
 
@@ -294,6 +291,7 @@ class BusinessForm extends React.Component {
                                 <div>Monday Open:</div>
                                 <select name="Monday Open" value={monopen} onChange={this.update('monopen')}>
                                     <option value="" disabled>- Open -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="0">12 AM</option>
                                     <option value="1">1 AM</option>
                                     <option value="2">2 AM</option>
@@ -324,6 +322,7 @@ class BusinessForm extends React.Component {
                                 <div>Tuesday Open:</div>
                                 <select name="Tuesday Open" value={tuesopen} onChange={this.update('tuesopen')}>
                                     <option value="" disabled>- Open -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="0">12 AM</option>
                                     <option value="1">1 AM</option>
                                     <option value="2">2 AM</option>
@@ -354,6 +353,7 @@ class BusinessForm extends React.Component {
                                 <div>Wednesday Open:</div>
                                 <select name="Wednesday Open" value={wedopen} onChange={this.update('wedopen')}>
                                     <option value="" disabled>- Open -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="0">12 AM</option>
                                     <option value="1">1 AM</option>
                                     <option value="2">2 AM</option>
@@ -384,6 +384,7 @@ class BusinessForm extends React.Component {
                                 <div>Thursday Open:</div>
                                 <select name="Thursday Open" value={thursopen} onChange={this.update('thursopen')}>
                                     <option value="" disabled>- Open -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="0">12 AM</option>
                                     <option value="1">1 AM</option>
                                     <option value="2">2 AM</option>
@@ -414,6 +415,7 @@ class BusinessForm extends React.Component {
                                 <div>Friday Open:</div>
                                 <select name="Friday Open" value={friopen} onChange={this.update('friopen')}>
                                     <option value="" disabled>- Open -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="0">12 AM</option>
                                     <option value="1">1 AM</option>
                                     <option value="2">2 AM</option>
@@ -444,6 +446,7 @@ class BusinessForm extends React.Component {
                                 <div>Saturday Open:</div>
                                 <select name="Saturday Open" value={satopen} onChange={this.update('satopen')}>
                                     <option value="" disabled>- Open -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="0">12 AM</option>
                                     <option value="1">1 AM</option>
                                     <option value="2">2 AM</option>
@@ -474,6 +477,7 @@ class BusinessForm extends React.Component {
                                 <div>Sunday Open:</div>
                                 <select name="Sunday Open" value={sunopen} onChange={this.update('sunopen')}>
                                     <option value="" disabled>- Open -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="0">12 AM</option>
                                     <option value="1">1 AM</option>
                                     <option value="2">2 AM</option>
@@ -508,6 +512,7 @@ class BusinessForm extends React.Component {
                                 <div>Monday Close:</div>
                                 <select name="Monday Close" value={monclose} onChange={this.update('monclose')}>
                                     <option value="" disabled>- Close -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="24">12 AM</option>
                                     <option value="25">1 AM</option>
                                     <option value="26">2 AM</option>
@@ -538,6 +543,7 @@ class BusinessForm extends React.Component {
                                 <div>Tuesday Close:</div>
                                 <select name="tuesday Close" value={tuesclose} onChange={this.update('tuesclose')}>
                                     <option value="" disabled>- Close -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="24">12 AM</option>
                                     <option value="25">1 AM</option>
                                     <option value="26">2 AM</option>
@@ -568,6 +574,7 @@ class BusinessForm extends React.Component {
                                 <div>Wednesday Close:</div>
                                 <select name="Wednesday Close" value={wedclose} onChange={this.update('wedclose')}>
                                     <option value="" disabled>- Close -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="24">12 AM</option>
                                     <option value="25">1 AM</option>
                                     <option value="26">2 AM</option>
@@ -598,6 +605,7 @@ class BusinessForm extends React.Component {
                                 <div>Thursday Close:</div>
                                 <select name="Thursday Close" value={thursclose} onChange={this.update('thursclose')}>
                                     <option value="" disabled>- Close -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="24">12 AM</option>
                                     <option value="25">1 AM</option>
                                     <option value="26">2 AM</option>
@@ -628,6 +636,7 @@ class BusinessForm extends React.Component {
                                 <div>Friday Close:</div>
                                 <select name="Friday Close" value={friclose} onChange={this.update('friclose')}>
                                     <option value="" disabled>- Close -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="24">12 AM</option>
                                     <option value="25">1 AM</option>
                                     <option value="26">2 AM</option>
@@ -658,6 +667,7 @@ class BusinessForm extends React.Component {
                                 <div>Saturday Close:</div>
                                 <select name="Saturday Close" value={satclose} onChange={this.update('satclose')}>
                                     <option value="" disabled>- Close -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="24">12 AM</option>
                                     <option value="25">1 AM</option>
                                     <option value="26">2 AM</option>
@@ -688,6 +698,7 @@ class BusinessForm extends React.Component {
                                 <div>Sunday Close:</div>
                                 <select name="Sunday Close" value={sunclose} onChange={this.update('sunclose')}>
                                     <option value="" disabled>- Close -</option>
+                                    <option value="-100">Closed</option>
                                     <option value="24">12 AM</option>
                                     <option value="25">1 AM</option>
                                     <option value="26">2 AM</option>
@@ -716,7 +727,7 @@ class BusinessForm extends React.Component {
                             </label>   
                         </div>
                     </div>      
-                        
+
                     <h3>Services & Amenities</h3>
                     <div className="amenities">                  
                         <div className="checkboxes">                         
@@ -883,13 +894,11 @@ class BusinessForm extends React.Component {
                         </div>
                     </div>
 
-                    {/* {this.handleNumber()} */}
-
-
                     <div className="business-create-bizphoto">
                         <h3>Image Preview</h3>
                             {preview}
                         <h3>Add a Picture</h3>
+                            {/* <input type="file" onChange={e => this.setState({ photos: e.target.files})} multiple/>  */}
                             <input type="file" onChange={this.handleFile.bind(this)} /> 
                     </div>
 
@@ -922,77 +931,8 @@ export default withRouter(BusinessForm);
     //     <input type="file" onChange={this.handleMultipleFiles} multiple />
     //     <button type="button" onClick={this.handleFiles}>Upload</button>
 
-    // Add Business Red Button White Script
 
-    {/* <label>Latitude
-        <br/>
-        <input size="100" type="text" disabled value={lat} />
-    </label>
-    <label>Longitude
-        <br/>
-        <input size="100" type="text" disabled value={lng} />
-    </label>
-    <br/> */}
-
-
-{/* <input id="address" size="75" type="text" value={address1} onChange={this.update('address1')} /> */ }
-
-
-// handleSubmit(e) {
-//     e.preventDefault();
-
-//     const formData = new FormData();
-//     const geocoder = new google.maps.Geocoder();
-
-//     formData.append('business[name]', this.state.name);
-//     formData.append('business[category]', this.state.category);
-
-//     const address = document.getElementById('address').value;
-//     geocoder.geocode({ 'address': address }, function (results, status) {
-//         if (status == 'OK') {
-//             const newBizLat = results[0].geometry.location.lat();
-//             const newBizLng = results[0].geometry.location.lng();
-
-//             this.setState({ lat: newBizLat });
-//             this.setState({ lng: newBizLng });
-
-//             // formData.append('business[lat]', this.state.lat);
-//             // formData.append('business[lng]', this.state.lng);
-
-//             // console.log(results[0].geometry.location.lat())
-//             // console.log(results[0].geometry.location.lng())
-//             console.log(this.state.lat);
-//             console.log(this.state.lng);
-
-//         } else { console.log('nope' + status) };
-//     });
-
-//     formData.append('business[website]', this.state.website);
-//     formData.append('business[phonenumber]', this.state.phonenumber);
-//     formData.append('business[address1]', this.state.address1);
-//     formData.append('business[address2]', this.state.address2);
-//     formData.append('business[pricepoint]', this.state.pricepoint);
-//     formData.append('business[monopen]', this.state.monopen);
-//     formData.append('business[monclose]', this.state.monclose);
-//     formData.append('business[tuesopen]', this.state.tuesopen);
-//     formData.append('business[tuesclose]', this.state.tuesclose);
-//     formData.append('business[wedopen]', this.state.wedopen);
-//     formData.append('business[wedclose]', this.state.wedclose);
-//     formData.append('business[thursopen]', this.state.thursopen);
-//     formData.append('business[thursclose]', this.state.thursclose);
-//     formData.append('business[friopen]', this.state.friopen);
-//     formData.append('business[friclose]', this.state.friclose);
-//     formData.append('business[satopen]', this.state.satopen);
-//     formData.append('business[satclose]', this.state.satclose);
-//     formData.append('business[sunopen]', this.state.sunopen);
-//     formData.append('business[sunclose]', this.state.sunclose);
-//     formData.append('business[delivery]', this.state.delivery);
-//     formData.append('business[takeout]', this.state.takeout);
 
 //     if (this.state.photoFiles) {
 //         formData.append('business[photos][]', this.state.photoFiles);
 //     };
-
-    // this.props.createBusiness(formData);
-    // this.navigateToSearch();
-// };

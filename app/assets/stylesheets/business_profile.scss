@@ -1,10 +1,14 @@
 .all-business-show #button-link-to-index {
     background-color: orange;
     height: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 10px;
 }
 
 #button-link-to-index Link button {
-    padding: 4px;
+    padding: 4px;  
 }
 
 .business-show-profile {
@@ -134,6 +138,9 @@
 .profile-hours #fakeh4 {
     margin: 0 auto;
     margin-bottom: 5px;
+}
+.profile-hours select {
+    text-align-last: center;
 }
 
 .profile-hours > span {
