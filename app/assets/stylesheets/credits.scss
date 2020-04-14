@@ -48,13 +48,29 @@
     text-align: center;
 }
 
+.credits h4 {
+    color: purple;
+}
+
 .credits #pair {
     display: flex;
     flex-direction: row;
     padding: 5px;
     justify-content: center;
+    align-items: center;
 }
 
 .credits #pair div {
     padding: 5px;
+}
+
+#art-title {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 17px;
+    color: rgb(0, 135, 121);
+}
+
+#artist {
+    font-weight: 600;
 }

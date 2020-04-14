@@ -2856,7 +2856,7 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "credits"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.formType), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "So first things first: I love an Easter Egg. That said, I am also of the mind that many times artists are underpaid and go unrecognized for their talent and hard work."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "So while all of these photos for this project were taken for free from unsplash.com, I just thought I'd make a little credits page in case anyone was interested in any of the images and/or reaching out to the individual artists themselves"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "They are organized by Page", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.formType), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "So first things first: I love an Easter Egg. That said, I am also of the mind that many times artists are underpaid and go unrecognized for their talent and hard work."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "So while all of these photos for this project were taken for free from unsplash.com, I just thought I'd make a little credits page in case anyone was interested in any of the images and/or reaching out to the individual artists themselves"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "They are organized by page."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Also, the titles are not official titles.. someday I'll add thumbnails but hopefully these descriptions will work for now. Thanks!", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-grin-alt"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         onClick: this.handleOpenLogin()
@@ -2866,9 +2866,17 @@ function (_React$Component) {
         className: "section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Scattered Ice Creams"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Benjam\xEDn Hazael Rojas Garc\xEDa")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Scattered Ice Cream Cones"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Benjam\xEDn Hazael Rojas Garc\xEDa")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Orange/Turquoise Shot Glasses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ram HO"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Orange/Turquoise Shot Glasses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Ram HO"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         onClick: this.handleOpenHome()
       }, "Home Page", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-palette"
@@ -2876,13 +2884,29 @@ function (_React$Component) {
         className: "section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Big Spread of Espresso Drinks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cyril Saulnier")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Big Spread of Espresso Drinks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Cyril Saulnier")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Floral Sashimi Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Augustine Fou")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Floral Sashimi Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Augustine Fou")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dining Hall with Asian Lights and Noodles"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hien Nguyen")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Dining Hall with Asian Lights and Noodles"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Hien Nguyen")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Smoky Cocktail in Tumbler"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Miguel Maldonado"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Smoky Cocktail in Tumbler"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Miguel Maldonado"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         onClick: this.handleOpenAdd()
       }, "'Add Your Business'", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-palette"
@@ -2890,9 +2914,17 @@ function (_React$Component) {
         className: "section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Yellow Chair & Bistro Table"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Kenan S\xFCleymano\u011Flu")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Yellow Chair & Bistro Table"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Kenan S\xFCleymano\u011Flu")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "3 Vertical Espresso Drinks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Nathan Dumlao"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Three Vertical Espresso Drinks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Nathan Dumlao"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         onClick: this.handleOpenBusinesses()
       }, "Business Profiles", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-palette"
@@ -2900,117 +2932,365 @@ function (_React$Component) {
         className: "section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sweet Baby Cakes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dozens of Donuts on Trays"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Elisheva Gohar")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Dozens of Donuts on Trays"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Elisheva Gohar")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cupcakes in a White Box"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Persnickety Prints")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Cupcakes in a White Box"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Persnickety Prints")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hands holding Pastry"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ham Kris")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Hands Holding Pastry"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Ham Kris")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Quarter-section of Salami Sandwich"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Eaters Collective"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "White Whale Saloon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Quarter-section of Salami Sandwich"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Eaters Collective"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "White Whale Saloon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Empty Wooden Dining Room with vintage photos on walls"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Austin Gardner")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Empty Wooden Dining Room with Vintage Photos on Walls"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Austin Gardner")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Colorful wood-railed bar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jared Burris")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Colorful Stained-Glass, Wood-Railed Bar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jared Burris")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sugar-rimmed Martini Glass with Red Liquid"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Oleh Moskaliuk")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Sugar-Rimmed Martini Glass with Red Liquid"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Oleh Moskaliuk")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lone Beer on Wooden Bar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "mnm.all"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Hola Ola"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Lone Beer on Wooden Bar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "mnm.all"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Hola Ola"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Big Spread of Espresso Drinks (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cyril Saulnier")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Big Spread of Espresso Drinks (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Cyril Saulnier")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "View of Ocean through Tall Vertical Windows and Backs of People"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sung Jin Cho")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "View of Ocean through Tall Vertical Windows + People"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Sung Jin Cho")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Simple shot of Healthy Burger"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jiroe")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Simple shot of Healthy Burger"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jiroe")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bowl of Guacamole & Chips with Olives"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ronise daluz"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Telegraph Place"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Bowl of Guacamole & Chips with Olives"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Ronise daluz"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Telegraph Place"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Long dining room table, empty with pink theme"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Juliette F")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Long dining room table with Pink Theme"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Juliette F")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bowl of halved-shrimps and pasta noodles in white dish"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "UY VO")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Bowl of Halved-Shrimps and Pasta Noodles in White Dish"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "UY VO")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Slice of steak"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jos\xE9 Ignacio Pomp\xE9")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Slice of Steak"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jos\xE9 Ignacio Pomp\xE9")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Plated Carrots"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Adam Jaime"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Tumbler Room"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Plated Carrots"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Adam Jaime"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Tumbler Room"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Smoky Cocktail in Tumbler (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Miguel Maldonado")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Smoky Cocktail in Tumbler (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Miguel Maldonado")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Red Velvet Lounge Sofas and Bar Tables"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Taylor Simpson")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Red Velvet Lounge Sofas and Bar Tables"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Taylor Simpson")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Serving tray of chilled Martini Glasses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Olivier Rouge")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Serving Tray of Chilled Martini Glasses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Olivier Rouge")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Amber-colored cocktail with garnishes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ash Edmonds"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Eastern Market Hall"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Amber-colored Cocktail with Floral Garnish"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Ash Edmonds"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Eastern Market Hall"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dining Hall with Asian Lights and Noodles (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hien Nguyen")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Dining Hall with Asian Lights and Noodles (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Hien Nguyen")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Foamy Drink in Wine Glass with small bowl of snacks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jakub Dziubak")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Foamy Drink in Wine Glass with Bowl of Drinking Snacks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jakub Dziubak")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Three shallow trays of dumplings"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Abhishek Sanwa Limbu")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Three Dumpling Dishes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Abhishek Sanwa Limbu")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Half-drunk glass with straw in empty bar corner"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sergey Isakhanyan"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sugar Shoppe"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Half-drunk Glass with Straw in Empty Bar Corner"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Sergey Isakhanyan"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sugar Shoppe"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Layered chocolate pudding dessert in goblet"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Emile Mbunzama")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Layered Chocolate Pudding Dessert in Goblet"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Emile Mbunzama")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Three hands holding ice cream cones"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Mark Cruz")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Three Hands Holding Ice Cream Cones"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Mark Cruz")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dog licking two-scoop ice cream cone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Christian Bowen")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Dog licking Red/Blue Ice Cream Cone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Christian Bowen")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Raspberry popsicle bars on white marble top"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Daniel \xD6berg"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Katagama"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Raspberry Popsicle Bars on White Marble Top"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Daniel \xD6berg"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Katagama"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Floral Sashimi Plate (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Augustine Fou")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Floral Sashimi Plate (also on Home Page)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Augustine Fou")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sashimi with Vegetables in Black Bowl"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jesse Ballantyne")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Sashimi with Vegetables in Black Bowl"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jesse Ballantyne")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sushi Chef behind Counter"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Thomas Marban")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Sushi Chef behind Counter"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Thomas Marban")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Mixed Sushi Plate with Big Cuts of Fish and Seafood"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cloris Ying"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Brasserie Belmonde"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Mixed Sushi Plate with Big Cuts of Fish and Seafood"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Cloris Ying"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Brasserie Belmonde"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Side View of Halved Cheesy Pocket"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Roberto Valdivia")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Side View of Halved Cheesy Pocket"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Roberto Valdivia")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Grilled fish steak on plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sander Dalhuisen")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Grilled Fish Steak on Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Sander Dalhuisen")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "4 Fish on Grill"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Clint Bustrillos")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Four Fish on Grill"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Clint Bustrillos")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cocktail Oysters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Laura Peruchi"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Chococat Cafe"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Cocktail Oysters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Laura Peruchi"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Chococat Cafe"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Rosetta Latte Art on Yellow Saucer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cristian Cristian")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Rosetta Latte Art on Yellow Saucer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Cristian Cristian")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Rosetta Matcha Latte Art"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jason Leung")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Rosetta Matcha Latte Art"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jason Leung")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Seahorse Latte Art"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Mazen Ir")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Seahorse Latte Art"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Mazen Ir")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bagel Sandwich on Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Christian Kaindl"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Green Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Bagel Sandwich on Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Christian Kaindl"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Green Plate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pea, Sprout Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Jonathan Farber")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Pea, Sprout Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jonathan Farber")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Avocado Burger on Plate with Veggies"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Filip Mishevski")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Avocado Burger on Plate with Veggies"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Filip Mishevski")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pesto Pasta Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Eaters Collective")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Pesto Pasta Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Eaters Collective")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Orange Noodles Tossed with Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Toa Heftiba"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Lucia"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Orange Noodles Tossed with Salad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Toa Heftiba"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Lucia"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Yellow Cocktail with Lemon Wedge & Cloves"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pushpak Dsilva")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Yellow Cocktail with Lemon Wedge"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Pushpak Dsilva")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tall Column Bar with Vertical Lights"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "DeMorris Byrd")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Tall Column Bar with Vertical Lights"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "DeMorris Byrd")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Small Burger with Chips and Orange Drink in Wine Glass"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Gabrielle Cepella")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Small Burger with Chips and Orange Drink in Wine Glass"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Gabrielle Cepella")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Red Cocktail in Coupe Glass"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Nikita Tikhomirov"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Pixel Point"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Red Cocktail in Coupe Glass"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Nikita Tikhomirov"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Pixel Point"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cafe Environment with People"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wade Austin Ellis")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Cafe Environment with People"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Wade Austin Ellis")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Espresso Drinks & Plants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Nathan Dumlao")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Espresso Drinks & Plants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Nathan Dumlao")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "To-Go Sandwich"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pille-Riin Priske")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "To-Go Sandwich"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Pille-Riin Priske")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dog on Outdoor Porch"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ross Sokolovski"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Squash Blossom"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Dog on Outdoor Porch"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Ross Sokolovski"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Squash Blossom"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Diamond Patterned Coffee Cups"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Nathan Dumlao")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Diamond-Pattern Arrangement of Coffee Cups"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Nathan Dumlao")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Muffin, Coffee, Cactus"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Robert Bye")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Muffin, Coffee, Cactus"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Robert Bye")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Orange Furnished Cafe Environment"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sebastian Schuppik")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Orange-Furnished Cafe Environment"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Sebastian Schuppik")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "pair"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Many Cactii against window"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tiplada Mekvisan")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Many Cactii against Window"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Tiplada Mekvisan"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Big Craw"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Lots of Crawfish"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Stephanie Moody")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Lobster with Sign"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Louis Hansel")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Mac & Cheese Burger with Pickle"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Alex Haney")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Person Holding Bowl of Crawfish"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Sidney Pearce")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.backToTop()
       }, "Back To Top", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-arrow-up"

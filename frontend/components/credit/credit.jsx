@@ -61,18 +61,20 @@ class Credit extends React.Component {
             <p>So while all of these photos for this project were taken for free from unsplash.com, I just thought I'd make a little
                 credits page in case anyone was interested in any of the images and/or reaching out to the individual artists themselves
             </p>
-            <p>They are organized by Page<i className="far fa-grin-alt"></i></p>
+            <p>They are organized by page.</p>
+            <p>Also, the titles are not official titles.. someday I'll add thumbnails but hopefully these descriptions will work for now. Thanks!<i className="far fa-grin-alt"></i></p>
+
                 <h3 onClick={this.handleOpenLogin()}>Login / Signup<i className="fas fa-palette"></i></h3>
                 {this.state.showLogin && (
                     <div className='section'>
                         <div id="pair">
-                            <div>Scattered Ice Creams</div>
-                            <div>Benjamín Hazael Rojas García</div>
+                            <div id="art-title">Scattered Ice Cream Cones</div>
+                            <div id="artist">Benjamín Hazael Rojas García</div>
                         </div>
 
                         <div id="pair">
-                            <div>Orange/Turquoise Shot Glasses</div>
-                            <div>Ram HO</div>
+                            <div id="art-title">Orange/Turquoise Shot Glasses</div>
+                            <div id="artist">Ram HO</div>
                         </div>
 
                     </div>
@@ -82,20 +84,20 @@ class Credit extends React.Component {
                 {this.state.showHome && (
                     <div className='section'>
                         <div id="pair">
-                            <div>Big Spread of Espresso Drinks</div>
-                            <div>Cyril Saulnier</div>
+                            <div id="art-title">Big Spread of Espresso Drinks</div>
+                            <div id="artist">Cyril Saulnier</div>
                         </div>
                         <div id="pair">
-                            <div>Floral Sashimi Plate</div>
-                            <div>Augustine Fou</div>
+                            <div id="art-title">Floral Sashimi Plate</div>
+                            <div id="artist">Augustine Fou</div>
                         </div>
                         <div id="pair">
-                            <div>Dining Hall with Asian Lights and Noodles</div>
-                            <div>Hien Nguyen</div>
+                            <div id="art-title">Dining Hall with Asian Lights and Noodles</div>
+                            <div id="artist">Hien Nguyen</div>
                         </div>
                         <div id="pair">
-                            <div>Smoky Cocktail in Tumbler</div>
-                            <div>Miguel Maldonado</div>
+                            <div id="art-title">Smoky Cocktail in Tumbler</div>
+                            <div id="artist">Miguel Maldonado</div>
                         </div>
                     </div>
                 )}
@@ -104,12 +106,12 @@ class Credit extends React.Component {
                 {this.state.showAdd && (
                     <div className='section'>
                         <div id="pair">
-                            <div>Yellow Chair & Bistro Table</div>
-                            <div>Kenan Süleymanoğlu</div>
+                            <div id="art-title">Yellow Chair & Bistro Table</div>
+                            <div id="artist">Kenan Süleymanoğlu</div>
                         </div>
                         <div id="pair">
-                            <div>3 Vertical Espresso Drinks</div>     
-                            <div>Nathan Dumlao</div>                 
+                            <div id="art-title">Three Vertical Espresso Drinks</div>     
+                            <div id="artist">Nathan Dumlao</div>                 
                         </div>
                     </div>
                 )}
@@ -121,220 +123,220 @@ class Credit extends React.Component {
                             <h4>Sweet Baby Cakes</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Dozens of Donuts on Trays</div>
-                                    <div>Elisheva Gohar</div>
+                                    <div id="art-title">Dozens of Donuts on Trays</div>
+                                    <div id="artist">Elisheva Gohar</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Cupcakes in a White Box</div>
-                                    <div>Persnickety Prints</div>
+                                    <div id="art-title">Cupcakes in a White Box</div>
+                                    <div id="artist">Persnickety Prints</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Hands holding Pastry</div>
-                                    <div>Ham Kris</div>
+                                    <div id="art-title">Hands Holding Pastry</div>
+                                    <div id="artist">Ham Kris</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Quarter-section of Salami Sandwich</div>
-                                    <div>Eaters Collective</div>
+                                    <div id="art-title">Quarter-section of Salami Sandwich</div>
+                                    <div id="artist">Eaters Collective</div>
                                 </div>
                             </div>
 
                             <h4>White Whale Saloon</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Empty Wooden Dining Room with vintage photos on walls</div>
-                                    <div>Austin Gardner</div>
+                                    <div id="art-title">Empty Wooden Dining Room with Vintage Photos on Walls</div>
+                                    <div id="artist">Austin Gardner</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Colorful wood-railed bar</div>
-                                    <div>Jared Burris</div>
+                                    <div id="art-title">Colorful Stained-Glass, Wood-Railed Bar</div>
+                                    <div id="artist">Jared Burris</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Sugar-rimmed Martini Glass with Red Liquid</div>
-                                    <div>Oleh Moskaliuk</div>
+                                    <div id="art-title">Sugar-Rimmed Martini Glass with Red Liquid</div>
+                                    <div id="artist">Oleh Moskaliuk</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Lone Beer on Wooden Bar</div>
-                                    <div>mnm.all</div>
+                                    <div id="art-title">Lone Beer on Wooden Bar</div>
+                                    <div id="artist">mnm.all</div>
                                 </div>
                             </div>
 
                             <h4>Hola Ola</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Big Spread of Espresso Drinks (also on Home Page)</div>
-                                    <div>Cyril Saulnier</div>
+                                    <div id="art-title">Big Spread of Espresso Drinks (also on Home Page)</div>
+                                    <div id="artist">Cyril Saulnier</div>
                                 </div>
                                 <div id="pair">
-                                    <div>View of Ocean through Tall Vertical Windows and Backs of People</div>
-                                    <div>Sung Jin Cho</div>
+                                    <div id="art-title">View of Ocean through Tall Vertical Windows + People</div>
+                                    <div id="artist">Sung Jin Cho</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Simple shot of Healthy Burger</div>
-                                    <div>Jiroe</div>
+                                    <div id="art-title">Simple shot of Healthy Burger</div>
+                                    <div id="artist">Jiroe</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Bowl of Guacamole & Chips with Olives</div>
-                                    <div>Ronise daluz</div>
+                                    <div id="art-title">Bowl of Guacamole & Chips with Olives</div>
+                                    <div id="artist">Ronise daluz</div>
                                 </div>
                             </div>
                           
                             <h4>Telegraph Place</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Long dining room table, empty with pink theme</div>
-                                    <div>Juliette F</div>
+                                    <div id="art-title">Long dining room table with Pink Theme</div>
+                                    <div id="artist">Juliette F</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Bowl of halved-shrimps and pasta noodles in white dish</div>
-                                    <div>UY VO</div>
+                                    <div id="art-title">Bowl of Halved-Shrimps and Pasta Noodles in White Dish</div>
+                                    <div id="artist">UY VO</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Slice of steak</div>
-                                    <div>José Ignacio Pompé</div>
+                                    <div id="art-title">Slice of Steak</div>
+                                    <div id="artist">José Ignacio Pompé</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Plated Carrots</div>
-                                    <div>Adam Jaime</div>
+                                    <div id="art-title">Plated Carrots</div>
+                                    <div id="artist">Adam Jaime</div>
                                 </div>
                             </div>
 
                             <h4>Tumbler Room</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Smoky Cocktail in Tumbler (also on Home Page)</div>
-                                    <div>Miguel Maldonado</div>
+                                    <div id="art-title">Smoky Cocktail in Tumbler (also on Home Page)</div>
+                                    <div id="artist">Miguel Maldonado</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Red Velvet Lounge Sofas and Bar Tables</div>
-                                    <div>Taylor Simpson</div>
+                                    <div id="art-title">Red Velvet Lounge Sofas and Bar Tables</div>
+                                    <div id="artist">Taylor Simpson</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Serving tray of chilled Martini Glasses</div>
-                                    <div>Olivier Rouge</div>
+                                    <div id="art-title">Serving Tray of Chilled Martini Glasses</div>
+                                    <div id="artist">Olivier Rouge</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Amber-colored cocktail with garnishes</div>
-                                    <div>Ash Edmonds</div>
+                                    <div id="art-title">Amber-colored Cocktail with Floral Garnish</div>
+                                    <div id="artist">Ash Edmonds</div>
                                 </div>
                             </div>
                     
                             <h4>Eastern Market Hall</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Dining Hall with Asian Lights and Noodles (also on Home Page)</div>
-                                    <div>Hien Nguyen</div>
+                                    <div id="art-title">Dining Hall with Asian Lights and Noodles (also on Home Page)</div>
+                                    <div id="artist">Hien Nguyen</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Foamy Drink in Wine Glass with small bowl of snacks</div>
-                                    <div>Jakub Dziubak</div>
+                                    <div id="art-title">Foamy Drink in Wine Glass with Bowl of Drinking Snacks</div>
+                                    <div id="artist">Jakub Dziubak</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Three shallow trays of dumplings</div>
-                                    <div>Abhishek Sanwa Limbu</div>
+                                    <div id="art-title">Three Dumpling Dishes</div>
+                                    <div id="artist">Abhishek Sanwa Limbu</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Half-drunk glass with straw in empty bar corner</div>
-                                    <div>Sergey Isakhanyan</div>
+                                    <div id="art-title">Half-drunk Glass with Straw in Empty Bar Corner</div>
+                                    <div id="artist">Sergey Isakhanyan</div>
                                 </div>
                             </div>
                                              
                             <h4>Sugar Shoppe</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Layered chocolate pudding dessert in goblet</div>
-                                    <div>Emile Mbunzama</div>
+                                    <div id="art-title">Layered Chocolate Pudding Dessert in Goblet</div>
+                                    <div id="artist">Emile Mbunzama</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Three hands holding ice cream cones</div>
-                                    <div>Mark Cruz</div>
+                                    <div id="art-title">Three Hands Holding Ice Cream Cones</div>
+                                    <div id="artist">Mark Cruz</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Dog licking two-scoop ice cream cone</div>
-                                    <div>Christian Bowen</div>
+                                    <div id="art-title">Dog licking Red/Blue Ice Cream Cone</div>
+                                    <div id="artist">Christian Bowen</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Raspberry popsicle bars on white marble top</div>
-                                    <div>Daniel Öberg</div>
+                                    <div id="art-title">Raspberry Popsicle Bars on White Marble Top</div>
+                                    <div id="artist">Daniel Öberg</div>
                                 </div>
                             </div>
                                                   
                             <h4>Katagama</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Floral Sashimi Plate (also on Home Page)</div>
-                                    <div>Augustine Fou</div>
+                                    <div id="art-title">Floral Sashimi Plate (also on Home Page)</div>
+                                    <div id="artist">Augustine Fou</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Sashimi with Vegetables in Black Bowl</div>
-                                    <div>Jesse Ballantyne</div>
+                                    <div id="art-title">Sashimi with Vegetables in Black Bowl</div>
+                                    <div id="artist">Jesse Ballantyne</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Sushi Chef behind Counter</div>
-                                    <div>Thomas Marban</div>
+                                    <div id="art-title">Sushi Chef behind Counter</div>
+                                    <div id="artist">Thomas Marban</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Mixed Sushi Plate with Big Cuts of Fish and Seafood</div>
-                                    <div>Cloris Ying</div>
+                                    <div id="art-title">Mixed Sushi Plate with Big Cuts of Fish and Seafood</div>
+                                    <div id="artist">Cloris Ying</div>
                                 </div>
                             </div>
                        
                             <h4>Brasserie Belmonde</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Side View of Halved Cheesy Pocket</div>
-                                    <div>Roberto Valdivia</div>
+                                    <div id="art-title">Side View of Halved Cheesy Pocket</div>
+                                    <div id="artist">Roberto Valdivia</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Grilled fish steak on plate</div>
-                                    <div>Sander Dalhuisen</div>
+                                    <div id="art-title">Grilled Fish Steak on Plate</div>
+                                    <div id="artist">Sander Dalhuisen</div>
                                 </div>
                                 <div id="pair">
-                                    <div>4 Fish on Grill</div>
-                                    <div>Clint Bustrillos</div>
+                                    <div id="art-title">Four Fish on Grill</div>
+                                    <div id="artist">Clint Bustrillos</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Cocktail Oysters</div>
-                                    <div>Laura Peruchi</div>
+                                    <div id="art-title">Cocktail Oysters</div>
+                                    <div id="artist">Laura Peruchi</div>
                                 </div>
                             </div>
                     
                             <h4>Chococat Cafe</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Rosetta Latte Art on Yellow Saucer</div>
-                                    <div>Cristian Cristian</div>
+                                    <div id="art-title">Rosetta Latte Art on Yellow Saucer</div>
+                                    <div id="artist">Cristian Cristian</div>
                                 </div>  
                                 <div id="pair">
-                                    <div>Rosetta Matcha Latte Art</div>
-                                    <div>Jason Leung</div>
+                                    <div id="art-title">Rosetta Matcha Latte Art</div>
+                                    <div id="artist">Jason Leung</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Seahorse Latte Art</div>
-                                    <div>Mazen Ir</div>
+                                    <div id="art-title">Seahorse Latte Art</div>
+                                    <div id="artist">Mazen Ir</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Bagel Sandwich on Plate</div>
-                                    <div>Christian Kaindl</div>  
+                                    <div id="art-title">Bagel Sandwich on Plate</div>
+                                    <div id="artist">Christian Kaindl</div>  
                                 </div>                                          
                             </div>
                            
                             <h4>Green Plate</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Pea, Sprout Salad</div>
-                                    <div>Jonathan Farber</div>
+                                    <div id="art-title">Pea, Sprout Salad</div>
+                                    <div id="artist">Jonathan Farber</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Avocado Burger on Plate with Veggies</div>
-                                    <div>Filip Mishevski</div>
+                                    <div id="art-title">Avocado Burger on Plate with Veggies</div>
+                                    <div id="artist">Filip Mishevski</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Pesto Pasta Salad</div>
-                                    <div>Eaters Collective</div>
+                                    <div id="art-title">Pesto Pasta Salad</div>
+                                    <div id="artist">Eaters Collective</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Orange Noodles Tossed with Salad</div>
-                                    <div>Toa Heftiba</div>
+                                    <div id="art-title">Orange Noodles Tossed with Salad</div>
+                                    <div id="artist">Toa Heftiba</div>
                                 </div>
                                 
                             </div>
@@ -342,60 +344,80 @@ class Credit extends React.Component {
                             <h4>Lucia</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Yellow Cocktail with Lemon Wedge & Cloves</div>
-                                    <div>Pushpak Dsilva</div>
+                                    <div id="art-title">Yellow Cocktail with Lemon Wedge</div>
+                                    <div id="artist">Pushpak Dsilva</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Tall Column Bar with Vertical Lights</div>
-                                    <div>DeMorris Byrd</div>
+                                    <div id="art-title">Tall Column Bar with Vertical Lights</div>
+                                    <div id="artist">DeMorris Byrd</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Small Burger with Chips and Orange Drink in Wine Glass</div>
-                                    <div>Gabrielle Cepella</div>
+                                    <div id="art-title">Small Burger with Chips and Orange Drink in Wine Glass</div>
+                                    <div id="artist">Gabrielle Cepella</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Red Cocktail in Coupe Glass</div>
-                                    <div>Nikita Tikhomirov</div>
+                                    <div id="art-title">Red Cocktail in Coupe Glass</div>
+                                    <div id="artist">Nikita Tikhomirov</div>
                                 </div>                          
                             </div>
 
                             <h4>Pixel Point</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Cafe Environment with People</div>
-                                    <div>Wade Austin Ellis</div>
+                                    <div id="art-title">Cafe Environment with People</div>
+                                    <div id="artist">Wade Austin Ellis</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Espresso Drinks & Plants</div>
-                                    <div>Nathan Dumlao</div>
+                                    <div id="art-title">Espresso Drinks & Plants</div>
+                                    <div id="artist">Nathan Dumlao</div>
                                 </div>
                                 <div id="pair">
-                                    <div>To-Go Sandwich</div>
-                                    <div>Pille-Riin Priske</div>
+                                    <div id="art-title">To-Go Sandwich</div>
+                                    <div id="artist">Pille-Riin Priske</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Dog on Outdoor Porch</div>
-                                    <div>Ross Sokolovski</div>
+                                    <div id="art-title">Dog on Outdoor Porch</div>
+                                    <div id="artist">Ross Sokolovski</div>
                                 </div>                          
                             </div>
 
                             <h4>Squash Blossom</h4>
                             <div>
                                 <div id="pair">
-                                    <div>Diamond Patterned Coffee Cups</div>
-                                    <div>Nathan Dumlao</div>
+                                    <div id="art-title">Diamond-Pattern Arrangement of Coffee Cups</div>
+                                    <div id="artist">Nathan Dumlao</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Muffin, Coffee, Cactus</div>
-                                    <div>Robert Bye</div>
+                                    <div id="art-title">Muffin, Coffee, Cactus</div>
+                                    <div id="artist">Robert Bye</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Orange Furnished Cafe Environment</div>
-                                    <div>Sebastian Schuppik</div>
+                                    <div id="art-title">Orange-Furnished Cafe Environment</div>
+                                    <div id="artist">Sebastian Schuppik</div>
                                 </div>
                                 <div id="pair">
-                                    <div>Many Cactii against window</div>
-                                    <div>Tiplada Mekvisan</div>
+                                    <div id="art-title">Many Cactii against Window</div>
+                                    <div id="artist">Tiplada Mekvisan</div>
+                                </div>                          
+                            </div>
+
+                            <h4>Big Craw</h4>
+                            <div>
+                                <div id="pair">
+                                    <div id="art-title">Lots of Crawfish</div>
+                                    <div id="artist">Stephanie Moody</div>
+                                </div>
+                                <div id="pair">
+                                    <div id="art-title">Lobster with Sign</div>
+                                    <div id="artist">Louis Hansel</div>
+                                </div>
+                                <div id="pair">
+                                    <div id="art-title">Mac & Cheese Burger with Pickle</div>
+                                    <div id="artist">Alex Haney</div>
+                                </div>
+                                <div id="pair">
+                                    <div id="art-title">Person Holding Bowl of Crawfish</div>
+                                    <div id="artist">Sidney Pearce</div>
                                 </div>                          
                             </div>
 
