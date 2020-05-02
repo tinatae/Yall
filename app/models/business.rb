@@ -5,7 +5,7 @@ class Business < ApplicationRecord
     validates :thursopen, :thursclose, :friopen, :friclose, :satopen, :satclose, presence: true
     validates :sunopen, :sunclose, presence: true  
     validates :vegetarian, :vegan, :creditcard, :wheelchair, :goodforkids, :goodforgroups, :outdoor, :wifi, :dogsallowed, presence: true  
-    validates :name, uniqueness: true
+    validates :name, uniqueness: true 
     validates :category, inclusion: {in: ["All", "Restaurants", "Coffee & Tea", "Bars", "Dessert"]}
     validates :pricepoint, inclusion: { in: (1..4) }
     # validates :monopen, :monclose, :inclusion => { in: (0..30)}, :allow_nil => true,

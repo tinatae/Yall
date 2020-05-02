@@ -20,15 +20,31 @@ class SearchbarForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        if (this.props.location.pathname !== '/businesses' && this.props.location.pathname !== '/credits') {
-            if (this.state.searchCity !== undefined) {
-                this.props.changeFilter('searchCity', this.state.searchCity)
-                return this.props.history.push(`/businesses?query=${this.state.searchQuery}`)
-               } else { 
-                return this.props.history.push(`/businesses?query=${this.state.searchQuery}`)
+        const formattedQuery = this.state.searchQuery ? this.state.searchQuery.split(" ").map(part => part[0].toUpperCase() + part.slice(1).toLowerCase()).join(" ") : "nothing";
+
+        const formattedCity = this.state.searchCity ? this.state.searchCity.split(" ").map(part => part[0].toUpperCase() + part.slice(1).toLowerCase()).join(" ") : "nope";
+
+        console.log(this.state.searchCity);
+        console.log(formattedCity);
+        console.log(this.state.searchQuery);
+        console.log(formattedQuery)
+
+        if (this.props.location.pathname !== '/businesses' && this.props.location.pathname !== '/credits') {       // HOMEPAGE ONLY
+            if (this.state.searchQuery !== '' && this.state.searchCity !== '') {                                   // BOTH CITY & QUERY
+                this.props.changeFilter('searchCity', formattedCity)
+                return this.props.history.push(`/businesses?query=${formattedQuery}`)
+
+               } else if (this.state.searchCity !== '' && this.state.searchQuery === ''){                           // JUST CITY
+
+                this.props.changeFilter('searchCity', formattedCity)
+                return this.props.history.push('/businesses');
+                
+
+               } else if (this.state.searchQuery !== '' && this.state.searchCity === ''){                           // JUST QUERY
+                return this.props.history.push(`/businesses?query=${formattedQuery}`)
                }
-        } else if (this.props.location.pathname === '/businesses') {
-            return this.props.updateFilter('searchQuery', this.state.searchQuery)    
+        } else if (this.props.location.pathname === '/businesses') {                                                // SHOULD ONLY BE ON BUSINESSES PAGE IN SINGLE SEARCH QUERY BAR
+            return this.props.updateFilter('searchQuery', formattedQuery)    
         }
     };
 

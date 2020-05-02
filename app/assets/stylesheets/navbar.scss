@@ -83,10 +83,12 @@
     color: white;
     font-weight: 800;
     font-size: 14px;
+    font-family: Helvetica Neue, Helvetica, Arial;
 }
 
-#add-biz-link {
-    margin-right: 15px;
+#add-biz-link span {
+    margin-left: 5px;
+    font-size: 14px;
 }
 
 #add-biz-link span:hover {
@@ -94,22 +96,38 @@
     color: white;
 }
 
-#add-me-link {
+#github span {
+    margin-left: 7px;
     font-size: 14px;
 }
 
-#add-me-link span:hover {
-    color: #c7ffff;
+#linkedin span {
+    margin-left: 7px;
+    font-size: 14px;
 }
 
-#add-me-link:hover span {
+#github:hover span {
     display: none;
 }
 
-#add-me-link:hover:after {
-    content: "Hello !";
+#linkedin:hover span {
+    display: none;
+}
+
+#github:hover:after {
+    content: " Hello !";
     color: #c7ffff;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
+    font-size: 14px;
+}
+
+#linkedin:hover:after {
+    content: " Thank you for visiting !";
+    color: #c7ffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .loggednav-right {

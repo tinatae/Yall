@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter, useHistory } from 'react-router-dom';
 import SearchbarFormContainer from '../searchbar/searchbar_form_container';
 
 const NavBar = ({ currentUser, logout, match: { path, isExact } }) => {
@@ -10,18 +10,34 @@ const NavBar = ({ currentUser, logout, match: { path, isExact } }) => {
          } else {return null}
     }
 
+    let history = useHistory();
     
     const display = currentUser ? (
         <div className="loggednav">
             <div className="nav-left">
-                <Link id="add-biz-link" style={{textDecoration: 'none'}} to={"/businesses/new"}>
-                    <i className="far fa-building"></i>
+            
+                <i id="add-biz-link" onClick={() => history.push("/businesses/new")} className="far fa-building">
                     <span>Add&nbsp;Your&nbsp;Business</span>
-                </Link>
-                <Link id="add-me-link" style={{ textDecoration: 'none' }} to={"/businesses/new"}>
-                    <i className="far fa-sun"></i>
-                    <span>Add Me</span>
-                </Link>
+                </i>
+
+                <i
+                    id="github"
+                    className="fab fa-github"
+                    onClick={() =>
+                        window.location.replace("https://github.com/tinatae/yallr")
+                    }
+                ><span>Github</span></i>
+
+                <i
+                    id="linkedin"
+                    className="fab fa-linkedin"
+                    onClick={() =>
+                        window.location.replace(
+                            "https://www.linkedin.com/in/tina-tae-87a3ba18/"
+                        )
+                    }
+                ><span>LinkedIn</span></i>
+             
             </div>
 
             {searchBar()}
@@ -37,14 +53,28 @@ const NavBar = ({ currentUser, logout, match: { path, isExact } }) => {
     ) : (
         <div className="notlogged-nav">
             <div className="nav-left">
-                <Link id="add-biz-link" style={{ textDecoration: 'none' }} to={"/businesses/new"}>
-                    <i className="far fa-building"></i>
+        
+                <i id="add-biz-link" onClick={() => history.push("/businesses/new")} className="far fa-building">
                     <span>Add&nbsp;Your&nbsp;Business</span>
-                </Link>
-                <Link id="add-me-link" style={{ textDecoration: 'none' }} to={"/businesses/new"}>
-                    <i className="far fa-sun"></i>
-                    <span>Add Me</span>
-                </Link>
+                </i>
+                             
+                <i
+                    id="github"
+                    className="fab fa-github"
+                    onClick={() =>
+                        window.location.replace("https://github.com/tinatae/yallr")
+                    }
+                    ><span>Github</span></i>
+
+                <i
+                    id="linkedin"
+                    className="fab fa-linkedin"
+                    onClick={() =>
+                        window.location.replace(
+                            "https://www.linkedin.com/in/tina-tae-87a3ba18/"
+                        )
+                    }
+                    ><span>LinkedIn</span></i>
             </div>
 
             {searchBar()}

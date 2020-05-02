@@ -3,10 +3,6 @@
     color: #333333;
 }
 
-// .filtered-firstline {
-//     margin-left: 10px;
-// }
-
 #clear-filters {
     margin-left: 70px;
 }
@@ -58,7 +54,6 @@
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
     padding: 10px;
-    // position: relative;
 }
 
 .filters button {
@@ -72,6 +67,32 @@
 .filters button:hover {
     border: #0E87FF solid 1px;
     color: #0E87FF;
+}
+
+.filter-tags {
+    display: flex;
+    margin-left: 5%;
+}
+
+.filter-tags div {
+    margin-right: 10px;
+    color: #0E87FF;
+    font-size: 12px;
+    border: 1px solid #0E87FF;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+#showing-filters {
+    color: #0E87FF;
+    font-size: 14px;
+    border: none;
+    margin-left: -5px;
+    margin-right: -2px;
+}
+
+#query-italic {
+    font-style: italic;
 }
 
 #minmax-pair {

@@ -17,13 +17,14 @@ class Search extends React.Component {
    }
 
     render () {
-        const { businesses, minPricepoint, maxPricepoint, filterCategory, filterOpenNow, filterDelivery, filterTakeout, filterRating, updateFilter, searchQuery, refreshFilter } = this.props;
+        const { businesses, minPricepoint, maxPricepoint, filterCategory, filterOpenNow, filterDelivery, filterTakeout, filterRating, updateFilter, searchQuery, searchCity, refreshFilter } = this.props;
 
         return (
             <div className="indexpage">
                 <div className="indexpage-filters">
                     <h3>What are you Looking For?</h3>
                         <FilterForm 
+                            searchCity={searchCity}
                             searchQuery={searchQuery}
                             minPricepoint={minPricepoint} 
                             maxPricepoint={maxPricepoint}
@@ -32,7 +33,6 @@ class Search extends React.Component {
                             filterOpenNow={filterOpenNow}
                             filterDelivery={filterDelivery}
                             filterTakeout={filterTakeout}
-                            // filterRating={filterRating}
                             refreshFilter={refreshFilter}
                         />
                 </div>

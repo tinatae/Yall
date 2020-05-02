@@ -541,11 +541,17 @@ function (_React$Component) {
           className: "far fa-check-circle"
         }), "(", this.state.phonenumber.slice(0, 3), ")", this.state.phonenumber.slice(3, 6), "-", this.state.phonenumber.slice(6));
       } else if (this.state.phonenumber.length > 6) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "(", this.state.phonenumber.slice(0, 3), ")", this.state.phonenumber.slice(3, 6), "-", this.state.phonenumber.slice(6));
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "phone-check"
+        }, "(", this.state.phonenumber.slice(0, 3), ")", this.state.phonenumber.slice(3, 6), "-", this.state.phonenumber.slice(6));
       } else if (this.state.phonenumber.length > 3 && this.state.phonenumber.length <= 6) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "(", this.state.phonenumber.slice(0, 3), ")", this.state.phonenumber.slice(3));
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "phone-check"
+        }, "(", this.state.phonenumber.slice(0, 3), ")", this.state.phonenumber.slice(3));
       } else if (this.state.phonenumber.length > 0 && this.state.phonenumber.length <= 3) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "(", this.state.phonenumber, ")");
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "phone-check"
+        }, "(", this.state.phonenumber, ")");
       }
     }
   }, {
@@ -2151,6 +2157,36 @@ var BusinessProfile = function BusinessProfile(_ref) {
     }
   }
 
+  function hasBathroom(attribute) {
+    if (attribute === "Yes") {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-transgender"
+      }), "Gender\xA0Neutral\xA0Restrooms\xA0:\xA0", business.genderneutralrestroom);
+    } else {
+      return null;
+    }
+  }
+
+  function bringKids(attribute) {
+    if (attribute === "Yes") {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-baby-carriage"
+      }), "Good\xA0for\xA0Kids\xA0:\xA0", business.goodforkids);
+    } else {
+      return null;
+    }
+  }
+
+  function bringDogs(attribute) {
+    if (attribute === "Yes") {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-dog"
+      }), "Dogs\xA0Allowed\xA0:\xA0", business.dogsallowed);
+    } else {
+      return null;
+    }
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2219,19 +2255,13 @@ var BusinessProfile = function BusinessProfile(_ref) {
     className: "fas fa-parking"
   }), "Parking\xA0:\xA0", business.parking), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-wheelchair"
-  }), "Wheelchair\xA0Accessible:\xA0", business.wheelchair), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-transgender"
-  }), "Gender\xA0Neutral\xA0Restrooms\xA0:\xA0", business.genderneutralrestroom)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), "Wheelchair\xA0Accessible:\xA0", business.wheelchair), hasBathroom(business.genderneutralrestroom)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-cloud-sun"
-  }), "Outdoor\xA0Seating\xA0:\xA0", business.outdoor), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-baby-carriage"
-  }), "Good\xA0for\xA0Kids\xA0:\xA0", business.goodforkids), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }), "Outdoor\xA0Seating\xA0:\xA0", business.outdoor), bringKids(business.goodforkids), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-users"
-  }), "Good\xA0for\xA0Groups\xA0:\xA0", business.goodforgroups), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-dog"
-  }), "Dogs\xA0Allowed\xA0:\xA0", business.dogsallowed))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), "Good\xA0for\xA0Groups\xA0:\xA0", business.goodforgroups), bringDogs(business.dogsallowed))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-map-and-info"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-map"
@@ -3549,27 +3579,30 @@ var NavBar = function NavBar(_ref) {
     }
   }
 
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
   var display = currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-left"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     id: "add-biz-link",
-    style: {
-      textDecoration: 'none'
+    onClick: function onClick() {
+      return history.push("/businesses/new");
     },
-    to: "/businesses/new"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "far fa-building"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    id: "add-me-link",
-    style: {
-      textDecoration: 'none'
-    },
-    to: "/businesses/new"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "far fa-sun"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Me"))), searchBar(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "github",
+    className: "fab fa-github",
+    onClick: function onClick() {
+      return window.location.replace("https://github.com/tinatae/yallr");
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Github")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "linkedin",
+    className: "fab fa-linkedin",
+    onClick: function onClick() {
+      return window.location.replace("https://www.linkedin.com/in/tina-tae-87a3ba18/");
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "LinkedIn"))), searchBar(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav-right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "greeting"
@@ -3584,23 +3617,25 @@ var NavBar = function NavBar(_ref) {
     className: "notlogged-nav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-left"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     id: "add-biz-link",
-    style: {
-      textDecoration: 'none'
+    onClick: function onClick() {
+      return history.push("/businesses/new");
     },
-    to: "/businesses/new"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "far fa-building"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    id: "add-me-link",
-    style: {
-      textDecoration: 'none'
-    },
-    to: "/businesses/new"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "far fa-sun"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add Me"))), searchBar(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "github",
+    className: "fab fa-github",
+    onClick: function onClick() {
+      return window.location.replace("https://github.com/tinatae/yallr");
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Github")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "linkedin",
+    className: "fab fa-linkedin",
+    onClick: function onClick() {
+      return window.location.replace("https://www.linkedin.com/in/tina-tae-87a3ba18/");
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "LinkedIn"))), searchBar(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "navlink-login"
@@ -4021,10 +4056,7 @@ var handleOpenNow = function handleOpenNow(filter, updateFilter) {
   return function (e) {
     return updateFilter(filter, e.currentTarget.value);
   };
-}; // const handleRatingChange= (filter, updateFilter) => e => (
-//     updateFilter(filter, e.currentTarget.value)
-// );
-
+};
 
 var handleDeliveryChange = function handleDeliveryChange(filter, updateFilter) {
   return function (e) {
@@ -4038,6 +4070,80 @@ var handleTakeoutChange = function handleTakeoutChange(filter, updateFilter) {
   };
 };
 
+function showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) {
+  if (searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All") {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "showing-filters"
+    }, "Showing Filters:");
+  } else {
+    return null;
+  }
+}
+
+function selectQuery(searchQuery) {
+  if (searchQuery) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "query-italic"
+    }, "\"", searchQuery, "\"");
+  } else {
+    return null;
+  }
+}
+
+;
+
+function selectCity(searchCity) {
+  if (searchCity) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "query-italic"
+    }, "\"", searchCity, "\"");
+  } else {
+    return null;
+  }
+}
+
+;
+
+function selectCategory(filterCategory) {
+  if (filterCategory !== "All") {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, filterCategory);
+  } else {
+    return null;
+  }
+}
+
+;
+
+function selectOpen(filterOpenNow) {
+  if (filterOpenNow !== "Always") {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Open Now");
+  } else {
+    return null;
+  }
+}
+
+;
+
+function selectDelivery(filterDelivery) {
+  if (filterDelivery !== "All") {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Delivery");
+  } else {
+    return null;
+  }
+}
+
+;
+
+function selectTakeout(filterTakeout) {
+  if (filterTakeout !== "All") {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Takeout");
+  } else {
+    return null;
+  }
+}
+
+;
+
 var FilterForm = function FilterForm(_ref) {
   var minPricepoint = _ref.minPricepoint,
       maxPricepoint = _ref.maxPricepoint,
@@ -4047,6 +4153,8 @@ var FilterForm = function FilterForm(_ref) {
       filterDelivery = _ref.filterDelivery,
       filterTakeout = _ref.filterTakeout,
       updateFilter = _ref.updateFilter,
+      searchQuery = _ref.searchQuery,
+      searchCity = _ref.searchCity,
       refreshFilter = _ref.refreshFilter;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "filtered-firstline"
@@ -4129,7 +4237,9 @@ var FilterForm = function FilterForm(_ref) {
     onClick: refreshFilter
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "filter-writing"
-  }, "Clear All Filters")))));
+  }, "Clear All Filters")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "filter-tags"
+  }, showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout), selectQuery(searchQuery), selectCity(searchCity), selectCategory(filterCategory), selectOpen(filterOpenNow), selectDelivery(filterDelivery), selectTakeout(filterTakeout)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (FilterForm); // const handleRatingChange = (filter, updateFilter) => e => (
@@ -4209,12 +4319,14 @@ function (_React$Component) {
           filterRating = _this$props.filterRating,
           updateFilter = _this$props.updateFilter,
           searchQuery = _this$props.searchQuery,
+          searchCity = _this$props.searchCity,
           refreshFilter = _this$props.refreshFilter;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "indexpage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "indexpage-filters"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "What are you Looking For?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_form__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        searchCity: searchCity,
         searchQuery: searchQuery,
         minPricepoint: minPricepoint,
         maxPricepoint: maxPricepoint,
@@ -4222,8 +4334,7 @@ function (_React$Component) {
         filterCategory: filterCategory,
         filterOpenNow: filterOpenNow,
         filterDelivery: filterDelivery,
-        filterTakeout: filterTakeout // filterRating={filterRating}
-        ,
+        filterTakeout: filterTakeout,
         refreshFilter: refreshFilter
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "indexpage-grid"
@@ -4276,14 +4387,14 @@ var mSTP = function mSTP(state, _ref) {
   var location = _ref.location;
   return {
     searchQuery: state.ui.filters.searchQuery,
+    searchCity: state.ui.filters.searchCity,
     businesses: Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__["asArray"])(state.entities),
     minPricepoint: state.ui.filters.minPricepoint,
     maxPricepoint: state.ui.filters.maxPricepoint,
     filterCategory: state.ui.filters.filterCategory,
     filterOpenNow: state.ui.filters.filterOpenNow,
     filterDelivery: state.ui.filters.filterDelivery,
-    filterTakeout: state.ui.filters.filterTakeout // filterRating: state.ui.filters.filterRating
-
+    filterTakeout: state.ui.filters.filterTakeout
   };
 };
 
@@ -4372,16 +4483,34 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
+      var formattedQuery = this.state.searchQuery ? this.state.searchQuery.split(" ").map(function (part) {
+        return part[0].toUpperCase() + part.slice(1).toLowerCase();
+      }).join(" ") : "nothing";
+      var formattedCity = this.state.searchCity ? this.state.searchCity.split(" ").map(function (part) {
+        return part[0].toUpperCase() + part.slice(1).toLowerCase();
+      }).join(" ") : "nope";
+      console.log(this.state.searchCity);
+      console.log(formattedCity);
+      console.log(this.state.searchQuery);
+      console.log(formattedQuery);
 
       if (this.props.location.pathname !== '/businesses' && this.props.location.pathname !== '/credits') {
-        if (this.state.searchCity !== undefined) {
-          this.props.changeFilter('searchCity', this.state.searchCity);
-          return this.props.history.push("/businesses?query=".concat(this.state.searchQuery));
-        } else {
-          return this.props.history.push("/businesses?query=".concat(this.state.searchQuery));
+        // HOMEPAGE ONLY
+        if (this.state.searchQuery !== '' && this.state.searchCity !== '') {
+          // BOTH CITY & QUERY
+          this.props.changeFilter('searchCity', formattedCity);
+          return this.props.history.push("/businesses?query=".concat(formattedQuery));
+        } else if (this.state.searchCity !== '' && this.state.searchQuery === '') {
+          // JUST CITY
+          this.props.changeFilter('searchCity', formattedCity);
+          return this.props.history.push('/businesses');
+        } else if (this.state.searchQuery !== '' && this.state.searchCity === '') {
+          // JUST QUERY
+          return this.props.history.push("/businesses?query=".concat(formattedQuery));
         }
       } else if (this.props.location.pathname === '/businesses') {
-        return this.props.updateFilter('searchQuery', this.state.searchQuery);
+        // SHOULD ONLY BE ON BUSINESSES PAGE IN SINGLE SEARCH QUERY BAR
+        return this.props.updateFilter('searchQuery', formattedQuery);
       }
     }
   }, {

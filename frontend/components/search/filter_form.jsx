@@ -12,10 +12,6 @@ const handleOpenNow = (filter, updateFilter) => e => (
     updateFilter(filter, e.currentTarget.value)
 );
 
-// const handleRatingChange= (filter, updateFilter) => e => (
-//     updateFilter(filter, e.currentTarget.value)
-// );
-
 const handleDeliveryChange = (filter, updateFilter) => e => (
     updateFilter(filter, e.currentTarget.value)
 );
@@ -24,6 +20,47 @@ const handleTakeoutChange = (filter, updateFilter) => e => (
     updateFilter(filter, e.currentTarget.value)
 );
 
+function showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) {
+  if (searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All") {
+    return <div id="showing-filters">Showing Filters:</div>
+  } else {return null}
+}
+
+function selectQuery(searchQuery) {
+  if (searchQuery) {
+    return <div id="query-italic">"{searchQuery}"</div>
+  } else { return null }
+};
+
+function selectCity(searchCity) {
+  if (searchCity) {
+    return <div id="query-italic">"{searchCity}"</div>
+  } else { return null }
+};
+
+function selectCategory(filterCategory) {
+  if (filterCategory !== "All") {
+    return <div>{filterCategory}</div>
+  } else { return null }
+};
+
+function selectOpen(filterOpenNow) {
+  if (filterOpenNow !== "Always") {
+    return <div>Open Now</div>
+  } else { return null }
+};
+
+function selectDelivery(filterDelivery) {
+  if (filterDelivery !== "All") {
+    return <div>Delivery</div>
+  } else { return null }
+};
+
+function selectTakeout(filterTakeout) {
+  if (filterTakeout !== "All") {
+    return <div>Takeout</div>
+  } else { return null }
+};
 
 const FilterForm = ({
   minPricepoint,
@@ -34,6 +71,8 @@ const FilterForm = ({
   filterDelivery,
   filterTakeout,
   updateFilter,
+  searchQuery,
+  searchCity,
   refreshFilter
 }) => (
   <div>
@@ -116,20 +155,22 @@ const FilterForm = ({
             <span id="filter-writing">Takeout</span>
         </button>
       </label>
-
-      {/* <label>
-        <button value="go" onClick={handleRatingChange('filterRating', updateFilter)}>
-          Sort by Rating (h-l)
-        </button>
-      </label> */}
             
      
         <div id="clear-filters">
             <button onClick={refreshFilter}>
                 <span id="filter-writing">Clear All Filters</span>
             </button>
-        </div>
-        
+        </div>        
+    </div>
+    <div className="filter-tags">
+      {showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout)}
+      {selectQuery(searchQuery)}
+      {selectCity(searchCity)}
+      {selectCategory(filterCategory)}
+      {selectOpen(filterOpenNow)}
+      {selectDelivery(filterDelivery)}
+      {selectTakeout(filterTakeout)}
     </div>
   </div>
 );

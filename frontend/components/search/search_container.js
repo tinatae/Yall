@@ -10,6 +10,7 @@ import SearchbarForm from '../searchbar/searchbar_form';
 
 const mSTP = (state, {location}) => ({
     searchQuery: state.ui.filters.searchQuery,
+    searchCity: state.ui.filters.searchCity,
     businesses: asArray(state.entities),
     minPricepoint: state.ui.filters.minPricepoint,
     maxPricepoint: state.ui.filters.maxPricepoint,
@@ -17,7 +18,6 @@ const mSTP = (state, {location}) => ({
     filterOpenNow: state.ui.filters.filterOpenNow,
     filterDelivery: state.ui.filters.filterDelivery,
     filterTakeout: state.ui.filters.filterTakeout,
-    // filterRating: state.ui.filters.filterRating
 });
 
 const mDTP = (dispatch) => ({

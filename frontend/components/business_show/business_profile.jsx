@@ -72,6 +72,39 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
     }
   }
 
+  function hasBathroom(attribute) {
+    if (attribute === "Yes") {
+      return (
+        <div>
+          <i className="fas fa-transgender"></i>
+          Gender&nbsp;Neutral&nbsp;Restrooms&nbsp;:&nbsp;{business.genderneutralrestroom}
+        </div>
+      )
+    } else { return null}
+  }
+
+  function bringKids(attribute) {
+    if (attribute === "Yes") {
+      return (
+        <div>
+          <i className="fas fa-baby-carriage"></i>
+                Good&nbsp;for&nbsp;Kids&nbsp;:&nbsp;{business.goodforkids}
+        </div> 
+      )
+    } else { return null}
+  }
+
+  function bringDogs(attribute) {
+    if (attribute === "Yes") {
+      return (
+        <div>
+          <i className="fas fa-dog"></i>
+                Dogs&nbsp;Allowed&nbsp;:&nbsp;{business.dogsallowed}
+        </div>  
+      )
+    } else { return null}
+  }
+
     return (
       <div className="profile">
         <div id="profile-pics-holder">
@@ -167,10 +200,8 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
                 <i className="fas fa-wheelchair"></i>
                 Wheelchair&nbsp;Accessible:&nbsp;{business.wheelchair}
               </div>
-              <div>
-                <i className="fas fa-transgender"></i>
-                Gender&nbsp;Neutral&nbsp;Restrooms&nbsp;:&nbsp;{business.genderneutralrestroom}
-              </div>
+    
+              {hasBathroom(business.genderneutralrestroom)}
             </div>
         
             <div id="row">
@@ -178,18 +209,13 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
                 <i className="fas fa-cloud-sun"></i>
                 Outdoor&nbsp;Seating&nbsp;:&nbsp;{business.outdoor}
               </div>
-              <div>
-                <i className="fas fa-baby-carriage"></i>
-                Good&nbsp;for&nbsp;Kids&nbsp;:&nbsp;{business.goodforkids}
-              </div> 
+              {bringKids(business.goodforkids)}
               <div>
                 <i className="fas fa-users"></i>
                 Good&nbsp;for&nbsp;Groups&nbsp;:&nbsp;{business.goodforgroups}
               </div>
-              <div>
-                <i className="fas fa-dog"></i>
-                Dogs&nbsp;Allowed&nbsp;:&nbsp;{business.dogsallowed}
-              </div>   
+              {bringDogs(business.dogsallowed)}
+             
             </div>
 
           </div>

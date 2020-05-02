@@ -125,59 +125,59 @@ whitewhale.photos.attach(io: file6, filename: 'whitewhale3.jpeg')
 file7 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/whitewhale4.jpeg')
 whitewhale.photos.attach(io: file7, filename: 'whitewhale4.jpeg')
 
-business3 = Business.create!(
-    name: "Hola Ola",
-    category: "Coffee & Tea",
-    lat: 37.8090439,
-    lng: -122.4149626,
-    website: "http://holaolasf.net",
-    phonenumber: "4151338182",
-    address1: "372 Pershing Dr",
-    city: "San Francisco",
-    state: "CA",
-    zipcode: 94129,
-    pricepoint: 2,
-    monopen: 6,
-    monclose: 18,
-    tuesopen: 6,
-    tuesclose: 18,
-    wedopen: 6,
-    wedclose: 18,
-    thursopen: 6,
-    thursclose: 18,
-    friopen: 6,
-    friclose: 20,
-    satopen: 6,
-    satclose: 20,
-    sunopen: 6,
-    sunclose: 20,
-    delivery: "No",
-    takeout: "Yes",
-    vegetarian: "Yes",
-    vegan: "Yes",
-    takesreservation: "No",
-    creditcard: "Yes",
-    googlepay: "Yes",
-    applepay: "Yes",
-    parking: "Private Lot", 
-    wheelchair: "Yes",
-    goodforkids: "Yes",
-    goodforgroups: "Yes",
-    outdoor: "Yes",
-    wifi: "Yes",
-    dogsallowed: "Yes",
-    genderneutralrestroom: "Yes",
-)
+# business3 = Business.create!(
+#     name: "Hola Ola",
+#     category: "Coffee & Tea",
+#     lat: 37.8090439,
+#     lng: -122.4149626,
+#     website: "http://holaolasf.net",
+#     phonenumber: "4151338182",
+#     address1: "372 Pershing Dr",
+#     city: "San Francisco",
+#     state: "CA",
+#     zipcode: 94129,
+#     pricepoint: 2,
+#     monopen: 6,
+#     monclose: 18,
+#     tuesopen: 6,
+#     tuesclose: 18,
+#     wedopen: 6,
+#     wedclose: 18,
+#     thursopen: 6,
+#     thursclose: 18,
+#     friopen: 6,
+#     friclose: 20,
+#     satopen: 6,
+#     satclose: 20,
+#     sunopen: 6,
+#     sunclose: 20,
+#     delivery: "No",
+#     takeout: "Yes",
+#     vegetarian: "Yes",
+#     vegan: "Yes",
+#     takesreservation: "No",
+#     creditcard: "Yes",
+#     googlepay: "Yes",
+#     applepay: "Yes",
+#     parking: "Private Lot", 
+#     wheelchair: "Yes",
+#     goodforkids: "Yes",
+#     goodforgroups: "Yes",
+#     outdoor: "Yes",
+#     wifi: "Yes",
+#     dogsallowed: "Yes",
+#     genderneutralrestroom: "Yes",
+# )
 
-file8 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola1.jpg')
-file9 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola2.jpg')
-file10 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola3.jpg')
-file11 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola4.jpg')
+# file8 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola1.jpg')
+# file9 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola2.jpg')
+# file10 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola3.jpg')
+# file11 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/holaola4.jpg')
 
-business3.photos.attach(io: file8, filename: 'holaola1.jpg')
-business3.photos.attach(io: file9, filename: 'holaola2.jpg')
-business3.photos.attach(io: file10, filename: 'holaola3.jpg')
-business3.photos.attach(io: file11, filename: 'holaola4.jpg')
+# business3.photos.attach(io: file8, filename: 'holaola1.jpg')
+# business3.photos.attach(io: file9, filename: 'holaola2.jpg')
+# business3.photos.attach(io: file10, filename: 'holaola3.jpg')
+# business3.photos.attach(io: file11, filename: 'holaola4.jpg')
 
 # business4 = Business.create!(
 #     name: "Telegraph Place",
@@ -613,54 +613,54 @@ business3.photos.attach(io: file11, filename: 'holaola4.jpg')
 # business11.photos.attach(io: file43, filename: 'green3.jpg')
 # business11.photos.attach(io: file44, filename: 'green4.jpg')
 
-# business12 = Business.create!(
-#     name: "Lucia",
-#     category: "Bars",
-#     lat: 37.8076720,
-#     lng: -122.2699919,
-#     website: "http://luciaoakland.com",
-#     phonenumber: "5105824265",
-#     address1: "3220 Telegraph Ave",
-#     city: "Oakland",
-#     state: "CA",
-#     zipcode: 94612,
-#     pricepoint: 2, 
-#     monopen: 16,
-#     monclose: 25,
-#     tuesopen: 16,
-#     tuesclose: 25,
-#     wedopen: 16,
-#     wedclose: 25,
-#     thursopen: 16,
-#     thursclose: 25,  
-#     friopen: 16,
-#     friclose: 26,
-#     satopen: 9,
-#     satclose: 26,
-#     sunopen: 9,
-#     sunclose: 25,
-#     delivery: "No",
-#     takeout: "No",
-#     vegetarian: "Yes",
-#     vegan: "No",
-#     takesreservation: "Yes",
-#     creditcard: "Yes",
-#     googlepay: "Yes",
-#     applepay: "Yes",
-#     parking: "Street", 
-#     wheelchair: "Yes",
-#     goodforkids: "Yes",
-#     goodforgroups: "Yes",
-#     outdoor: "No",
-#     wifi: "Yes",
-#     dogsallowed: "No",
-#     genderneutralrestroom: "Yes",
-# )
+business12 = Business.create!(
+    name: "Lucia",
+    category: "Bars",
+    lat: 37.8076720,
+    lng: -122.2699919,
+    website: "http://luciaoakland.com",
+    phonenumber: "5105824265",
+    address1: "3220 Telegraph Ave",
+    city: "Oakland",
+    state: "CA",
+    zipcode: 94612,
+    pricepoint: 2, 
+    monopen: 16,
+    monclose: 25,
+    tuesopen: 16,
+    tuesclose: 25,
+    wedopen: 16,
+    wedclose: 25,
+    thursopen: 16,
+    thursclose: 25,  
+    friopen: 16,
+    friclose: 26,
+    satopen: 9,
+    satclose: 26,
+    sunopen: 9,
+    sunclose: 25,
+    delivery: "No",
+    takeout: "No",
+    vegetarian: "Yes",
+    vegan: "No",
+    takesreservation: "Yes",
+    creditcard: "Yes",
+    googlepay: "Yes",
+    applepay: "Yes",
+    parking: "Street", 
+    wheelchair: "Yes",
+    goodforkids: "Yes",
+    goodforgroups: "Yes",
+    outdoor: "No",
+    wifi: "Yes",
+    dogsallowed: "No",
+    genderneutralrestroom: "Yes",
+)
 
-# file45 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia1.jpg')
-# file46 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia2.jpg')
-# file47 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia3.jpg')
-# file48 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia4.jpg')
+file45 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia1.jpg')
+file46 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia2.jpg')
+file47 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia3.jpg')
+file48 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/lucia4.jpg')
 
 # business12.photos.attach(io: file45, filename: 'lucia1.jpg')
 # business12.photos.attach(io: file46, filename: 'lucia2.jpg')

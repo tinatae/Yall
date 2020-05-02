@@ -13,13 +13,12 @@ class Api::BusinessesController < ApplicationController
     
     businesses = params[:minPricepoint] && params[:maxPricepoint] ? businesses.where(pricepoint: price_range) : businesses
 
-    businesses = params[:searchQuery] ? businesses.where("name LIKE ? OR category LIKE ?", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%") : businesses
+    businesses = params[:searchQuery] ? businesses.where('city LIKE ? OR category LIKE ? OR name LIKE ?', "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%") : businesses
+    # businesses = params[:searchQuery] ? businesses.where("name LIKE ? OR category LIKE ?", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%") : businesses
 
     businesses = params[:filterCategory] == "All" ? businesses : businesses.where(category: params[:filterCategory])
 
     businesses = params[:filterOpenNow] == "Yes" ? businesses.open : businesses
-
-    # businesses = params[:filterRating] == "go" ? businesses.select("businesses.*, reviews.*, AVG(reviews.rating) as average").joins('LEFT OUTER JOIN reviews on reviews.business_id = businesses.id').group('businesses.id, review.id').order('average desc') : businesses
 
     businesses = params[:filterTakeout] == "Yes" ? businesses.where(takeout: params[:filterTakeout]) : businesses
 

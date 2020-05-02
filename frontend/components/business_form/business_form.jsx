@@ -102,11 +102,11 @@ class BusinessForm extends React.Component {
         } else if (this.state.phonenumber.length === 10) {
             return (<div id="checked-info"><i className="far fa-check-circle"></i>({this.state.phonenumber.slice(0, 3)}){this.state.phonenumber.slice(3, 6)}-{this.state.phonenumber.slice(6)}</div>)
         } else if (this.state.phonenumber.length > 6) { 
-            return (<div>({this.state.phonenumber.slice(0, 3)}){this.state.phonenumber.slice(3, 6)}-{this.state.phonenumber.slice(6)}</div>)
+            return (<div id="phone-check">({this.state.phonenumber.slice(0, 3)}){this.state.phonenumber.slice(3, 6)}-{this.state.phonenumber.slice(6)}</div>)
         } else if (this.state.phonenumber.length > 3 && this.state.phonenumber.length <= 6) {
-            return (<div>({this.state.phonenumber.slice(0,3)}){this.state.phonenumber.slice(3)}</div>)
+            return (<div id="phone-check">({this.state.phonenumber.slice(0,3)}){this.state.phonenumber.slice(3)}</div>)
         } else if (this.state.phonenumber.length > 0 && this.state.phonenumber.length <= 3) {
-            return <div>({this.state.phonenumber})</div>
+            return <div id="phone-check">({this.state.phonenumber})</div>
         }
     }
 
