@@ -2438,21 +2438,15 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ReviewForm).call(this, props));
     _this.state = {
-      rating: '',
+      rating: 0,
       body: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.navigateToBusinessShow = _this.navigateToBusinessShow.bind(_assertThisInitialized(_this));
+    _this.updateStar = _this.updateStar.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(ReviewForm, [{
-    key: "navigateToBusinessShow",
-    value: function navigateToBusinessShow() {
-      var url = "/businesses/".concat(this.props.businessId);
-      this.props.history.push(url);
-    }
-  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
@@ -2461,7 +2455,8 @@ function (_React$Component) {
         business_id: businessId
       });
       this.props.createReview(review);
-      this.navigateToBusinessShow();
+      console.log(review);
+      this.props.history.push("/businesses/".concat(this.props.businessId));
     }
   }, {
     key: "update",
@@ -2473,50 +2468,111 @@ function (_React$Component) {
       };
     }
   }, {
+    key: "updateStar",
+    value: function updateStar(num) {
+      var _this3 = this;
+
+      return function (e) {
+        return _this3.setState({
+          rating: num
+        });
+      };
+      console.log(this.state.rating);
+    }
+  }, {
     key: "render",
     value: function render() {
-      var name = this.props.business.name;
+      var _this4 = this;
+
+      var name = this.props.business.name; // const starStyle = { color: 'red'}
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.navigateToBusinessShow
-      }, "Actually, I'd like to do this later!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         id: "bizname"
       }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Select your rating: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u2605", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "please-rate"
+      }, "Please rate this business:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "click-stars"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "star-side"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "rating-side"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
-        value: "1",
-        onChange: this.update('rating')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u2605", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        value: "2",
-        onChange: this.update('rating')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u2605", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        value: "3",
-        onChange: this.update('rating')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u2605", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        value: "4",
-        onChange: this.update('rating')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u2605", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
+        name: "rating",
         value: "5",
-        onChange: this.update('rating')
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.updateStar(5)
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        name: "rating",
+        value: "4",
+        onClick: this.updateStar(4)
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        name: "rating",
+        value: "3",
+        onClick: this.updateStar(3)
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        name: "rating",
+        value: "2",
+        onClick: this.updateStar(2)
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        name: "rating",
+        value: "1",
+        onClick: this.updateStar(1)
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "comment-holder"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Thoughtful Comment", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "please-rate"
+      }, "Comment"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "textarea",
-        id: "comment",
-        placeholder: "Your review helps other learn about great local businesses. Please use your best, unbiased judgement when commenting on this business.",
+        placeholder: "Your review helps others learn about great local businesses.",
         value: this.state.body,
         onChange: this.update('body')
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "review-button",
         type: "submit",
         value: "Post Review"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.navigateToBusinessShow
+        id: "cancel-btn",
+        onClick: function onClick(e) {
+          return _this4.props.history.push("/businesses/".concat(_this4.props.businessId));
+        }
       }, "Cancel"));
     }
   }]);
@@ -4507,6 +4563,8 @@ function (_React$Component) {
         } else if (this.state.searchQuery !== '' && this.state.searchCity === '') {
           // JUST QUERY
           return this.props.history.push("/businesses?query=".concat(formattedQuery));
+        } else {
+          return this.props.history.push('/businesses');
         }
       } else if (this.props.location.pathname === '/businesses') {
         // SHOULD ONLY BE ON BUSINESSES PAGE IN SINGLE SEARCH QUERY BAR
@@ -4791,16 +4849,14 @@ function (_React$Component) {
   }, {
     key: "handleDemo",
     value: function handleDemo(e) {
-      var _this3 = this;
-
       e.preventDefault();
       var demoUser = {
         username: "DemoUser",
         password: "123456"
       };
       this.props.processForm(demoUser).then(function () {
-        return _this3.props.history.push("/");
-      }); // this.props.history.goBack()
+        return window.history.go(-1);
+      });
     }
   }, {
     key: "renderErrors",
@@ -38027,7 +38083,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -38,10 +38,12 @@ class SearchbarForm extends React.Component {
 
                 this.props.changeFilter('searchCity', formattedCity)
                 return this.props.history.push('/businesses');
-                
+           
 
                } else if (this.state.searchQuery !== '' && this.state.searchCity === ''){                           // JUST QUERY
-                return this.props.history.push(`/businesses?query=${formattedQuery}`)
+                    return this.props.history.push(`/businesses?query=${formattedQuery}`)
+               } else {
+                   return this.props.history.push('/businesses')
                }
         } else if (this.props.location.pathname === '/businesses') {                                                // SHOULD ONLY BE ON BUSINESSES PAGE IN SINGLE SEARCH QUERY BAR
             return this.props.updateFilter('searchQuery', formattedQuery)    

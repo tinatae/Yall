@@ -43,7 +43,10 @@ class Business < ApplicationRecord
 
     def recentreview
         return 'No reviews yet!' if self.reviews.length == 0
-        self.reviews[-1].body
+        self.reviews.reverse.each {|review| return review.body if review.rating >= 4}
+        self.reviews.reverse.each {|review| return review.body if review.rating >= 3}
+        self.reviews.reverse.each {|review| return review.body if review.rating >= 2}
+        self.reviews.reverse.each {|review| return review.body if review.rating >= 1}
     end
 
     def reviewcount

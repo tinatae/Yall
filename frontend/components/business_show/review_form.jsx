@@ -5,16 +5,12 @@ class ReviewForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            rating: '',
+            rating: 0,
             body: '',
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.navigateToBusinessShow = this.navigateToBusinessShow.bind(this);
-    }
 
-    navigateToBusinessShow() {
-        const url = `/businesses/${this.props.businessId}`
-        this.props.history.push(url);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.updateStar = this.updateStar.bind(this);
     }
 
     handleSubmit(e) {
@@ -22,54 +18,56 @@ class ReviewForm extends React.Component {
         const businessId = this.props.businessId;
         const review = Object.assign({}, this.state, { business_id: businessId });
         this.props.createReview(review);
-        this.navigateToBusinessShow();
+
+        console.log(review);
+        this.props.history.push(`/businesses/${this.props.businessId}`)
     }
 
     update(field) {
         return e => this.setState({ [field]: e.currentTarget.value });
     }
 
+    updateStar(num) {
+        return e => this.setState({ rating: num });
+        console.log(this.state.rating)
+    }
+
     render() {
         const name = this.props.business.name
+        // const starStyle = { color: 'red'}
 
         return (
             <div className="review-form">
-           
-                     
-                <button onClick={this.navigateToBusinessShow}>Actually, I'd like to do this later!</button>
-                     
-                 
+                              
                 <h2 id="bizname">{name}</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <span>Select your rating: </span>
-                        <label>★
-                            <input type="radio" value="1" onChange={this.update('rating')} />
-                        </label>
-                        <label>★
-                            <input type="radio" value="2" onChange={this.update('rating')} />
-                        </label>
-                        <label>★
-                            <input type="radio" value="3" onChange={this.update('rating')} />
-                        </label>
-                        <label>★
-                            <input type="radio" value="4" onChange={this.update('rating')} />
-                        </label>
-                        <label>★
-                            <input type="radio" value="5" onChange={this.update('rating')} />
-                        </label>
+                    <div id="please-rate">Please rate this business:</div>
+
+                    <div id="click-stars">
+                        <div id="star-side">
+                            <div><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
+                            <div><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
+                            <div><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
+                            <div><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
+                            <div><i className="fas fa-star"></i></div>
+                        </div>
+
+                        <div id="rating-side">                       
+                            <div><span>5</span><input type="radio" name="rating" value="5" onClick={this.updateStar(5)} /></div>
+                            <div><span>4</span><input type="radio" name="rating" value="4" onClick={this.updateStar(4)} /></div>
+                            <div><span>3</span><input type="radio" name="rating" value="3" onClick={this.updateStar(3)} /></div>
+                            <div><span>2</span><input type="radio" name="rating" value="2" onClick={this.updateStar(2)} /></div>
+                            <div><span>1</span><input type="radio" name="rating" value="1" onClick={this.updateStar(1)} /></div>
+                        </div>
                     </div>
 
-                      <br/>
                     <div id="comment-holder">
-                        <label>Thoughtful Comment
-                            <br/>
-                            <input type="textarea" id="comment" placeholder="Your review helps other learn about great local businesses. Please use your best, unbiased judgement when commenting on this business." value={this.state.body} onChange={this.update('body')} />
-                        </label>
+                        <div id="please-rate">Comment</div>            
+                        <input type="textarea" placeholder="Your review helps others learn about great local businesses." value={this.state.body} onChange={this.update('body')} />             
                     </div>          
-                    <input type="submit" value="Post Review" />
+                    <input id="review-button" type="submit" value="Post Review" />
                 </form>
-                    <button onClick={this.navigateToBusinessShow}>Cancel</button>
+                <button id="cancel-btn" onClick={(e) => this.props.history.push(`/businesses/${this.props.businessId}`)}>Cancel</button>
             </div>
         );
     }
