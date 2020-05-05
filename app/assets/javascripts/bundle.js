@@ -2455,7 +2455,6 @@ function (_React$Component) {
         business_id: businessId
       });
       this.props.createReview(review);
-      console.log(review);
       this.props.history.push("/businesses/".concat(this.props.businessId));
     }
   }, {
@@ -2477,15 +2476,13 @@ function (_React$Component) {
           rating: num
         });
       };
-      console.log(this.state.rating);
     }
   }, {
     key: "render",
     value: function render() {
       var _this4 = this;
 
-      var name = this.props.business.name; // const starStyle = { color: 'red'}
-
+      var name = this.props.business.name;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
@@ -2753,9 +2750,9 @@ var Review = function Review(_ref) {
     className: "reviews-section"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "userprofile"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-user-circle"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "username"
   }, author.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "reviews"
@@ -4852,11 +4849,39 @@ function (_React$Component) {
       e.preventDefault();
       var demoUser = {
         username: "DemoUser",
-        password: "123456"
+        password: "BigHello"
       };
-      this.props.processForm(demoUser).then(function () {
-        return window.history.go(-1);
-      });
+      var that = this;
+
+      var _loop = function _loop(i) {
+        setTimeout(function () {
+          that.setState({
+            username: that.state.username + demoUser.username[i]
+          });
+        }, i * 80, i);
+      };
+
+      for (var i = 0; i < demoUser.username.length; i++) {
+        _loop(i);
+      }
+
+      var _loop2 = function _loop2(_i) {
+        setTimeout(function () {
+          that.setState({
+            password: that.state.password + demoUser.password[_i]
+          });
+        }, _i * 90 + 800, _i);
+      };
+
+      for (var _i = 0; _i < demoUser.password.length; _i++) {
+        _loop2(_i);
+      }
+
+      setTimeout(function () {
+        that.props.processForm(demoUser).then(function () {
+          return window.history.go(-1);
+        });
+      }, 2000);
     }
   }, {
     key: "renderErrors",

@@ -12,7 +12,7 @@ Business.delete_all
 User.delete_all
 Review.delete_all
 
-sweetbabycakes = Business.create!(
+business1 = Business.create!(
     name: "Sweet Babycakes",
     category: "Dessert",
     lat: 37.797514,
@@ -57,19 +57,19 @@ sweetbabycakes = Business.create!(
 )
 
 file = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/sweetbabycakes1.jpeg')
-sweetbabycakes.photos.attach(io: file, filename: 'sweetbabycakes1.jpeg')
+business1.photos.attach(io: file, filename: 'sweetbabycakes1.jpeg')
 
 file1 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/sweetbabycakes2.jpeg')
-sweetbabycakes.photos.attach(io: file1, filename: 'sweetbabycakes2.jpeg')
+business1.photos.attach(io: file1, filename: 'sweetbabycakes2.jpeg')
 
 file2 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/sweetbabycakes3.jpeg')
-sweetbabycakes.photos.attach(io: file2, filename: 'sweetbabycakes3.jpeg')
+business1.photos.attach(io: file2, filename: 'sweetbabycakes3.jpeg')
 
 file3 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/sweetbabycakes4.jpeg')
-sweetbabycakes.photos.attach(io: file3, filename: 'sweetbabycakes4.jpeg')
+business1.photos.attach(io: file3, filename: 'sweetbabycakes4.jpeg')
 
 
-whitewhale = Business.create!(
+business2 = Business.create!(
     name: "White Whale Saloon",
     category: "Bars",
     lat: 37.7861535,
@@ -114,16 +114,16 @@ whitewhale = Business.create!(
 )
 
 file4 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/whitewhale1.jpeg')
-whitewhale.photos.attach(io: file4, filename: 'whitewhale1.jpeg')
+business2.photos.attach(io: file4, filename: 'whitewhale1.jpeg')
 
 file5 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/whitewhale2.jpeg')
-whitewhale.photos.attach(io: file5, filename: 'whitewhale2.jpeg')
+business2.photos.attach(io: file5, filename: 'whitewhale2.jpeg')
 
 file6 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/whitewhale3.jpeg')
-whitewhale.photos.attach(io: file6, filename: 'whitewhale3.jpeg')
+business2.photos.attach(io: file6, filename: 'whitewhale3.jpeg')
 
 file7 = open('https://yallrrr-seeds.s3-us-west-1.amazonaws.com/whitewhale4.jpeg')
-whitewhale.photos.attach(io: file7, filename: 'whitewhale4.jpeg')
+business2.photos.attach(io: file7, filename: 'whitewhale4.jpeg')
 
 business3 = Business.create!(
     name: "Hola Ola",
@@ -832,7 +832,7 @@ business15.photos.attach(io: file60, filename: 'craw4.jpg')
 
 User.create!(
     username: "DemoUser",
-    password: "123456"
+    password: "BigHello"
 )
 
 User.create!(
@@ -864,6 +864,12 @@ User.create!(
     username: "ssam_the_ssnake",
     password: "ssnacks"
 )
+
+User.create!(
+    username: "tautological_toast",
+    password: "mosttoast"
+)
+
 
 Review.create!(
     rating: 4,
@@ -899,4 +905,112 @@ Review.create!(
     business_id: 3,
     author_id: 5
 )
+
+Review.create!(
+    rating: 5,
+    body: "Favorite snack noodles near the park. Recommend Ann's stand - try #3 bowl with hot sauce & extra lime",
+    business_id: 6,
+    author_id: 7
+)
+
+Review.create!(
+    rating: 5,
+    body: "Slammin- lobster mac & cheese burger is off the chaaaaain. Go on a weekday, weekend is crazy",
+    business_id: 15,
+    author_id: 4
+)
+
+Review.create!(
+    rating: 5,
+    body: "Awesome coffeeshop. I bring my 1.5 yr-old pup here to get out of the house and do some work- pup somehow always gets free food lol. Coffee is little pricey but plain coffee (my drink) refills are free. Good human food too.",
+    business_id: 13,
+    author_id: 6
+)
+
+Review.create!(
+    rating: 4,
+    body: "Nice-looking. Decent coffee, local pastries. There is the occasional fly I see lurking in the case hence the dropped star. Staff is great and depending who's working there are free refills. Pastries go half-off last hour of the day.",
+    business_id: 14,
+    author_id: 6
+)
+
+Review.create!(
+    rating: 5,
+    body: "This is my FAVORITE place to go! Staff members are sweet & always make my drink just right! My go-to's are their New Orleans-style Ice Coffee with an extra splash of agave or their Spicy Mocha in the winter. They're both so good! On the weekends they serve wine and have local music and art shows",
+    business_id: 14,
+    author_id: 5
+)
+
+Review.create!(
+    rating: 5,
+    body: "I love this place! Lots of yummy cocktails--all made with fresh seasonal fruit juices. My go-to is probably their lemon clove martini. Made with Mt. Tam gin (from Saint Ambrose!) and sweet vermouth- it's refreshing, warm and spicy! I also like their seasonal spritz- my favorite one so far has been raspberry",
+    business_id: 12,
+    author_id: 5
+)
+
+Review.create!(
+    rating: 3,
+    body: "Took the lady here for Valentine's Day Prix Fixe Dinner. Steak was like shoe leather. At $300 per person how do you screw-up the main course. Get it right.",
+    business_id: 4,
+    author_id: 3
+)
+
+Review.create!(
+    rating: 4,
+    body: "Local and fresh. Little expensive but the sauces/dressings are quality. Wish they were sold for take-home",
+    business_id: 11,
+    author_id: 7
+)
+
+Review.create!(
+    rating: 5,
+    body: "So cute!! Tiny little cafe near campus, open late with lots of matcha options. I love the matcha tea latte with soy milk. Get a stamp card- after 7 drinks, the 8th one is free!",
+    business_id: 10,
+    author_id: 2
+)
+
+Review.create!(
+    rating: 5,
+    body: "Stunning food.",
+    business_id: 9,
+    author_id: 3
+)
+
+Review.create!(
+    rating: 5,
+    body: "Holy smokes, this food. Recommended quickbite is their calzone- cheesy, meaty goodness & enough to feed 2 people. Best lunch in town",
+    business_id: 9,
+    author_id: 8
+)
+
+Review.create!(
+    rating: 5,
+    body: "Not gonna lie this place is way far out on the edge of Alameda and I can only afford to eat here once a year, but the food is exquisite. Run by a third-generation family of Japanese sushi chefs, the soups & sauces are all family/secret recipe- which means they barely tell you anything about ingredients and only if your allergy is relevant lol",
+    business_id: 8,
+    author_id: 8
+)
+
+Review.create!(
+    rating: 5,
+    body: "They have a buy-one-get-one-free deal going on right now that's pretty spectacular. Bring your kids, friends and loved ones. Everything is good!",
+    business_id: 7,
+    author_id: 8
+)
+
+Review.create!(
+    rating: 5,
+    body: "Awesome speakeasy-style bar in the Mission. There are some really flashy $20 cocktails but classics are reasonably-priced. Good happy hour but it literally lasts one hour.",
+    business_id: 5,
+    author_id: 8
+)
+
+Review.create!(
+    rating: 5,
+    body: "Not really into the cupcakes or anything, but the sandwiches are gold. Get the Salami on Sweet Semolina. I'd eat it every day if I could",
+    business_id: 1,
+    author_id: 6
+)
+
+
+
 

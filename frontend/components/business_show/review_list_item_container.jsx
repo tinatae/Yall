@@ -45,10 +45,12 @@ const Review = ({ review, author }) => {
 
     return (
       <div className="reviews-section">
+
         <div id="userprofile">
-          <i className="fas fa-user-circle"></i>
+          <div><i className="fas fa-user-circle"></i></div>
           <div id="username">{author.username}</div>
         </div>
+
         <div className="reviews">
           <div id="stars-and-date">
             <div id="stars">{bizStars(rating)}</div>
@@ -57,6 +59,7 @@ const Review = ({ review, author }) => {
 
           <div id="comment">{body}</div>
         </div>
+
       </div>
     );
 };

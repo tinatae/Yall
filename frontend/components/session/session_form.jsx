@@ -33,7 +33,7 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
     };
 
-    showDemo() {
+    showDemo() {   
         if (this.props.location.pathname === "/login") {
             return (
               <button id="demo-button" onClick={this.handleDemo}>
@@ -44,16 +44,33 @@ class SessionForm extends React.Component {
     }
 
     handleDemo(e) {
-        e.preventDefault();
 
-        const demoUser = {
-            username: "DemoUser",
-            password: "123456"
-        };
+      e.preventDefault();
 
-        this.props.processForm(demoUser)
-        .then(() => window.history.go(-1))
-    }
+      const demoUser = {
+        username: "DemoUser",
+        password: "BigHello"
+      };
+
+      let that = this;
+
+      for (let i = 0; i < demoUser.username.length; i++) {
+          setTimeout(function() {
+              that.setState({username: that.state.username + demoUser.username[i]})
+          }, i * 80, i)
+      }
+
+      for (let i = 0; i < demoUser.password.length; i++) {
+          setTimeout(function() {
+              that.setState({password: that.state.password + demoUser.password[i]})
+          }, i*90 + 800, i)
+      }
+
+      setTimeout(function() {
+        that.props.processForm(demoUser)
+          .then(() => window.history.go(-1))    
+        }, 2000)  
+      }
 
     renderErrors() {
         if (this.props.errors.length > 0) {

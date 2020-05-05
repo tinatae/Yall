@@ -18,8 +18,6 @@ class ReviewForm extends React.Component {
         const businessId = this.props.businessId;
         const review = Object.assign({}, this.state, { business_id: businessId });
         this.props.createReview(review);
-
-        console.log(review);
         this.props.history.push(`/businesses/${this.props.businessId}`)
     }
 
@@ -29,12 +27,10 @@ class ReviewForm extends React.Component {
 
     updateStar(num) {
         return e => this.setState({ rating: num });
-        console.log(this.state.rating)
     }
 
     render() {
         const name = this.props.business.name
-        // const starStyle = { color: 'red'}
 
         return (
             <div className="review-form">
@@ -63,8 +59,13 @@ class ReviewForm extends React.Component {
 
                     <div id="comment-holder">
                         <div id="please-rate">Comment</div>            
-                        <input type="textarea" placeholder="Your review helps others learn about great local businesses." value={this.state.body} onChange={this.update('body')} />             
-                    </div>          
+                        <input type="textarea" 
+                            placeholder="Your review helps others learn about great local businesses." 
+                            value={this.state.body} 
+                            onChange={this.update('body')} 
+                        />             
+                    </div>    
+                          
                     <input id="review-button" type="submit" value="Post Review" />
                 </form>
                 <button id="cancel-btn" onClick={(e) => this.props.history.push(`/businesses/${this.props.businessId}`)}>Cancel</button>
