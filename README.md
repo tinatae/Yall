@@ -12,9 +12,9 @@
 
 #### Functionalities: 
 * Typed-input searchbar which queries database by business name, category, city
-* Filters that cross-query by pricepoint, delivery, takeout, 'open now'
-* Google Map API with location markers & geocoding to verify 'New Business' Address
-* Slideshow Homepage for featured businesses
+* Dropdown/Button Filters that cross-query by pricepoint, delivery, takeout, 'open now'
+* Google Map API with location markers & geocoding to verify 'New Business' address
+* Slideshow homepage for featured businesses
 
 * 'Add Your Business' sign-up form
 * Business review form

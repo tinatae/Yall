@@ -7,8 +7,15 @@
     margin-top: 10px;
 }
 
-#button-link-to-index Link button {
-    padding: 4px;  
+#button-link-to-index button {
+    padding: 4px 8px;  
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#button-link-to-index button:hover {
+    color: blue;
+    border: 1px solid blue;
 }
 
 .business-show-profile {

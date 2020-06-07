@@ -35,7 +35,9 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    padding: 4px;
+    padding: 3px;
+    border-radius: 5px;
+    border: #a6a6a6 solid 1px;
     text-align-last: center;
 }
 
@@ -43,7 +45,6 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    padding: 4px;
     border: #0E87FF solid 1px;
     color: #0E87FF;
 }

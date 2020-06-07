@@ -24,11 +24,6 @@ class SearchbarForm extends React.Component {
 
         const formattedCity = this.state.searchCity ? this.state.searchCity.split(" ").map(part => part[0].toUpperCase() + part.slice(1).toLowerCase()).join(" ") : "nope";
 
-        console.log(this.state.searchCity);
-        console.log(formattedCity);
-        console.log(this.state.searchQuery);
-        console.log(formattedQuery)
-
         if (this.props.location.pathname !== '/businesses' && this.props.location.pathname !== '/credits') {       // HOMEPAGE ONLY
             if (this.state.searchQuery !== '' && this.state.searchCity !== '') {                                   // BOTH CITY & QUERY
                 this.props.changeFilter('searchCity', formattedCity)

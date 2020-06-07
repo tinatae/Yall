@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import BusinessProfile from './business_profile';
 import { render } from 'react-dom';
 
@@ -8,14 +8,14 @@ const BusinessShow = ({ business, businessId, fetchBusiness, reviews }) => {
         [businessId]: business
     };
 
+    let history = useHistory();
+
     return(     
-        <div className="all-business-show">
+        <div className="all-business-show">   
             <div id="button-link-to-index">
-                <Link to="/businesses">
-                    <button>
-                        Back
-                    </button>
-                </Link>
+                <button onClick={(e)=>history.push('/businesses')}>
+                    Back
+                </button>
             </div>  
             
             <div className="business-show-profile">

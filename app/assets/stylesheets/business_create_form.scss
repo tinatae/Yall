@@ -16,6 +16,7 @@
     border-radius: 5px;
     padding: 4px;
     text-align: center;
+    border: black solid 1px;
 }
 
 .business-create-body {
@@ -124,14 +125,18 @@
     padding: 0px 30px;
     justify-content: center;
     margin-bottom: 30px;
+    margin: 0 auto;
 }
 
-// .business-create-bizhours h3 {
-//     margin: 0 auto;
-// }
 
 .business-create-bizhours label {
     padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.business-create-bizhours label div {
+    margin-left: -7px;
 }
 
 .business-create-bizhours div {
@@ -139,7 +144,9 @@
 }
 
 select {
-    padding: 5px;
+    padding: 4px 8px;
+    border: black solid 1px;
+    border-radius: 5px;
 }
 
 .bizhours-grid1 {
@@ -158,6 +165,7 @@ select {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin-left: 50px;
 }
 .amenities {
     display: flex;
@@ -208,8 +216,9 @@ select {
     padding: 30px;
 }
 
-
-
+.business-create-bizphoto input{
+    border: none;
+}
 
 
 #business-create-button {
