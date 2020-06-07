@@ -16,7 +16,7 @@
     border-radius: 5px;
     padding: 4px;
     text-align: center;
-    border: black solid 1px;
+    border: #a6a6a6 solid 1px;
 }
 
 .business-create-body {
@@ -118,6 +118,7 @@
     text-align: center;
     padding-top: 30px;
     font-weight: 600;
+    font-family: Arial;
 }
 
 .business-create-bizhours {
@@ -126,17 +127,18 @@
     justify-content: center;
     margin-bottom: 30px;
     margin: 0 auto;
+    font-family: Arial;
 }
 
 
 .business-create-bizhours label {
     padding: 5px;
     font-size: 15px;
-    font-weight: bold;
+    // font-weight: bold;
 }
 
 .business-create-bizhours label div {
-    margin-left: -7px;
+    margin-left: -8px;
 }
 
 .business-create-bizhours div {
@@ -144,8 +146,8 @@
 }
 
 select {
-    padding: 4px 8px;
-    border: black solid 1px;
+    padding: 3px 8px;
+    border: #a6a6a6 solid 1px;
     border-radius: 5px;
 }
 
@@ -165,11 +167,12 @@ select {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-left: 50px;
+    margin-left: 30px;
 }
 .amenities {
     display: flex;
     justify-content: space-evenly;
+    font-family: Arial;
 }
 
 .checkboxes {
@@ -195,6 +198,10 @@ select {
 .checkbox > input:checked {
     border: 1px solid #41B883;
     background-color: #34495E;
+}
+
+.checkbox span {
+    font-size: 14px;
 }
 
 .checkbox > input:checked + span::before { 
@@ -230,6 +237,7 @@ select {
     padding: 5px;
     border-radius: 5px;
     text-align: center;
+    border: 1px solid #a6a6a6;
 }
 
 #business-create-button input:hover {
