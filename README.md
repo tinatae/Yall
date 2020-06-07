@@ -20,8 +20,6 @@
 * Business review form
 * Login, Signup, Signout Functionality
 
-<div style="width:260px;max-width:100%;"><div style="height:0;padding-bottom:46.54%;position:relative;"><iframe width="260" height="121" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/449z1i"></iframe></div></div>
-
 #### Sample Code:
   ##### Business Model
   
@@ -101,5 +99,5 @@
 
 #### Future add-ons:
 * User Profiles
-* Edit reviews (though from a business ethics perspective, I'm split on this. If not Edit, definitely a Delete option)
-* Photo carousel
+* Edit reviews (though from a business ethics perspective, I'm split on this. If not edit, definitely delete)
+* Business photo carousel
