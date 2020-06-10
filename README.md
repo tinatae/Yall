@@ -21,81 +21,63 @@
 * Login, Signup, Signout Functionality
 
 #### Sample Code:
-  ##### Business Model
-  
-        def average_rating
-            avgrev = reviews.average(:rating)
-            
-            if avgrev == 0 || avgrev.nil?
-                avgrev = 0
-            else
-                avgrev 
-            end
-        end
+  ##### 'Add Business' Page
+  ##### Functionality: Ok this is fun: for the 'Add Business' page, we wanted phone number input in the 10-character format '5101234567'--not '15101234567' or for even the politest users who add their own parentheses & dashes: '(510)123-4567' (13 characters!). So the below code snippet renders the user's input in tandem with the user typing, and formats as it goes to guide the user to the desired phone format. A green check mark appears when the number is inputted correctly.
 
-        def dollarmaker
-            "$"*self.pricepoint
-        end
+    handleNumber() {
+        if (this.state.phonenumber.length === 0) {
+            return null
+        } else if (this.state.phonenumber.length === 10) {
+            return (<div id="checked-info"><i className="far fa-check-circle"></i>({this.state.phonenumber.slice(0, 3)}){this.state.phonenumber.slice(3, 6)}-{this.state.phonenumber.slice(6)}</div>)
+        } else if (this.state.phonenumber.length > 6) { 
+            return (<div id="phone-check">({this.state.phonenumber.slice(0, 3)}){this.state.phonenumber.slice(3, 6)}-{this.state.phonenumber.slice(6)}</div>)
+        } else if (this.state.phonenumber.length > 3 && this.state.phonenumber.length <= 6) {
+            return (<div id="phone-check">({this.state.phonenumber.slice(0,3)}){this.state.phonenumber.slice(3)}</div>)
+        } else if (this.state.phonenumber.length > 0 && this.state.phonenumber.length <= 3) {
+            return <div id="phone-check">({this.state.phonenumber})</div>
+        }
+    }
 
-        def reviewcount
-            return 'No Reviews' if self.reviews.nil?
-            if self.reviews.length == 1
-                return "1 review"
-            else
-                self.reviews.length.to_s + " reviews"
-            end
-        end
+  ##### Filter Form
+  ##### Functionality: The code below complements the filter functionality and return visual tags for filters that are in-place. This is meant to be a visual aid specifically for when the user queries a combination of features/names that might not have matching results. So while an entered searchword might be "Bars" (which would show-up as a tag), a following filter tag would say "Coffee & Tea" indicating that this second filter is (accidentally?) cross-querying the results.
 
-        def self.in_bounds(bounds)
-            self.where("lat < ?", bounds[:northEast][:lat])
-            .where("lat > ?", bounds[:southWest][:lat])
-            .where("lng > ?", bounds[:southWest][:lng])
-            .where("lng < ?", bounds[:northEast][:lng])
-        end
+    function showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) {
+        if (searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All") {
+                return <div id="showing-filters">Showing Filters:</div>
+            } else {return null}
+        }
 
-        def self.open           
-            if Time.now.wday == 0
-                self.sunhours
-            elsif Time.now.wday == 1
-                self.monhours
-            elsif Time.now.wday == 2
-                self.tueshours
-            elsif Time.now.wday == 3
-                self.wedhours
-            elsif Time.now.wday == 4
-                self.thurshours
-            elsif Time.now.wday == 5
-                self.frihours
-            else
-                self.sathours
-            end
-        end
-        
-  ##### Business Reducer
+        function selectQuery(searchQuery) {
+            if (searchQuery) {
+                return <div id="query-italic">"{searchQuery}"</div>
+            } else { return null }
+        };
 
-      import { RECEIVE_BUSINESSES, RECEIVE_BUSINESS, RECEIVE_REVIEW } from '../actions/business_actions';
+        function selectCity(searchCity) {
+            if (searchCity) {
+                return <div id="query-italic">"{searchCity}"</div>
+            } else { return null }
+        };
 
-      const businessesReducer = (state = {}, action) => {
-          Object.freeze(state)
+        function selectCategory(filterCategory) {
+            if (filterCategory !== "All") {
+                return <div>{filterCategory}</div>
+            } else { return null }
+        };
 
-          switch(action.type) {
-              case RECEIVE_BUSINESSES:
-                  return action.businesses;
-              case RECEIVE_BUSINESS:
-                  const newBusiness = { [action.business.id]: action.business };
-                  return Object.assign({}, state, newBusiness);
-              case RECEIVE_REVIEW:
-                  const {review, average_rating} = action;
-                  const newState = Object.assign({}, state);
-                  newState[review.business_id].reviewIds.push(review.id);
-                  newState[review.business_id].average_rating = average_rating;
-                  return newState;
-              default:
-                  return state;
-          }
-      };
+        ##### ...
+        ##### return ...
 
-      export default businessesReducer;
+        <div className="filter-tags">
+            {showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout)}
+            {selectQuery(searchQuery)}
+            {selectCity(searchCity)}
+            {selectCategory(filterCategory)}
+            {selectOpen(filterOpenNow)}
+            {selectDelivery(filterDelivery)}
+            {selectTakeout(filterTakeout)}
+        </div>
+
 
 #### Future add-ons:
 * User Profiles
