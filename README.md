@@ -22,7 +22,7 @@
 
 #### Sample Code:
   ##### 'Add Business' Page
-  ##### Functionality: Ok this is fun: for the 'Add Business' page, we wanted phone number input in the 10-character format '5101234567'--not '15101234567' or for even the politest users who add their own parentheses & dashes: '(510)123-4567' (13 characters!). So the below code snippet renders the user's input in tandem with the user typing, and formats as it goes to guide the user to the desired phone format. A green check mark appears when the number is inputted correctly.
+  ##### Functionality: For adding new businesses, the form asks for a phone number input in the 10-digit format '5101234567'--so without country code or extraneous punctuation. While a placeholder value models the desired input, it seemed inevitable that some well-meaning user would register with a nicely-formatted '(510)123-4567' and ultimately break our own formatting logic later down the road. So the below code snippet renders the user's input in tandem as they type, formatting as it goes to guide the user to the desired numerical input. A green check mark appears when the number is entered correctly.
 
     handleNumber() {
         if (this.state.phonenumber.length === 0) {
@@ -39,7 +39,7 @@
     }
 
   ##### Filter Form
-  ##### Functionality: The code below complements the filter functionality and return visual tags for filters that are in-place. This is meant to be a visual aid specifically for when the user queries a combination of features/names that might not have matching results. So while an entered searchword might be "Bars" (which would show-up as a tag), a following filter tag would say "Coffee & Tea" indicating that this second filter is (accidentally?) cross-querying the results.
+  ##### Functionality: The code below complements the filter functionality and return visual tags for filters that are in-place. This is meant to be a visual aid specifically for when the user queries a combination of features/names that might not have matching results. E.g. While an entered searchword might be "Bars", the following filter tag might say "Coffee & Tea"--reminding the user there is another filter present cross-querying their results.
 
     function showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) {
         if (searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All") {
