@@ -22,7 +22,7 @@
 
 #### Sample Code:
   ##### 'Add Business' Page
-  ##### Functionality: For adding new businesses, the form asks for a phone number input in the 10-digit format '5101234567'--so without country code or extraneous punctuation. While a placeholder value models the desired input, it seemed inevitable that some well-meaning user would register with a nicely-formatted '(510)123-4567' and ultimately break our own formatting logic later down the road. So the below code snippet renders the user's input in tandem as they type, formatting as it goes to guide the user to the desired numerical input. A green check mark appears when the number is entered correctly.
+  ##### For adding new businesses, the form asks for a phone number input in the 10-digit format: 5101234567. While the input placeholder models this desired format, it seemed inevitable that numbers would get entered with or without area codes, country codes, parentheses, dashes, etc.--ultimately breaking the formatting logic built for a ten-digit-only input later down the road. In terms of user experience, we didn't want to call an error when the user was done typing the full number--making them re-type their information twice--and we didn't want to call an error when they were done filling-out the entire form either. So our solution was the code below which renders the user's input in tandem as they type, adding formatting as it goes to guide the user to the desired input. A green check mark appears when the number is entered correctly.
 
     handleNumber() {
         if (this.state.phonenumber.length === 0) {
@@ -39,7 +39,7 @@
     }
 
   ##### Filter Form
-  ##### Functionality: The code below complements the filter functionality and return visual tags for filters that are in-place. This is meant to be a visual aid specifically for when the user queries a combination of features/names that might not have matching results. E.g. While an entered searchword might be "Bars", the following filter tag might say "Coffee & Tea"--reminding the user there is another filter present cross-querying their results.
+  ##### This is meant to be a visual aid specifically for when the user selects a combination of filters and maybe forgets which filters are in place. Prior to building this feature, we made the mistake ourselves of typing "Bars" into the searchbar with the 'Category' filter button set to "Coffee & Tea" from a prior test--it was 8PM on a weekday and there were no bars open.. so we thought it was weird but figured it was just the searchbar acting up! The filter tags are there to show all the filters impacting the results.
 
     function showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) {
         if (searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All") {
@@ -81,5 +81,6 @@
 
 #### Future add-ons:
 * User Profiles
-* Edit reviews (though from a business ethics perspective, I'm split on this. If not edit, definitely delete)
+* Edit reviews (though from a business ethics perspective, we're split on this. If not edit, definitely delete)
 * Business photo carousel
+* More robust search
