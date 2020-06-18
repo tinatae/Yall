@@ -33,7 +33,7 @@ class ReviewForm extends React.Component {
         const name = this.props.business.name
 
         return (
-            <div className="review-form">
+            <div class="review-form">
                               
                 <h2 id="bizname">{name}</h2>
                 <form onSubmit={this.handleSubmit}>

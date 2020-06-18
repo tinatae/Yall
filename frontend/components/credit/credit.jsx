@@ -23,7 +23,7 @@ class Credit extends React.Component {
 
     handleOpenLogin(e) {
         return e => {
-            (this.state.showLogin === false) ? (this.setState({ showLogin: true })) : (this.setState({ showLogin: false}))
+            (this.state.showLogin === false) ? (this.setState({ showLogin: true })) : (this.setState({ showLogin: false }))
         }
     }
 
@@ -53,16 +53,14 @@ class Credit extends React.Component {
 
     render() {
         return (
-      
-          <div className="credits">
-            <h2>{this.props.formType}</h2>
 
-            <p>So first things first: I love an Easter Egg. That said, I am also of the mind that many times artists are underpaid and go unrecognized for their talent and hard work.</p>
-            <p>So while all of these photos for this project were taken for free from unsplash.com, I just thought I'd make a little
-                credits page in case anyone was interested in any of the images and/or reaching out to the individual artists themselves
-            </p>
-            <p>They are organized by page.</p>
-            <p>Also, the titles are not official titles.. someday I'll add thumbnails but hopefully these descriptions will work for now. Thanks!<i className="far fa-grin-alt"></i></p>
+            <div className="credits">
+                <h2>{this.props.formType}</h2>
+
+                <p>I used a lot of other people's images in this project.</p>
+                <p>And while all of these photos were taken for free from unsplash.com, I just thought I'd make a little credits page as thanks.</p>
+                <p>They are organized by page.</p>
+                <p>Also, the titles are not official titles.. someday I'll add thumbnails but hopefully these descriptions will work for now. Thanks!<i className="far fa-grin-alt"></i></p>
 
                 <h3 onClick={this.handleOpenLogin()}>Login / Signup<i className="fas fa-palette"></i></h3>
                 {this.state.showLogin && (
@@ -110,8 +108,8 @@ class Credit extends React.Component {
                             <div id="artist">Kenan Süleymanoğlu</div>
                         </div>
                         <div id="pair">
-                            <div id="art-title">Three Vertical Espresso Drinks</div>     
-                            <div id="artist">Nathan Dumlao</div>                 
+                            <div id="art-title">Three Vertical Espresso Drinks</div>
+                            <div id="artist">Nathan Dumlao</div>
                         </div>
                     </div>
                 )}
@@ -179,7 +177,7 @@ class Credit extends React.Component {
                                     <div id="artist">Ronise daluz</div>
                                 </div>
                             </div>
-                          
+
                             <h4>Telegraph Place</h4>
                             <div>
                                 <div id="pair">
@@ -219,7 +217,7 @@ class Credit extends React.Component {
                                     <div id="artist">Ash Edmonds</div>
                                 </div>
                             </div>
-                    
+
                             <h4>Eastern Market Hall</h4>
                             <div>
                                 <div id="pair">
@@ -239,7 +237,7 @@ class Credit extends React.Component {
                                     <div id="artist">Sergey Isakhanyan</div>
                                 </div>
                             </div>
-                                             
+
                             <h4>Sugar Shoppe</h4>
                             <div>
                                 <div id="pair">
@@ -259,7 +257,7 @@ class Credit extends React.Component {
                                     <div id="artist">Daniel Öberg</div>
                                 </div>
                             </div>
-                                                  
+
                             <h4>Katagama</h4>
                             <div>
                                 <div id="pair">
@@ -279,7 +277,7 @@ class Credit extends React.Component {
                                     <div id="artist">Cloris Ying</div>
                                 </div>
                             </div>
-                       
+
                             <h4>Brasserie Belmonde</h4>
                             <div>
                                 <div id="pair">
@@ -299,13 +297,13 @@ class Credit extends React.Component {
                                     <div id="artist">Laura Peruchi</div>
                                 </div>
                             </div>
-                    
+
                             <h4>Chococat Cafe</h4>
                             <div>
                                 <div id="pair">
                                     <div id="art-title">Rosetta Latte Art on Yellow Saucer</div>
                                     <div id="artist">Cristian Cristian</div>
-                                </div>  
+                                </div>
                                 <div id="pair">
                                     <div id="art-title">Rosetta Matcha Latte Art</div>
                                     <div id="artist">Jason Leung</div>
@@ -316,10 +314,10 @@ class Credit extends React.Component {
                                 </div>
                                 <div id="pair">
                                     <div id="art-title">Bagel Sandwich on Plate</div>
-                                    <div id="artist">Christian Kaindl</div>  
-                                </div>                                          
+                                    <div id="artist">Christian Kaindl</div>
+                                </div>
                             </div>
-                           
+
                             <h4>Green Plate</h4>
                             <div>
                                 <div id="pair">
@@ -338,9 +336,9 @@ class Credit extends React.Component {
                                     <div id="art-title">Orange Noodles Tossed with Salad</div>
                                     <div id="artist">Toa Heftiba</div>
                                 </div>
-                                
+
                             </div>
-                       
+
                             <h4>Lucia</h4>
                             <div>
                                 <div id="pair">
@@ -358,7 +356,7 @@ class Credit extends React.Component {
                                 <div id="pair">
                                     <div id="art-title">Red Cocktail in Coupe Glass</div>
                                     <div id="artist">Nikita Tikhomirov</div>
-                                </div>                          
+                                </div>
                             </div>
 
                             <h4>Pixel Point</h4>
@@ -378,7 +376,7 @@ class Credit extends React.Component {
                                 <div id="pair">
                                     <div id="art-title">Dog on Outdoor Porch</div>
                                     <div id="artist">Ross Sokolovski</div>
-                                </div>                          
+                                </div>
                             </div>
 
                             <h4>Squash Blossom</h4>
@@ -398,7 +396,7 @@ class Credit extends React.Component {
                                 <div id="pair">
                                     <div id="art-title">Many Cactii against Window</div>
                                     <div id="artist">Tiplada Mekvisan</div>
-                                </div>                          
+                                </div>
                             </div>
 
                             <h4>Big Craw</h4>
@@ -418,7 +416,7 @@ class Credit extends React.Component {
                                 <div id="pair">
                                     <div id="art-title">Person Holding Bowl of Crawfish</div>
                                     <div id="artist">Sidney Pearce</div>
-                                </div>                          
+                                </div>
                             </div>
 
                         </div>
@@ -426,7 +424,7 @@ class Credit extends React.Component {
                         {/* <button onClick={this.handleCloseBusinesses()}>Close Section</button> */}
                     </div>
                 )}
-          </div>
+            </div>
 
         )
     }

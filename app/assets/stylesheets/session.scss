@@ -58,7 +58,9 @@
 
 .session-form label input {
     margin-left: 5px;
-    border-radius: 3px;
+    border-radius: 4px;
+    border: 1px solid darkblue;
+    height: 17px;
 }
 
 .session-form-button input {
@@ -86,6 +88,7 @@
 
 .alt-session-form-button button {
     color: darkblue;
+    border-radius: 4px;
     border: 1px solid darkblue;
 }
 
@@ -101,6 +104,7 @@
 #demo-button {
     margin-top: 10px;
     color: darkblue;
+    border-radius: 4px;
     border: 1px solid darkblue;
 }
 

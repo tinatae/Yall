@@ -5,13 +5,12 @@
 #### Running:
 * Ruby on Rails (5.2.3)
 * React-Redux 
-* Webpack
-* Postgresql (11.6)
+* PostgreSql (11.6)
 * Google Maps API
 * AWS
 
 #### Functionalities: 
-* Typed-input searchbar which queries database by business name, category, city
+* Typed-input searchbar that queries database by business name, category, city
 * Dropdown/Button Filters that cross-query by pricepoint, delivery, takeout, 'open now'
 * Google Map API with location markers & geocoding to verify 'New Business' address
 * Slideshow homepage for featured businesses
