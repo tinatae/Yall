@@ -3678,7 +3678,13 @@ var NavBar = function NavBar(_ref) {
     onClick: function onClick() {
       return window.location.replace("https://www.linkedin.com/in/tina-tae-87a3ba18/");
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "LinkedIn"))), searchBar(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "LinkedIn")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "portfolio",
+    className: "fas fa-feather-alt",
+    onClick: function onClick() {
+      return window.location.replace("https://tinatae.com");
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Portfolio"))), searchBar(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "loggednav-right"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "greeting"
@@ -3711,7 +3717,13 @@ var NavBar = function NavBar(_ref) {
     onClick: function onClick() {
       return window.location.replace("https://www.linkedin.com/in/tina-tae-87a3ba18/");
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "LinkedIn"))), searchBar(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "LinkedIn")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "portfolio",
+    className: "fas fa-feather-alt",
+    onClick: function onClick() {
+      return window.location.replace("https://tinatae.com");
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Portfolio"))), searchBar(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "notlogged-right"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "navlink-login"

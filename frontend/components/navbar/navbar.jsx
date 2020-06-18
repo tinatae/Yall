@@ -36,7 +36,17 @@ const NavBar = ({ currentUser, logout, match: { path, isExact } }) => {
                             "https://www.linkedin.com/in/tina-tae-87a3ba18/"
                         )
                     }
-                ><span>LinkedIn</span></i>
+                ><span>LinkedIn</span></i>    
+
+                <i
+                    id="portfolio"
+                    className="fas fa-feather-alt"
+                    onClick={() =>
+                        window.location.replace(
+                            "https://tinatae.com"
+                        )
+                    }
+                ><span>Portfolio</span></i>  
              
             </div>
 
@@ -75,6 +85,17 @@ const NavBar = ({ currentUser, logout, match: { path, isExact } }) => {
                         )
                     }
                     ><span>LinkedIn</span></i>
+
+                <i
+                    id="portfolio"
+                    className="fas fa-feather-alt"
+                    onClick={() =>
+                        window.location.replace(
+                            "https://tinatae.com"
+                        )
+                    }
+                ><span>Portfolio</span></i>
+
             </div>
 
             {searchBar()}
