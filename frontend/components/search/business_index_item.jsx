@@ -31,7 +31,7 @@ class BusinessIndexItem extends React.Component {
 
         function bizStars(avg) {
 
-            if (avg === 5) {
+            if (avg >= 4.95) {
                 return starTable[5]
             } else if (avg >= 4.5) {
                 return starTable[4.5]
@@ -70,7 +70,6 @@ class BusinessIndexItem extends React.Component {
                              
                                 <div id="rating-block">
                                     <span id="rating">{bizStars(average_rating) || 'No Reviews Yet'}</span>
-                                    {/* <span id="rating">{average_rating || 'No Reviews Yet'}</span> */}
                                     <span id="reviewcount">{reviewcount}</span>
                                 </div>
                             

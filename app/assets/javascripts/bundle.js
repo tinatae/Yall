@@ -2134,7 +2134,7 @@ var BusinessProfile = function BusinessProfile(_ref) {
   };
 
   function bizStars(avg) {
-    if (avg === 5) {
+    if (avg >= 4.95) {
       return starTable[5];
     } else if (avg >= 4.5) {
       return starTable[4.5];
@@ -4044,7 +4044,7 @@ var BusinessIndexItem = /*#__PURE__*/function (_React$Component) {
       };
 
       function bizStars(avg) {
-        if (avg === 5) {
+        if (avg >= 4.95) {
           return starTable[5];
         } else if (avg >= 4.5) {
           return starTable[4.5];
