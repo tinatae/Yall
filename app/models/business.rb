@@ -65,39 +65,47 @@ class Business < ApplicationRecord
         .where("lng < ?", bounds[:northEast][:lng])
     end
 
+    # MADE TEMPORARY ADJUSTMENT FOR Time.now.hour - 1 / +23 WHILE HOURS ARE WHOLE HOURS
     def self.monhours
-        prevday = Time.now.hour + 24
-        self.where("? BETWEEN monopen AND monclose", Time.now.hour).or(where("? BETWEEN sunopen AND sunclose", prevday))
+        prevday = Time.now.hour + 23
+        current_hour = Time.now.hour - 1
+        self.where("? BETWEEN monopen AND monclose", current_hour).or(where("? BETWEEN sunopen AND sunclose", prevday))
     end
 
     def self.tueshours
-        prevday = Time.now.hour + 24
-        self.where("? BETWEEN tuesopen AND tuesclose", Time.now.hour).or(where("? BETWEEN monopen AND monclose", prevday))
+        prevday = Time.now.hour + 23
+        current_hour = Time.now.hour - 1
+        self.where("? BETWEEN tuesopen AND tuesclose", current_hour).or(where("? BETWEEN monopen AND monclose", prevday))
     end
 
     def self.wedhours
-        prevday = Time.now.hour + 24
-        self.where("? BETWEEN wedopen AND wedclose", Time.now.hour).or(where("? BETWEEN tuesopen AND tuesclose", prevday))
+        prevday = Time.now.hour + 23
+        current_hour = Time.now.hour - 1
+        self.where("? BETWEEN wedopen AND wedclose", current_hour).or(where("? BETWEEN tuesopen AND tuesclose", prevday))
     end
 
     def self.thurshours
-        prevday = Time.now.hour + 24
-        self.where("? BETWEEN thursopen AND thursclose", Time.now.hour).or(where("? BETWEEN wedopen AND wedclose", prevday))
+        prevday = Time.now.hour + 23
+        current_hour = Time.now.hour - 1
+        self.where("? BETWEEN thursopen AND thursclose", current_hour).or(where("? BETWEEN wedopen AND wedclose", prevday))
     end
 
     def self.frihours
-        prevday = Time.now.hour + 24
-        self.where("? BETWEEN friopen AND friclose", Time.now.hour).or(where("? BETWEEN thursopen AND thursclose", prevday))
+        prevday = Time.now.hour + 23
+        current_hour = Time.now.hour - 1
+        self.where("? BETWEEN friopen AND friclose", current_hour).or(where("? BETWEEN thursopen AND thursclose", prevday))
     end
 
     def self.sathours
-        prevday = Time.now.hour + 24
-        self.where("? BETWEEN satopen AND satclose", Time.now.hour).or(where("? BETWEEN friopen AND friclose", prevday))
+        prevday = Time.now.hour + 23
+        current_hour = Time.now.hour - 1
+        self.where("? BETWEEN satopen AND satclose", current_hour).or(where("? BETWEEN friopen AND friclose", prevday))
     end
 
     def self.sunhours
-        prevday = Time.now.hour + 24
-        self.where("? BETWEEN sunopen AND sunclose", Time.now.hour).or(where("? BETWEEN satopen AND satclose", prevday))
+        prevday = Time.now.hour + 23
+        current_hour = Time.now.hour - 1
+        self.where("? BETWEEN sunopen AND sunclose", current_hour).or(where("? BETWEEN satopen AND satclose", prevday))
     end
 
     def self.open           
