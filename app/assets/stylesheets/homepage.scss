@@ -97,6 +97,7 @@
     height: 43px;
     border-radius: 7px;
     background-color: white;
+    z-index: 50;
 }
 
 #subsearch1 {
@@ -134,7 +135,7 @@
 }
 
 .homepage-categories {
-    z-index: 100;
+    z-index: 50;
 }
 
 .homepage-categories span {
@@ -181,12 +182,17 @@
     }
 
     .homepage h1 {
-        margin-top: 33%;
+        margin-top: 25%;
         font-size: 100px;
     }
 
+    .homepage .yallr-name .fa-snowflake {
+        font-size: 60px;
+        // margin-left: 10px;
+    }
+
     .homepage .searchbar-container {
-        margin-top: 48%;
+        margin-top: 40%;
     }
 
     // #searchbar-container {
@@ -235,8 +241,12 @@
     //     margin-right: 15px;
     // }
 
+    .homepage #searchbar-container {
+        margin-bottom: 100px;
+    }
+
     .homepage-categories {
-       margin-top: 35%;
+       margin-top: 65%;
     }
 
 }

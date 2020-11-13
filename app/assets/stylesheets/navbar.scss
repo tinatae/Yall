@@ -43,7 +43,7 @@
     margin-left: 10%;
     padding: 7px 24px 8px;   
     display: flex;
-    max-width: 30%;
+    max-width: 50%;
     align-items: center;
     justify-content: right;
 }
@@ -148,6 +148,7 @@
 
 .logged-right .greeting {
     display: flex;
+    align-items: center;
     justify-content: right;
     flex-wrap: nowrap;
     color: white;
