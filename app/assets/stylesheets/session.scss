@@ -1,28 +1,32 @@
 .session-form {
     border-top: 20px solid orange;
-    display: grid;
+    display: flex;
+    flex-direction: row;
     font-family: Brush Script Std;
     font-size: 40px;
     text-align: center;
+    width: 100%;
 }
 
 #icecream {
-    grid-column: 1;
-    width: 400px;
-    height: 560px;
+    width: 30%;
+    object-fit: cover;
+    height: auto;
     border-right: red 1px solid;
 }
 
 #center-section {
-    grid-column: 2;
     justify-content: center;
     align-content: center;
 }
 
+// original img dim.
+// width: 400px;
+// height: 560px;
+
 #shotglass {
-    grid-column: 3;
-    width: 400px;
-    height: 560px;
+    width: 30%;
+    height: auto;
     border-left: 1px solid red;
 }
 
@@ -74,17 +78,14 @@
 
 .session-form-button input:hover {
     background-color: #0E87FF;
-    // color: gold;
     color: white;
     font-weight: 700;
-    border: 1px solid red;
-    // border: 1px solid white;
+    border: 1px solid #0E87FF;
 }
 
 #or {
     margin-top: 5px;
 }
-
 
 .alt-session-form-button button {
     color: darkblue;
@@ -92,13 +93,11 @@
     border: 1px solid darkblue;
 }
 
-.alt-session-form-button button:hover {
-    // color: #0E87FF;
-    // border: 1px solid #0E87FF;
+.alt-session-form-button button:hover, #demo-button:hover {
     color: white;
     background-color: rgb(0, 135, 121);
     font-weight: 700;
-    border: 1px solid orange;
+    border: 1px solid rgb(0, 135, 121);
 }
 
 #demo-button {
@@ -108,20 +107,41 @@
     border: 1px solid darkblue;
 }
 
-#demo-button:hover {
-    // color: #0E87FF;
-    // border: 1px solid #0E87FF;
-    color: white;
-    background-color: rgb(0, 135, 121);
-    font-weight: 700;
-    //  border: 1px solid rgb(0, 135, 121);
-    border: 1px solid orange;
-}
-
 ul li {
     font-size: 12px;
     color: red;
     font-family: Arial, Helvetica, sans-serif;
     padding: 0px;
     margin-top: -25px;
+}
+
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+    .session-form {
+        border-top: 20px solid orange;
+        display: flex;
+    }
+
+    #icecream {
+        height: 100%;
+        width: 100%;
+    }
+
+    #center-section {
+        // position: absolute;
+        position: fixed;
+        z-index: 999;
+        justify-content: center;
+        align-content: center;
+        margin-top: 8%;
+        margin-left: 20%;
+        background-color: white;
+        padding: 10px 20px 40px;
+        border-radius: 10px;
+        border: 5px solid red;
+    }
+
+    #shotglass {
+        display: none;
+    }
+
 }

@@ -13,46 +13,31 @@ const NavBar = ({ currentUser, logout, match: { path, isExact } }) => {
     let history = useHistory();
     
     const display = currentUser ? (
-        <div className="loggednav">
+        <div className="nav">
             <div className="nav-left">
             
                 <i id="add-biz-link" onClick={() => history.push("/businesses/new")} className="far fa-building">
                     <span>Add&nbsp;Your&nbsp;Business</span>
                 </i>
 
-                <i
-                    id="github"
+                <i id="github"
                     className="fab fa-github"
-                    onClick={() =>
-                        window.location.replace("https://github.com/tinatae/yallr")
-                    }
-                ><span>Github</span></i>
+                    onClick={() => window.location.replace("https://github.com/tinatae/yallr")}><span id="mobile-no">Github</span>
+                </i>
 
-                <i
-                    id="linkedin"
+                <i id="linkedin"
                     className="fab fa-linkedin"
-                    onClick={() =>
-                        window.location.replace(
-                            "https://www.linkedin.com/in/tina-tae-87a3ba18/"
-                        )
-                    }
-                ><span>LinkedIn</span></i>    
+                    onClick={() => window.location.replace("https://www.linkedin.com/in/tina-tae-87a3ba18/")}><span id="mobile-no">LinkedIn</span>
+                </i>    
 
-                <i
-                    id="portfolio"
+                <i id="portfolio"
                     className="fas fa-feather-alt"
-                    onClick={() =>
-                        window.location.replace(
-                            "https://tinatae.com"
-                        )
-                    }
-                ><span>Portfolio</span></i>  
-             
+                    onClick={() => window.location.replace("https://tinatae.com")}><span id="mobile-no">Portfolio</span></i>             
             </div>
 
             {searchBar()}
 
-            <div className="loggednav-right">
+            <div className="logged-right">
                 <div className="greeting">
                     <div id="hello">Hello, </div>
                     <div id="username"> {currentUser.username}</div>
@@ -61,41 +46,27 @@ const NavBar = ({ currentUser, logout, match: { path, isExact } }) => {
             </div>
         </div >
     ) : (
-        <div className="notlogged-nav">
+        <div className="nav">
             <div className="nav-left">
         
                 <i id="add-biz-link" onClick={() => history.push("/businesses/new")} className="far fa-building">
                     <span>Add&nbsp;Your&nbsp;Business</span>
                 </i>
                              
-                <i
-                    id="github"
+                <i id="github"
                     className="fab fa-github"
-                    onClick={() =>
-                        window.location.replace("https://github.com/tinatae/yallr")
-                    }
-                    ><span>Github</span></i>
+                    onClick={() => window.location.replace("https://github.com/tinatae/yallr")}><span id="mobile-no">Github</span>
+                </i>
 
-                <i
-                    id="linkedin"
+                <i id="linkedin"
                     className="fab fa-linkedin"
-                    onClick={() =>
-                        window.location.replace(
-                            "https://www.linkedin.com/in/tina-tae-87a3ba18/"
-                        )
-                    }
-                    ><span>LinkedIn</span></i>
+                    onClick={() => window.location.replace("https://www.linkedin.com/in/tina-tae-87a3ba18/")}><span id="mobile-no">LinkedIn</span>
+                </i>
 
-                <i
-                    id="portfolio"
+                <i id="portfolio"
                     className="fas fa-feather-alt"
-                    onClick={() =>
-                        window.location.replace(
-                            "https://tinatae.com"
-                        )
-                    }
-                ><span>Portfolio</span></i>
-
+                    onClick={() => window.location.replace("https://tinatae.com")}><span id="mobile-no">Portfolio</span>
+                </i>
             </div>
 
             {searchBar()}
@@ -104,12 +75,12 @@ const NavBar = ({ currentUser, logout, match: { path, isExact } }) => {
            
                     <div id="navlink-login">
                         <Link style={{textDecoration: 'none'}} to={"/login"}>              
-                            <span>Log In</span>               
+                            <span>Log&nbsp;In</span>               
                         </Link>
                     </div>
                     <div id="navlink-signup">
                         <Link style={{textDecoration: 'none'}} to={"/signup"}>           
-                            <span>Sign Up</span>    
+                            <span>Sign&nbsp;Up</span>    
                         </Link>
                     </div>
             

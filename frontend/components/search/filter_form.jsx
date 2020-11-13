@@ -80,7 +80,7 @@ const FilterForm = ({
 
     <div className="filters">
       <div id="minmax-pair">
-        <span>Min Pricepoint </span>
+        <span>Min&nbsp;Pricepoint&nbsp;</span>
         <select
           name="Min Pricepoint"
           value={minPricepoint}
@@ -95,7 +95,7 @@ const FilterForm = ({
           <option value="4">$$$$</option>
         </select>
 
-        <span id="maxpricepoint"> Max Pricepoint </span>
+        <span id="maxpricepoint"> Max&nbsp;Pricepoint&nbsp;</span>
         <select
           name="Max Pricepoint"
           value={maxPricepoint}
@@ -111,8 +111,8 @@ const FilterForm = ({
         </select>
       </div>
 
-      <label>
-        <span> Category </span>
+      <label id="category-filter">
+        <span>Category&nbsp;</span>
         <select
           name="Category"
           value={filterCategory}
@@ -159,7 +159,7 @@ const FilterForm = ({
      
         <div id="clear-filters">
             <button onClick={refreshFilter}>
-                <span id="filter-writing">Clear All Filters</span>
+                <span id="filter-writing">Clear Filters</span>
             </button>
         </div>        
     </div>

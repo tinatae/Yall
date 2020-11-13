@@ -1,9 +1,8 @@
 .review-form {
-    border-radius: 7px;
+    border-radius: 10px;
     margin-top: 20px;
-    width: 1000px;
+    width: 400px;
     margin-bottom: 20px;
-    // background-color: red;
 }
 
 .review-form form {
@@ -11,7 +10,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
+
 #please-rate {
     font-size: 15px;
     margin-bottom: 10px;
@@ -22,22 +23,27 @@
 }
 
 #click-stars {
-    display: grid;
-    margin: 0 auto;
-    margin-left: 40%;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    // margin-left: -50px;
 }
 
 #click-stars #star-side {
-    grid-column: 1;
-    width: 150px;
-    text-align: left;
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+    flex-direction: column;
 }
 
 #click-stars #rating-side {
-    grid-column: 2;
-    width: 200px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
     height: 100%;
-    margin-left: 25px;
+    margin-left: 10px;
 }
 
 #rating-side div {
@@ -63,7 +69,7 @@
 }
 
 #comment-holder input {
-    width: 550px;
+    width: 375px;
     margin: 0 auto;
     height: 100px;
     text-align: center;
@@ -82,9 +88,9 @@
 #review-button:hover {
     width: 180px;
     margin: 0 auto;
-    color: #0073bb;
+    color: blue;
     // border-radius: 3px;
-    border: 1px solid #0073bb;
+    border: 1px solid blue;
 }
 
 #cancel-btn {

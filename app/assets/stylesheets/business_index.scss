@@ -4,7 +4,7 @@
 }
 
 #clear-filters {
-    margin-left: 70px;
+    margin-left: 5%;
 }
 
 #clear-filters button {
@@ -102,10 +102,17 @@
 
 #minmax-pair {
     padding: 2px;
+    display: flex;
+    align-items: center;
 }
 
 #maxpricepoint {
-    margin-left: 5px;
+    margin-left: 20px;
+}
+
+#category-filter {
+    display: flex;
+    align-items: center;
 }
 
 .indexpage-filters:after {          
@@ -132,7 +139,7 @@
     padding: 18px;
     right: 2%;
     top: 35%;
-    margin-top: 30px;
+    margin-top: 32px;
     z-index: 3;
     position: fixed;
     font-family: Brush Script Std;
@@ -158,6 +165,10 @@
     border-radius: 2%
 }
 
+#index-pic img:hover {
+    cursor: pointer;
+}
+
 .index-item-info {
     padding: 20px;
     font-size: 14px;
@@ -178,9 +189,7 @@
     flex-direction: column;
     justify-content: left;
     align-content: left;
-    // margin-right: 10px;
     float: left;
-    // background-color: red;
 }
 
 .index-item-info-grid #col2 {
@@ -191,13 +200,16 @@
     flex-direction: column;
     flex-wrap: nowrap;
     float: right;
-    // background-color: red;
 }
 
 .index-item-info #name {
     color: #0073bb;
     font-size: 16px;
     font-weight: 600;
+}
+
+.index-item-info #name:hover {
+    cursor: pointer;
 }
 
 #bullet {
@@ -211,7 +223,6 @@
 #pricepoint-block {
     display: flex;
     width: 120px;
-    // background-color: blue;
 }
 
 .index-item-info #rating {

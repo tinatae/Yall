@@ -159,13 +159,84 @@
     cursor: default;
 }
 
-// .homepage #searchbar-input {
-//     margin-top: 35%;
-//     font-size: 16px;
-//     z-index: 50;
-// }
-
 .homepage-categories {
     display: flex;
     flex-direction: row;
+}
+
+// ----------------------------------------- MOBILE ----------------------------------------------
+
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+
+    #homepics img {
+        background: #fff;
+        // margin-left: -40%;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .homepage h1 {
+        margin-top: 33%;
+        font-size: 100px;
+    }
+
+    .homepage .searchbar-container {
+        margin-top: 48%;
+    }
+
+    // #searchbar-container {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: space-evenly;
+    //     font-size: 18px;
+    //     font-weight: 600;
+    //     color: #666666;
+    //     width: 850px;
+    //     height: 43px;
+    //     border-radius: 7px;
+    //     background-color: white;
+    // }
+
+    // #subsearch1 {
+    //     width: 400px;
+    //     margin-left: 6px;
+    // }
+
+    // #subsearch2 {
+    //     width: 400px;
+    //     margin-left: 6px;
+    //     border-left: 1px solid lightgrey;
+    // }
+
+    // #subsearch1 input {
+    //     margin-left: 10px;
+    //     width: 300px;
+    //     height: 35px;
+    //     font-size: 18px;
+    //     border: none;
+    //     text-align: center;
+    // }
+
+    // #subsearch2 input {
+    //     margin-left: 10px;
+    //     width: 300px;
+    //     height: 35px;
+    //     font-size: 18px;
+    //     border: none;
+    //     text-align: center;
+    // }
+
+    // #restaurants-link {
+    //     margin-right: 15px;
+    // }
+
+    .homepage-categories {
+       margin-top: 35%;
+    }
+
 }
