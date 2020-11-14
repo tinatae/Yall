@@ -2006,10 +2006,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var reviewList = function reviewList(reviews) {
   return reviews.map(function (review) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list_item_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "all-reviews"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list_item_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
       review: review,
       key: review.id
-    });
+    }));
   });
 };
 
@@ -2291,7 +2293,9 @@ var BusinessProfile = function BusinessProfile(_ref) {
     id: "bizaddress1"
   }, business.address1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "bizaddress2"
-  }, business.city, ", ", business.state, " ", business.zipcode))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), reviewList(reviews))));
+  }, business.city, ", ", business.state, " ", business.zipcode))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "listed-reviews"
+  }, reviewList(reviews)))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (BusinessProfile);
@@ -2659,8 +2663,7 @@ var Review = function Review(_ref) {
     year: "2-digit",
     month: "2-digit",
     day: "2-digit"
-  }); // const reviewTime = new Date(created_at).toLocaleTimeString();
-
+  });
   var starTable = {
     5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
       className: "fas fa-star"

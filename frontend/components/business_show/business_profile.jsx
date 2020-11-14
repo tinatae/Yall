@@ -8,10 +8,13 @@ import { ReviewLink } from '../../util/link_util';
 
 const reviewList = (reviews) => (
     reviews.map(review => (
+      <div id="all-reviews">
         <ReviewListItemContainer
             review={review}
             key={review.id} 
         />
+      </div>
+   
     ))
 );
 
@@ -264,7 +267,7 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
           </div>
           <div>
             <h3>Reviews</h3>
-            {reviewList(reviews)}
+            <div id="listed-reviews">{reviewList(reviews)}</div>
           </div>
         </div>
       </div>

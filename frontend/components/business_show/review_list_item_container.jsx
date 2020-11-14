@@ -4,20 +4,19 @@ import {connect} from 'react-redux';
 const Review = ({ review, author }) => {
     const { body, rating, created_at } = review;
     const reviewDate = new Date(created_at).toLocaleDateString("en-US", {year: "2-digit", month: "2-digit", day: "2-digit"});
-    // const reviewTime = new Date(created_at).toLocaleTimeString();
    
-  const starTable = {
-    5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
-    4.5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
-    4: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
-    3.5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
-    3: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
-    2.5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
-    2: <span><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
-    1.5: <span><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
-    1: <span><i className="fas fa-star"></i></span>,
-    0.5: <span><i className="fas fa-star-half"></i></span>,
-  }
+    const starTable = {
+      5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
+      4.5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
+      4: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
+      3.5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
+      3: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
+      2.5: <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
+      2: <span><i className="fas fa-star"></i><i className="fas fa-star"></i></span>,
+      1.5: <span><i className="fas fa-star"></i><i className="fas fa-star-half"></i></span>,
+      1: <span><i className="fas fa-star"></i></span>,
+      0.5: <span><i className="fas fa-star-half"></i></span>,
+    }
 
   function bizStars(avg) {
     if (avg === 5) {
