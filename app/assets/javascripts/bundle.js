@@ -2441,6 +2441,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+var userClicked = false;
 
 var ReviewForm = /*#__PURE__*/function (_React$Component) {
   _inherits(ReviewForm, _React$Component);
@@ -2459,6 +2460,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.updateStar = _this.updateStar.bind(_assertThisInitialized(_this));
+    _this.changeStar = _this.changeStar.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2484,23 +2486,57 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "updateStar",
-    value: function updateStar(num) {
-      var _this3 = this;
+    value: function updateStar(e, num) {
+      var allStars = e.target.parentElement.getElementsByClassName("form-star");
+      userClicked = true;
 
-      return function (e) {
-        return _this3.setState({
-          rating: num
-        });
-      };
+      if (num === 5) {
+        for (var i = 1; i <= 5; i++) {
+          allStars[i - 1].style.color = "orange";
+        }
+      } else {
+        for (var _i = 1; _i <= num; _i++) {
+          allStars[_i - 1].style.color = "orange";
+        }
+
+        for (var j = num + 1; j <= 5; j++) {
+          allStars[j - 1].style.color = "grey";
+        }
+      }
+
+      return this.setState({
+        rating: num
+      });
+    }
+  }, {
+    key: "changeStar",
+    value: function changeStar(e, num) {
+      var allStars = e.target.parentElement.getElementsByClassName("form-star");
+
+      if (!userClicked) {
+        if (num === 5) {
+          for (var i = 1; i <= 5; i++) {
+            allStars[i - 1].style.color = "red";
+          }
+        } else {
+          for (var _i2 = 1; _i2 <= num; _i2++) {
+            allStars[_i2 - 1].style.color = "red";
+          }
+
+          for (var j = num + 1; j <= 5; j++) {
+            allStars[j - 1].style.color = "grey";
+          }
+        }
+      }
     }
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this3 = this;
 
       var name = this.props.business.name;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "review-form"
+        className: "review-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         id: "bizname"
       }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -2508,67 +2544,50 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "please-rate"
       }, "Please rate this business:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "click-stars"
+        className: "changing-stars"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "star-side"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
+        id: "hover-stars"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star form-star",
+        onMouseOver: function onMouseOver(e) {
+          return _this3.changeStar(e, 1);
+        },
+        onClick: function onClick(e) {
+          return _this3.updateStar(e, 1);
+        }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
+        className: "fas fa-star form-star",
+        onMouseOver: function onMouseOver(e) {
+          return _this3.changeStar(e, 2);
+        },
+        onClick: function onClick(e) {
+          return _this3.updateStar(e, 2);
+        }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
+        className: "fas fa-star form-star",
+        onMouseOver: function onMouseOver(e) {
+          return _this3.changeStar(e, 3);
+        },
+        onClick: function onClick(e) {
+          return _this3.updateStar(e, 3);
+        }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
+        className: "fas fa-star form-star",
+        onMouseOver: function onMouseOver(e) {
+          return _this3.changeStar(e, 4);
+        },
+        onClick: function onClick(e) {
+          return _this3.updateStar(e, 4);
+        }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star"
+        className: "fas fa-star form-star",
+        onMouseOver: function onMouseOver(e) {
+          return _this3.changeStar(e, 5);
+        },
+        onClick: function onClick(e) {
+          return _this3.updateStar(e, 5);
+        }
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "rating-side"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "5"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        name: "rating",
-        value: "5",
-        onClick: this.updateStar(5)
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        name: "rating",
-        value: "4",
-        onClick: this.updateStar(4)
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        name: "rating",
-        value: "3",
-        onClick: this.updateStar(3)
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        name: "rating",
-        value: "2",
-        onClick: this.updateStar(2)
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        name: "rating",
-        value: "1",
-        onClick: this.updateStar(1)
-      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "comment-holder"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "please-rate"
@@ -2584,7 +2603,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "cancel-btn",
         onClick: function onClick(e) {
-          return _this4.props.history.push("/businesses/".concat(_this4.props.businessId));
+          return _this3.props.history.push("/businesses/".concat(_this3.props.businessId));
         }
       }, "Cancel"));
     }
@@ -2595,6 +2614,23 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
 
 ;
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(ReviewForm));
+/* <div id="click-stars">
+    <div id="star-side">
+        <div><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
+        <div><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
+        <div><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
+        <div><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
+        <div><i className="fas fa-star"></i></div>
+    </div>
+
+    <div id="rating-side">                       
+        <div><span>5</span><input type="radio" name="rating" value="5" onClick={this.updateStar(5)} /></div>
+        <div><span>4</span><input type="radio" name="rating" value="4" onClick={this.updateStar(4)} /></div>
+        <div><span>3</span><input type="radio" name="rating" value="3" onClick={this.updateStar(3)} /></div>
+        <div><span>2</span><input type="radio" name="rating" value="2" onClick={this.updateStar(2)} /></div>
+        <div><span>1</span><input type="radio" name="rating" value="1" onClick={this.updateStar(1)} /></div>
+    </div>
+</div> */
 
 /***/ }),
 
