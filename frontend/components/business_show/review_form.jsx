@@ -16,6 +16,10 @@ class ReviewForm extends React.Component {
         this.changeStar = this.changeStar.bind(this);
     }
 
+    componentWillUnmount() {
+        userClicked = false;
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const businessId = this.props.businessId;

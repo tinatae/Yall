@@ -2465,6 +2465,11 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(ReviewForm, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      userClicked = false;
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();

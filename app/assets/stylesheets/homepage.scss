@@ -188,61 +188,21 @@
 
     .homepage .yallr-name .fa-snowflake {
         font-size: 60px;
-        // margin-left: 10px;
     }
 
     .homepage .searchbar-container {
         margin-top: 40%;
     }
 
-    // #searchbar-container {
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: space-evenly;
-    //     font-size: 18px;
-    //     font-weight: 600;
-    //     color: #666666;
-    //     width: 850px;
-    //     height: 43px;
-    //     border-radius: 7px;
-    //     background-color: white;
-    // }
-
-    // #subsearch1 {
-    //     width: 400px;
-    //     margin-left: 6px;
-    // }
-
-    // #subsearch2 {
-    //     width: 400px;
-    //     margin-left: 6px;
-    //     border-left: 1px solid lightgrey;
-    // }
-
-    // #subsearch1 input {
-    //     margin-left: 10px;
-    //     width: 300px;
-    //     height: 35px;
-    //     font-size: 18px;
-    //     border: none;
-    //     text-align: center;
-    // }
-
-    // #subsearch2 input {
-    //     margin-left: 10px;
-    //     width: 300px;
-    //     height: 35px;
-    //     font-size: 18px;
-    //     border: none;
-    //     text-align: center;
-    // }
-
-    // #restaurants-link {
-    //     margin-right: 15px;
-    // }
-
     .homepage #searchbar-container {
         margin-bottom: 100px;
+        width: 95%;
+        display: flex;
+    }
+
+    .searchbar-form {
+        display: flex;
+        align-items: flex-start;
     }
 
     .homepage-categories {
