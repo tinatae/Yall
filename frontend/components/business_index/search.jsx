@@ -1,5 +1,5 @@
 import React from 'react';
-import BusinessMap from '../business_map/business_map';
+import BusinessMap from '../business_map';
 import BusinessIndex from './business_index';
 import FilterForm from './filter_form';
 

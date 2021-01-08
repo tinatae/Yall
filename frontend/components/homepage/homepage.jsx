@@ -54,7 +54,6 @@ class Homepage extends React.Component {
     };
 
     render() {
-        // const { filterCategory, filterDelivery} = this.state;
   
         return (
             <div className="homepage">

@@ -124,7 +124,6 @@
 .profile-hours {
     grid-column: 2;
     padding: 10px;
-    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -141,7 +140,10 @@
 
 .profile-hours > span {
     padding: 10px;
-    margin-left: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-left: 15%;
 }
 
 .profile-info {
@@ -164,7 +166,6 @@
     padding-bottom: 30px;
     border-top: 1px solid #e6e6e6;
     padding-top: 30px;
-
 }
 
 #bizphonenumber {
@@ -180,7 +181,6 @@
  
 #bizaddress2 {
     font-weight: strong;
-    // border-bottom: 1px solid #e6e6e6;
     padding-bottom: 25px;
     margin-top: 10px;
 }

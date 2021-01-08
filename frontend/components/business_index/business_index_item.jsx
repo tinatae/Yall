@@ -51,8 +51,7 @@ class BusinessIndexItem extends React.Component {
                 return starTable[1]
             } else if (avg >= 0.5) {
                 return starTable[0.5]
-            // } else if (avg === null) {
-            //     return <div>No Reviews Yet</div>
+
             }
         }
 

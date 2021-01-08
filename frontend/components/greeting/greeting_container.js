@@ -4,9 +4,6 @@ import { logout } from '../../actions/session_actions';
 import Greeting from './greeting';
 
 
-// const mSTP = (state) => {         
-//     return { currentUser: state.entities.users[state.session.id]};
-// };
 const mSTP = (state) => {
     let currentUserId = state.session.id;
 

@@ -25,7 +25,7 @@ class ReviewForm extends React.Component {
         const businessId = this.props.businessId;
         const review = Object.assign({}, this.state, { business_id: businessId });
         this.props.createReview(review);
-        this.props.history.push(`/businesses/${this.props.businessId}`)
+        this.props.history.push(`/businesses/${businessId}`)
     }
 
     update(field) {

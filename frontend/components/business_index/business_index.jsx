@@ -31,17 +31,3 @@ const BusinessIndex = ({ businesses, searchQuery, updateFilter, clearFilter }) =
 
 export default BusinessIndex;
 
-
-// selectReviewsForBusiness
-
-// export const selectReviewsForBusiness = ({ businesses, reviews }, business) => {
-//     return business.reviewIds.map(reviewId => reviews[reviewId]);
-// };
-
-
-// let reviews = [];
-
-// {businesses.map(business => (
-//     reviews.push(selectReviewsForBusiness(businesses, business)))
-// )};
-

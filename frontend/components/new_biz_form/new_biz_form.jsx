@@ -1,8 +1,8 @@
 import React from 'react';
 import {withRouter} from 'react-router';
-import BusinessMap from '../business_map/business_map';
+import BusinessMap from '../business_map';
 
-class BusinessForm extends React.Component {
+class NewBizForm extends React.Component {
     constructor(props) {
         super(props);
 
@@ -73,15 +73,11 @@ class BusinessForm extends React.Component {
     };
 
     update(field) {
-        return e => this.setState({
-            [field]: e.target.value
-        });
+        return e => this.setState({[field]: e.target.value});
     }
 
     updateCheckBox(field) {
-        return e => {
-            this.setState({ [field]: e.currentTarget.value });
-        };
+        return e => this.setState({ [field]: e.currentTarget.value });
     }
 
     handleFile(e) {
@@ -91,6 +87,7 @@ class BusinessForm extends React.Component {
         fileReader.onloadend = () => {
             this.setState({photoFiles: file, photoUrls: [fileReader.result]})
         };
+
         if (file) {
             fileReader.readAsDataURL(file);
         }
@@ -915,7 +912,7 @@ class BusinessForm extends React.Component {
     }
 }
 
-export default withRouter(BusinessForm);
+export default withRouter(NewBizForm);
 
     // ADD MULTI PHOTO SOMEDAY
 

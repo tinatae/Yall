@@ -3,6 +3,10 @@
     margin-top: 20px;
     width: 400px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .review-form form {
@@ -28,7 +32,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    // margin-left: -50px;
 }
 
 #click-stars #star-side {
@@ -63,14 +66,12 @@
 }
 
 #comment-holder div {
-    margin: 0 auto;
     margin-bottom: 5px;
     margin-top: 10px;
 }
 
 #comment-holder input {
     width: 375px;
-    margin: 0 auto;
     height: 100px;
     text-align: center;
     margin-bottom: 20px;
@@ -80,7 +81,6 @@
 
 #review-button {
     width: 180px;
-    margin: 0 auto;
     border-radius: 5px;
     border: 1px solid black;
     background-color: white;
@@ -88,9 +88,7 @@
 
 #review-button:hover {
     width: 180px;
-    margin: 0 auto;
     color: blue;
-    // border-radius: 3px;
     border: 1px solid blue;
 }
 
@@ -104,7 +102,6 @@
 
 #cancel-btn:hover {
     color: red;
-    // border-radius: 3px;
     border: 1px solid red;
 }
 

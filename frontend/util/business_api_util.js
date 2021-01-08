@@ -13,11 +13,11 @@ export const fetchBusiness = id => (
     })
 );
 
-export const createBusiness = businessForm => (
+export const createBusiness = newBizForm => (
     $.ajax({
         method: 'POST',
         url: 'api/businesses',
-        data: businessForm,
+        data: newBizForm,
         contentType: false,
         processData: false
     })

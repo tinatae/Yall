@@ -7,9 +7,10 @@ const reviewsReducer = (state = {}, action) => {
             return Object.assign({}, state, action.reviews);
         case RECEIVE_REVIEW:
             const { review } = action;
+            console.log(review)
             return Object.assign({}, state, { [review.id]: review });
         case DELETE_REVIEW:
-            return Object.assign({}, state, { [review.id]: null });
+            return Object.assign({}, state, { [action.review.review.id]: null});
         default:
             return state;
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import {withRouter} from 'react-router-dom';
-import MarkerManager from '../../util/marker_manager';
+import MarkerManager from '../util/marker_manager';
 
 const getCoordsObj = latLng => ({
     lat: latLng.lat(),
@@ -42,11 +42,7 @@ class BusinessMap extends React.Component {
     };
 
     componentDidUpdate() {
-        // if (this.props.addBusiness) {
-     
-        //     const add = "hi"
-
-        // } else 
+ 
         if (this.props.singleBusiness) {
             const targetBusinessKey = Object.keys(this.props.businesses)[0];
             const targetBusiness = this.props.businesses[targetBusinessKey];

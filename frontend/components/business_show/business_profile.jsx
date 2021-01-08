@@ -1,24 +1,12 @@
 import React from 'react';
 import ReviewListItemContainer from './review_list_item_container';
-import BusinessMap from '../business_map/business_map';
+import BusinessMap from '../business_map';
 import ReviewFormContainer from './review_form_container';
 import { ProtectedRoute } from '../../util/route_util';
 import { ReviewLink } from '../../util/link_util';
 
 
-const reviewList = (reviews) => (
-    reviews.map(review => (
-      <div id="all-reviews">
-        <ReviewListItemContainer
-            review={review}
-            key={review.id} 
-        />
-      </div>
-   
-    ))
-);
-
-const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusiness }) => {
+const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusiness, deleteReview}) => {
 
     let photos = business.photoUrls.map((photoUrl, idx) => {
         return (<img className="profile-pic" key={idx} src={photoUrl} />)                               // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
@@ -108,7 +96,23 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
     } else { return null}
   }
 
-    return (
+  function reviewList() {
+    if (reviews.length > 0) {
+      return reviews.filter(review => (review !== null)).map(review => (
+        <div id="all-reviews">
+            <ReviewListItemContainer
+                 id={review.id}
+                 review={review}
+                 key={review.id} 
+                 deleteReview={deleteReview}
+             />
+         </div> 
+      ))
+    } else { return null }
+  };
+
+
+  return (
       <div className="profile">
         <div id="profile-pics-holder">
           <div id="profile-pics">{photos}</div>
@@ -120,8 +124,6 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
               <span id="bizrating">
                 {bizStars(business.average_rating) ||
                   "No reviews yet. Be the first to write one!"}
-                {/* {business.average_rating ||
-                  "No reviews yet. Be the first to write one!"} */}
               </span>
               <span id="bizreviewcount">{business.reviewcount}</span>
             </div>
@@ -131,7 +133,7 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
             <span id="bizcategory">{business.category}</span>
 
             <div className="business-review-link">
-              <button>
+              <span id="wrapping-button">
                 <ReviewLink
                   component={ReviewFormContainer}
                   to={`/businesses/${businessId}/review`}
@@ -141,7 +143,7 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
                   path="/businesses/:businessId/review"
                   component={ReviewFormContainer}
                 />
-              </button>
+              </span>
             </div>
           </div>
 
@@ -267,15 +269,16 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
           </div>
           <div>
             <h3>Reviews</h3>
-            <div id="listed-reviews">{reviewList(reviews)}</div>
+            <div id="listed-reviews"> {
+                reviewList() || "No reviews yet. Be the first to write one!"
+              }
+            </div>
           </div>
         </div>
       </div>
-    );
+    )
 };
 
 export default BusinessProfile;
 
-{/* <li>Latitude: {business.lat}</li>
-<li>Longitude: {business.lng}</li> */}
-// <img src={business.photoUrls[1]} /> 
+

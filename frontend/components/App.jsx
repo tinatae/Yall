@@ -1,13 +1,11 @@
 import React from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
 
-// import GreetingContainer from './greeting/greeting_container';
 import SignupFormContainer from './session/signup_form_container';
 import LoginFormContainer from './session/login_form_container';
-import SearchContainer from './search/search_container';
-import BusinessFormContainer from './business_form/business_form_container';
+import SearchContainer from './business_index/search_container';
+import NewBizFormContainer from './new_biz_form/new_biz_form_container';
 import BusinessShowContainer from './business_show/business_show_container';
-// import LandingPageContainer from './greeting/landing_page_container';
 // import ReviewFormContainer from './business_show/review_form_container';
 import HomepageContainer from './homepage/homepage_container';
 import NavbarContainer from './navbar/navbar_container';
@@ -28,7 +26,7 @@ const App = () => (
             </header>
                 
             <Switch>    
-                <ProtectedRoute exact path="/businesses/new" component={BusinessFormContainer} />
+                <ProtectedRoute exact path="/businesses/new" component={NewBizFormContainer} />
                 {/* <ProtectedRoute path="/businesses/:businessId/review" component={ReviewFormContainer} /> */}
                 <Route path="/businesses/:businessId" component={BusinessShowContainer} />              
                 <Route exact path="/businesses" component={SearchContainer} />

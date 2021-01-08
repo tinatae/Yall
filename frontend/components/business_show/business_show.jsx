@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 import BusinessProfile from './business_profile';
 import { render } from 'react-dom';
 
-const BusinessShow = ({ business, businessId, fetchBusiness, reviews }) => {
+const BusinessShow = ({ business, businessId, fetchBusiness, deleteReview, reviews }) => {
     const businesses = {
         [businessId]: business
     };
@@ -26,6 +26,7 @@ const BusinessShow = ({ business, businessId, fetchBusiness, reviews }) => {
                     businessId={businessId}
                     singleBusiness={true}
                     fetchBusiness={fetchBusiness}
+                    deleteReview={deleteReview}
                 />
             </div>
         </div>

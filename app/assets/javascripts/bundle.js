@@ -318,22 +318,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _session_signup_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session/signup_form_container */ "./frontend/components/session/signup_form_container.js");
 /* harmony import */ var _session_login_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session/login_form_container */ "./frontend/components/session/login_form_container.js");
-/* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./search/search_container */ "./frontend/components/search/search_container.js");
-/* harmony import */ var _business_form_business_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./business_form/business_form_container */ "./frontend/components/business_form/business_form_container.js");
+/* harmony import */ var _business_index_search_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./business_index/search_container */ "./frontend/components/business_index/search_container.js");
+/* harmony import */ var _new_biz_form_new_biz_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./new_biz_form/new_biz_form_container */ "./frontend/components/new_biz_form/new_biz_form_container.js");
 /* harmony import */ var _business_show_business_show_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./business_show/business_show_container */ "./frontend/components/business_show/business_show_container.js");
 /* harmony import */ var _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./homepage/homepage_container */ "./frontend/components/homepage/homepage_container.js");
 /* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
 /* harmony import */ var _credit_credit_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./credit/credit_container */ "./frontend/components/credit/credit_container.js");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 
- // import GreetingContainer from './greeting/greeting_container';
 
 
 
 
 
- // import LandingPageContainer from './greeting/landing_page_container';
-// import ReviewFormContainer from './business_show/review_form_container';
+ // import ReviewFormContainer from './business_show/review_form_container';
 
 
 
@@ -357,14 +355,14 @@ var App = function App() {
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_10__["ProtectedRoute"], {
     exact: true,
     path: "/businesses/new",
-    component: _business_form_business_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _new_biz_form_new_biz_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/businesses/:businessId",
     component: _business_show_business_show_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/businesses",
-    component: _search_search_container__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _business_index_search_container__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/",
@@ -380,9 +378,1175 @@ var App = function App() {
 
 /***/ }),
 
-/***/ "./frontend/components/business_form/business_form.jsx":
+/***/ "./frontend/components/business_index/business_index.jsx":
+/*!***************************************************************!*\
+  !*** ./frontend/components/business_index/business_index.jsx ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _business_index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./business_index_item */ "./frontend/components/business_index/business_index_item.jsx");
+
+ // import {withRouter} from 'react-router-dom';
+
+var BusinessIndex = function BusinessIndex(_ref) {
+  var businesses = _ref.businesses,
+      searchQuery = _ref.searchQuery,
+      updateFilter = _ref.updateFilter,
+      clearFilter = _ref.clearFilter;
+
+  function noBusinesses() {
+    if (businesses.length === 0) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "no-biz-message"
+      }, "Sorry, we could not find any businesses that match your query");
+    } else {
+      return null;
+    }
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "BEST IN TOWN"), noBusinesses(), businesses.map(function (business) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      searchQuery: searchQuery,
+      updateFilter: updateFilter,
+      clearFilter: clearFilter,
+      business: business,
+      key: business.id
+    });
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (BusinessIndex);
+
+/***/ }),
+
+/***/ "./frontend/components/business_index/business_index_item.jsx":
+/*!********************************************************************!*\
+  !*** ./frontend/components/business_index/business_index_item.jsx ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _business_show_business_show_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../business_show/business_show_container */ "./frontend/components/business_show/business_show_container.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var BusinessIndexItem = /*#__PURE__*/function (_React$Component) {
+  _inherits(BusinessIndexItem, _React$Component);
+
+  var _super = _createSuper(BusinessIndexItem);
+
+  function BusinessIndexItem(props) {
+    var _this;
+
+    _classCallCheck(this, BusinessIndexItem);
+
+    _this = _super.call(this, props);
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(BusinessIndexItem, [{
+    key: "handleClick",
+    value: function handleClick() {
+      var businessId = this.props.business.id;
+      this.props.history.push("/businesses/".concat(businessId));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props$business = this.props.business,
+          name = _this$props$business.name,
+          average_rating = _this$props$business.average_rating,
+          category = _this$props$business.category,
+          dollarmaker = _this$props$business.dollarmaker,
+          photoUrls = _this$props$business.photoUrls,
+          recentreview = _this$props$business.recentreview,
+          reviewcount = _this$props$business.reviewcount,
+          phonenumber = _this$props$business.phonenumber,
+          address1 = _this$props$business.address1,
+          city = _this$props$business.city;
+      var starTable = {
+        5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        4.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        })),
+        4: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        3.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        })),
+        3: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        2.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        })),
+        2: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        1.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        })),
+        1: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        0.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        }))
+      };
+
+      function bizStars(avg) {
+        if (avg >= 4.95) {
+          return starTable[5];
+        } else if (avg >= 4.5) {
+          return starTable[4.5];
+        } else if (avg >= 4) {
+          return starTable[4];
+        } else if (avg >= 3.5) {
+          return starTable[3.5];
+        } else if (avg >= 3) {
+          return starTable[3];
+        } else if (avg >= 2.5) {
+          return starTable[2.5];
+        } else if (avg >= 2) {
+          return starTable[2];
+        } else if (avg >= 1.5) {
+          return starTable[1.5];
+        } else if (avg >= 1) {
+          return starTable[1];
+        } else if (avg >= 0.5) {
+          return starTable[0.5];
+        }
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.handleClick
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "index-item"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "index-pic"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: photoUrls[0]
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "index-item-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "index-item-info-grid"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "col1"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "name"
+      }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "rating-block"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "rating"
+      }, bizStars(average_rating) || 'No Reviews Yet'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "reviewcount"
+      }, reviewcount)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pricepoint-block"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pricepoint"
+      }, dollarmaker), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "bullet"
+      }, "\u2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "category"
+      }, category))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "col2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "(", phonenumber.slice(0, 3), ")", phonenumber.slice(3, 6), "-", phonenumber.slice(6, 10)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, address1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, city))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "recentreview"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "werd"
+      }, "Word on the Street:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\"", recentreview, "\"")))));
+    }
+  }]);
+
+  return BusinessIndexItem;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(BusinessIndexItem));
+{
+  /* <i className="far fa-building"></i> */
+}
+
+/***/ }),
+
+/***/ "./frontend/components/business_index/filter_form.jsx":
+/*!************************************************************!*\
+  !*** ./frontend/components/business_index/filter_form.jsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var handlePricepointChange = function handlePricepointChange(filter, updateFilter) {
+  return function (e) {
+    return updateFilter(filter, parseInt(e.currentTarget.value));
+  };
+};
+
+var handleCategoryChange = function handleCategoryChange(filter, updateFilter) {
+  return function (e) {
+    return updateFilter(filter, e.currentTarget.value);
+  };
+};
+
+var handleOpenNow = function handleOpenNow(filter, updateFilter) {
+  return function (e) {
+    return updateFilter(filter, e.currentTarget.value);
+  };
+};
+
+var handleDeliveryChange = function handleDeliveryChange(filter, updateFilter) {
+  return function (e) {
+    return updateFilter(filter, e.currentTarget.value);
+  };
+};
+
+var handleTakeoutChange = function handleTakeoutChange(filter, updateFilter) {
+  return function (e) {
+    return updateFilter(filter, e.currentTarget.value);
+  };
+};
+
+function showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) {
+  if (searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "showing-filters"
+    }, "Showing Filters:");
+  } else {
+    return null;
+  }
+}
+
+function selectQuery(searchQuery) {
+  if (searchQuery) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "query-italic"
+    }, "\"", searchQuery, "\"");
+  } else {
+    return null;
+  }
+}
+
+;
+
+function selectCity(searchCity) {
+  if (searchCity) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "query-italic"
+    }, "\"", searchCity, "\"");
+  } else {
+    return null;
+  }
+}
+
+;
+
+function selectCategory(filterCategory) {
+  if (filterCategory !== "All") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, filterCategory);
+  } else {
+    return null;
+  }
+}
+
+;
+
+function selectOpen(filterOpenNow) {
+  if (filterOpenNow !== "Always") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Open Now");
+  } else {
+    return null;
+  }
+}
+
+;
+
+function selectDelivery(filterDelivery) {
+  if (filterDelivery !== "All") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Delivery");
+  } else {
+    return null;
+  }
+}
+
+;
+
+function selectTakeout(filterTakeout) {
+  if (filterTakeout !== "All") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Takeout");
+  } else {
+    return null;
+  }
+}
+
+;
+
+var FilterForm = function FilterForm(_ref) {
+  var minPricepoint = _ref.minPricepoint,
+      maxPricepoint = _ref.maxPricepoint,
+      filterCategory = _ref.filterCategory,
+      filterOpenNow = _ref.filterOpenNow,
+      filterRating = _ref.filterRating,
+      filterDelivery = _ref.filterDelivery,
+      filterTakeout = _ref.filterTakeout,
+      updateFilter = _ref.updateFilter,
+      searchQuery = _ref.searchQuery,
+      searchCity = _ref.searchCity,
+      refreshFilter = _ref.refreshFilter;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "filtered-firstline"
+  }, "Filter Results By:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "filters"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "minmax-pair"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Min\xA0Pricepoint\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "Min Pricepoint",
+    value: minPricepoint,
+    onChange: handlePricepointChange("minPricepoint", updateFilter)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    disabled: true,
+    value: ""
+  }, "- $ -"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "1"
+  }, " $"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "2"
+  }, "$$"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "3"
+  }, "$$$"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "4"
+  }, "$$$$")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "maxpricepoint"
+  }, " Max\xA0Pricepoint\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "Max Pricepoint",
+    value: maxPricepoint,
+    onChange: handlePricepointChange("maxPricepoint", updateFilter)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    disabled: true,
+    value: ""
+  }, "- $$$$ -"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "1"
+  }, "$"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "2"
+  }, "$$"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "3"
+  }, "$$$"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "4"
+  }, "$$$$"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    id: "category-filter"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Category\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "Category",
+    value: filterCategory,
+    onChange: handleCategoryChange("filterCategory", updateFilter)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "All"
+  }, "Showing All"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Restaurants"
+  }, "Restaurants"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Coffee & Tea"
+  }, "Coffee & Tea"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Bars"
+  }, "Bars"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Dessert"
+  }, "Dessert"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    value: "Yes",
+    onClick: handleOpenNow("filterOpenNow", updateFilter)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "far fa-clock"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "filter-writing"
+  }, "Open Now"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    id: "delivery-button"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    value: "Yes",
+    onClick: handleDeliveryChange("filterDelivery", updateFilter)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "far fa-paper-plane"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "filter-writing"
+  }, "Delivery"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    value: "Yes",
+    onClick: handleTakeoutChange("filterTakeout", updateFilter)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-shoe-prints"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "filter-writing"
+  }, "Takeout"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "clear-filters"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: refreshFilter
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "filter-writing"
+  }, "Clear Filters")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "filter-tags"
+  }, showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout), selectQuery(searchQuery), selectCity(searchCity), selectCategory(filterCategory), selectOpen(filterOpenNow), selectDelivery(filterDelivery), selectTakeout(filterTakeout)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FilterForm); // const handleRatingChange = (filter, updateFilter) => e => (
+//     updateFilter(filter, e.currentTarget.value)
+// );
+
+/***/ }),
+
+/***/ "./frontend/components/business_index/search.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/business_index/search.jsx ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _business_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../business_map */ "./frontend/components/business_map.jsx");
+/* harmony import */ var _business_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business_index */ "./frontend/components/business_index/business_index.jsx");
+/* harmony import */ var _filter_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filter_form */ "./frontend/components/business_index/filter_form.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+var Search = /*#__PURE__*/function (_React$Component) {
+  _inherits(Search, _React$Component);
+
+  var _super = _createSuper(Search);
+
+  function Search(props) {
+    _classCallCheck(this, Search);
+
+    return _super.call(this, props);
+  }
+
+  _createClass(Search, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var query = new URLSearchParams(this.props.location.search).get("query");
+
+      if (query) {
+        this.props.updateFilter('searchQuery', query);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          businesses = _this$props.businesses,
+          minPricepoint = _this$props.minPricepoint,
+          maxPricepoint = _this$props.maxPricepoint,
+          filterCategory = _this$props.filterCategory,
+          filterOpenNow = _this$props.filterOpenNow,
+          filterDelivery = _this$props.filterDelivery,
+          filterTakeout = _this$props.filterTakeout,
+          filterRating = _this$props.filterRating,
+          updateFilter = _this$props.updateFilter,
+          searchQuery = _this$props.searchQuery,
+          searchCity = _this$props.searchCity,
+          refreshFilter = _this$props.refreshFilter;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "indexpage"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "indexpage-filters"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "What are you Looking For?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_form__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        searchCity: searchCity,
+        searchQuery: searchQuery,
+        minPricepoint: minPricepoint,
+        maxPricepoint: maxPricepoint,
+        updateFilter: updateFilter,
+        filterCategory: filterCategory,
+        filterOpenNow: filterOpenNow,
+        filterDelivery: filterDelivery,
+        filterTakeout: filterTakeout,
+        refreshFilter: refreshFilter
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "indexpage-grid"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "indexpage-businesses"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        businesses: businesses,
+        updateFilter: updateFilter,
+        searchQuery: searchQuery
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "indexpage-map"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "So Where Are We Going!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        businesses: businesses,
+        updateFilter: updateFilter,
+        singleBusiness: false
+      }))));
+    }
+  }]);
+
+  return Search;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Search);
+
+/***/ }),
+
+/***/ "./frontend/components/business_index/search_container.js":
+/*!****************************************************************!*\
+  !*** ./frontend/components/business_index/search_container.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search */ "./frontend/components/business_index/search.jsx");
+/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+/* harmony import */ var _searchbar_searchbar_form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../searchbar/searchbar_form */ "./frontend/components/searchbar/searchbar_form.jsx");
+
+
+
+
+
+ // import { asArray, selectReviewsForBusiness } from '../../reducers/selectors';
+
+var mSTP = function mSTP(state, _ref) {
+  var location = _ref.location;
+  return {
+    searchQuery: state.ui.filters.searchQuery,
+    searchCity: state.ui.filters.searchCity,
+    businesses: Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__["asArray"])(state.entities),
+    minPricepoint: state.ui.filters.minPricepoint,
+    maxPricepoint: state.ui.filters.maxPricepoint,
+    filterCategory: state.ui.filters.filterCategory,
+    filterOpenNow: state.ui.filters.filterOpenNow,
+    filterDelivery: state.ui.filters.filterDelivery,
+    filterTakeout: state.ui.filters.filterTakeout
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    updateFilter: function updateFilter(filter, value) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__["updateFilter"])(filter, value));
+    },
+    changeFilter: function changeFilter(filter, value) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__["changeFilter"])(filter, value));
+    },
+    refreshFilter: function refreshFilter() {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__["refreshFilter"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_search__WEBPACK_IMPORTED_MODULE_2__["default"])));
+
+/***/ }),
+
+/***/ "./frontend/components/business_map.jsx":
+/*!**********************************************!*\
+  !*** ./frontend/components/business_map.jsx ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/marker_manager */ "./frontend/util/marker_manager.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+var getCoordsObj = function getCoordsObj(latLng) {
+  return {
+    lat: latLng.lat(),
+    lng: latLng.lng()
+  };
+};
+
+var mapOptions = {
+  center: {
+    lat: 37.8206228,
+    lng: -122.3194160
+  },
+  zoom: 9
+};
+
+var BusinessMap = /*#__PURE__*/function (_React$Component) {
+  _inherits(BusinessMap, _React$Component);
+
+  var _super = _createSuper(BusinessMap);
+
+  function BusinessMap() {
+    _classCallCheck(this, BusinessMap);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(BusinessMap, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.map = new google.maps.Map(this.mapNode, mapOptions);
+      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map, this.handleMarkerClick.bind(this));
+
+      if (this.props.addBusiness) {
+        var addLatLng = new google.maps.LatLng(this.props.lat, this.props.lng);
+        var addMapOptions = {
+          center: addLatLng,
+          zoom: 16
+        };
+        var addMap = new google.maps.Map(this.mapNode, addMapOptions);
+        var addMarker = new google.maps.Marker({
+          position: addLatLng
+        });
+        addMarker.setMap(addMap);
+      } else if (this.props.singleBusiness) {
+        this.props.fetchBusiness(this.props.businessId);
+      } else {
+        this.registerListeners();
+        this.MarkerManager.updateMarkers(this.props.businesses);
+      }
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      if (this.props.singleBusiness) {
+        var targetBusinessKey = Object.keys(this.props.businesses)[0];
+        var targetBusiness = this.props.businesses[targetBusinessKey];
+        var profileLatlng = new google.maps.LatLng(targetBusiness.lat, targetBusiness.lng);
+        var profileMapOptions = {
+          center: profileLatlng,
+          zoom: 16
+        };
+        var profileMap = new google.maps.Map(this.mapNode, profileMapOptions);
+        var profileMarker = new google.maps.Marker({
+          position: profileLatlng
+        });
+        profileMarker.setMap(profileMap);
+      } else if (!this.props.singleBusiness && !this.props.addBusiness) {
+        this.MarkerManager.updateMarkers(this.props.businesses);
+      }
+    }
+  }, {
+    key: "registerListeners",
+    value: function registerListeners() {
+      var _this = this;
+
+      google.maps.event.addListener(this.map, 'idle', function () {
+        var _this$map$getBounds$t = _this.map.getBounds().toJSON(),
+            north = _this$map$getBounds$t.north,
+            south = _this$map$getBounds$t.south,
+            east = _this$map$getBounds$t.east,
+            west = _this$map$getBounds$t.west;
+
+        var bounds = {
+          northEast: {
+            lat: north,
+            lng: east
+          },
+          southWest: {
+            lat: south,
+            lng: west
+          }
+        };
+
+        _this.props.updateFilter('bounds', bounds);
+      });
+    }
+  }, {
+    key: "handleMarkerClick",
+    value: function handleMarkerClick(business) {
+      this.props.history.push("businesses/".concat(business.id));
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick(coords) {
+      this.props.history.push("/businesses/new?lat=".concat(coords.lat, "&lng=").concat(coords.lng));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "map-container",
+        ref: function ref(map) {
+          return _this2.mapNode = map;
+        }
+      });
+    }
+  }]);
+
+  return BusinessMap;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(BusinessMap));
+
+/***/ }),
+
+/***/ "./frontend/components/business_show/business_profile.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/business_show/business_profile.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _review_list_item_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./review_list_item_container */ "./frontend/components/business_show/review_list_item_container.jsx");
+/* harmony import */ var _business_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../business_map */ "./frontend/components/business_map.jsx");
+/* harmony import */ var _review_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./review_form_container */ "./frontend/components/business_show/review_form_container.js");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _util_link_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../util/link_util */ "./frontend/util/link_util.jsx");
+
+
+
+
+
+
+
+var BusinessProfile = function BusinessProfile(_ref) {
+  var business = _ref.business,
+      reviews = _ref.reviews,
+      businesses = _ref.businesses,
+      businessId = _ref.businessId,
+      fetchBusiness = _ref.fetchBusiness,
+      deleteReview = _ref.deleteReview;
+  var photos = business.photoUrls.map(function (photoUrl, idx) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "profile-pic",
+      key: idx,
+      src: photoUrl
+    }); // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
+  });
+  var timeConversion = {
+    "-100": "Closed",
+    0: "12:00 AM",
+    1: "1:00 AM",
+    2: "2:00 AM",
+    3: "3:00 AM",
+    4: "4:00 AM",
+    5: "5:00 AM",
+    6: "6:00 AM",
+    7: "7:00 AM",
+    8: "8:00 AM",
+    9: "9:00 AM",
+    10: "10:00 AM",
+    11: "11:00 AM",
+    12: "12:00 PM",
+    13: "1:00 PM",
+    14: "2:00 PM",
+    15: "3:00 PM",
+    16: "4:00 PM",
+    17: "5:00 PM",
+    18: "6:00 PM",
+    19: "7:00 PM",
+    20: "8:00 PM",
+    21: "9:00 PM",
+    22: "10:00 PM",
+    23: "11:00 PM",
+    24: "12:00 AM",
+    25: "1:00 AM",
+    26: "2:00 AM",
+    27: "3:00 AM",
+    28: "4:00 AM",
+    29: "5:00 AM",
+    30: "6:00 AM"
+  };
+  var starTable = {
+    5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    4.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    })),
+    4: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    3.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    })),
+    3: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    2.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    })),
+    2: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    1.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    })),
+    1: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star"
+    })),
+    0.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-star-half"
+    }))
+  };
+
+  function bizStars(avg) {
+    if (avg >= 4.95) {
+      return starTable[5];
+    } else if (avg >= 4.5) {
+      return starTable[4.5];
+    } else if (avg >= 4) {
+      return starTable[4];
+    } else if (avg >= 3.5) {
+      return starTable[3.5];
+    } else if (avg >= 3) {
+      return starTable[3];
+    } else if (avg >= 2.5) {
+      return starTable[2.5];
+    } else if (avg >= 2) {
+      return starTable[2];
+    } else if (avg >= 1.5) {
+      return starTable[1.5];
+    } else if (avg >= 1) {
+      return starTable[1];
+    } else if (avg >= 0.5) {
+      return starTable[0.5];
+    }
+  }
+
+  function isClosed(hour) {
+    if (hour < 0) {
+      return null;
+    } else {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "-\xA0", timeConversion[hour]);
+    }
+  }
+
+  function hasBathroom(attribute) {
+    if (attribute === "Yes") {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-transgender"
+      }), "Gender\xA0Neutral\xA0Restrooms\xA0:\xA0", business.genderneutralrestroom);
+    } else {
+      return null;
+    }
+  }
+
+  function bringKids(attribute) {
+    if (attribute === "Yes") {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-baby-carriage"
+      }), "Good\xA0for\xA0Kids\xA0:\xA0", business.goodforkids);
+    } else {
+      return null;
+    }
+  }
+
+  function bringDogs(attribute) {
+    if (attribute === "Yes") {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-dog"
+      }), "Dogs\xA0Allowed\xA0:\xA0", business.dogsallowed);
+    } else {
+      return null;
+    }
+  }
+
+  function reviewList() {
+    if (reviews.length > 0) {
+      return reviews.filter(function (review) {
+        return review !== null;
+      }).map(function (review) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "all-reviews"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list_item_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          id: review.id,
+          review: review,
+          key: review.id,
+          deleteReview: deleteReview
+        }));
+      });
+    } else {
+      return null;
+    }
+  }
+
+  ;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "profile-pics-holder"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "profile-pics"
+  }, photos)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-minus-pics"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-name-section"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "bizname"
+  }, business.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "bizrating-section"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "bizrating"
+  }, bizStars(business.average_rating) || "No reviews yet. Be the first to write one!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "bizreviewcount"
+  }, business.reviewcount)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "bizpricepoint"
+  }, business.dollarmaker), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "bullet"
+  }, "\u2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "bizcategory"
+  }, business.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "business-review-link"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "wrapping-button"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_link_util__WEBPACK_IMPORTED_MODULE_5__["ReviewLink"], {
+    component: _review_form_container__WEBPACK_IMPORTED_MODULE_3__["default"],
+    to: "/businesses/".concat(businessId, "/review"),
+    label: "\u2605 Write a Review"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__["ProtectedRoute"], {
+    path: "/businesses/:businessId/review",
+    component: _review_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-attributes"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "fakeh4"
+  }, "Amenities"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "far fa-paper-plane"
+  }), "Delivery\xA0:\xA0", business.delivery), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-shoe-prints"
+  }), "Takeout\xA0:\xA0", business.takeout), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "far fa-calendar-check"
+  }), "Takes\xA0Reservations\xA0:\xA0", business.takesreservation), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "far fa-credit-card"
+  }), "Accepts\xA0Credit\xA0Card\xA0:\xA0", business.creditcard), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-wifi"
+  }), "Wi-Fi\xA0:\xA0", business.wifi)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fab fa-google"
+  }), "Accepts\xA0Google\xA0Pay\xA0:\xA0", business.googlepay), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fab fa-cc-apple-pay"
+  }), "Accepts\xA0Apple\xA0Pay\xA0:\xA0", business.applepay), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-leaf"
+  }), "Vegetarian\xA0:\xA0", business.vegetarian), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-seedling"
+  }), "Vegan\xA0:\xA0", business.vegan)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-parking"
+  }), "Parking\xA0:\xA0", business.parking), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-wheelchair"
+  }), "Wheelchair\xA0Accessible:\xA0", business.wheelchair), hasBathroom(business.genderneutralrestroom)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-cloud-sun"
+  }), "Outdoor\xA0Seating\xA0:\xA0", business.outdoor), bringKids(business.goodforkids), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-users"
+  }), "Good\xA0for\xA0Groups\xA0:\xA0", business.goodforgroups), bringDogs(business.dogsallowed))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-map-and-info"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-map"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    businesses: businesses,
+    businessId: businessId,
+    singleBusiness: true,
+    fetchBusiness: fetchBusiness
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-hours"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "fakeh4"
+  }, "Hours of Operation"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Monday: ", timeConversion[business.monopen], isClosed(business.monclose)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Tuesday: ", timeConversion[business.tuesopen], isClosed(business.tuesclose)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wednesday: ", timeConversion[business.wedopen], isClosed(business.wedclose)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thursday: ", timeConversion[business.thursopen], isClosed(business.thursclose)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Friday: ", timeConversion[business.friopen], isClosed(business.friclose)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Saturday: ", timeConversion[business.satopen], isClosed(business.satclose)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sunday: ", timeConversion[business.sunopen], isClosed(business.sunclose))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-info"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "fakeh4"
+  }, "Location & Contact"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "bizwebsite"
+  }, business.website), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "bizphonenumber"
+  }, "(", business.phonenumber.slice(0, 3), ")", business.phonenumber.slice(3, 6), "-", business.phonenumber.slice(6, 10)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "bizaddress1"
+  }, business.address1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "bizaddress2"
+  }, business.city, ", ", business.state, " ", business.zipcode))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "listed-reviews"
+  }, " ", reviewList() || "No reviews yet. Be the first to write one!"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (BusinessProfile);
+
+/***/ }),
+
+/***/ "./frontend/components/business_show/business_show.jsx":
 /*!*************************************************************!*\
-  !*** ./frontend/components/business_form/business_form.jsx ***!
+  !*** ./frontend/components/business_show/business_show.jsx ***!
   \*************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -391,8 +1555,1648 @@ var App = function App() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _business_profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business_profile */ "./frontend/components/business_show/business_profile.jsx");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+var BusinessShow = function BusinessShow(_ref) {
+  var business = _ref.business,
+      businessId = _ref.businessId,
+      fetchBusiness = _ref.fetchBusiness,
+      deleteReview = _ref.deleteReview,
+      reviews = _ref.reviews;
+
+  var businesses = _defineProperty({}, businessId, business);
+
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "all-business-show"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "button-link-to-index"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick(e) {
+      return history.push('/businesses');
+    }
+  }, "Back")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "business-show-profile"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_profile__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    business: business,
+    reviews: reviews,
+    businesses: businesses,
+    businessId: businessId,
+    singleBusiness: true,
+    fetchBusiness: fetchBusiness,
+    deleteReview: deleteReview
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (BusinessShow);
+
+/***/ }),
+
+/***/ "./frontend/components/business_show/business_show_container.js":
+/*!**********************************************************************!*\
+  !*** ./frontend/components/business_show/business_show_container.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+/* harmony import */ var _business_show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./business_show */ "./frontend/components/business_show/business_show.jsx");
+
+
+
+
+
+var mSTP = function mSTP(state, _ref) {
+  var match = _ref.match;
+  var businessId = parseInt(match.params.businessId);
+  var business = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__["selectBusiness"])(state.entities, businessId);
+  var reviews = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__["selectReviewsForBusiness"])(state.entities, business);
+  return {
+    businessId: businessId,
+    business: business,
+    reviews: reviews
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    fetchBusiness: function fetchBusiness(id) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["fetchBusiness"])(id));
+    },
+    deleteReview: function deleteReview(id) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["deleteReview"])(id));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_business_show__WEBPACK_IMPORTED_MODULE_3__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/business_show/review_form.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/business_show/review_form.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var userClicked = false;
+
+var ReviewForm = /*#__PURE__*/function (_React$Component) {
+  _inherits(ReviewForm, _React$Component);
+
+  var _super = _createSuper(ReviewForm);
+
+  function ReviewForm(props) {
+    var _this;
+
+    _classCallCheck(this, ReviewForm);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      rating: 0,
+      body: ''
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.updateStar = _this.updateStar.bind(_assertThisInitialized(_this));
+    _this.changeStar = _this.changeStar.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(ReviewForm, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      userClicked = false;
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var businessId = this.props.businessId;
+      var review = Object.assign({}, this.state, {
+        business_id: businessId
+      });
+      this.props.createReview(review);
+      this.props.history.push("/businesses/".concat(businessId));
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
+    key: "updateStar",
+    value: function updateStar(e, num) {
+      var allStars = e.target.parentElement.getElementsByClassName("form-star");
+      userClicked = true;
+
+      if (num === 5) {
+        for (var i = 1; i <= 5; i++) {
+          allStars[i - 1].style.color = "orange";
+        }
+      } else {
+        for (var _i = 1; _i <= num; _i++) {
+          allStars[_i - 1].style.color = "orange";
+        }
+
+        for (var j = num + 1; j <= 5; j++) {
+          allStars[j - 1].style.color = "grey";
+        }
+      }
+
+      return this.setState({
+        rating: num
+      });
+    }
+  }, {
+    key: "changeStar",
+    value: function changeStar(e, num) {
+      var allStars = e.target.parentElement.getElementsByClassName("form-star");
+
+      if (!userClicked) {
+        if (num === 5) {
+          for (var i = 1; i <= 5; i++) {
+            allStars[i - 1].style.color = "red";
+          }
+        } else {
+          for (var _i2 = 1; _i2 <= num; _i2++) {
+            allStars[_i2 - 1].style.color = "red";
+          }
+
+          for (var j = num + 1; j <= 5; j++) {
+            allStars[j - 1].style.color = "grey";
+          }
+        }
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var name = this.props.business.name;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "review-form"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        id: "bizname"
+      }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "please-rate"
+      }, "Please rate this business:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "changing-stars"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "hover-stars"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star form-star",
+        onMouseOver: function onMouseOver(e) {
+          return _this3.changeStar(e, 1);
+        },
+        onClick: function onClick(e) {
+          return _this3.updateStar(e, 1);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star form-star",
+        onMouseOver: function onMouseOver(e) {
+          return _this3.changeStar(e, 2);
+        },
+        onClick: function onClick(e) {
+          return _this3.updateStar(e, 2);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star form-star",
+        onMouseOver: function onMouseOver(e) {
+          return _this3.changeStar(e, 3);
+        },
+        onClick: function onClick(e) {
+          return _this3.updateStar(e, 3);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star form-star",
+        onMouseOver: function onMouseOver(e) {
+          return _this3.changeStar(e, 4);
+        },
+        onClick: function onClick(e) {
+          return _this3.updateStar(e, 4);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star form-star",
+        onMouseOver: function onMouseOver(e) {
+          return _this3.changeStar(e, 5);
+        },
+        onClick: function onClick(e) {
+          return _this3.updateStar(e, 5);
+        }
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "comment-holder"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "please-rate"
+      }, "Comment"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "textarea",
+        placeholder: "Your review helps others learn about great local businesses.",
+        value: this.state.body,
+        onChange: this.update('body')
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "review-button",
+        type: "submit",
+        value: "Post Review"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "cancel-btn",
+        onClick: function onClick(e) {
+          return _this3.props.history.push("/businesses/".concat(_this3.props.businessId));
+        }
+      }, "Cancel"));
+    }
+  }]);
+
+  return ReviewForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(ReviewForm));
+/* <div id="click-stars">
+    <div id="star-side">
+        <div><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
+        <div><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
+        <div><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
+        <div><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
+        <div><i className="fas fa-star"></i></div>
+    </div>
+
+    <div id="rating-side">                       
+        <div><span>5</span><input type="radio" name="rating" value="5" onClick={this.updateStar(5)} /></div>
+        <div><span>4</span><input type="radio" name="rating" value="4" onClick={this.updateStar(4)} /></div>
+        <div><span>3</span><input type="radio" name="rating" value="3" onClick={this.updateStar(3)} /></div>
+        <div><span>2</span><input type="radio" name="rating" value="2" onClick={this.updateStar(2)} /></div>
+        <div><span>1</span><input type="radio" name="rating" value="1" onClick={this.updateStar(1)} /></div>
+    </div>
+</div> */
+
+/***/ }),
+
+/***/ "./frontend/components/business_show/review_form_container.js":
+/*!********************************************************************!*\
+  !*** ./frontend/components/business_show/review_form_container.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var _review_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./review_form */ "./frontend/components/business_show/review_form.jsx");
+
+
+
+
+
+var mSTP = function mSTP(state, _ref) {
+  var match = _ref.match;
+  var businessId = parseInt(match.params.businessId);
+  var business = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_1__["selectBusiness"])(state.entities, businessId);
+  return {
+    businessId: businessId,
+    business: business
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    createReview: function createReview(review) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["createReview"])(review));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_review_form__WEBPACK_IMPORTED_MODULE_3__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/business_show/review_list_item_container.jsx":
+/*!**************************************************************************!*\
+  !*** ./frontend/components/business_show/review_list_item_container.jsx ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var Review = /*#__PURE__*/function (_React$Component) {
+  _inherits(Review, _React$Component);
+
+  var _super = _createSuper(Review);
+
+  function Review(props) {
+    var _this;
+
+    _classCallCheck(this, Review);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      review: _this.props.review
+    };
+    _this.canDelete = _this.canDelete.bind(_assertThisInitialized(_this));
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Review, [{
+    key: "canDelete",
+    value: function canDelete(authorId, currentUserId, reviewId) {
+      var _this2 = this;
+
+      if (authorId === currentUserId && reviewId) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "delete-review-option",
+          onClick: function onClick(e) {
+            return _this2.handleDelete(e, reviewId);
+          }
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "far fa-times-circle"
+        }));
+      } else {
+        return null;
+      }
+    }
+  }, {
+    key: "handleDelete",
+    value: function handleDelete(e, reviewId) {
+      e.preventDefault();
+      this.props.deleteReview(reviewId);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var reviewDate = new Date(this.props.review.created_at).toLocaleDateString("en-US", {
+        year: "2-digit",
+        month: "2-digit",
+        day: "2-digit"
+      });
+      var starTable = {
+        5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        4.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        })),
+        4: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        3.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        })),
+        3: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        2.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        })),
+        2: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        1.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        })),
+        1: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star"
+        })),
+        0.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half"
+        }))
+      };
+
+      function bizStars(rating) {
+        if (rating === 5) {
+          return starTable[5];
+        } else if (rating >= 4.5) {
+          return starTable[4.5];
+        } else if (rating >= 4) {
+          return starTable[4];
+        } else if (rating >= 3.5) {
+          return starTable[3.5];
+        } else if (rating >= 3) {
+          return starTable[3];
+        } else if (rating >= 2.5) {
+          return starTable[2.5];
+        } else if (rating >= 2) {
+          return starTable[2];
+        } else if (rating >= 1.5) {
+          return starTable[1.5];
+        } else if (rating >= 1) {
+          return starTable[1];
+        } else if (rating >= 0.5) {
+          return starTable[0.5];
+        }
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "reviews-section"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "userprofile"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-user-circle"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "username"
+      }, this.props.author.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "reviews"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "stars-and-date"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "stars"
+      }, bizStars(this.props.review.rating)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "created_at"
+      }, reviewDate)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.canDelete(this.props.author.id, this.props.currentUserId, this.props.review.id))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "comment"
+      }, this.props.review.body)));
+    }
+  }]);
+
+  return Review;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+var mSTP = function mSTP(state, _ref) {
+  var review = _ref.review;
+  return {
+    author: state.entities.users[review.author_id],
+    currentUserId: state.session.id
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    deleteReview: function deleteReview(id) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["deleteReview"])(id));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(Review));
+
+/***/ }),
+
+/***/ "./frontend/components/credit/credit.jsx":
+/*!***********************************************!*\
+  !*** ./frontend/components/credit/credit.jsx ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var Credit = /*#__PURE__*/function (_React$Component) {
+  _inherits(Credit, _React$Component);
+
+  var _super = _createSuper(Credit);
+
+  function Credit(props) {
+    var _this;
+
+    _classCallCheck(this, Credit);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      showLogin: false,
+      showHome: false,
+      showAdd: false,
+      showBusinesses: false
+    };
+    _this.handleOpenLogin = _this.handleOpenLogin.bind(_assertThisInitialized(_this));
+    _this.handleOpenHome = _this.handleOpenHome.bind(_assertThisInitialized(_this));
+    _this.handleOpenAdd = _this.handleOpenAdd.bind(_assertThisInitialized(_this));
+    _this.handleOpenBusinesses = _this.handleOpenBusinesses.bind(_assertThisInitialized(_this));
+    _this.backToTop = _this.backToTop.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Credit, [{
+    key: "handleOpenLogin",
+    value: function handleOpenLogin(e) {
+      var _this2 = this;
+
+      return function (e) {
+        _this2.state.showLogin === false ? _this2.setState({
+          showLogin: true
+        }) : _this2.setState({
+          showLogin: false
+        });
+      };
+    }
+  }, {
+    key: "handleOpenHome",
+    value: function handleOpenHome(e) {
+      var _this3 = this;
+
+      return function (e) {
+        _this3.state.showHome === false ? _this3.setState({
+          showHome: true
+        }) : _this3.setState({
+          showHome: false
+        });
+      };
+    }
+  }, {
+    key: "handleOpenAdd",
+    value: function handleOpenAdd(e) {
+      var _this4 = this;
+
+      return function (e) {
+        _this4.state.showAdd === false ? _this4.setState({
+          showAdd: true
+        }) : _this4.setState({
+          showAdd: false
+        });
+      };
+    }
+  }, {
+    key: "backToTop",
+    value: function backToTop(e) {
+      return function (e) {
+        window.scrollTo(0, 0);
+      };
+    }
+  }, {
+    key: "handleOpenBusinesses",
+    value: function handleOpenBusinesses(e) {
+      var _this5 = this;
+
+      return function (e) {
+        _this5.state.showBusinesses === false ? _this5.setState({
+          showBusinesses: true
+        }) : _this5.setState({
+          showBusinesses: false
+        });
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "credits"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.formType), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "I used a lot of other people's images in this project."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "And while all of these photos were taken for free from unsplash.com, I just thought I'd make a little credits page as thanks."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "They are organized by page."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Also, the titles are not official titles.. someday I'll add thumbnails but hopefully these descriptions will work for now. Thanks!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-grin-alt"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        onClick: this.handleOpenLogin()
+      }, "Login / Signup", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-palette"
+      })), this.state.showLogin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "section"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Scattered Ice Cream Cones"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Benjam\xEDn Hazael Rojas Garc\xEDa")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Orange/Turquoise Shot Glasses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Ram HO"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        onClick: this.handleOpenHome()
+      }, "Home Page", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-palette"
+      })), this.state.showHome && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "section"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Big Spread of Espresso Drinks"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Cyril Saulnier")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Floral Sashimi Plate"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Augustine Fou")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Dining Hall with Asian Lights and Noodles"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Hien Nguyen")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Smoky Cocktail in Tumbler"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Miguel Maldonado"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        onClick: this.handleOpenAdd()
+      }, "'Add Your Business'", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-palette"
+      })), this.state.showAdd && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "section"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Yellow Chair & Bistro Table"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Kenan S\xFCleymano\u011Flu")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Three Vertical Espresso Drinks"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Nathan Dumlao"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        onClick: this.handleOpenBusinesses()
+      }, "Business Profiles", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-palette"
+      })), this.state.showBusinesses && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "section"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sweet Baby Cakes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Dozens of Donuts on Trays"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Elisheva Gohar")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Cupcakes in a White Box"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Persnickety Prints")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Hands Holding Pastry"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Ham Kris")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Quarter-section of Salami Sandwich"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Eaters Collective"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "White Whale Saloon"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Empty Wooden Dining Room with Vintage Photos on Walls"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Austin Gardner")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Colorful Stained-Glass, Wood-Railed Bar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jared Burris")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Sugar-Rimmed Martini Glass with Red Liquid"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Oleh Moskaliuk")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Lone Beer on Wooden Bar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "mnm.all"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Hola Ola"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Big Spread of Espresso Drinks (also on Home Page)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Cyril Saulnier")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "View of Ocean through Tall Vertical Windows + People"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Sung Jin Cho")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Simple shot of Healthy Burger"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jiroe")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Bowl of Guacamole & Chips with Olives"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Ronise daluz"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Telegraph Place"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Long dining room table with Pink Theme"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Juliette F")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Bowl of Halved-Shrimps and Pasta Noodles in White Dish"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "UY VO")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Slice of Steak"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jos\xE9 Ignacio Pomp\xE9")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Plated Carrots"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Adam Jaime"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Tumbler Room"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Smoky Cocktail in Tumbler (also on Home Page)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Miguel Maldonado")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Red Velvet Lounge Sofas and Bar Tables"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Taylor Simpson")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Serving Tray of Chilled Martini Glasses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Olivier Rouge")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Amber-colored Cocktail with Floral Garnish"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Ash Edmonds"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Eastern Market Hall"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Dining Hall with Asian Lights and Noodles (also on Home Page)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Hien Nguyen")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Foamy Drink in Wine Glass with Bowl of Drinking Snacks"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jakub Dziubak")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Three Dumpling Dishes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Abhishek Sanwa Limbu")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Half-drunk Glass with Straw in Empty Bar Corner"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Sergey Isakhanyan"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sugar Shoppe"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Layered Chocolate Pudding Dessert in Goblet"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Emile Mbunzama")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Three Hands Holding Ice Cream Cones"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Mark Cruz")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Dog licking Red/Blue Ice Cream Cone"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Christian Bowen")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Raspberry Popsicle Bars on White Marble Top"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Daniel \xD6berg"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Katagama"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Floral Sashimi Plate (also on Home Page)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Augustine Fou")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Sashimi with Vegetables in Black Bowl"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jesse Ballantyne")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Sushi Chef behind Counter"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Thomas Marban")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Mixed Sushi Plate with Big Cuts of Fish and Seafood"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Cloris Ying"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Brasserie Belmonde"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Side View of Halved Cheesy Pocket"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Roberto Valdivia")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Grilled Fish Steak on Plate"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Sander Dalhuisen")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Four Fish on Grill"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Clint Bustrillos")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Cocktail Oysters"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Laura Peruchi"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Chococat Cafe"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Rosetta Latte Art on Yellow Saucer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Cristian Cristian")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Rosetta Matcha Latte Art"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jason Leung")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Seahorse Latte Art"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Mazen Ir")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Bagel Sandwich on Plate"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Christian Kaindl"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Green Plate"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Pea, Sprout Salad"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Jonathan Farber")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Avocado Burger on Plate with Veggies"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Filip Mishevski")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Pesto Pasta Salad"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Eaters Collective")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Orange Noodles Tossed with Salad"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Toa Heftiba"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Lucia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Yellow Cocktail with Lemon Wedge"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Pushpak Dsilva")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Tall Column Bar with Vertical Lights"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "DeMorris Byrd")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Small Burger with Chips and Orange Drink in Wine Glass"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Gabrielle Cepella")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Red Cocktail in Coupe Glass"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Nikita Tikhomirov"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Pixel Point"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Cafe Environment with People"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Wade Austin Ellis")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Espresso Drinks & Plants"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Nathan Dumlao")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "To-Go Sandwich"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Pille-Riin Priske")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Dog on Outdoor Porch"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Ross Sokolovski"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Squash Blossom"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Diamond-Pattern Arrangement of Coffee Cups"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Nathan Dumlao")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Muffin, Coffee, Cactus"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Robert Bye")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Orange-Furnished Cafe Environment"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Sebastian Schuppik")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Many Cactii against Window"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Tiplada Mekvisan"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Big Craw"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Lots of Crawfish"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Stephanie Moody")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Lobster with Sign"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Louis Hansel")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Mac & Cheese Burger with Pickle"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Alex Haney")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "pair"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "art-title"
+      }, "Person Holding Bowl of Crawfish"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "artist"
+      }, "Sidney Pearce")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.backToTop()
+      }, "Back To Top", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-arrow-up"
+      }))));
+    }
+  }]);
+
+  return Credit;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (Credit);
+
+/***/ }),
+
+/***/ "./frontend/components/credit/credit_container.js":
+/*!********************************************************!*\
+  !*** ./frontend/components/credit/credit_container.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _credit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./credit */ "./frontend/components/credit/credit.jsx");
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {
+    formType: "Art Credits"
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, null)(_credit__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/homepage/homepage.jsx":
+/*!***************************************************!*\
+  !*** ./frontend/components/homepage/homepage.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../searchbar/searchbar_form_container */ "./frontend/components/searchbar/searchbar_form_container.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var Homepage = /*#__PURE__*/function (_React$Component) {
+  _inherits(Homepage, _React$Component);
+
+  var _super = _createSuper(Homepage);
+
+  function Homepage(props) {
+    var _this;
+
+    _classCallCheck(this, Homepage);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      filterCategory: "Restaurants",
+      filterDelivery: "Yes"
+    };
+    _this.handleCategoryChange = _this.handleCategoryChange.bind(_assertThisInitialized(_this));
+    _this.handleDeliveryChange = _this.handleDeliveryChange.bind(_assertThisInitialized(_this));
+    _this.reroute = _this.reroute.bind(_assertThisInitialized(_this));
+    _this.goCredits = _this.goCredits.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Homepage, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var homescreen = document.getElementById("homepics");
+
+      var fadeComplete = function fadeComplete(e) {
+        homescreen.appendChild(arr[0]);
+      };
+
+      var arr = homescreen.getElementsByTagName("img");
+
+      for (var i = 0; i < arr.length; i++) {
+        arr[i].addEventListener("animationend", fadeComplete, false);
+      }
+
+      this.props.refreshFilter();
+    }
+  }, {
+    key: "reroute",
+    value: function reroute(num) {
+      var _this2 = this;
+
+      return function (e) {
+        _this2.props.history.push("/businesses/".concat(num));
+      };
+    }
+  }, {
+    key: "goCredits",
+    value: function goCredits(e) {
+      var _this3 = this;
+
+      return function (e) {
+        _this3.props.history.push('/credits');
+      };
+    }
+  }, {
+    key: "handleCategoryChange",
+    value: function handleCategoryChange(e) {
+      e.preventDefault();
+      this.props.changeFilter('filterCategory', this.state.filterCategory);
+      this.props.history.push('/businesses');
+    }
+  }, {
+    key: "handleDeliveryChange",
+    value: function handleDeliveryChange(e) {
+      e.preventDefault();
+      this.props.changeFilter('filterDelivery', this.state.filterDelivery);
+      this.props.history.push('/businesses');
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "homepage"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "homepics"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        title: "Grab Coffee at Hola Ola",
+        className: "background",
+        key: 1,
+        src: window.home1URL,
+        onClick: this.reroute(3)
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        title: "Check-Out the Spring Appetizer at Katagama",
+        className: "background",
+        key: 2,
+        src: window.home2URL,
+        onClick: this.reroute(8)
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        title: "Enjoy a tasty bowl of Noodles at Eastern Market Hall",
+        className: "background",
+        key: 3,
+        src: window.home3URL,
+        onClick: this.reroute(6)
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        title: "Try the 'Smoke Show' at the Tumbler Room",
+        className: "background",
+        key: 4,
+        src: window.home4URL,
+        onClick: this.reroute(5)
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "yallr-name",
+        onClick: this.goCredits()
+      }, "y allr", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-snowflake"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "searchbar-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "homepage-categories"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "restaurants-link",
+        style: {
+          textDecoration: 'none'
+        },
+        onClick: this.handleCategoryChange
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-utensils"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Restaurants")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "delivery-link",
+        style: {
+          textDecoration: 'none'
+        },
+        onClick: this.handleDeliveryChange
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-paper-plane"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Delivery"))));
+    }
+  }]);
+
+  return Homepage;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Homepage));
+
+/***/ }),
+
+/***/ "./frontend/components/homepage/homepage_container.js":
+/*!************************************************************!*\
+  !*** ./frontend/components/homepage/homepage_container.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
+/* harmony import */ var _homepage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./homepage */ "./frontend/components/homepage/homepage.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {
+    filterCategory: state.ui.filters.filterCategory,
+    filterDelivery: state.ui.filters.filterDelivery
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    changeFilter: function changeFilter(filter, value) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_2__["changeFilter"])(filter, value));
+    },
+    refreshFilter: function refreshFilter() {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_2__["refreshFilter"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_homepage__WEBPACK_IMPORTED_MODULE_3__["default"])));
+
+/***/ }),
+
+/***/ "./frontend/components/navbar/navbar.jsx":
+/*!***********************************************!*\
+  !*** ./frontend/components/navbar/navbar.jsx ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../searchbar/searchbar_form_container */ "./frontend/components/searchbar/searchbar_form_container.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+var NavBar = function NavBar(_ref) {
+  var currentUser = _ref.currentUser,
+      logout = _ref.logout,
+      _ref$match = _ref.match,
+      path = _ref$match.path,
+      isExact = _ref$match.isExact;
+
+  function searchBar() {
+    if (path === '/' && isExact === false) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+    } else {
+      return null;
+    }
+  }
+
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
+  var display = currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nav"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nav-left"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "add-biz-link",
+    onClick: function onClick() {
+      return history.push("/businesses/new");
+    },
+    className: "far fa-building"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "github",
+    className: "fab fa-github",
+    onClick: function onClick() {
+      return window.location.replace("https://github.com/tinatae/yallr");
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "mobile-no"
+  }, "Github")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "linkedin",
+    className: "fab fa-linkedin",
+    onClick: function onClick() {
+      return window.location.replace("https://www.linkedin.com/in/tina-tae-87a3ba18/");
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "mobile-no"
+  }, "LinkedIn")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "portfolio",
+    className: "fas fa-feather-alt",
+    onClick: function onClick() {
+      return window.location.replace("https://tinatae.com");
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "mobile-no"
+  }, "Portfolio"))), searchBar(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "logged-right"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "greeting"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "hello"
+  }, "Hello, "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "username"
+  }, " ", currentUser.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "logout",
+    onClick: logout
+  }, "Log\xA0Out")))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nav"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nav-left"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "add-biz-link",
+    onClick: function onClick() {
+      return history.push("/businesses/new");
+    },
+    className: "far fa-building"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "github",
+    className: "fab fa-github",
+    onClick: function onClick() {
+      return window.location.replace("https://github.com/tinatae/yallr");
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "mobile-no"
+  }, "Github")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "linkedin",
+    className: "fab fa-linkedin",
+    onClick: function onClick() {
+      return window.location.replace("https://www.linkedin.com/in/tina-tae-87a3ba18/");
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "mobile-no"
+  }, "LinkedIn")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    id: "portfolio",
+    className: "fas fa-feather-alt",
+    onClick: function onClick() {
+      return window.location.replace("https://tinatae.com");
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "mobile-no"
+  }, "Portfolio"))), searchBar(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "notlogged-right"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "navlink-login"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    style: {
+      textDecoration: 'none'
+    },
+    to: "/login"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Log\xA0In"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "navlink-signup"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    style: {
+      textDecoration: 'none'
+    },
+    to: "/signup"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sign\xA0Up")))));
+  var backgroundStyle = path === '/' && isExact === true ? {
+    backgroundColor: 'transparent'
+  } : {
+    backgroundColor: '#FF003C'
+  };
+
+  var navbarStyles = _objectSpread({}, backgroundStyle);
+
+  var hideLogo = path === '/' && isExact === true ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "blank-top"
+  }, " ") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    style: {
+      textDecoration: "none"
+    },
+    to: "/"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "yallr-name"
+  }, "y allr", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "far fa-snowflake"
+  })));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: navbarStyles,
+    className: "navbar"
+  }, hideLogo, display)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(NavBar));
+
+/***/ }),
+
+/***/ "./frontend/components/navbar/navbar_container.js":
+/*!********************************************************!*\
+  !*** ./frontend/components/navbar/navbar_container.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./navbar */ "./frontend/components/navbar/navbar.jsx");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
+
+
+
+ // import { changeFilter } from '../../actions/filter_actions';
+
+var mSTP = function mSTP(state) {
+  var currentUserId = state.session.id;
+  if (currentUserId) return {
+    currentUser: state.entities.users[currentUserId]
+  };else return {
+    currentUser: null
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    logout: function logout() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["logout"])());
+    } // changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
+
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_navbar__WEBPACK_IMPORTED_MODULE_3__["default"])));
+
+/***/ }),
+
+/***/ "./frontend/components/new_biz_form/new_biz_form.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/new_biz_form/new_biz_form.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _business_map_business_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../business_map/business_map */ "./frontend/components/business_map/business_map.jsx");
+/* harmony import */ var _business_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../business_map */ "./frontend/components/business_map.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -421,15 +3225,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var BusinessForm = /*#__PURE__*/function (_React$Component) {
-  _inherits(BusinessForm, _React$Component);
+var NewBizForm = /*#__PURE__*/function (_React$Component) {
+  _inherits(NewBizForm, _React$Component);
 
-  var _super = _createSuper(BusinessForm);
+  var _super = _createSuper(NewBizForm);
 
-  function BusinessForm(props) {
+  function NewBizForm(props) {
     var _this;
 
-    _classCallCheck(this, BusinessForm);
+    _classCallCheck(this, NewBizForm);
 
     _this = _super.call(this, props);
     _this.state = {
@@ -491,7 +3295,7 @@ var BusinessForm = /*#__PURE__*/function (_React$Component) {
   // }  
 
 
-  _createClass(BusinessForm, [{
+  _createClass(NewBizForm, [{
     key: "navigateToSearch",
     value: function navigateToSearch() {
       this.props.history.push('/businesses');
@@ -511,7 +3315,7 @@ var BusinessForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       return function (e) {
-        _this3.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
@@ -809,7 +3613,7 @@ var BusinessForm = /*#__PURE__*/function (_React$Component) {
         id: "checked-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-check-circle"
-      }), this.state.address1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.city, ", ", this.state.state, " ", this.state.zipcode)), this.state.lat && this.state.lng && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map_business_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), this.state.address1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.city, ", ", this.state.state, " ", this.state.zipcode)), this.state.lat && this.state.lng && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
         addBusiness: true,
         lat: this.state.lat,
         lng: this.state.lng
@@ -1753,10 +4557,10 @@ var BusinessForm = /*#__PURE__*/function (_React$Component) {
     }
   }]);
 
-  return BusinessForm;
+  return NewBizForm;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(BusinessForm)); // ADD MULTI PHOTO SOMEDAY
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(NewBizForm)); // ADD MULTI PHOTO SOMEDAY
 //  for (let i = 0; i < this.files.length; i++) {
 //             this.photoUrls.push(URL.createObjectURL(this.files[i]))
 //         }
@@ -1772,17 +4576,17 @@ var BusinessForm = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./frontend/components/business_form/business_form_container.js":
-/*!**********************************************************************!*\
-  !*** ./frontend/components/business_form/business_form_container.js ***!
-  \**********************************************************************/
+/***/ "./frontend/components/new_biz_form/new_biz_form_container.js":
+/*!********************************************************************!*\
+  !*** ./frontend/components/new_biz_form/new_biz_form_container.js ***!
+  \********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _business_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./business_form */ "./frontend/components/business_form/business_form.jsx");
+/* harmony import */ var _new_biz_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./new_biz_form */ "./frontend/components/new_biz_form/new_biz_form.jsx");
 /* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
 
 
@@ -1802,2067 +4606,9 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_business_form__WEBPACK_IMPORTED_MODULE_1__["default"])); // const mSTP = (state, { location }) => ({
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_new_biz_form__WEBPACK_IMPORTED_MODULE_1__["default"])); // const mSTP = (state, { location }) => ({
 // lat: new URLSearchParams(location.search).get('lat'),
 // lng: new URLSearchParams(location.search).get('lng')
-
-/***/ }),
-
-/***/ "./frontend/components/business_map/business_map.jsx":
-/*!***********************************************************!*\
-  !*** ./frontend/components/business_map/business_map.jsx ***!
-  \***********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../util/marker_manager */ "./frontend/util/marker_manager.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-
-var getCoordsObj = function getCoordsObj(latLng) {
-  return {
-    lat: latLng.lat(),
-    lng: latLng.lng()
-  };
-};
-
-var mapOptions = {
-  center: {
-    lat: 37.8206228,
-    lng: -122.3194160
-  },
-  zoom: 9
-};
-
-var BusinessMap = /*#__PURE__*/function (_React$Component) {
-  _inherits(BusinessMap, _React$Component);
-
-  var _super = _createSuper(BusinessMap);
-
-  function BusinessMap() {
-    _classCallCheck(this, BusinessMap);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(BusinessMap, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.map = new google.maps.Map(this.mapNode, mapOptions);
-      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map, this.handleMarkerClick.bind(this));
-
-      if (this.props.addBusiness) {
-        var addLatLng = new google.maps.LatLng(this.props.lat, this.props.lng);
-        var addMapOptions = {
-          center: addLatLng,
-          zoom: 16
-        };
-        var addMap = new google.maps.Map(this.mapNode, addMapOptions);
-        var addMarker = new google.maps.Marker({
-          position: addLatLng
-        });
-        addMarker.setMap(addMap);
-      } else if (this.props.singleBusiness) {
-        this.props.fetchBusiness(this.props.businessId);
-      } else {
-        this.registerListeners();
-        this.MarkerManager.updateMarkers(this.props.businesses);
-      }
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      // if (this.props.addBusiness) {
-      //     const add = "hi"
-      // } else 
-      if (this.props.singleBusiness) {
-        var targetBusinessKey = Object.keys(this.props.businesses)[0];
-        var targetBusiness = this.props.businesses[targetBusinessKey];
-        var profileLatlng = new google.maps.LatLng(targetBusiness.lat, targetBusiness.lng);
-        var profileMapOptions = {
-          center: profileLatlng,
-          zoom: 16
-        };
-        var profileMap = new google.maps.Map(this.mapNode, profileMapOptions);
-        var profileMarker = new google.maps.Marker({
-          position: profileLatlng
-        });
-        profileMarker.setMap(profileMap);
-      } else if (!this.props.singleBusiness && !this.props.addBusiness) {
-        this.MarkerManager.updateMarkers(this.props.businesses);
-      }
-    }
-  }, {
-    key: "registerListeners",
-    value: function registerListeners() {
-      var _this = this;
-
-      google.maps.event.addListener(this.map, 'idle', function () {
-        var _this$map$getBounds$t = _this.map.getBounds().toJSON(),
-            north = _this$map$getBounds$t.north,
-            south = _this$map$getBounds$t.south,
-            east = _this$map$getBounds$t.east,
-            west = _this$map$getBounds$t.west;
-
-        var bounds = {
-          northEast: {
-            lat: north,
-            lng: east
-          },
-          southWest: {
-            lat: south,
-            lng: west
-          }
-        };
-
-        _this.props.updateFilter('bounds', bounds);
-      });
-    }
-  }, {
-    key: "handleMarkerClick",
-    value: function handleMarkerClick(business) {
-      this.props.history.push("businesses/".concat(business.id));
-    }
-  }, {
-    key: "handleClick",
-    value: function handleClick(coords) {
-      this.props.history.push("/businesses/new?lat=".concat(coords.lat, "&lng=").concat(coords.lng));
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "map-container",
-        ref: function ref(map) {
-          return _this2.mapNode = map;
-        }
-      });
-    }
-  }]);
-
-  return BusinessMap;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-;
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(BusinessMap));
-
-/***/ }),
-
-/***/ "./frontend/components/business_show/business_profile.jsx":
-/*!****************************************************************!*\
-  !*** ./frontend/components/business_show/business_profile.jsx ***!
-  \****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _review_list_item_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./review_list_item_container */ "./frontend/components/business_show/review_list_item_container.jsx");
-/* harmony import */ var _business_map_business_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../business_map/business_map */ "./frontend/components/business_map/business_map.jsx");
-/* harmony import */ var _review_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./review_form_container */ "./frontend/components/business_show/review_form_container.js");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/route_util */ "./frontend/util/route_util.jsx");
-/* harmony import */ var _util_link_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../util/link_util */ "./frontend/util/link_util.jsx");
-
-
-
-
-
-
-
-var reviewList = function reviewList(reviews) {
-  return reviews.map(function (review) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "all-reviews"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list_item_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      review: review,
-      key: review.id
-    }));
-  });
-};
-
-var BusinessProfile = function BusinessProfile(_ref) {
-  var business = _ref.business,
-      reviews = _ref.reviews,
-      businesses = _ref.businesses,
-      businessId = _ref.businessId,
-      fetchBusiness = _ref.fetchBusiness;
-  var photos = business.photoUrls.map(function (photoUrl, idx) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      className: "profile-pic",
-      key: idx,
-      src: photoUrl
-    }); // DO I NEED TO ADD KEY? I DID BUT WAS REPEAT
-  });
-  var timeConversion = {
-    "-100": "Closed",
-    0: "12:00 AM",
-    1: "1:00 AM",
-    2: "2:00 AM",
-    3: "3:00 AM",
-    4: "4:00 AM",
-    5: "5:00 AM",
-    6: "6:00 AM",
-    7: "7:00 AM",
-    8: "8:00 AM",
-    9: "9:00 AM",
-    10: "10:00 AM",
-    11: "11:00 AM",
-    12: "12:00 PM",
-    13: "1:00 PM",
-    14: "2:00 PM",
-    15: "3:00 PM",
-    16: "4:00 PM",
-    17: "5:00 PM",
-    18: "6:00 PM",
-    19: "7:00 PM",
-    20: "8:00 PM",
-    21: "9:00 PM",
-    22: "10:00 PM",
-    23: "11:00 PM",
-    24: "12:00 AM",
-    25: "1:00 AM",
-    26: "2:00 AM",
-    27: "3:00 AM",
-    28: "4:00 AM",
-    29: "5:00 AM",
-    30: "6:00 AM"
-  };
-  var starTable = {
-    5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    })),
-    4.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star-half"
-    })),
-    4: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    })),
-    3.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star-half"
-    })),
-    3: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    })),
-    2.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star-half"
-    })),
-    2: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    })),
-    1.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star-half"
-    })),
-    1: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    })),
-    0.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star-half"
-    }))
-  };
-
-  function bizStars(avg) {
-    if (avg >= 4.95) {
-      return starTable[5];
-    } else if (avg >= 4.5) {
-      return starTable[4.5];
-    } else if (avg >= 4) {
-      return starTable[4];
-    } else if (avg >= 3.5) {
-      return starTable[3.5];
-    } else if (avg >= 3) {
-      return starTable[3];
-    } else if (avg >= 2.5) {
-      return starTable[2.5];
-    } else if (avg >= 2) {
-      return starTable[2];
-    } else if (avg >= 1.5) {
-      return starTable[1.5];
-    } else if (avg >= 1) {
-      return starTable[1];
-    } else if (avg >= 0.5) {
-      return starTable[0.5];
-    }
-  }
-
-  function isClosed(hour) {
-    if (hour < 0) {
-      return null;
-    } else {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "-\xA0", timeConversion[hour]);
-    }
-  }
-
-  function hasBathroom(attribute) {
-    if (attribute === "Yes") {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-transgender"
-      }), "Gender\xA0Neutral\xA0Restrooms\xA0:\xA0", business.genderneutralrestroom);
-    } else {
-      return null;
-    }
-  }
-
-  function bringKids(attribute) {
-    if (attribute === "Yes") {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-baby-carriage"
-      }), "Good\xA0for\xA0Kids\xA0:\xA0", business.goodforkids);
-    } else {
-      return null;
-    }
-  }
-
-  function bringDogs(attribute) {
-    if (attribute === "Yes") {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-dog"
-      }), "Dogs\xA0Allowed\xA0:\xA0", business.dogsallowed);
-    } else {
-      return null;
-    }
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "profile"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "profile-pics-holder"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "profile-pics"
-  }, photos)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "profile-minus-pics"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "profile-name-section"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "bizname"
-  }, business.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "bizrating-section"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "bizrating"
-  }, bizStars(business.average_rating) || "No reviews yet. Be the first to write one!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "bizreviewcount"
-  }, business.reviewcount)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "bizpricepoint"
-  }, business.dollarmaker), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "bullet"
-  }, "\u2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "bizcategory"
-  }, business.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "business-review-link"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_link_util__WEBPACK_IMPORTED_MODULE_5__["ReviewLink"], {
-    component: _review_form_container__WEBPACK_IMPORTED_MODULE_3__["default"],
-    to: "/businesses/".concat(businessId, "/review"),
-    label: "\u2605 Write a Review"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__["ProtectedRoute"], {
-    path: "/businesses/:businessId/review",
-    component: _review_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "profile-attributes"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "fakeh4"
-  }, "Amenities"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "far fa-paper-plane"
-  }), "Delivery\xA0:\xA0", business.delivery), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-shoe-prints"
-  }), "Takeout\xA0:\xA0", business.takeout), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "far fa-calendar-check"
-  }), "Takes\xA0Reservations\xA0:\xA0", business.takesreservation), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "far fa-credit-card"
-  }), "Accepts\xA0Credit\xA0Card\xA0:\xA0", business.creditcard), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-wifi"
-  }), "Wi-Fi\xA0:\xA0", business.wifi)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fab fa-google"
-  }), "Accepts\xA0Google\xA0Pay\xA0:\xA0", business.googlepay), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fab fa-cc-apple-pay"
-  }), "Accepts\xA0Apple\xA0Pay\xA0:\xA0", business.applepay), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-leaf"
-  }), "Vegetarian\xA0:\xA0", business.vegetarian), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-seedling"
-  }), "Vegan\xA0:\xA0", business.vegan)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-parking"
-  }), "Parking\xA0:\xA0", business.parking), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-wheelchair"
-  }), "Wheelchair\xA0Accessible:\xA0", business.wheelchair), hasBathroom(business.genderneutralrestroom)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-cloud-sun"
-  }), "Outdoor\xA0Seating\xA0:\xA0", business.outdoor), bringKids(business.goodforkids), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-users"
-  }), "Good\xA0for\xA0Groups\xA0:\xA0", business.goodforgroups), bringDogs(business.dogsallowed))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "profile-map-and-info"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "profile-map"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map_business_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    businesses: businesses,
-    businessId: businessId,
-    singleBusiness: true,
-    fetchBusiness: fetchBusiness
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "profile-hours"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "fakeh4"
-  }, "Hours of Operation"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Monday: ", timeConversion[business.monopen], isClosed(business.monclose)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Tuesday: ", timeConversion[business.tuesopen], isClosed(business.tuesclose)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Wednesday: ", timeConversion[business.wedopen], isClosed(business.wedclose)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thursday: ", timeConversion[business.thursopen], isClosed(business.thursclose)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Friday: ", timeConversion[business.friopen], isClosed(business.friclose)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Saturday: ", timeConversion[business.satopen], isClosed(business.satclose)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sunday: ", timeConversion[business.sunopen], isClosed(business.sunclose))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "profile-info"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "fakeh4"
-  }, "Location & Contact"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "bizwebsite"
-  }, business.website), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "bizphonenumber"
-  }, "(", business.phonenumber.slice(0, 3), ")", business.phonenumber.slice(3, 6), "-", business.phonenumber.slice(6, 10)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "bizaddress1"
-  }, business.address1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "bizaddress2"
-  }, business.city, ", ", business.state, " ", business.zipcode))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "listed-reviews"
-  }, reviewList(reviews)))));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (BusinessProfile);
-{
-  /* <li>Latitude: {business.lat}</li>
-  <li>Longitude: {business.lng}</li> */
-} // <img src={business.photoUrls[1]} />
-
-/***/ }),
-
-/***/ "./frontend/components/business_show/business_show.jsx":
-/*!*************************************************************!*\
-  !*** ./frontend/components/business_show/business_show.jsx ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _business_profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business_profile */ "./frontend/components/business_show/business_profile.jsx");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-var BusinessShow = function BusinessShow(_ref) {
-  var business = _ref.business,
-      businessId = _ref.businessId,
-      fetchBusiness = _ref.fetchBusiness,
-      reviews = _ref.reviews;
-
-  var businesses = _defineProperty({}, businessId, business);
-
-  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "all-business-show"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "button-link-to-index"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick(e) {
-      return history.push('/businesses');
-    }
-  }, "Back")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "business-show-profile"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_profile__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    business: business,
-    reviews: reviews,
-    businesses: businesses,
-    businessId: businessId,
-    singleBusiness: true,
-    fetchBusiness: fetchBusiness
-  })));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (BusinessShow);
-
-/***/ }),
-
-/***/ "./frontend/components/business_show/business_show_container.js":
-/*!**********************************************************************!*\
-  !*** ./frontend/components/business_show/business_show_container.js ***!
-  \**********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
-/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
-/* harmony import */ var _business_show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./business_show */ "./frontend/components/business_show/business_show.jsx");
-
-
-
-
-
-var mSTP = function mSTP(state, _ref) {
-  var match = _ref.match;
-  var businessId = parseInt(match.params.businessId);
-  var business = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__["selectBusiness"])(state.entities, businessId);
-  var reviews = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__["selectReviewsForBusiness"])(state.entities, business);
-  return {
-    businessId: businessId,
-    business: business,
-    reviews: reviews
-  };
-};
-
-var mDTP = function mDTP(dispatch) {
-  return {
-    fetchBusiness: function fetchBusiness(id) {
-      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["fetchBusiness"])(id));
-    }
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_business_show__WEBPACK_IMPORTED_MODULE_3__["default"]));
-
-/***/ }),
-
-/***/ "./frontend/components/business_show/review_form.jsx":
-/*!***********************************************************!*\
-  !*** ./frontend/components/business_show/review_form.jsx ***!
-  \***********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-var userClicked = false;
-
-var ReviewForm = /*#__PURE__*/function (_React$Component) {
-  _inherits(ReviewForm, _React$Component);
-
-  var _super = _createSuper(ReviewForm);
-
-  function ReviewForm(props) {
-    var _this;
-
-    _classCallCheck(this, ReviewForm);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      rating: 0,
-      body: ''
-    };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.updateStar = _this.updateStar.bind(_assertThisInitialized(_this));
-    _this.changeStar = _this.changeStar.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(ReviewForm, [{
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      userClicked = false;
-    }
-  }, {
-    key: "handleSubmit",
-    value: function handleSubmit(e) {
-      e.preventDefault();
-      var businessId = this.props.businessId;
-      var review = Object.assign({}, this.state, {
-        business_id: businessId
-      });
-      this.props.createReview(review);
-      this.props.history.push("/businesses/".concat(this.props.businessId));
-    }
-  }, {
-    key: "update",
-    value: function update(field) {
-      var _this2 = this;
-
-      return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
-      };
-    }
-  }, {
-    key: "updateStar",
-    value: function updateStar(e, num) {
-      var allStars = e.target.parentElement.getElementsByClassName("form-star");
-      userClicked = true;
-
-      if (num === 5) {
-        for (var i = 1; i <= 5; i++) {
-          allStars[i - 1].style.color = "orange";
-        }
-      } else {
-        for (var _i = 1; _i <= num; _i++) {
-          allStars[_i - 1].style.color = "orange";
-        }
-
-        for (var j = num + 1; j <= 5; j++) {
-          allStars[j - 1].style.color = "grey";
-        }
-      }
-
-      return this.setState({
-        rating: num
-      });
-    }
-  }, {
-    key: "changeStar",
-    value: function changeStar(e, num) {
-      var allStars = e.target.parentElement.getElementsByClassName("form-star");
-
-      if (!userClicked) {
-        if (num === 5) {
-          for (var i = 1; i <= 5; i++) {
-            allStars[i - 1].style.color = "red";
-          }
-        } else {
-          for (var _i2 = 1; _i2 <= num; _i2++) {
-            allStars[_i2 - 1].style.color = "red";
-          }
-
-          for (var j = num + 1; j <= 5; j++) {
-            allStars[j - 1].style.color = "grey";
-          }
-        }
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this3 = this;
-
-      var name = this.props.business.name;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "review-form"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        id: "bizname"
-      }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "please-rate"
-      }, "Please rate this business:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "changing-stars"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "hover-stars"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star form-star",
-        onMouseOver: function onMouseOver(e) {
-          return _this3.changeStar(e, 1);
-        },
-        onClick: function onClick(e) {
-          return _this3.updateStar(e, 1);
-        }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star form-star",
-        onMouseOver: function onMouseOver(e) {
-          return _this3.changeStar(e, 2);
-        },
-        onClick: function onClick(e) {
-          return _this3.updateStar(e, 2);
-        }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star form-star",
-        onMouseOver: function onMouseOver(e) {
-          return _this3.changeStar(e, 3);
-        },
-        onClick: function onClick(e) {
-          return _this3.updateStar(e, 3);
-        }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star form-star",
-        onMouseOver: function onMouseOver(e) {
-          return _this3.changeStar(e, 4);
-        },
-        onClick: function onClick(e) {
-          return _this3.updateStar(e, 4);
-        }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star form-star",
-        onMouseOver: function onMouseOver(e) {
-          return _this3.changeStar(e, 5);
-        },
-        onClick: function onClick(e) {
-          return _this3.updateStar(e, 5);
-        }
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "comment-holder"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "please-rate"
-      }, "Comment"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "textarea",
-        placeholder: "Your review helps others learn about great local businesses.",
-        value: this.state.body,
-        onChange: this.update('body')
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "review-button",
-        type: "submit",
-        value: "Post Review"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "cancel-btn",
-        onClick: function onClick(e) {
-          return _this3.props.history.push("/businesses/".concat(_this3.props.businessId));
-        }
-      }, "Cancel"));
-    }
-  }]);
-
-  return ReviewForm;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-;
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(ReviewForm));
-/* <div id="click-stars">
-    <div id="star-side">
-        <div><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
-        <div><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
-        <div><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
-        <div><i className="fas fa-star"></i><i className="fas fa-star"></i></div>
-        <div><i className="fas fa-star"></i></div>
-    </div>
-
-    <div id="rating-side">                       
-        <div><span>5</span><input type="radio" name="rating" value="5" onClick={this.updateStar(5)} /></div>
-        <div><span>4</span><input type="radio" name="rating" value="4" onClick={this.updateStar(4)} /></div>
-        <div><span>3</span><input type="radio" name="rating" value="3" onClick={this.updateStar(3)} /></div>
-        <div><span>2</span><input type="radio" name="rating" value="2" onClick={this.updateStar(2)} /></div>
-        <div><span>1</span><input type="radio" name="rating" value="1" onClick={this.updateStar(1)} /></div>
-    </div>
-</div> */
-
-/***/ }),
-
-/***/ "./frontend/components/business_show/review_form_container.js":
-/*!********************************************************************!*\
-  !*** ./frontend/components/business_show/review_form_container.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
-/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
-/* harmony import */ var _review_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./review_form */ "./frontend/components/business_show/review_form.jsx");
-
-
-
-
-
-var mSTP = function mSTP(state, _ref) {
-  var match = _ref.match;
-  var businessId = parseInt(match.params.businessId);
-  var business = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_1__["selectBusiness"])(state.entities, businessId);
-  return {
-    businessId: businessId,
-    business: business
-  };
-};
-
-var mDTP = function mDTP(dispatch) {
-  return {
-    createReview: function createReview(review) {
-      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["createReview"])(review));
-    }
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_review_form__WEBPACK_IMPORTED_MODULE_3__["default"]));
-
-/***/ }),
-
-/***/ "./frontend/components/business_show/review_list_item_container.jsx":
-/*!**************************************************************************!*\
-  !*** ./frontend/components/business_show/review_list_item_container.jsx ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-
-
-
-var Review = function Review(_ref) {
-  var review = _ref.review,
-      author = _ref.author;
-  var body = review.body,
-      rating = review.rating,
-      created_at = review.created_at;
-  var reviewDate = new Date(created_at).toLocaleDateString("en-US", {
-    year: "2-digit",
-    month: "2-digit",
-    day: "2-digit"
-  });
-  var starTable = {
-    5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    })),
-    4.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star-half"
-    })),
-    4: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    })),
-    3.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star-half"
-    })),
-    3: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    })),
-    2.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star-half"
-    })),
-    2: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    })),
-    1.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star-half"
-    })),
-    1: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star"
-    })),
-    0.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-      className: "fas fa-star-half"
-    }))
-  };
-
-  function bizStars(avg) {
-    if (avg === 5) {
-      return starTable[5];
-    } else if (avg >= 4.5) {
-      return starTable[4.5];
-    } else if (avg >= 4) {
-      return starTable[4];
-    } else if (avg >= 3.5) {
-      return starTable[3.5];
-    } else if (avg >= 3) {
-      return starTable[3];
-    } else if (avg >= 2.5) {
-      return starTable[2.5];
-    } else if (avg >= 2) {
-      return starTable[2];
-    } else if (avg >= 1.5) {
-      return starTable[1.5];
-    } else if (avg >= 1) {
-      return starTable[1];
-    } else if (avg >= 0.5) {
-      return starTable[0.5];
-    }
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "reviews-section"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "userprofile"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-user-circle"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "username"
-  }, author.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "reviews"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "stars-and-date"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "stars"
-  }, bizStars(rating)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "created_at"
-  }, reviewDate)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "comment"
-  }, body)));
-};
-
-var mSTP = function mSTP(_ref2, _ref3) {
-  var users = _ref2.entities.users;
-  var review = _ref3.review;
-  return {
-    author: users[review.author_id]
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP)(Review));
-
-/***/ }),
-
-/***/ "./frontend/components/credit/credit.jsx":
-/*!***********************************************!*\
-  !*** ./frontend/components/credit/credit.jsx ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-var Credit = /*#__PURE__*/function (_React$Component) {
-  _inherits(Credit, _React$Component);
-
-  var _super = _createSuper(Credit);
-
-  function Credit(props) {
-    var _this;
-
-    _classCallCheck(this, Credit);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      showLogin: false,
-      showHome: false,
-      showAdd: false,
-      showBusinesses: false
-    };
-    _this.handleOpenLogin = _this.handleOpenLogin.bind(_assertThisInitialized(_this));
-    _this.handleOpenHome = _this.handleOpenHome.bind(_assertThisInitialized(_this));
-    _this.handleOpenAdd = _this.handleOpenAdd.bind(_assertThisInitialized(_this));
-    _this.handleOpenBusinesses = _this.handleOpenBusinesses.bind(_assertThisInitialized(_this));
-    _this.backToTop = _this.backToTop.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(Credit, [{
-    key: "handleOpenLogin",
-    value: function handleOpenLogin(e) {
-      var _this2 = this;
-
-      return function (e) {
-        _this2.state.showLogin === false ? _this2.setState({
-          showLogin: true
-        }) : _this2.setState({
-          showLogin: false
-        });
-      };
-    }
-  }, {
-    key: "handleOpenHome",
-    value: function handleOpenHome(e) {
-      var _this3 = this;
-
-      return function (e) {
-        _this3.state.showHome === false ? _this3.setState({
-          showHome: true
-        }) : _this3.setState({
-          showHome: false
-        });
-      };
-    }
-  }, {
-    key: "handleOpenAdd",
-    value: function handleOpenAdd(e) {
-      var _this4 = this;
-
-      return function (e) {
-        _this4.state.showAdd === false ? _this4.setState({
-          showAdd: true
-        }) : _this4.setState({
-          showAdd: false
-        });
-      };
-    }
-  }, {
-    key: "backToTop",
-    value: function backToTop(e) {
-      return function (e) {
-        window.scrollTo(0, 0);
-      };
-    }
-  }, {
-    key: "handleOpenBusinesses",
-    value: function handleOpenBusinesses(e) {
-      var _this5 = this;
-
-      return function (e) {
-        _this5.state.showBusinesses === false ? _this5.setState({
-          showBusinesses: true
-        }) : _this5.setState({
-          showBusinesses: false
-        });
-      };
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "credits"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.formType), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "I used a lot of other people's images in this project."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "And while all of these photos were taken for free from unsplash.com, I just thought I'd make a little credits page as thanks."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "They are organized by page."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Also, the titles are not official titles.. someday I'll add thumbnails but hopefully these descriptions will work for now. Thanks!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-grin-alt"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        onClick: this.handleOpenLogin()
-      }, "Login / Signup", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-palette"
-      })), this.state.showLogin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "section"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Scattered Ice Cream Cones"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Benjam\xEDn Hazael Rojas Garc\xEDa")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Orange/Turquoise Shot Glasses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Ram HO"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        onClick: this.handleOpenHome()
-      }, "Home Page", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-palette"
-      })), this.state.showHome && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "section"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Big Spread of Espresso Drinks"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Cyril Saulnier")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Floral Sashimi Plate"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Augustine Fou")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Dining Hall with Asian Lights and Noodles"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Hien Nguyen")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Smoky Cocktail in Tumbler"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Miguel Maldonado"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        onClick: this.handleOpenAdd()
-      }, "'Add Your Business'", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-palette"
-      })), this.state.showAdd && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "section"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Yellow Chair & Bistro Table"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Kenan S\xFCleymano\u011Flu")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Three Vertical Espresso Drinks"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Nathan Dumlao"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        onClick: this.handleOpenBusinesses()
-      }, "Business Profiles", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-palette"
-      })), this.state.showBusinesses && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "section"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sweet Baby Cakes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Dozens of Donuts on Trays"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Elisheva Gohar")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Cupcakes in a White Box"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Persnickety Prints")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Hands Holding Pastry"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Ham Kris")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Quarter-section of Salami Sandwich"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Eaters Collective"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "White Whale Saloon"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Empty Wooden Dining Room with Vintage Photos on Walls"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Austin Gardner")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Colorful Stained-Glass, Wood-Railed Bar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Jared Burris")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Sugar-Rimmed Martini Glass with Red Liquid"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Oleh Moskaliuk")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Lone Beer on Wooden Bar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "mnm.all"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Hola Ola"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Big Spread of Espresso Drinks (also on Home Page)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Cyril Saulnier")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "View of Ocean through Tall Vertical Windows + People"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Sung Jin Cho")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Simple shot of Healthy Burger"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Jiroe")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Bowl of Guacamole & Chips with Olives"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Ronise daluz"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Telegraph Place"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Long dining room table with Pink Theme"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Juliette F")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Bowl of Halved-Shrimps and Pasta Noodles in White Dish"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "UY VO")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Slice of Steak"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Jos\xE9 Ignacio Pomp\xE9")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Plated Carrots"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Adam Jaime"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Tumbler Room"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Smoky Cocktail in Tumbler (also on Home Page)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Miguel Maldonado")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Red Velvet Lounge Sofas and Bar Tables"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Taylor Simpson")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Serving Tray of Chilled Martini Glasses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Olivier Rouge")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Amber-colored Cocktail with Floral Garnish"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Ash Edmonds"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Eastern Market Hall"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Dining Hall with Asian Lights and Noodles (also on Home Page)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Hien Nguyen")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Foamy Drink in Wine Glass with Bowl of Drinking Snacks"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Jakub Dziubak")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Three Dumpling Dishes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Abhishek Sanwa Limbu")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Half-drunk Glass with Straw in Empty Bar Corner"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Sergey Isakhanyan"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sugar Shoppe"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Layered Chocolate Pudding Dessert in Goblet"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Emile Mbunzama")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Three Hands Holding Ice Cream Cones"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Mark Cruz")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Dog licking Red/Blue Ice Cream Cone"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Christian Bowen")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Raspberry Popsicle Bars on White Marble Top"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Daniel \xD6berg"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Katagama"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Floral Sashimi Plate (also on Home Page)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Augustine Fou")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Sashimi with Vegetables in Black Bowl"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Jesse Ballantyne")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Sushi Chef behind Counter"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Thomas Marban")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Mixed Sushi Plate with Big Cuts of Fish and Seafood"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Cloris Ying"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Brasserie Belmonde"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Side View of Halved Cheesy Pocket"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Roberto Valdivia")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Grilled Fish Steak on Plate"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Sander Dalhuisen")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Four Fish on Grill"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Clint Bustrillos")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Cocktail Oysters"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Laura Peruchi"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Chococat Cafe"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Rosetta Latte Art on Yellow Saucer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Cristian Cristian")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Rosetta Matcha Latte Art"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Jason Leung")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Seahorse Latte Art"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Mazen Ir")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Bagel Sandwich on Plate"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Christian Kaindl"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Green Plate"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Pea, Sprout Salad"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Jonathan Farber")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Avocado Burger on Plate with Veggies"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Filip Mishevski")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Pesto Pasta Salad"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Eaters Collective")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Orange Noodles Tossed with Salad"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Toa Heftiba"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Lucia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Yellow Cocktail with Lemon Wedge"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Pushpak Dsilva")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Tall Column Bar with Vertical Lights"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "DeMorris Byrd")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Small Burger with Chips and Orange Drink in Wine Glass"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Gabrielle Cepella")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Red Cocktail in Coupe Glass"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Nikita Tikhomirov"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Pixel Point"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Cafe Environment with People"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Wade Austin Ellis")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Espresso Drinks & Plants"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Nathan Dumlao")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "To-Go Sandwich"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Pille-Riin Priske")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Dog on Outdoor Porch"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Ross Sokolovski"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Squash Blossom"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Diamond-Pattern Arrangement of Coffee Cups"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Nathan Dumlao")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Muffin, Coffee, Cactus"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Robert Bye")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Orange-Furnished Cafe Environment"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Sebastian Schuppik")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Many Cactii against Window"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Tiplada Mekvisan"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Big Craw"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Lots of Crawfish"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Stephanie Moody")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Lobster with Sign"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Louis Hansel")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Mac & Cheese Burger with Pickle"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Alex Haney")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pair"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "art-title"
-      }, "Person Holding Bowl of Crawfish"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "artist"
-      }, "Sidney Pearce")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.backToTop()
-      }, "Back To Top", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-arrow-up"
-      }))));
-    }
-  }]);
-
-  return Credit;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-;
-/* harmony default export */ __webpack_exports__["default"] = (Credit);
-
-/***/ }),
-
-/***/ "./frontend/components/credit/credit_container.js":
-/*!********************************************************!*\
-  !*** ./frontend/components/credit/credit_container.js ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _credit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./credit */ "./frontend/components/credit/credit.jsx");
-
-
-
-
-var mSTP = function mSTP(state) {
-  return {
-    formType: "Art Credits"
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, null)(_credit__WEBPACK_IMPORTED_MODULE_2__["default"]));
-
-/***/ }),
-
-/***/ "./frontend/components/homepage/homepage.jsx":
-/*!***************************************************!*\
-  !*** ./frontend/components/homepage/homepage.jsx ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../searchbar/searchbar_form_container */ "./frontend/components/searchbar/searchbar_form_container.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-var Homepage = /*#__PURE__*/function (_React$Component) {
-  _inherits(Homepage, _React$Component);
-
-  var _super = _createSuper(Homepage);
-
-  function Homepage(props) {
-    var _this;
-
-    _classCallCheck(this, Homepage);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      filterCategory: "Restaurants",
-      filterDelivery: "Yes"
-    };
-    _this.handleCategoryChange = _this.handleCategoryChange.bind(_assertThisInitialized(_this));
-    _this.handleDeliveryChange = _this.handleDeliveryChange.bind(_assertThisInitialized(_this));
-    _this.reroute = _this.reroute.bind(_assertThisInitialized(_this));
-    _this.goCredits = _this.goCredits.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(Homepage, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var homescreen = document.getElementById("homepics");
-
-      var fadeComplete = function fadeComplete(e) {
-        homescreen.appendChild(arr[0]);
-      };
-
-      var arr = homescreen.getElementsByTagName("img");
-
-      for (var i = 0; i < arr.length; i++) {
-        arr[i].addEventListener("animationend", fadeComplete, false);
-      }
-
-      this.props.refreshFilter();
-    }
-  }, {
-    key: "reroute",
-    value: function reroute(num) {
-      var _this2 = this;
-
-      return function (e) {
-        _this2.props.history.push("/businesses/".concat(num));
-      };
-    }
-  }, {
-    key: "goCredits",
-    value: function goCredits(e) {
-      var _this3 = this;
-
-      return function (e) {
-        _this3.props.history.push('/credits');
-      };
-    }
-  }, {
-    key: "handleCategoryChange",
-    value: function handleCategoryChange(e) {
-      e.preventDefault();
-      this.props.changeFilter('filterCategory', this.state.filterCategory);
-      this.props.history.push('/businesses');
-    }
-  }, {
-    key: "handleDeliveryChange",
-    value: function handleDeliveryChange(e) {
-      e.preventDefault();
-      this.props.changeFilter('filterDelivery', this.state.filterDelivery);
-      this.props.history.push('/businesses');
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      // const { filterCategory, filterDelivery} = this.state;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "homepage"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "homepics"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        title: "Grab Coffee at Hola Ola",
-        className: "background",
-        key: 1,
-        src: window.home1URL,
-        onClick: this.reroute(3)
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        title: "Check-Out the Spring Appetizer at Katagama",
-        className: "background",
-        key: 2,
-        src: window.home2URL,
-        onClick: this.reroute(8)
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        title: "Enjoy a tasty bowl of Noodles at Eastern Market Hall",
-        className: "background",
-        key: 3,
-        src: window.home3URL,
-        onClick: this.reroute(6)
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        title: "Try the 'Smoke Show' at the Tumbler Room",
-        className: "background",
-        key: 4,
-        src: window.home4URL,
-        onClick: this.reroute(5)
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "yallr-name",
-        onClick: this.goCredits()
-      }, "y allr", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-snowflake"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "searchbar-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "homepage-categories"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "restaurants-link",
-        style: {
-          textDecoration: 'none'
-        },
-        onClick: this.handleCategoryChange
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-utensils"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Restaurants")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "delivery-link",
-        style: {
-          textDecoration: 'none'
-        },
-        onClick: this.handleDeliveryChange
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-paper-plane"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Delivery"))));
-    }
-  }]);
-
-  return Homepage;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-;
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Homepage));
-
-/***/ }),
-
-/***/ "./frontend/components/homepage/homepage_container.js":
-/*!************************************************************!*\
-  !*** ./frontend/components/homepage/homepage_container.js ***!
-  \************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
-/* harmony import */ var _homepage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./homepage */ "./frontend/components/homepage/homepage.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-
-
-
-
-
-
-var mSTP = function mSTP(state) {
-  return {
-    filterCategory: state.ui.filters.filterCategory,
-    filterDelivery: state.ui.filters.filterDelivery
-  };
-};
-
-var mDTP = function mDTP(dispatch) {
-  return {
-    changeFilter: function changeFilter(filter, value) {
-      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_2__["changeFilter"])(filter, value));
-    },
-    refreshFilter: function refreshFilter() {
-      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_2__["refreshFilter"])());
-    }
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_homepage__WEBPACK_IMPORTED_MODULE_3__["default"])));
-
-/***/ }),
-
-/***/ "./frontend/components/navbar/navbar.jsx":
-/*!***********************************************!*\
-  !*** ./frontend/components/navbar/navbar.jsx ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../searchbar/searchbar_form_container */ "./frontend/components/searchbar/searchbar_form_container.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-var NavBar = function NavBar(_ref) {
-  var currentUser = _ref.currentUser,
-      logout = _ref.logout,
-      _ref$match = _ref.match,
-      path = _ref$match.path,
-      isExact = _ref$match.isExact;
-
-  function searchBar() {
-    if (path === '/' && isExact === false) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_searchbar_searchbar_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
-    } else {
-      return null;
-    }
-  }
-
-  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
-  var display = currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "nav"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "nav-left"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    id: "add-biz-link",
-    onClick: function onClick() {
-      return history.push("/businesses/new");
-    },
-    className: "far fa-building"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    id: "github",
-    className: "fab fa-github",
-    onClick: function onClick() {
-      return window.location.replace("https://github.com/tinatae/yallr");
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "mobile-no"
-  }, "Github")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    id: "linkedin",
-    className: "fab fa-linkedin",
-    onClick: function onClick() {
-      return window.location.replace("https://www.linkedin.com/in/tina-tae-87a3ba18/");
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "mobile-no"
-  }, "LinkedIn")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    id: "portfolio",
-    className: "fas fa-feather-alt",
-    onClick: function onClick() {
-      return window.location.replace("https://tinatae.com");
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "mobile-no"
-  }, "Portfolio"))), searchBar(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "logged-right"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "greeting"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "hello"
-  }, "Hello, "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "username"
-  }, " ", currentUser.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "logout",
-    onClick: logout
-  }, "Log\xA0Out")))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "nav"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "nav-left"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    id: "add-biz-link",
-    onClick: function onClick() {
-      return history.push("/businesses/new");
-    },
-    className: "far fa-building"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Add\xA0Your\xA0Business")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    id: "github",
-    className: "fab fa-github",
-    onClick: function onClick() {
-      return window.location.replace("https://github.com/tinatae/yallr");
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "mobile-no"
-  }, "Github")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    id: "linkedin",
-    className: "fab fa-linkedin",
-    onClick: function onClick() {
-      return window.location.replace("https://www.linkedin.com/in/tina-tae-87a3ba18/");
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "mobile-no"
-  }, "LinkedIn")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    id: "portfolio",
-    className: "fas fa-feather-alt",
-    onClick: function onClick() {
-      return window.location.replace("https://tinatae.com");
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "mobile-no"
-  }, "Portfolio"))), searchBar(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "notlogged-right"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "navlink-login"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    style: {
-      textDecoration: 'none'
-    },
-    to: "/login"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Log\xA0In"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "navlink-signup"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    style: {
-      textDecoration: 'none'
-    },
-    to: "/signup"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sign\xA0Up")))));
-  var backgroundStyle = path === '/' && isExact === true ? {
-    backgroundColor: 'transparent'
-  } : {
-    backgroundColor: '#FF003C'
-  };
-
-  var navbarStyles = _objectSpread({}, backgroundStyle);
-
-  var hideLogo = path === '/' && isExact === true ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "blank-top"
-  }, " ") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    style: {
-      textDecoration: "none"
-    },
-    to: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "yallr-name"
-  }, "y allr", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "far fa-snowflake"
-  })));
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    style: navbarStyles,
-    className: "navbar"
-  }, hideLogo, display)));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(NavBar));
-
-/***/ }),
-
-/***/ "./frontend/components/navbar/navbar_container.js":
-/*!********************************************************!*\
-  !*** ./frontend/components/navbar/navbar_container.js ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./navbar */ "./frontend/components/navbar/navbar.jsx");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
-
-
-
-
- // import { changeFilter } from '../../actions/filter_actions';
-
-var mSTP = function mSTP(state) {
-  var currentUserId = state.session.id;
-  if (currentUserId) return {
-    currentUser: state.entities.users[currentUserId]
-  };else return {
-    currentUser: null
-  };
-};
-
-var mDTP = function mDTP(dispatch) {
-  return {
-    logout: function logout() {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["logout"])());
-    } // changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
-
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_navbar__WEBPACK_IMPORTED_MODULE_3__["default"])));
 
 /***/ }),
 
@@ -3893,677 +4639,6 @@ var Root = function Root(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Root);
-
-/***/ }),
-
-/***/ "./frontend/components/search/business_index.jsx":
-/*!*******************************************************!*\
-  !*** ./frontend/components/search/business_index.jsx ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _business_index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./business_index_item */ "./frontend/components/search/business_index_item.jsx");
-
- // import {withRouter} from 'react-router-dom';
-
-var BusinessIndex = function BusinessIndex(_ref) {
-  var businesses = _ref.businesses,
-      searchQuery = _ref.searchQuery,
-      updateFilter = _ref.updateFilter,
-      clearFilter = _ref.clearFilter;
-
-  function noBusinesses() {
-    if (businesses.length === 0) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "no-biz-message"
-      }, "Sorry, we could not find any businesses that match your query");
-    } else {
-      return null;
-    }
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "BEST IN TOWN"), noBusinesses(), businesses.map(function (business) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      searchQuery: searchQuery,
-      updateFilter: updateFilter,
-      clearFilter: clearFilter,
-      business: business,
-      key: business.id
-    });
-  }));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (BusinessIndex); // selectReviewsForBusiness
-// export const selectReviewsForBusiness = ({ businesses, reviews }, business) => {
-//     return business.reviewIds.map(reviewId => reviews[reviewId]);
-// };
-// let reviews = [];
-// {businesses.map(business => (
-//     reviews.push(selectReviewsForBusiness(businesses, business)))
-// )};
-
-/***/ }),
-
-/***/ "./frontend/components/search/business_index_item.jsx":
-/*!************************************************************!*\
-  !*** ./frontend/components/search/business_index_item.jsx ***!
-  \************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _business_show_business_show_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../business_show/business_show_container */ "./frontend/components/business_show/business_show_container.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-var BusinessIndexItem = /*#__PURE__*/function (_React$Component) {
-  _inherits(BusinessIndexItem, _React$Component);
-
-  var _super = _createSuper(BusinessIndexItem);
-
-  function BusinessIndexItem(props) {
-    var _this;
-
-    _classCallCheck(this, BusinessIndexItem);
-
-    _this = _super.call(this, props);
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(BusinessIndexItem, [{
-    key: "handleClick",
-    value: function handleClick() {
-      var businessId = this.props.business.id;
-      this.props.history.push("/businesses/".concat(businessId));
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props$business = this.props.business,
-          name = _this$props$business.name,
-          average_rating = _this$props$business.average_rating,
-          category = _this$props$business.category,
-          dollarmaker = _this$props$business.dollarmaker,
-          photoUrls = _this$props$business.photoUrls,
-          recentreview = _this$props$business.recentreview,
-          reviewcount = _this$props$business.reviewcount,
-          phonenumber = _this$props$business.phonenumber,
-          address1 = _this$props$business.address1,
-          city = _this$props$business.city;
-      var starTable = {
-        5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        })),
-        4.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star-half"
-        })),
-        4: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        })),
-        3.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star-half"
-        })),
-        3: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        })),
-        2.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star-half"
-        })),
-        2: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        })),
-        1.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star-half"
-        })),
-        1: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star"
-        })),
-        0.5: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-star-half"
-        }))
-      };
-
-      function bizStars(avg) {
-        if (avg >= 4.95) {
-          return starTable[5];
-        } else if (avg >= 4.5) {
-          return starTable[4.5];
-        } else if (avg >= 4) {
-          return starTable[4];
-        } else if (avg >= 3.5) {
-          return starTable[3.5];
-        } else if (avg >= 3) {
-          return starTable[3];
-        } else if (avg >= 2.5) {
-          return starTable[2.5];
-        } else if (avg >= 2) {
-          return starTable[2];
-        } else if (avg >= 1.5) {
-          return starTable[1.5];
-        } else if (avg >= 1) {
-          return starTable[1];
-        } else if (avg >= 0.5) {
-          return starTable[0.5]; // } else if (avg === null) {
-          //     return <div>No Reviews Yet</div>
-        }
-      }
-
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        onClick: this.handleClick
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "index-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "index-pic"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: photoUrls[0]
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "index-item-info"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "index-item-info-grid"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "col1"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "name"
-      }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "rating-block"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        id: "rating"
-      }, bizStars(average_rating) || 'No Reviews Yet'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        id: "reviewcount"
-      }, reviewcount)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pricepoint-block"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pricepoint"
-      }, dollarmaker), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        id: "bullet"
-      }, "\u2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "category"
-      }, category))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "col2"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "(", phonenumber.slice(0, 3), ")", phonenumber.slice(3, 6), "-", phonenumber.slice(6, 10)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, address1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, city))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "recentreview"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "werd"
-      }, "Word on the Street:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\"", recentreview, "\"")))));
-    }
-  }]);
-
-  return BusinessIndexItem;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-;
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(BusinessIndexItem));
-{
-  /* <i className="far fa-building"></i> */
-}
-
-/***/ }),
-
-/***/ "./frontend/components/search/filter_form.jsx":
-/*!****************************************************!*\
-  !*** ./frontend/components/search/filter_form.jsx ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var handlePricepointChange = function handlePricepointChange(filter, updateFilter) {
-  return function (e) {
-    return updateFilter(filter, parseInt(e.currentTarget.value));
-  };
-};
-
-var handleCategoryChange = function handleCategoryChange(filter, updateFilter) {
-  return function (e) {
-    return updateFilter(filter, e.currentTarget.value);
-  };
-};
-
-var handleOpenNow = function handleOpenNow(filter, updateFilter) {
-  return function (e) {
-    return updateFilter(filter, e.currentTarget.value);
-  };
-};
-
-var handleDeliveryChange = function handleDeliveryChange(filter, updateFilter) {
-  return function (e) {
-    return updateFilter(filter, e.currentTarget.value);
-  };
-};
-
-var handleTakeoutChange = function handleTakeoutChange(filter, updateFilter) {
-  return function (e) {
-    return updateFilter(filter, e.currentTarget.value);
-  };
-};
-
-function showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) {
-  if (searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "showing-filters"
-    }, "Showing Filters:");
-  } else {
-    return null;
-  }
-}
-
-function selectQuery(searchQuery) {
-  if (searchQuery) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "query-italic"
-    }, "\"", searchQuery, "\"");
-  } else {
-    return null;
-  }
-}
-
-;
-
-function selectCity(searchCity) {
-  if (searchCity) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "query-italic"
-    }, "\"", searchCity, "\"");
-  } else {
-    return null;
-  }
-}
-
-;
-
-function selectCategory(filterCategory) {
-  if (filterCategory !== "All") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, filterCategory);
-  } else {
-    return null;
-  }
-}
-
-;
-
-function selectOpen(filterOpenNow) {
-  if (filterOpenNow !== "Always") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Open Now");
-  } else {
-    return null;
-  }
-}
-
-;
-
-function selectDelivery(filterDelivery) {
-  if (filterDelivery !== "All") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Delivery");
-  } else {
-    return null;
-  }
-}
-
-;
-
-function selectTakeout(filterTakeout) {
-  if (filterTakeout !== "All") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Takeout");
-  } else {
-    return null;
-  }
-}
-
-;
-
-var FilterForm = function FilterForm(_ref) {
-  var minPricepoint = _ref.minPricepoint,
-      maxPricepoint = _ref.maxPricepoint,
-      filterCategory = _ref.filterCategory,
-      filterOpenNow = _ref.filterOpenNow,
-      filterRating = _ref.filterRating,
-      filterDelivery = _ref.filterDelivery,
-      filterTakeout = _ref.filterTakeout,
-      updateFilter = _ref.updateFilter,
-      searchQuery = _ref.searchQuery,
-      searchCity = _ref.searchCity,
-      refreshFilter = _ref.refreshFilter;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "filtered-firstline"
-  }, "Filter Results By:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "filters"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "minmax-pair"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Min\xA0Pricepoint\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    name: "Min Pricepoint",
-    value: minPricepoint,
-    onChange: handlePricepointChange("minPricepoint", updateFilter)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    disabled: true,
-    value: ""
-  }, "- $ -"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "1"
-  }, " $"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "2"
-  }, "$$"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "3"
-  }, "$$$"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "4"
-  }, "$$$$")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "maxpricepoint"
-  }, " Max\xA0Pricepoint\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    name: "Max Pricepoint",
-    value: maxPricepoint,
-    onChange: handlePricepointChange("maxPricepoint", updateFilter)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    disabled: true,
-    value: ""
-  }, "- $$$$ -"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "1"
-  }, "$"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "2"
-  }, "$$"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "3"
-  }, "$$$"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "4"
-  }, "$$$$"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    id: "category-filter"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Category\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    name: "Category",
-    value: filterCategory,
-    onChange: handleCategoryChange("filterCategory", updateFilter)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "All"
-  }, "Showing All"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "Restaurants"
-  }, "Restaurants"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "Coffee & Tea"
-  }, "Coffee & Tea"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "Bars"
-  }, "Bars"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "Dessert"
-  }, "Dessert"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    value: "Yes",
-    onClick: handleOpenNow("filterOpenNow", updateFilter)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "far fa-clock"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "filter-writing"
-  }, "Open Now"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    id: "delivery-button"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    value: "Yes",
-    onClick: handleDeliveryChange("filterDelivery", updateFilter)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "far fa-paper-plane"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "filter-writing"
-  }, "Delivery"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    value: "Yes",
-    onClick: handleTakeoutChange("filterTakeout", updateFilter)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-shoe-prints"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "filter-writing"
-  }, "Takeout"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "clear-filters"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: refreshFilter
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    id: "filter-writing"
-  }, "Clear Filters")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "filter-tags"
-  }, showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout), selectQuery(searchQuery), selectCity(searchCity), selectCategory(filterCategory), selectOpen(filterOpenNow), selectDelivery(filterDelivery), selectTakeout(filterTakeout)));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (FilterForm); // const handleRatingChange = (filter, updateFilter) => e => (
-//     updateFilter(filter, e.currentTarget.value)
-// );
-
-/***/ }),
-
-/***/ "./frontend/components/search/search.jsx":
-/*!***********************************************!*\
-  !*** ./frontend/components/search/search.jsx ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _business_map_business_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../business_map/business_map */ "./frontend/components/business_map/business_map.jsx");
-/* harmony import */ var _business_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business_index */ "./frontend/components/search/business_index.jsx");
-/* harmony import */ var _filter_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filter_form */ "./frontend/components/search/filter_form.jsx");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-
-var Search = /*#__PURE__*/function (_React$Component) {
-  _inherits(Search, _React$Component);
-
-  var _super = _createSuper(Search);
-
-  function Search(props) {
-    _classCallCheck(this, Search);
-
-    return _super.call(this, props);
-  }
-
-  _createClass(Search, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var query = new URLSearchParams(this.props.location.search).get("query");
-
-      if (query) {
-        this.props.updateFilter('searchQuery', query);
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          businesses = _this$props.businesses,
-          minPricepoint = _this$props.minPricepoint,
-          maxPricepoint = _this$props.maxPricepoint,
-          filterCategory = _this$props.filterCategory,
-          filterOpenNow = _this$props.filterOpenNow,
-          filterDelivery = _this$props.filterDelivery,
-          filterTakeout = _this$props.filterTakeout,
-          filterRating = _this$props.filterRating,
-          updateFilter = _this$props.updateFilter,
-          searchQuery = _this$props.searchQuery,
-          searchCity = _this$props.searchCity,
-          refreshFilter = _this$props.refreshFilter;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "indexpage"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "indexpage-filters"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "What are you Looking For?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_form__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        searchCity: searchCity,
-        searchQuery: searchQuery,
-        minPricepoint: minPricepoint,
-        maxPricepoint: maxPricepoint,
-        updateFilter: updateFilter,
-        filterCategory: filterCategory,
-        filterOpenNow: filterOpenNow,
-        filterDelivery: filterDelivery,
-        filterTakeout: filterTakeout,
-        refreshFilter: refreshFilter
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "indexpage-grid"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "indexpage-businesses"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        businesses: businesses,
-        updateFilter: updateFilter,
-        searchQuery: searchQuery
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "indexpage-map"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "So Where Are We Going!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map_business_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        businesses: businesses,
-        updateFilter: updateFilter,
-        singleBusiness: false
-      }))));
-    }
-  }]);
-
-  return Search;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (Search);
-
-/***/ }),
-
-/***/ "./frontend/components/search/search_container.js":
-/*!********************************************************!*\
-  !*** ./frontend/components/search/search_container.js ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search */ "./frontend/components/search/search.jsx");
-/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
-/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
-/* harmony import */ var _searchbar_searchbar_form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../searchbar/searchbar_form */ "./frontend/components/searchbar/searchbar_form.jsx");
-
-
-
-
-
- // import { asArray, selectReviewsForBusiness } from '../../reducers/selectors';
-
-var mSTP = function mSTP(state, _ref) {
-  var location = _ref.location;
-  return {
-    searchQuery: state.ui.filters.searchQuery,
-    searchCity: state.ui.filters.searchCity,
-    businesses: Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__["asArray"])(state.entities),
-    minPricepoint: state.ui.filters.minPricepoint,
-    maxPricepoint: state.ui.filters.maxPricepoint,
-    filterCategory: state.ui.filters.filterCategory,
-    filterOpenNow: state.ui.filters.filterOpenNow,
-    filterDelivery: state.ui.filters.filterDelivery,
-    filterTakeout: state.ui.filters.filterTakeout
-  };
-};
-
-var mDTP = function mDTP(dispatch) {
-  return {
-    updateFilter: function updateFilter(filter, value) {
-      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__["updateFilter"])(filter, value));
-    },
-    changeFilter: function changeFilter(filter, value) {
-      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__["changeFilter"])(filter, value));
-    },
-    refreshFilter: function refreshFilter() {
-      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_3__["refreshFilter"])());
-    }
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_search__WEBPACK_IMPORTED_MODULE_2__["default"])));
 
 /***/ }),
 
@@ -5260,10 +5335,11 @@ var reviewsReducer = function reviewsReducer() {
 
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEW"]:
       var review = action.review;
+      console.log(review);
       return Object.assign({}, state, _defineProperty({}, review.id, review));
 
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_REVIEW"]:
-      return Object.assign({}, state, _defineProperty({}, review.id, null));
+      return Object.assign({}, state, _defineProperty({}, action.review.review.id, null));
 
     default:
       return state;
@@ -5333,11 +5409,6 @@ var selectReviewsForBusiness = function selectReviewsForBusiness(_ref3, business
   return business.reviewIds.map(function (reviewId) {
     return reviews[reviewId];
   });
-};
-
-var selectBusinessesOpenNow = function selectBusinessesOpenNow(_ref4) {
-  var businesses = _ref4.businesses;
-  retu;
 };
 
 /***/ }),
@@ -5532,11 +5603,11 @@ var fetchBusiness = function fetchBusiness(id) {
     url: "api/businesses/".concat(id)
   });
 };
-var createBusiness = function createBusiness(businessForm) {
+var createBusiness = function createBusiness(newBizForm) {
   return $.ajax({
     method: 'POST',
     url: 'api/businesses',
-    data: businessForm,
+    data: newBizForm,
     contentType: false,
     processData: false
   });
@@ -33853,8 +33924,8 @@ if (true) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return connectAdvanced; });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/react-redux/node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/react-redux/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
 /* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! hoist-non-react-statics */ "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js");
 /* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -34246,8 +34317,8 @@ _ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createConnect", function() { return createConnect; });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/react-redux/node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/react-redux/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
 /* harmony import */ var _components_connectAdvanced__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/connectAdvanced */ "./node_modules/react-redux/es/components/connectAdvanced.js");
 /* harmony import */ var _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/shallowEqual */ "./node_modules/react-redux/es/utils/shallowEqual.js");
 /* harmony import */ var _mapDispatchToProps__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mapDispatchToProps */ "./node_modules/react-redux/es/connect/mapDispatchToProps.js");
@@ -34428,7 +34499,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapMergePropsFunc", function() { return wrapMergePropsFunc; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "whenMergePropsIsFunction", function() { return whenMergePropsIsFunction; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "whenMergePropsIsOmitted", function() { return whenMergePropsIsOmitted; });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/react-redux/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
 /* harmony import */ var _utils_verifyPlainObject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/verifyPlainObject */ "./node_modules/react-redux/es/utils/verifyPlainObject.js");
 
 
@@ -34481,7 +34552,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "impureFinalPropsSelectorFactory", function() { return impureFinalPropsSelectorFactory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pureFinalPropsSelectorFactory", function() { return pureFinalPropsSelectorFactory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return finalPropsSelectorFactory; });
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/react-redux/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
 /* harmony import */ var _verifySubselectors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./verifySubselectors */ "./node_modules/react-redux/es/connect/verifySubselectors.js");
 
 
@@ -35391,63 +35462,6 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 
-}
-
-/***/ }),
-
-/***/ "./node_modules/react-redux/node_modules/@babel/runtime/helpers/esm/extends.js":
-/*!*************************************************************************************!*\
-  !*** ./node_modules/react-redux/node_modules/@babel/runtime/helpers/esm/extends.js ***!
-  \*************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _extends; });
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-/***/ }),
-
-/***/ "./node_modules/react-redux/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js":
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/react-redux/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _objectWithoutPropertiesLoose; });
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
 }
 
 /***/ }),
