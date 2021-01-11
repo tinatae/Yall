@@ -184,16 +184,12 @@
 
 @media only screen and (max-device-width: 480px) and (orientation: portrait) {
 
-    // #mobile-no {
-    //     display: none;
-    // }
-
-    // .navbar .yallr-name {
-    //     margin-left: 60px;
-    // }
-
     .greeting #username {
-        font-size: 20px;
+        font-size: 23px;
+    }
+
+    .logged-right {
+        margin-right: 5%;
     }
 
     .nav-left {

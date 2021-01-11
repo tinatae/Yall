@@ -237,25 +237,25 @@ const BusinessProfile = ({ business, reviews, businesses, businessId, fetchBusin
             <div className="profile-hours">
               <div id="fakeh4">Hours of Operation</div>
               <span>
-                Monday: {timeConversion[business.monopen]}{isClosed(business.monclose)}
+                Monday: {timeConversion[business.monopen]}&nbsp;{isClosed(business.monclose)}
               </span>
               <span>
-                Tuesday: {timeConversion[business.tuesopen]}{isClosed(business.tuesclose)}
+                Tuesday: {timeConversion[business.tuesopen]}&nbsp;{isClosed(business.tuesclose)}
               </span>
               <span>
-                Wednesday: {timeConversion[business.wedopen]}{isClosed(business.wedclose)}
+                Wednesday: {timeConversion[business.wedopen]}&nbsp;{isClosed(business.wedclose)}
               </span>
               <span>
-                Thursday: {timeConversion[business.thursopen]}{isClosed(business.thursclose)}
+                Thursday: {timeConversion[business.thursopen]}&nbsp;{isClosed(business.thursclose)}
               </span>
               <span>
-                Friday: {timeConversion[business.friopen]}{isClosed(business.friclose)}
+                Friday: {timeConversion[business.friopen]}&nbsp;{isClosed(business.friclose)}
               </span>
               <span>
-                Saturday: {timeConversion[business.satopen]}{isClosed(business.satclose)}
+                Saturday: {timeConversion[business.satopen]}&nbsp;{isClosed(business.satclose)}
               </span>
               <span>
-                Sunday: {timeConversion[business.sunopen]}{isClosed(business.sunclose)}
+                Sunday: {timeConversion[business.sunopen]}&nbsp;{isClosed(business.sunclose)}
               </span>
             </div>
 

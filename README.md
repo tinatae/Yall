@@ -4,10 +4,11 @@
 
 #### Running:
 * Ruby on Rails (5.2.3)
-* React-Redux 
-* PostgreSql (11.6)
+* React
+* Redux 
+* PostgreSQL (11.6)
 * Google Maps API
-* AWS
+* AWS S3
 
 #### Functionalities: 
 * Typed-input searchbar that queries database by business name, category, city
@@ -21,7 +22,7 @@
 
 #### Sample Code:
   ##### 'Add Business' Page
-  ##### For adding new businesses, the form asks for a phone number input in the 10-digit format: 5101234567. While the input placeholder models the desired format, it seemed inevitable that numbers would get entered with or without area codes, country codes, parentheses, dashes, etc.--ultimately breaking the formatting logic built for a ten-digit-only input later down the road. In terms of user experience, we didn't want to call an error when the user was done typing the full number--making them re-type their information twice--and we didn't want to call an error when they were done filling-out the entire form either. So our solution was the code below which renders the user's input in tandem as they type, adding formatting as it goes to guide the user to the desired input. A green check mark appears when the number is entered correctly.
+  ##### For adding new businesses, the form asks for a phone number input in the 10-digit format: 5101234567. While the placeholder models the desired format, the code below renders the input in tandem with user entry, serving as a visual guide. This prevents numbers from getting entered with/without area codes, country codes, parentheses, dashes, etc. without throwing errors at form submission time. A green check mark appears when the number is entered correctly.
 
     handleNumber() {
         if (this.state.phonenumber.length === 0) {
@@ -37,8 +38,37 @@
         }
     }
 
+##### An additional check is placed on new business address inputs. Google Map geocoder translates the address inputs into latitude & longitude coordinates that are set to state. Once coordinates are set, the full business address is rendered on two lines and the coordinate set is rendered on a Google Map with a map marker to verify location. Also at time of entry.
+
+    <label id="createbizaddress">
+        <div>Business Address</div>
+            <input id="address" size="60" type="text" placeholder="123 Sesame Street" value={address1} onChange={this.update('address1')} />
+        <div id="address2">
+            <input size="30" type="text" placeholder="San Francisco" value={city} onChange={this.update('city')} />
+            <input size="10" type="text" placeholder="CA" value={state} onChange={this.update('state')} />
+            <input size="20" type="text" placeholder="12345" value={zipcode} onChange={this.update('zipcode')} />
+        </div>
+    </label>
+
+    {this.updateLatLng()} 
+
+    {this.state.lat && this.state.lng && (
+        <div id="checked-info">
+            <div><i className="far fa-check-circle"></i>{this.state.address1}</div>
+            <div>{this.state.city}, {this.state.state} {this.state.zipcode}</div>
+        </div>
+    )}
+
+    {this.state.lat && this.state.lng && (
+        <BusinessMap 
+            addBusiness={true}
+            lat = {this.state.lat}
+            lng = {this.state.lng}
+        />
+    )}
+
   ##### Filter Form
-  ##### This is meant to be a visual aid specifically for when the user selects a combination of filters and maybe forgets which filters are in place. Prior to building this feature, we made the mistake ourselves of typing "Bars" into the searchbar with the 'Category' filter button set to "Coffee & Tea" from a prior test--it was 8PM on a weekday and there were no bars open.. so we thought it was weird but figured it was just the searchbar acting up! The filter tags are there to show all the filters impacting the results.
+  ##### This is another UI feature specifically to show which search filters are in place. Tags are rendered for Search Word, Search City, Search Category, Businesses Open Now, Delivery Available, & Takeout Available.
 
     function showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) {
         if (searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All") {
@@ -77,9 +107,7 @@
             {selectTakeout(filterTakeout)}
         </div>
 
-
 #### Future add-ons:
 * User Profiles
-* Edit reviews (though from a business ethics perspective, we're split on this. If not edit, definitely delete)
 * Business photo carousel
 * More robust search

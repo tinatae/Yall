@@ -207,6 +207,13 @@
 }
 
 
+// ----------------------------------------- MOBILE ----------------------------------------------
 
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+    .profile-hours > span {
+        font-size: 12px;
+        margin-left: 6%;
+    }
+}
 
 
