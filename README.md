@@ -38,7 +38,7 @@
         }
     }
 
-##### An additional check is placed on new business address inputs. Google Map geocoder translates the address inputs into latitude & longitude coordinates which are then set to state. Once state updates, the complete address is spelled-out on two lines and the coordinate set is rendered on a Google Map with a map marker to verify location. This check occurs at time of entry.
+##### An additional check is placed on new business address inputs. Google Map geocoder translates the address inputs into latitude & longitude coordinates which are then set to state. Once state updates, the complete address is spelled-out on two lines and the coordinate set is rendered on a Google Map with a map marker to verify location.
 
     <label id="createbizaddress">
         <div>Business Address</div>
