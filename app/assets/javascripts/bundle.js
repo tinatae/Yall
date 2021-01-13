@@ -689,79 +689,39 @@ var handleTakeoutChange = function handleTakeoutChange(filter, updateFilter) {
   };
 };
 
-function showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) {
-  if (searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "showing-filters"
-    }, "Showing Filters:");
-  } else {
-    return null;
-  }
-}
+var showLabel = function showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) {
+  return searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "showing-filters"
+  }, "Showing Filters:") : null;
+};
 
-function selectQuery(searchQuery) {
-  if (searchQuery) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "query-italic"
-    }, "\"", searchQuery, "\"");
-  } else {
-    return null;
-  }
-}
+var selectQuery = function selectQuery(searchQuery) {
+  return searchQuery ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "query-italic"
+  }, "\"", searchQuery, "\"") : null;
+};
 
-;
+var selectCity = function selectCity(searchCity) {
+  return searchCity ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "query-italic"
+  }, "\"", searchCity, "\"") : null;
+};
 
-function selectCity(searchCity) {
-  if (searchCity) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "query-italic"
-    }, "\"", searchCity, "\"");
-  } else {
-    return null;
-  }
-}
+var selectCategory = function selectCategory(filterCategory) {
+  return filterCategory !== "All" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, filterCategory) : null;
+};
 
-;
+var selectOpen = function selectOpen(filterOpenNow) {
+  return filterOpenNow !== "Always" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Open Now") : null;
+};
 
-function selectCategory(filterCategory) {
-  if (filterCategory !== "All") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, filterCategory);
-  } else {
-    return null;
-  }
-}
+var selectDelivery = function selectDelivery(filterDelivery) {
+  return filterDelivery !== "All" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Delivery") : null;
+};
 
-;
-
-function selectOpen(filterOpenNow) {
-  if (filterOpenNow !== "Always") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Open Now");
-  } else {
-    return null;
-  }
-}
-
-;
-
-function selectDelivery(filterDelivery) {
-  if (filterDelivery !== "All") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Delivery");
-  } else {
-    return null;
-  }
-}
-
-;
-
-function selectTakeout(filterTakeout) {
-  if (filterTakeout !== "All") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Takeout");
-  } else {
-    return null;
-  }
-}
-
-;
+var selectTakeout = function selectTakeout(filterTakeout) {
+  return filterTakeout !== "All" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Takeout") : null;
+};
 
 var FilterForm = function FilterForm(_ref) {
   var minPricepoint = _ref.minPricepoint,

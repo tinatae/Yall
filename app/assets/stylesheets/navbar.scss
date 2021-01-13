@@ -159,7 +159,7 @@
 .greeting #username {
     margin-left: 7px;
     color: #C7FFFF;
-    margin-top: 9px;
+    margin-top: 5px;
 }
 
 .greeting button {
@@ -185,13 +185,13 @@
 @media only screen and (max-device-width: 480px) and (orientation: portrait) {
 
     .greeting #username {
-        font-size: 23px;
+        font-size: 20px;
     }
 
     .logged-right {
         margin-right: 5%;
     }
-
+    
     .nav-left {
         margin-left: 0px;
         padding: 7px 15px;   

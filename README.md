@@ -22,7 +22,7 @@
 
 #### Sample Code:
   ##### 'Add Business' Page
-  ##### For adding new businesses, the form asks for a phone number input in the 10-digit format: 5101234567. While the placeholder models the desired format, the code below renders the input in tandem with user entry, serving as a visual guide. This prevents numbers from getting entered with/without area codes, country codes, parentheses, dashes, etc. without throwing errors at form submission time. A green check mark appears when the number is entered correctly.
+  ##### For adding new businesses, the form asks for a phone number input in the 10-digit format: 5101234567. While the placeholder models the desired format, the code below renders input in tandem with user entry --serving as a visual guide. This prevents numbers from getting entered with/without area codes, country codes, parentheses, dashes, etc. without throwing errors at form submission time. A green check mark appears when the number is entered correctly.
 
     handleNumber() {
         if (this.state.phonenumber.length === 0) {
@@ -38,7 +38,7 @@
         }
     }
 
-##### An additional check is placed on new business address inputs. Google Map geocoder translates the address inputs into latitude & longitude coordinates that are set to state. Once coordinates are set, the full business address is rendered on two lines and the coordinate set is rendered on a Google Map with a map marker to verify location. Also at time of entry.
+##### An additional check is placed on new business address inputs. Google Map geocoder translates the address inputs into latitude & longitude coordinates which are then set to state. Once state updates, the complete address is spelled-out on two lines and the coordinate set is rendered on a Google Map with a map marker to verify location. This check occurs at time of entry.
 
     <label id="createbizaddress">
         <div>Business Address</div>
@@ -68,44 +68,48 @@
     )}
 
   ##### Filter Form
-  ##### This is another UI feature specifically to show which search filters are in place. Tags are rendered for Search Word, Search City, Search Category, Businesses Open Now, Delivery Available, & Takeout Available.
+  ##### An additional UI feature to show which search filters are in place. Tags are rendered for Search Word, Search City, Search Category, Businesses Open Now, Delivery Available, & Takeout Available.
 
-    function showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) {
-        if (searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All") {
-                return <div id="showing-filters">Showing Filters:</div>
-            } else {return null}
-        }
+    const showLabel = (searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) => {
+        return (searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All") ? (<div id="showing-filters">Showing Filters:</div>) : (null)
+    }
 
-        function selectQuery(searchQuery) {
-            if (searchQuery) {
-                return <div id="query-italic">"{searchQuery}"</div>
-            } else { return null }
-        };
+    const selectQuery = (searchQuery) => {
+        return searchQuery ? (<div id="query-italic">"{searchQuery}"</div>) : (null)
+    };
 
-        function selectCity(searchCity) {
-            if (searchCity) {
-                return <div id="query-italic">"{searchCity}"</div>
-            } else { return null }
-        };
+    const selectCity = (searchCity) => {
+        return searchCity ? (<div id="query-italic">"{searchCity}"</div>) : (null)
+    };
 
-        function selectCategory(filterCategory) {
-            if (filterCategory !== "All") {
-                return <div>{filterCategory}</div>
-            } else { return null }
-        };
+    const selectCategory = (filterCategory) => {
+        return (filterCategory !== "All") ? (<div>{filterCategory}</div>) : (null)
+    };
 
-        ##### ...
-        ##### return ...
+    const selectOpen = (filterOpenNow) => {
+        return (filterOpenNow !== "Always") ? (<div>Open Now</div>) : (null)
+    };
 
-        <div className="filter-tags">
-            {showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout)}
-            {selectQuery(searchQuery)}
-            {selectCity(searchCity)}
-            {selectCategory(filterCategory)}
-            {selectOpen(filterOpenNow)}
-            {selectDelivery(filterDelivery)}
-            {selectTakeout(filterTakeout)}
-        </div>
+    const selectDelivery = (filterDelivery) => {
+        return (filterDelivery !== "All")  ? (<div>Delivery</div>) : (null)
+    };
+
+    const selectTakeout = (filterTakeout) => {
+        return (filterTakeout !== "All") ? (<div>Takeout</div>) : (null)
+    };
+
+    ##### ...
+    ##### return ...
+
+    <div className="filter-tags">
+        {showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout)}
+        {selectQuery(searchQuery)}
+        {selectCity(searchCity)}
+        {selectCategory(filterCategory)}
+        {selectOpen(filterOpenNow)}
+        {selectDelivery(filterDelivery)}
+        {selectTakeout(filterTakeout)}
+    </div>
 
 #### Future add-ons:
 * User Profiles

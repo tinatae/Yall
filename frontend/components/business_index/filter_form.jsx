@@ -20,46 +20,32 @@ const handleTakeoutChange = (filter, updateFilter) => e => (
     updateFilter(filter, e.currentTarget.value)
 );
 
-function showLabel(searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) {
-  if (searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All") {
-    return <div id="showing-filters">Showing Filters:</div>
-  } else {return null}
+const showLabel = (searchQuery, searchCity, filterCategory, filterOpenNow, filterDelivery, filterTakeout) => {
+  return (searchQuery || searchCity || filterCategory !== "All" || filterOpenNow !== "Always" || filterDelivery !== "All" || filterTakeout !== "All") ? (<div id="showing-filters">Showing Filters:</div>) : (null)
 }
 
-function selectQuery(searchQuery) {
-  if (searchQuery) {
-    return <div id="query-italic">"{searchQuery}"</div>
-  } else { return null }
+const selectQuery = (searchQuery) => {
+  return searchQuery ? (<div id="query-italic">"{searchQuery}"</div>) : (null)
 };
 
-function selectCity(searchCity) {
-  if (searchCity) {
-    return <div id="query-italic">"{searchCity}"</div>
-  } else { return null }
+const selectCity = (searchCity) => {
+  return searchCity ? (<div id="query-italic">"{searchCity}"</div>) : (null)
 };
 
-function selectCategory(filterCategory) {
-  if (filterCategory !== "All") {
-    return <div>{filterCategory}</div>
-  } else { return null }
+const selectCategory = (filterCategory) => {
+  return (filterCategory !== "All") ? (<div>{filterCategory}</div>) : (null)
 };
 
-function selectOpen(filterOpenNow) {
-  if (filterOpenNow !== "Always") {
-    return <div>Open Now</div>
-  } else { return null }
+const selectOpen = (filterOpenNow) => {
+  return (filterOpenNow !== "Always") ? (<div>Open Now</div>) : (null)
 };
 
-function selectDelivery(filterDelivery) {
-  if (filterDelivery !== "All") {
-    return <div>Delivery</div>
-  } else { return null }
+const selectDelivery = (filterDelivery) => {
+  return (filterDelivery !== "All")  ? (<div>Delivery</div>) : (null)
 };
 
-function selectTakeout(filterTakeout) {
-  if (filterTakeout !== "All") {
-    return <div>Takeout</div>
-  } else { return null }
+const selectTakeout = (filterTakeout) => {
+  return (filterTakeout !== "All") ? (<div>Takeout</div>) : (null)
 };
 
 const FilterForm = ({
